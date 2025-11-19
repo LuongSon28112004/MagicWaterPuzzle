@@ -1,0 +1,19 @@
+{
+    "AutoNames": true,
+    "SubFolders": true,
+    "OverwriteConfig": false,
+    "LoadAllShaders": false,
+    "CustomOutputPath": "/JMO Assets/Toony Colors Pro/Shaders Generated/",
+    "LastImplementationExportImportPath": "D:/XgameStudio/MagicWaterPuzzle/Assets",
+    "OpenedFoldouts": [
+        "SHADER STATES",
+        "TRANSPARENCY/BLENDING",
+        "OPTIONS"
+    ],
+    "UseCustomFont": false,
+    "CustomFont": {
+        "instanceID": 0
+    },
+    "CustomFontInitialized": true,
+    "Upgrade_Hybrid1toHybrid2_Done": true
+}
