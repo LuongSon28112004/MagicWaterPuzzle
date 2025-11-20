@@ -1,11 +1,9 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class BlockTwo : BaseBlock
+public class BlockThreeSquare : BaseBlock
 {
-    [Header("BlockTwo Components")]
+    [Header("BlockThreeSquare Components")]
     //Move
     [SerializeField] private Vector3 offset;
     [SerializeField] private float zCoord;
@@ -102,22 +100,10 @@ public class BlockTwo : BaseBlock
 
         foreach (var c in candidates)
         {
-            if (blockDirection == Direction.HORIZONTAL)
-            {
-                // Y phải chẵn, X phải lẻ
-                float yFix = Mathf.Round(c.y / 2f) * 2f;
-                float xFix = Mathf.Round(c.x / 2f) * 2f + 1f;
+            float yFix = Mathf.Round(c.y / 2f) * 2f;
+            float xFix = Mathf.Round(c.x / 2f) * 2f;
 
-                filtered.Add(new Vector2(xFix, yFix));
-            }
-            else
-            {
-                // X phải chẵn, Y phải lẻ
-                float xFix = Mathf.Round(c.x / 2f) * 2f;
-                float yFix = Mathf.Round(c.y / 2f) * 2f + 1f;
-
-                filtered.Add(new Vector2(xFix, yFix));
-            }
+            filtered.Add(new Vector2(xFix, yFix));
         }
 
         // --- Chọn điểm gần nhất ---
@@ -189,5 +175,4 @@ public class BlockTwo : BaseBlock
 
         blockNormal = Vector2.zero;
     }
-
 }

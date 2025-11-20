@@ -1,11 +1,9 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class BlockTwo : BaseBlock
+public class BlockL : BaseBlock
 {
-    [Header("BlockTwo Components")]
+    [Header("BlockL Components")]
     //Move
     [SerializeField] private Vector3 offset;
     [SerializeField] private float zCoord;
@@ -105,16 +103,16 @@ public class BlockTwo : BaseBlock
             if (blockDirection == Direction.HORIZONTAL)
             {
                 // Y phải chẵn, X phải lẻ
-                float yFix = Mathf.Round(c.y / 2f) * 2f;
-                float xFix = Mathf.Round(c.x / 2f) * 2f + 1f;
+                float yFix = Mathf.Round(c.y / 2f) * 2f + 1;
+                float xFix = Mathf.Round(c.x / 2f) * 2f;
 
                 filtered.Add(new Vector2(xFix, yFix));
             }
             else
             {
                 // X phải chẵn, Y phải lẻ
-                float xFix = Mathf.Round(c.x / 2f) * 2f;
-                float yFix = Mathf.Round(c.y / 2f) * 2f + 1f;
+                float xFix = Mathf.Round(c.x / 2f) * 2f + 1;
+                float yFix = Mathf.Round(c.y / 2f) * 2f;
 
                 filtered.Add(new Vector2(xFix, yFix));
             }
@@ -189,5 +187,4 @@ public class BlockTwo : BaseBlock
 
         blockNormal = Vector2.zero;
     }
-
 }

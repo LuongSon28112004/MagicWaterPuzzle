@@ -11,20 +11,23 @@ public class BoardCtrl : MonoBehaviour
     [SerializeField] private GameObject GridSlotParent;
     [SerializeField] private GameObject BlockParent;
     [SerializeField] private GameObject GateParent;
-    // Lists to keep track of instantiated objects
-    private List<Transform> gridSlotInstances = new List<Transform>();
-    private List<Transform> gateInstances = new List<Transform>();
-    private List<Transform> blockInstances = new List<Transform>();
+    //data Board
+    [SerializeField] private List<Transform> gridSlotInstances = new List<Transform>();
+    [SerializeField] private List<Transform> gateInstances = new List<Transform>();
+    [SerializeField] private List<Transform> blockInstances = new List<Transform>();
 
 
     // Method to load level based on levelData
     public void LoadLevel(LevelData levelData)
     {
         this.levelData = levelData;
-        
+
         CreateObjects();
         StartCoroutine(ScaleObjects(gridSlotInstances, gateInstances, blockInstances));
     }
+
+
+
 
     private void CreateObjects()
     {
@@ -35,19 +38,19 @@ public class BoardCtrl : MonoBehaviour
         foreach (var tile in levelData.slotHolders)
         {
             GameObject gameObject = null;
-            if(tile.name.Contains("GridSlot"))
+            if (tile.name.Contains("GridSlot"))
             {
                 gameObject = Instantiate(gridSlotList.Find(x => x.name == "GridSlot"), tile.position, Quaternion.Euler(tile.rotation), GridSlotParent.transform);
             }
-            else if(tile.name.Contains("InnerCornerGridBorder"))
+            else if (tile.name.Contains("InnerCornerGridBorder"))
             {
                 gameObject = Instantiate(gridSlotList.Find(x => x.name == "InnerCornerGridBorder"), tile.position, Quaternion.Euler(tile.rotation), GridSlotParent.transform);
             }
-            else if(tile.name.Contains("OuterCornerGridBorder"))
+            else if (tile.name.Contains("OuterCornerGridBorder"))
             {
                 gameObject = Instantiate(gridSlotList.Find(x => x.name == "OuterCornerGridBorder"), tile.position, Quaternion.Euler(tile.rotation), GridSlotParent.transform);
             }
-            else if(tile.name.Contains("StraightGridBorder"))
+            else if (tile.name.Contains("StraightGridBorder"))
             {
                 gameObject = Instantiate(gridSlotList.Find(x => x.name == "StraightGridBorder"), tile.position, Quaternion.Euler(tile.rotation), GridSlotParent.transform);
             }
@@ -55,21 +58,72 @@ public class BoardCtrl : MonoBehaviour
             gridSlotInstances.Add(gameObject.transform);
         }
 
+        //Load blocks
+
         foreach (var block in levelData.blocks)
         {
             GameObject gameObject = null;
-            if(block.name.Contains("Two"))
+            if (block.name.Contains("Two"))
             {
                 gameObject = Instantiate(blockList.Find(x => x.name == "Two"), block.position, Quaternion.Euler(block.rotation), BlockParent.transform);
-                // Block blockComponent = gameObject.GetComponent<Block>();
-                // blockComponent.SetColor(block.color);
+
+                BlockTwo blockTwo = gameObject.GetComponent<BlockTwo>();
+                blockTwo.AddVisualColor(block.color);
+                if (block.rotation != new Vector3(0, 0, 0) || block.rotation == new Vector3(0, 0, 360) || block.rotation == new Vector3(0, 0, 180))
+                {
+                    blockTwo.BlockDirection = Direction.HORIZONTAL;
+                }
+                else
+                {
+                    blockTwo.BlockDirection = Direction.VERTICAL;
+                }
             }
-            // else if(block.name.Contains("Three"))
-            // {
-            //     GameObject gameObject = Instantiate(blockList.Find(x => x.name == "ThreeBlock"), block.position, Quaternion.Euler(block.rotation));
-            //     Block blockComponent = gameObject.GetComponent<Block>();
-            //     blockComponent.SetColor(block.color);
-            // }
+            else if (block.name.Contains("One"))
+            {
+                gameObject = Instantiate(blockList.Find(x => x.name == "One"), block.position, Quaternion.Euler(block.rotation), BlockParent.transform);
+
+                BlockOne blockOne = gameObject.GetComponent<BlockOne>();
+                blockOne.AddVisualColor(block.color);
+                blockOne.BlockDirection = Direction.NORMAL;
+            }
+            else if (block.name.Contains("Plus"))
+            {
+                gameObject = Instantiate(blockList.Find(x => x.name == "Plus"), block.position, Quaternion.Euler(block.rotation), BlockParent.transform);
+
+                BlockPlus blockPlus = gameObject.GetComponent<BlockPlus>();
+                blockPlus.AddVisualColor(block.color);
+                blockPlus.BlockDirection = Direction.NORMAL;
+            }
+            else if (block.name.Contains("L"))
+            {
+                gameObject = Instantiate(blockList.Find(x => x.name == "L"), block.position, Quaternion.Euler(block.rotation), BlockParent.transform);
+
+                BlockL blockL = gameObject.GetComponent<BlockL>();
+                blockL.AddVisualColor(block.color);
+                if (block.rotation != new Vector3(0, 0, 0) || block.rotation == new Vector3(0, 0, 360) || block.rotation == new Vector3(0, 0, 180))
+                {
+                    blockL.BlockDirection = Direction.HORIZONTAL;
+                }
+                else
+                {
+                    blockL.BlockDirection = Direction.VERTICAL;
+                }
+            }
+            else if (block.name.Contains("ThreeSquare"))
+            {
+                gameObject = Instantiate(blockList.Find(x => x.name == "ThreeSquare"), block.position, Quaternion.Euler(block.rotation), BlockParent.transform);
+
+                BlockThreeSquare blockThreeSquare = gameObject.GetComponent<BlockThreeSquare>();
+                blockThreeSquare.AddVisualColor(block.color);
+                if (block.rotation != new Vector3(0, 0, 0) || block.rotation == new Vector3(0, 0, 360) || block.rotation == new Vector3(0, 0, 180))
+                {
+                    blockThreeSquare.BlockDirection = Direction.HORIZONTAL;
+                }
+                else
+                {
+                    blockThreeSquare.BlockDirection = Direction.VERTICAL;
+                }
+            }
             gameObject.transform.localScale = Vector3.zero;
             blockInstances.Add(gameObject.transform);
         }
@@ -77,7 +131,7 @@ public class BoardCtrl : MonoBehaviour
         foreach (var gate in levelData.gates)
         {
             GameObject gameObject = null;
-            if(gate.name.Contains("GridGate1"))
+            if (gate.name.Contains("GridGate1"))
             {
                 gameObject = Instantiate(gateList.Find(x => x.name == "GridGate1"), gate.position, Quaternion.Euler(gate.rotation), GateParent.transform);
                 // Gate gateComponent = gameObject.GetComponent<Gate>();

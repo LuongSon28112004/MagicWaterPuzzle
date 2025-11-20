@@ -1,11 +1,9 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class BlockTwo : BaseBlock
+public class BlockOne : BaseBlock
 {
-    [Header("BlockTwo Components")]
+    [Header("BlockOne Components")]
     //Move
     [SerializeField] private Vector3 offset;
     [SerializeField] private float zCoord;
@@ -20,9 +18,9 @@ public class BlockTwo : BaseBlock
 
     private void Awake()
     {
-        blockType = BlockType.TWO;
-        maxCapacity = 2;
-        blockID = 12;
+        blockType = BlockType.ONE;
+        maxCapacity = 1;
+        blockID = 2;
         currentCapacity = maxCapacity;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -106,7 +104,7 @@ public class BlockTwo : BaseBlock
             {
                 // Y phải chẵn, X phải lẻ
                 float yFix = Mathf.Round(c.y / 2f) * 2f;
-                float xFix = Mathf.Round(c.x / 2f) * 2f + 1f;
+                float xFix = Mathf.Round(c.x / 2f) * 2f;
 
                 filtered.Add(new Vector2(xFix, yFix));
             }
@@ -114,7 +112,7 @@ public class BlockTwo : BaseBlock
             {
                 // X phải chẵn, Y phải lẻ
                 float xFix = Mathf.Round(c.x / 2f) * 2f;
-                float yFix = Mathf.Round(c.y / 2f) * 2f + 1f;
+                float yFix = Mathf.Round(c.y / 2f) * 2f;
 
                 filtered.Add(new Vector2(xFix, yFix));
             }
