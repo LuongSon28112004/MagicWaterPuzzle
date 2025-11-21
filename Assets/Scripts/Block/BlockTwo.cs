@@ -149,8 +149,7 @@ public class BlockTwo : BaseBlock
 
 
 
-
-
+    // process trigger to block move through other blocks
     void OnTriggerEnter2D(Collider2D other)
     {
         ProcessTriggerEnter2D(other);
@@ -158,6 +157,11 @@ public class BlockTwo : BaseBlock
 
     private void ProcessTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.CompareTag("BoxCamera"))
+        {
+            Debug.Log("Enter BoxCamera");
+            return;
+        }
         if ((other.GetComponentInParent<BlockTwo>() != null ||
              other.GetComponentInParent<BaseBlock>() != null) && isGragging)
         {
@@ -179,6 +183,10 @@ public class BlockTwo : BaseBlock
 
     void OnTriggerExit2D(Collider2D other)
     {
+        if (other.gameObject.CompareTag("BoxCamera"))
+        {
+            return;
+        }
         if ((other.GetComponentInParent<BlockTwo>() != null ||
              other.GetComponentInParent<BaseBlock>() != null) && isGragging)
         {

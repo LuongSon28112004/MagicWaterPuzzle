@@ -147,7 +147,7 @@ public class BlockL : BaseBlock
 
 
 
-
+    
 
     void OnTriggerEnter2D(Collider2D other)
     {

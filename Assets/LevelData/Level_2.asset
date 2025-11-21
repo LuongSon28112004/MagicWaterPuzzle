@@ -215,10 +215,10 @@ MonoBehaviour:
     color: 0
   gates:
   - name: GridGate1_1
-    position: {x: 2, y: 6.15, z: 0}
+    position: {x: 2, y: 6.1, z: 0}
     rotation: {x: 0, y: 0, z: 180}
     colorOutputs: []
   - name: GridGate1
-    position: {x: -2, y: -6.15, z: 0}
+    position: {x: -2, y: -6.1, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     colorOutputs: []

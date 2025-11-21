@@ -55,7 +55,14 @@ public class GameManager : SingletonDDOL<GameManager>
         switch (gameState)
         {
             case GameState.Loading:
-                //UIManager.Instance.ShowPopup<PopupLoading>(null);
+                UIManager.Instance.ShowPopup<PopupLoading>(null);
+                PopupLoading popupLoading = UIManager.Instance.GetPopup<PopupLoading>();
+                while (popupLoading != null && !popupLoading.LoadingSuccess)
+                {
+                    yield return null;
+                }
+                UIManager.Instance.HideAllPopup();
+                yield return ChangeState(GameState.GamePlay);
                 break;
             case GameState.Menu:
                 yield return LoadSceneAndWait("UIMain", () =>
@@ -66,7 +73,6 @@ public class GameManager : SingletonDDOL<GameManager>
                 break;
             case GameState.GamePlay:
                 //UIManager.Instance.ShowPopup<PopupLoadingGamePlay>(null);
-                yield return new WaitForSeconds(2f);
                 yield return LoadSceneAndWait("GamePlay", () =>
                 {
                     // UIManager.Instance.HideAllPopup();

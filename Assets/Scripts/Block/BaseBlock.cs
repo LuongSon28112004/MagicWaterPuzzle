@@ -38,4 +38,8 @@ public abstract class BaseBlock : MonoBehaviour
     [SerializeField] protected int currentCapacity;
 
     public Direction BlockDirection { get => blockDirection; set => blockDirection = value; }
+
+    
+
+    
 }

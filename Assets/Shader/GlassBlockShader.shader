@@ -18,7 +18,7 @@ Shader "Custom/BlueGelTransparent"
 
         LOD 200
         Blend SrcAlpha OneMinusSrcAlpha
-        ZWrite Off   // quan trọng để trong suốt đẹp
+        ZWrite Off  
 
         CGPROGRAM
         #pragma surface surf Standard alpha:fade fullforwardshadows
@@ -36,21 +36,16 @@ Shader "Custom/BlueGelTransparent"
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-            // Base color
             o.Albedo = _Color.rgb;
 
-            // Highlight dạng gel theo hướng nhìn
             float edge = saturate(dot(normalize(IN.viewDir), float3(0,0,1)));
             edge = pow(edge, 6);
 
             o.Albedo = lerp(_EdgeColor.rgb, o.Albedo, edge);
 
-            // Bóng
             o.Smoothness = _Smooth;
             o.Metallic = _ShineIntensity;
 
-            // Alpha trong suốt
-            // càng nhỏ càng trong suốt
             o.Alpha = _Color.a * (1.0 - _Transparency);
         }
         ENDCG

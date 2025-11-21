@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -135,8 +136,6 @@ public class BlockOne : BaseBlock
         return best;
     }
 
-
-
     void OnMouseUp()
     {
         rb.bodyType = RigidbodyType2D.Kinematic;
@@ -145,16 +144,23 @@ public class BlockOne : BaseBlock
         transform.position = SnapToGrid(transform.position);
     }
 
-
-
-
-
     void OnTriggerEnter2D(Collider2D other)
     {
         ProcessTriggerEnter2D(other);
     }
 
     private void ProcessTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("BoxCamera"))
+        {
+            Debug.Log("Enter BoxCamera");
+            return;
+        }
+        ProcessTriggerMove(other);
+        ProcessTriggerWaterPipe(other);
+    }
+
+    void ProcessTriggerMove(Collider2D other)
     {
         if ((other.GetComponentInParent<BlockTwo>() != null ||
              other.GetComponentInParent<BaseBlock>() != null) && isGragging)
@@ -175,8 +181,27 @@ public class BlockOne : BaseBlock
             blockNormal = new Vector2(0, Mathf.Sign(normal.y));
     }
 
+    private void ProcessTriggerWaterPipe(Collider2D other)
+    {
+        if (other.gameObject.gameObject.CompareTag("WaterPipe"))
+        {
+            Debug.Log("Enter WaterPipe");
+        }
+        WaterPipe waterPipe = other.GetComponentInParent<WaterPipe>();
+        if (waterPipe != null)
+        {
+            Debug.Log("Enter WaterPipe Color");
+        }
+    }
+
+
     void OnTriggerExit2D(Collider2D other)
     {
+        if (other.gameObject.CompareTag("BoxCamera"))
+        {
+            Debug.Log("Enter BoxCamera");
+            return;
+        }
         if ((other.GetComponentInParent<BlockTwo>() != null ||
              other.GetComponentInParent<BaseBlock>() != null) && isGragging)
         {

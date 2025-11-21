@@ -134,8 +134,23 @@ public class BoardCtrl : MonoBehaviour
             if (gate.name.Contains("GridGate1"))
             {
                 gameObject = Instantiate(gateList.Find(x => x.name == "GridGate1"), gate.position, Quaternion.Euler(gate.rotation), GateParent.transform);
-                // Gate gateComponent = gameObject.GetComponent<Gate>();
-                // gateComponent.SetGateColors(gate.gateColorInfos);
+                WaterPipe waterPipe = gameObject.GetComponent<WaterPipe>();
+                if (gate.rotation == new Vector3(0, 0, 0))
+                {
+                    waterPipe.DirectionPipe = DirectionPipe.Up;
+                }
+                else if (gate.rotation == new Vector3(0, 0, 90))
+                {
+                    waterPipe.DirectionPipe = DirectionPipe.Right;
+                }
+                else if (gate.rotation == new Vector3(0, 0, 180))
+                {
+                    waterPipe.DirectionPipe = DirectionPipe.Down;
+                }
+                else if (gate.rotation == new Vector3(0, 0, 270))
+                {
+                    waterPipe.DirectionPipe = DirectionPipe.Left;
+                }
             }
             gameObject.transform.localScale = Vector3.zero;
             gateInstances.Add(gameObject.transform);

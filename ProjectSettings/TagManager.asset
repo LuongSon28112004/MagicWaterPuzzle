@@ -8,6 +8,9 @@ TagManager:
   - Center
   - InnerCorner
   - Floor
+  - BoxLid
+  - BoxCamera
+  - WaterPipe
   layers:
   - Default
   - TransparentFX
