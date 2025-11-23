@@ -62,7 +62,7 @@ public class GameManager : SingletonDDOL<GameManager>
                     yield return null;
                 }
                 UIManager.Instance.HideAllPopup();
-                yield return ChangeState(GameState.GamePlay);
+                UIManager.Instance.ShowScreen<ScreenHome>();
                 break;
             case GameState.Menu:
                 yield return LoadSceneAndWait("UIMain", () =>

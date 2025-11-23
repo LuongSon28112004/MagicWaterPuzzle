@@ -1,24 +1,26 @@
-Shader "Custom/BlueGelTransparent"
+Shader "Custom/GlassImproved"
 {
     Properties
     {
-        _Color("Main Color", Color) = (0.2, 0.4, 1, 0.3)   // alpha quan trọng
-        _EdgeColor("Edge Highlight", Color) = (0.4, 0.6, 1, 1)
-        _ShineIntensity("Shine Intensity", Range(0, 1)) = 0.45
-        _Smooth("Smoothness", Range(0,1)) = 0.5
-        _Transparency("Transparency", Range(0,1)) = 0.3
+        _Color("Glass Tint Color", Color) = (0.5, 0.6, 1, 0.2)
+        _Smoothness("Smoothness", Range(0,1)) = 0.95
+        _Metallic("Metallic", Range(0,1)) = 0.05
+        _Transparency("Transparency", Range(0,1)) = 0.15
+
+        // Giúp tạo hiệu ứng viền sáng – giống Fresnel
+        _EdgeBrightness("Edge Brightness", Range(0,3)) = 1.6
     }
 
     SubShader
     {
-        Tags { 
-            "RenderType"="Transparent"
+        Tags
+        {
             "Queue"="Transparent"
+            "RenderType"="Transparent"
         }
 
-        LOD 200
         Blend SrcAlpha OneMinusSrcAlpha
-        ZWrite Off  
+        ZWrite Off
 
         CGPROGRAM
         #pragma surface surf Standard alpha:fade fullforwardshadows
@@ -29,24 +31,27 @@ Shader "Custom/BlueGelTransparent"
         };
 
         fixed4 _Color;
-        fixed4 _EdgeColor;
-        float _ShineIntensity;
-        float _Smooth;
+        float _Smoothness;
+        float _Metallic;
         float _Transparency;
+        float _EdgeBrightness;
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-            o.Albedo = _Color.rgb;
+            // Fresnel cơ bản – tạo viền sáng kiểu thủy tinh
+            float fresnel = 1.0 - saturate(dot(normalize(IN.viewDir), o.Normal));
+            fresnel = pow(fresnel, 3) * _EdgeBrightness;
 
-            float edge = saturate(dot(normalize(IN.viewDir), float3(0,0,1)));
-            edge = pow(edge, 6);
+            // Base color + Fresnel tăng sáng viền
+            float3 finalColor = _Color.rgb;
+            finalColor += fresnel;
 
-            o.Albedo = lerp(_EdgeColor.rgb, o.Albedo, edge);
+            o.Albedo = finalColor;
+            o.Metallic = _Metallic;
+            o.Smoothness = _Smoothness;
 
-            o.Smoothness = _Smooth;
-            o.Metallic = _ShineIntensity;
-
-            o.Alpha = _Color.a * (1.0 - _Transparency);
+            // Đảm bảo độ trong suốt
+            o.Alpha = (1.0 - _Transparency) * _Color.a;
         }
         ENDCG
     }

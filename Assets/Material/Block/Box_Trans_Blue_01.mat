@@ -78,6 +78,8 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
+    - _EdgeBrightness: 0
+    - _EdgeThickness: 0.05
     - _EnvironmentReflections: 1
     - _FresnelPower: 5.35
     - _Gloss: 0.8
@@ -85,8 +87,9 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _HighlightIntensity: 0
+    - _HighlightPos: 0.35
     - _HighlightWidth: 1
-    - _Metallic: 0
+    - _Metallic: 0.4
     - _MiddleDarkness: 0.25
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -95,6 +98,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RefractionAmount: 0.03
+    - _RefractionStrength: 0.025
     - _ShineIntensity: 0.25
     - _Smooth: 0.4
     - _Smoothness: 0.5
@@ -106,18 +110,21 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _TopShineStrength: 1.2
-    - _Transparency: 0.3
+    - _Transparency: 0.4
     - _UVSec: 0
     - _Width: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0, g: 0, b: 1, a: 0.6}
-    - _EdgeColor: {r: 0.096226394, g: 0.3974844, b: 1, a: 0}
+    - _Color: {r: 0, g: 0, b: 1, a: 0.67058825}
+    - _EdgeColor: {r: 0.27107865, g: 0.50445807, b: 0.97735846, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HighlightColor: {r: 1, g: 1, b: 1, a: 0.4}
     - _Lighting: {r: 0.5, g: -0.8, b: 0, a: 0}
+    - _MainColor: {r: 0.29999998, g: 0.9, b: 1, a: 0.6}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _TintColor: {r: 0.6, g: 0.8, b: 1, a: 0.1}
     - _TopShineColor: {r: 1, g: 1, b: 1, a: 0.8}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

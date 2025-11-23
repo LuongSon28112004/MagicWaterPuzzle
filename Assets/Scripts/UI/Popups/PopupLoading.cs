@@ -4,20 +4,50 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Mode
+{
+    LoadingGame,
+    LoadingLevel
+}
+
 public class PopupLoading : PopupUI
 {
+    [SerializeField] private Mode mode = Mode.LoadingGame;
     [SerializeField] private Slider sliderLoading;
     [SerializeField] Image Logo;
-    [SerializeField] private TextMeshProUGUI textLoading;
+    [SerializeField] private TextMeshProUGUI textLoadingPercent;
+    [SerializeField] private TextMeshProUGUI textLoadingTitle;
     [SerializeField] private bool loadingSuccess = false;
 
-    public bool LoadingSuccess { get => loadingSuccess; }
+    public bool LoadingSuccess { get => loadingSuccess; set => loadingSuccess = value; }
+    public Mode Mode { get => mode; set => mode = value; }
 
     private void Start()
     {
-        StartCoroutine(LoadingGame());
+        if (mode == Mode.LoadingGame)
+        {
+            StartCoroutine(LoadingGame());
+        }
+        else if (mode == Mode.LoadingLevel)
+        {
+            StartCoroutine(LoadingLevel());
+        }
     }
 
+    private void OnEnable()
+    {
+        if (mode == Mode.LoadingGame)
+        {
+            StartCoroutine(LoadingGame());
+        }
+        else if (mode == Mode.LoadingLevel)
+        {
+            StartCoroutine(LoadingLevel());
+        }
+    }
+
+
+    //Loading Game
     private IEnumerator LoadingGame()
     {
         float progress = 0f;
@@ -52,9 +82,19 @@ public class PopupLoading : PopupUI
             sliderLoading.value = progress / 100f;
         }
 
-        if (textLoading != null)
+        if (textLoadingPercent != null)
         {
-            textLoading.text = progress.ToString() + "%";
+            textLoadingPercent.text = progress.ToString() + "%";
         }
+    }
+
+    //Loading Level
+    private IEnumerator LoadingLevel()
+    {
+        textLoadingTitle.gameObject.SetActive(false);
+        textLoadingPercent.gameObject.SetActive(false);
+        sliderLoading.gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        loadingSuccess = true;
     }
 }

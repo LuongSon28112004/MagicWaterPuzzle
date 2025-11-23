@@ -60,8 +60,8 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HighlightIntensity: 1.5
-    - _HighlightWidth: 0.05
+    - _HighlightIntensity: 0
+    - _HighlightWidth: 0.01
     - _Intensity: 5
     - _Metallic: 0
     - _Mode: 0
@@ -69,6 +69,7 @@ Material:
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _RefractStrength: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

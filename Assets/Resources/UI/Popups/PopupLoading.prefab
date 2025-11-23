@@ -510,13 +510,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ef704eb6957c94a90e1273804c5dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCache: 0
+  isCache: 1
   ButtonClose: {fileID: 0}
   animType: 0
   mainPopUp: {fileID: 8568867721057159588}
+  mode: 0
   sliderLoading: {fileID: 3232518673500576527}
   Logo: {fileID: 6476262139994988495}
-  textLoading: {fileID: 2445432864872917782}
+  textLoadingPercent: {fileID: 2445432864872917782}
+  textLoadingTitle: {fileID: 1448112094300344782}
   loadingSuccess: 0
 --- !u!1 &7800216518620393916
 GameObject:
