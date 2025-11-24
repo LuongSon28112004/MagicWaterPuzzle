@@ -16313,7 +16313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4451553385024695
 Transform:
   m_ObjectHideFlags: 0
@@ -18669,7 +18669,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79bdc6c713dfb74438fbc206683d1fe1, type: 2}
+  - {fileID: 2100000, guid: c31c44f6a21b65d44b03dfad6e26a7b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -46893,7 +46893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22b53a8c3c5f384c9d00a498da904e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlockVaritant: {fileID: 1543856319737451}
+  blockTypeVariant: {fileID: 807352160687510107}
 --- !u!1 &1449956802071052
 GameObject:
   m_ObjectHideFlags: 0
@@ -64884,12 +64884,13 @@ MonoBehaviour:
   blockColorID: 0
   maxCapacity: 0
   currentCapacity: 0
+  rb: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   zCoord: 0
-  isGragging: 0
-  rb: {fileID: 0}
   blockVisual: {fileID: 6646698747192991920}
   blockColorVisual: 0
+  isGragging: 0
+  IsMove: 1
 --- !u!1 &1596297241827233
 GameObject:
   m_ObjectHideFlags: 0
@@ -88845,6 +88846,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4603684347866889}
+  - component: {fileID: 807352160687510107}
   m_Layer: 0
   m_Name: BlockType06 Variant_1
   m_TagString: Untagged
@@ -88872,6 +88874,21 @@ Transform:
   - {fileID: 4331310504959081}
   m_Father: {fileID: 4645596313843458}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &807352160687510107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930489928761984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20790a1fb524e3498de479e505bec72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlockVaritant: {fileID: 1543856319737451}
+  Water: {fileID: 1951493988742100}
+  waterMeshRenderer: {fileID: 23977561985492456}
 --- !u!1 &1941742612367627
 GameObject:
   m_ObjectHideFlags: 0
@@ -88976,7 +88993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4575974468637524
 Transform:
   m_ObjectHideFlags: 0
@@ -89023,7 +89040,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8e798bd426d46be46b6791e75d86aafc, type: 2}
+  - {fileID: 2100000, guid: e8e23d796f06876418dfdc29a0a2fe1f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

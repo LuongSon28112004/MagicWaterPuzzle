@@ -22729,6 +22729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4321776470807968}
+  - component: {fileID: 8988372861973889701}
   m_Layer: 0
   m_Name: BlockType00 Variant
   m_TagString: Untagged
@@ -22756,6 +22757,19 @@ Transform:
   - {fileID: 4732476381671222}
   m_Father: {fileID: 4174089194897719}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &8988372861973889701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449037932214277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20790a1fb524e3498de479e505bec72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlockVaritant: {fileID: 1708918844137827}
 --- !u!1 &1452534200813588
 GameObject:
   m_ObjectHideFlags: 0
@@ -24215,12 +24229,13 @@ MonoBehaviour:
   blockColorID: 0
   maxCapacity: 0
   currentCapacity: 0
+  rb: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   zCoord: 0
-  isGragging: 0
-  rb: {fileID: 0}
   blockVisual: {fileID: 6329951866735356806}
   blockColorVisual: 0
+  isGragging: 0
+  IsMove: 1
 --- !u!1 &1645825217815751
 GameObject:
   m_ObjectHideFlags: 0
@@ -30568,7 +30583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22b53a8c3c5f384c9d00a498da904e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlockVaritant: {fileID: 1708918844137827}
+  blockTypeVariant: {fileID: 8988372861973889701}
 --- !u!1 &1909717400951983
 GameObject:
   m_ObjectHideFlags: 0

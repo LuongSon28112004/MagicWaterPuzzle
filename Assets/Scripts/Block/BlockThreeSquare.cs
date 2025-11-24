@@ -8,7 +8,7 @@ public class BlockThreeSquare : BaseBlock
         blockType = BlockType.TWO;
         maxCapacity = 2;
         blockID = 12;
-        currentCapacity = maxCapacity;
+        currentCapacity = 0;
         rb = GetComponent<Rigidbody2D>();
     }
     protected override Vector2 SnapToGrid(Vector2 pos)
@@ -56,5 +56,18 @@ public class BlockThreeSquare : BaseBlock
         }
 
         return best;
+    }
+
+    // override init visual water
+    public override void AddVisualWater(BlockColor blockColor)
+    {
+        base.AddVisualWater(blockColor);
+        Vector3 direction = DirectionWater(blockDirection, transform.rotation);
+        blockVisual.blockTypeVariant.InitWater(blockColor, direction);
+    }
+
+    private Vector3 DirectionWater(Direction direction, Quaternion rotation)
+    {
+        return new Vector3(0, 0, 1);
     }
 }

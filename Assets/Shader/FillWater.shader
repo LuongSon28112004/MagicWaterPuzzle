@@ -141,3 +141,29 @@ Shader "Custom/WaterFill_Ultra"
         }
     }
 }
+
+
+// void SetFillDirection(Vector3 direction)
+// {
+//     // Bắt buộc normalize để shader tính đúng
+//     waterMat.SetVector("_FillDir", direction.normalized);
+// }
+
+// [SerializeField] private Material waterMat;
+
+// void UpdateFill(float value)
+// {
+//     // value phải trong khoảng 0–1
+//     waterMat.SetFloat("_FillAmount", value);
+// }
+
+// Renderer rend = GetComponent<Renderer>();
+// Material mat = rend.material;
+
+// // Fill Amount
+// mat.SetFloat("_FillAmount", 0.75f);
+
+// // Fill Direction
+// mat.SetVector("_FillDir", new Vector3(0, 1, 0));
+
+

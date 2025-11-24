@@ -40,12 +40,12 @@ Material:
     - _FillAmount: 0.239
     - _FresnelPower: 5
     - _LayerCount: 3
-    - _PourForce: 0
-    - _PourXPos: 0.5
+    - _PourForce: 0.169
+    - _PourXPos: 0.515
     - _RippleStrength: 0.01
     - _ShineStrength: 0.4
     - _WaveSpeed: 8.58
-    - _WaveStrength: 0
+    - _WaveStrength: 0.0015
     m_Colors:
     - _BottomColor: {r: 0.027603151, g: 0, b: 0.6, a: 1}
     - _Color1: {r: 1, g: 0, b: 0, a: 1}

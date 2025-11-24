@@ -1,4 +1,7 @@
 using System;
+using System.Collections;
+using System.Net.WebSockets;
+using DG.Tweening;
 using UnityEngine;
 
 public enum BlockType
@@ -60,21 +63,41 @@ public abstract class BaseBlock : MonoBehaviour
     public Direction BlockDirection { get => blockDirection; set => blockDirection = value; }
 
     // 
-    public void AddVisualColor(BlockColor color)
+    public virtual void AddVisualColor(BlockColor color)
     {
         blockColorVisual = color;
-        ColorMaterialCongig colorMat = Contacts.GetColorMat(color);
-        if (colorMat == null) return;
-        MeshRenderer[] meshRenderers = blockVisual.BlockVaritant.GetComponentsInChildren<MeshRenderer>();
-        foreach (var meshRenderer in meshRenderers)
+        blockVisual.blockTypeVariant.AddVisual(color);
+    }
+
+    protected Vector2 SnapToPipe(Vector2 pipePos)
+    {
+        // vẫn dùng logic odd/even theo hướng
+        if (blockDirection == Direction.HORIZONTAL)
         {
-            if (meshRenderer.gameObject.name.Contains("Middle"))
-            {
-                meshRenderer.materials = new Material[] { colorMat.Glass_01 };
-                continue;
-            }
-            meshRenderer.materials = new Material[] { colorMat.Glass_01, colorMat.Frame_01 };
+            float yFix = SnapEven(pipePos.y);
+            float xFix = SnapOdd(pipePos.x);
+            return new Vector2(xFix, yFix);
         }
+        else // VERTICAL
+        {
+            float xFix = SnapEven(pipePos.x);
+            float yFix = SnapOdd(pipePos.y);
+            return new Vector2(xFix, yFix);
+        }
+    }
+
+
+
+    //add visual water
+    public virtual void AddVisualWater(BlockColor blockColor)
+    {
+        // for override
+    }
+
+    public virtual Vector3 DirectionWater(Direction direction)
+    {
+        return Vector3.zero;
+        // for override
     }
 
     void OnMouseDown()
@@ -89,6 +112,20 @@ public abstract class BaseBlock : MonoBehaviour
         rb.gravityScale = 1;
         isGragging = false;
         transform.position = SnapToGrid(transform.position);
+    }
+
+    //Làm tròn về lẻ gần nhất
+    protected float SnapOdd(float v)
+    {
+        float rounded = Mathf.Round((v - 1f) / 2f) * 2f + 1f;
+        return rounded;
+    }
+
+
+    // Làm tròn về chẵn gần nhất
+    protected float SnapEven(float v)
+    {
+        return Mathf.Round(v / 2f) * 2f;
     }
 
     protected virtual Vector2 SnapToGrid(Vector2 position)
@@ -143,7 +180,7 @@ public abstract class BaseBlock : MonoBehaviour
             return;
         }
         ProcessTriggerMove(other);
-        ProcessTriggerWaterPipe(other);
+        StartCoroutine(ProcessTriggerWaterPipe(other));
     }
 
     void ProcessTriggerMove(Collider2D other)
@@ -167,20 +204,52 @@ public abstract class BaseBlock : MonoBehaviour
             blockNormal = new Vector2(0, Mathf.Sign(normal.y));
     }
 
-    protected virtual void ProcessTriggerWaterPipe(Collider2D other)
+    protected IEnumerator ProcessTriggerWaterPipe(Collider2D other)
     {
         WaterPipe waterPipe = other.GetComponentInParent<WaterPipe>();
-        if (waterPipe != null)
+        if (waterPipe != null && CheckSameColor(waterPipe.WaterTypeCounters[0].waterTypeColor, blockColorVisual))
         {
             Debug.Log("Enter WaterPipe Color");
-            // xử lý water pipe change color
-
-            ////
             // chặn không cho di chuyển nữa
             IsMove = false;
-            transform.position = SnapToGrid(transform.position);
+            Vector3 pos = transform.position;
+            transform.position = SnapToGrid(pos);
+            yield return StartCoroutine(FillPipeAndBlock(waterPipe));
+            IsMove = true;
 
         }
+    }
+
+    private IEnumerator FillPipeAndBlock(WaterPipe waterPipe)
+    {
+        StartCoroutine(waterPipe.PipeLineCtrl.FillColor());
+        yield return StartCoroutine(ProcessFillWaterBlock(waterPipe));
+    }
+
+    public IEnumerator ProcessFillWaterBlock(WaterPipe waterPipe)
+    {
+        int value = waterPipe.WaterTypeCounters[0].count;
+        int remainingCapacity = maxCapacity - currentCapacity;
+        if (value <= remainingCapacity)
+        {
+            int addCapacity = currentCapacity + value;
+            yield return StartCoroutine(blockVisual.blockTypeVariant.FillWater(addCapacity * 1.0f / maxCapacity));
+            currentCapacity += value;
+            waterPipe.WaterTypeCounters[0].count -= value;
+        }
+        else
+        {
+            int addCapacity = currentCapacity + remainingCapacity;
+            yield return StartCoroutine(blockVisual.blockTypeVariant.FillWater(addCapacity * 1.0f / maxCapacity));
+            currentCapacity += remainingCapacity;
+            waterPipe.WaterTypeCounters[0].count -= remainingCapacity;
+        }
+        waterPipe.UpdateListWaterTypeCounter();
+    }
+
+    public IEnumerator ProcessFillWaterPipe(WaterPipe waterPipe)
+    {
+        yield return StartCoroutine(waterPipe.PipeLineCtrl.FillColor());
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -199,5 +268,12 @@ public abstract class BaseBlock : MonoBehaviour
         }
 
         blockNormal = Vector2.zero;
+    }
+
+    protected bool CheckSameColor(WaterTypeColor waterTypeColor, BlockColor blockColorVisual)
+    {
+        string a = waterTypeColor.ToString();
+        string b = blockColorVisual.ToString();
+        return a.Contains(b);
     }
 }

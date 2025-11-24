@@ -69,7 +69,7 @@ public class BoardCtrl : MonoBehaviour
 
                 BlockTwo blockTwo = gameObject.GetComponent<BlockTwo>();
                 blockTwo.AddVisualColor(block.color);
-                if (block.rotation != new Vector3(0, 0, 0) || block.rotation == new Vector3(0, 0, 360) || block.rotation == new Vector3(0, 0, 180))
+                if (block.rotation != new Vector3(0, 0, 0) && block.rotation != new Vector3(0, 0, 180) && block.rotation != new Vector3(0, 0, -180) && block.rotation != new Vector3(0, 0, 360))
                 {
                     blockTwo.BlockDirection = Direction.HORIZONTAL;
                 }
@@ -77,6 +77,7 @@ public class BoardCtrl : MonoBehaviour
                 {
                     blockTwo.BlockDirection = Direction.VERTICAL;
                 }
+                blockTwo.AddVisualWater(block.color);
             }
             else if (block.name.Contains("One"))
             {
@@ -93,6 +94,7 @@ public class BoardCtrl : MonoBehaviour
                 BlockPlus blockPlus = gameObject.GetComponent<BlockPlus>();
                 blockPlus.AddVisualColor(block.color);
                 blockPlus.BlockDirection = Direction.NORMAL;
+                blockPlus.AddVisualWater(block.color);
             }
             else if (block.name.Contains("L"))
             {
@@ -100,7 +102,7 @@ public class BoardCtrl : MonoBehaviour
 
                 BlockL blockL = gameObject.GetComponent<BlockL>();
                 blockL.AddVisualColor(block.color);
-                if (block.rotation != new Vector3(0, 0, 0) || block.rotation == new Vector3(0, 0, 360) || block.rotation == new Vector3(0, 0, 180))
+                if (block.rotation != new Vector3(0, 0, 0) && block.rotation != new Vector3(0, 0, 180) && block.rotation != new Vector3(0, 0, -180) && block.rotation != new Vector3(0, 0, 360))
                 {
                     blockL.BlockDirection = Direction.HORIZONTAL;
                 }
@@ -108,6 +110,7 @@ public class BoardCtrl : MonoBehaviour
                 {
                     blockL.BlockDirection = Direction.VERTICAL;
                 }
+                blockL.AddVisualWater(block.color);
             }
             else if (block.name.Contains("ThreeSquare"))
             {
@@ -115,7 +118,7 @@ public class BoardCtrl : MonoBehaviour
 
                 BlockThreeSquare blockThreeSquare = gameObject.GetComponent<BlockThreeSquare>();
                 blockThreeSquare.AddVisualColor(block.color);
-                if (block.rotation != new Vector3(0, 0, 0) || block.rotation == new Vector3(0, 0, 360) || block.rotation == new Vector3(0, 0, 180))
+                if (block.rotation != new Vector3(0, 0, 0) || block.rotation != new Vector3(0, 0, 360))
                 {
                     blockThreeSquare.BlockDirection = Direction.HORIZONTAL;
                 }
@@ -123,6 +126,7 @@ public class BoardCtrl : MonoBehaviour
                 {
                     blockThreeSquare.BlockDirection = Direction.VERTICAL;
                 }
+                blockThreeSquare.AddVisualWater(block.color);
             }
             gameObject.transform.localScale = Vector3.zero;
             blockInstances.Add(gameObject.transform);
@@ -151,6 +155,8 @@ public class BoardCtrl : MonoBehaviour
                 {
                     waterPipe.DirectionPipe = DirectionPipe.Left;
                 }
+                // init color
+                waterPipe.InitColorPipe(gate.colorOutputs);
             }
             gameObject.transform.localScale = Vector3.zero;
             gateInstances.Add(gameObject.transform);

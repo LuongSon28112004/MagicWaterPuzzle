@@ -198,27 +198,25 @@ MonoBehaviour:
     rotation: {x: -0, y: 0, z: 0}
   blocks:
   - name: Two
-    position: {x: -3, y: 4, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-    color: 0
-  - name: One_1
-    position: {x: 2, y: 4, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-    color: 0
-  - name: One
-    position: {x: 0, y: 4, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-    color: 1
-  - name: Plus
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
+    position: {x: -2, y: 3, z: 0}
+    rotation: {x: 0, y: 0, z: 360}
     color: 1
   gates:
   - name: GridGate1_1
     position: {x: 2, y: 6.1, z: 0}
     rotation: {x: 0, y: 0, z: 180}
-    colorOutputs: []
+    colorOutputs:
+    - color: 3
+      capacity: 1
+    - color: 1
+      capacity: 1
+    - color: 2
+      capacity: 1
   - name: GridGate1
     position: {x: -2, y: -6.1, z: 0}
     rotation: {x: -0, y: 0, z: 0}
-    colorOutputs: []
+    colorOutputs:
+    - color: 0
+      capacity: 1
+    - color: 2
+      capacity: 1

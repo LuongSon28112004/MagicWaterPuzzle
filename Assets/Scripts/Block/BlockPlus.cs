@@ -8,7 +8,7 @@ public class BlockPlus : BaseBlock
         blockType = BlockType.TWO;
         maxCapacity = 2;
         blockID = 12;
-        currentCapacity = maxCapacity;
+        currentCapacity = 0;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -38,7 +38,7 @@ public class BlockPlus : BaseBlock
         {
             if (blockDirection == Direction.HORIZONTAL)
             {
-                // Y phải chẵn, X phải lẻ
+                // Y phải chẵn, X phải chăn
                 float yFix = Mathf.Round(c.y / 2f) * 2f;
                 float xFix = Mathf.Round(c.x / 2f) * 2f;
 
@@ -69,5 +69,18 @@ public class BlockPlus : BaseBlock
         }
 
         return best;
+    }
+
+    // override init visual water
+    public override void AddVisualWater(BlockColor blockColor)
+    {
+        base.AddVisualWater(blockColor);
+        Vector3 direction = DirectionWater(blockDirection, transform.rotation);
+        blockVisual.blockTypeVariant.InitWater(blockColor, direction);
+    }
+
+    private Vector3 DirectionWater(Direction direction, Quaternion rotation)
+    {
+        return new Vector3(1, 0, 0);
     }
 }

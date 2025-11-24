@@ -9,7 +9,7 @@ public class SlotHolderData
     public Vector3 position;
     public Vector3 rotation;
 
-    public SlotHolderData(string name, Vector3 position , Vector3 rotation)
+    public SlotHolderData(string name, Vector3 position, Vector3 rotation)
     {
         this.name = name;
         this.position = position;
@@ -21,12 +21,11 @@ public class SlotHolderData
 [Serializable]
 public enum BlockColor
 {
+    None,
     Red,
     Blue,
     Green,
-    Yellow,
-    Purple,
-    Orange,
+    Yellow
 }
 
 [Serializable]

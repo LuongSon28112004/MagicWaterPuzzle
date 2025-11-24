@@ -200,7 +200,7 @@ MonoBehaviour:
   - name: Two
     position: {x: -1, y: 2, z: 0}
     rotation: {x: 0, y: 0, z: 90}
-    color: 0
+    color: 2
   - name: Two_1
     position: {x: -4, y: 3, z: 0}
     rotation: {x: 0, y: 0, z: 0}
@@ -209,8 +209,16 @@ MonoBehaviour:
   - name: GridGate1_1
     position: {x: 2, y: 6.15, z: 0}
     rotation: {x: 0, y: 0, z: 180}
-    colorOutputs: []
+    colorOutputs:
+    - color: 1
+      capacity: 1
+    - color: 2
+      capacity: 1
   - name: GridGate1
     position: {x: -2, y: -6.15, z: 0}
     rotation: {x: -0, y: 0, z: 0}
-    colorOutputs: []
+    colorOutputs:
+    - color: 2
+      capacity: 1
+    - color: 1
+      capacity: 1

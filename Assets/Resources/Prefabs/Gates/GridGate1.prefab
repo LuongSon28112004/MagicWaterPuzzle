@@ -2542,7 +2542,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.03, y: -0.142, z: 0.59}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4370788007001161}
@@ -2594,7 +2594,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2693,8 +2693,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 0.3
+      scalar: 0.7
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -10269,7 +10269,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0073678493, y: -0.884217}
+  m_Offset: {x: 0.005577378, y: -0.06594545}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -10279,7 +10279,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.1158776, y: 2.231566}
+  m_Size: {x: 0.08333422, y: 0.5093776}
   m_EdgeRadius: 0
 --- !u!1 &1488020601981217
 GameObject:
@@ -12579,6 +12579,7 @@ GameObject:
   - component: {fileID: 4084482101361757}
   - component: {fileID: 33672693415866935}
   - component: {fileID: 23842715899778105}
+  - component: {fileID: 7941075028286157384}
   m_Layer: 0
   m_Name: Pipeline
   m_TagString: Untagged
@@ -12656,6 +12657,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7941075028286157384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544431178528033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7704845bd5346441b7521d1d23d32be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PipeLineWater: {fileID: 138487816440039925}
+  currentFillColor: 0
+  maxColor: 0
 --- !u!1 &1557203984606951
 GameObject:
   m_ObjectHideFlags: 0
@@ -15034,6 +15050,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directionPipe: 0
+  waterTypeCounters: []
+  pipeLineCtrl: {fileID: 7941075028286157384}
 --- !u!1 &1622862974946445
 GameObject:
   m_ObjectHideFlags: 0

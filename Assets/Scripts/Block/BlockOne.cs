@@ -9,7 +9,7 @@ public class BlockOne : BaseBlock
         blockType = BlockType.ONE;
         maxCapacity = 1;
         blockID = 2;
-        currentCapacity = maxCapacity;
+        currentCapacity = 0;
         rb = GetComponent<Rigidbody2D>();
     }
 

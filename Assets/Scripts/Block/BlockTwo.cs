@@ -10,7 +10,7 @@ public class BlockTwo : BaseBlock
         blockType = BlockType.TWO;
         maxCapacity = 2;
         blockID = 12;
-        currentCapacity = maxCapacity;
+        currentCapacity = 0;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -41,16 +41,16 @@ public class BlockTwo : BaseBlock
             if (blockDirection == Direction.HORIZONTAL)
             {
                 // Y phải chẵn, X phải lẻ
-                float yFix = Mathf.Round(c.y / 2f) * 2f;
-                float xFix = Mathf.Round(c.x / 2f) * 2f + 1f;
+                float yFix = SnapEven(c.y);
+                float xFix = SnapOdd(c.x);
 
                 filtered.Add(new Vector2(xFix, yFix));
             }
             else
             {
                 // X phải chẵn, Y phải lẻ
-                float xFix = Mathf.Round(c.x / 2f) * 2f;
-                float yFix = Mathf.Round(c.y / 2f) * 2f + 1f;
+                float xFix = SnapEven(c.x);
+                float yFix = SnapOdd(c.y);
 
                 filtered.Add(new Vector2(xFix, yFix));
             }
@@ -71,5 +71,45 @@ public class BlockTwo : BaseBlock
         }
 
         return best;
+    }
+
+    // override init visual water
+    public override void AddVisualWater(BlockColor blockColor)
+    {
+        base.AddVisualWater(blockColor);
+        Vector3 direction = DirectionWater(blockDirection, transform.rotation);
+        blockVisual.blockTypeVariant.InitWater(blockColor, direction);
+    }
+
+    private Vector3 DirectionWater(Direction direction, Quaternion rotation)
+    {
+        float z = rotation.eulerAngles.z;
+
+        if (direction == Direction.VERTICAL)
+        {
+            if (Mathf.Abs(z - 180f) < 1f)
+                return new Vector3(0, 0, -1);
+
+            if (Mathf.Abs(z - 0f) < 1f || Mathf.Abs(z - 360f) < 1f)
+                return new Vector3(0, 0, 1);
+
+            return new Vector3(0, 0, -1);
+        }
+
+        if (direction == Direction.HORIZONTAL)
+        {
+            // 90° → (-1,0,0)
+            if (Mathf.Abs(z - 90f) < 1f)
+                return new Vector3(1, 0, 0);
+
+            // 270° → (1,0,0)
+            if (Mathf.Abs(z - 270f) < 1f)
+                return new Vector3(-1, 0, 0);
+
+            // fallback
+            return new Vector3(1, 0, 0);
+        }
+
+        return new Vector3(1, 0, 0);
     }
 }

@@ -3,5 +3,5 @@ using UnityEngine;
 
 public class BlockVisual : MonoBehaviour
 {
-    public GameObject BlockVaritant;
+    public BlockTypeVariant blockTypeVariant;
 }

@@ -22327,7 +22327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4050461416909111
 Transform:
   m_ObjectHideFlags: 0
@@ -22374,7 +22374,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8e798bd426d46be46b6791e75d86aafc, type: 2}
+  - {fileID: 2100000, guid: e8e23d796f06876418dfdc29a0a2fe1f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73741,7 +73741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22b53a8c3c5f384c9d00a498da904e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlockVaritant: {fileID: 1601288654972710}
+  blockTypeVariant: {fileID: 3330725727881079439}
 --- !u!1 &1500771108425465
 GameObject:
   m_ObjectHideFlags: 0
@@ -76668,6 +76668,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4902093239339680}
+  - component: {fileID: 3330725727881079439}
   m_Layer: 0
   m_Name: BlockType09 Variant
   m_TagString: Untagged
@@ -76694,6 +76695,21 @@ Transform:
   - {fileID: 4408170638641839}
   m_Father: {fileID: 4877494501199213}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &3330725727881079439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513688255609992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20790a1fb524e3498de479e505bec72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlockVaritant: {fileID: 1601288654972710}
+  Water: {fileID: 1078491692211749}
+  waterMeshRenderer: {fileID: 23058710181798843}
 --- !u!1 &1518623556780131
 GameObject:
   m_ObjectHideFlags: 0
@@ -143958,12 +143974,13 @@ MonoBehaviour:
   blockColorID: 0
   maxCapacity: 0
   currentCapacity: 0
+  rb: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   zCoord: 0
-  isGragging: 0
-  rb: {fileID: 0}
   blockVisual: {fileID: 4344442553384990602}
   blockColorVisual: 0
+  isGragging: 0
+  IsMove: 1
 --- !u!1 &1935959254809161
 GameObject:
   m_ObjectHideFlags: 0

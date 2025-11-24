@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class BlockL : BaseBlock
         blockType = BlockType.TWO;
         maxCapacity = 2;
         blockID = 12;
-        currentCapacity = maxCapacity;
+        currentCapacity = 0;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -71,5 +72,47 @@ public class BlockL : BaseBlock
 
         return best;
     }
+
+
+    // override init visual water
+    public override void AddVisualWater(BlockColor blockColor)
+    {
+        base.AddVisualWater(blockColor);
+        Vector3 direction = DirectionWater(blockDirection, transform.rotation);
+        blockVisual.blockTypeVariant.InitWater(blockColor, direction);
+    }
+
+    private Vector3 DirectionWater(Direction direction, Quaternion rotation)
+    {
+        float z = rotation.eulerAngles.z;
+
+        if (direction == Direction.VERTICAL)
+        {
+            if (Mathf.Abs(z - 180f) < 1f)
+                return new Vector3(0, 0, 1);
+
+            if (Mathf.Abs(z - 0f) < 1f || Mathf.Abs(z - 360f) < 1f)
+                return new Vector3(0, 0, -1);
+
+            return new Vector3(0, 0, -1);
+        }
+
+        if (direction == Direction.HORIZONTAL)
+        {
+            // 90° → (-1,0,0)
+            if (Mathf.Abs(z - 90f) < 1f)
+                return new Vector3(-1, 0, 0);
+
+            // 270° → (1,0,0)
+            if (Mathf.Abs(z - 270f) < 1f)
+                return new Vector3(1, 0, 0);
+
+            // fallback
+            return new Vector3(1, 0, 0);
+        }
+
+        return Vector3.zero;
+    }
+
 
 }

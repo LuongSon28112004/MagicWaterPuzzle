@@ -29,7 +29,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FillAmount: 0.071
+    - _FillAmount: 0.573
     - _MaxHeight: 3
     - _MinHeight: -3
     - _PourForce: 1

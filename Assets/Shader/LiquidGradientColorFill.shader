@@ -174,3 +174,25 @@ SubShader
 // liquidMat.SetFloat("_ShineStrength", 0.4f);
 
 
+// for (int i = 0; i < meshRenderers.Length; i++)
+// {
+//     var r = meshRenderers[i];
+//     if (r == null) continue;
+
+//     r.sharedMaterial = mat;
+//     r.GetPropertyBlock(materialPropertyBlock);
+//     if (pixelSO != null)
+//     {
+//         materialPropertyBlock.SetColor("_OutlineColor", pixelSO.outlineColor);
+//         materialPropertyBlock.SetFloat("_Outline", 3);
+//         materialPropertyBlock.SetFloat("_OutlineWidth", 0f);
+//         r.SetPropertyBlock(materialPropertyBlock);
+//     }
+//     else
+//     {
+//         materialPropertyBlock.SetFloat("_OutlineWidth", 0f);
+//         r.SetPropertyBlock(materialPropertyBlock);
+//     }
+
+// } 
+

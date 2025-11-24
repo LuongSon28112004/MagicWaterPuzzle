@@ -26,21 +26,21 @@ Material:
     m_Ints: []
     m_Floats:
     - _DepthDarkness: 0.35
-    - _DepthStrength: 0.45
-    - _FillAmount: 0.637
+    - _DepthStrength: 0.11
+    - _FillAmount: 0.625
     - _FresnelPower: 3
     - _FresnelStrength: 0.4
     - _HighlightIntensity: 5.33
-    - _HighlightWidth: 0.05
+    - _HighlightWidth: 0.04
     - _MaxValue: 1
     - _MinValue: -1
     - _SpecularIntensity: 0.35
     - _SpecularSize: 0
-    - _WaveScale: 0.05
-    - _WaveSpeed: 10
+    - _WaveScale: 0.02
+    - _WaveSpeed: 8
     m_Colors:
-    - _FillDir: {r: 0, g: 0, b: 0, a: 0}
+    - _FillDir: {r: 0, g: 0, b: 1, a: 0}
     - _HighlightColor: {r: 0.5566037, g: 0.8155785, b: 1, a: 1}
-    - _WaterColor: {r: 0, g: 0.14170074, b: 1, a: 1}
+    - _WaterColor: {r: 0, g: 0.14117622, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

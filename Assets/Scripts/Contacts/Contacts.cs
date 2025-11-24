@@ -5,7 +5,7 @@ using UnityEngine;
 public class ColorMaterialCongig
 {
     public BlockColor colorID;
-    public Material Frame_01;    
+    public Material Frame_01;
     public Material Glass_01;
 }
 
@@ -36,6 +36,21 @@ public class Contacts : MonoBehaviour
                 return Instance.Materials[0];
             default:
                 return null;
+        }
+    }
+
+
+    public static string HexColor(BlockColor blockColor)
+    {
+        switch (blockColor)
+        {
+            case BlockColor.Red:
+                return "#FF1F00";
+            case BlockColor.Blue:
+                return "#0024FF";
+            case BlockColor.Green:
+                return "#0024FF";
+            default: return "";
         }
     }
 
