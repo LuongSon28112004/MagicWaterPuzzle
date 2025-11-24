@@ -34,6 +34,8 @@ public class Contacts : MonoBehaviour
                 return Instance.Materials.Count > 1 ? Instance.Materials[1] : null;
             case BlockColor.Blue:
                 return Instance.Materials[0];
+            case BlockColor.Green:
+                return Instance.Materials[2];
             default:
                 return null;
         }
@@ -45,11 +47,11 @@ public class Contacts : MonoBehaviour
         switch (blockColor)
         {
             case BlockColor.Red:
-                return "#FF1F00";
+                return "#ff1e00d0";
             case BlockColor.Blue:
-                return "#0024FF";
+                return "#0022ffd7";
             case BlockColor.Green:
-                return "#0024FF";
+                return "#54fc06b9";
             default: return "";
         }
     }

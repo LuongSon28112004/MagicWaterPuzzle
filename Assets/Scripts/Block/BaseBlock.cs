@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Net.WebSockets;
 using DG.Tweening;
 using UnityEngine;
@@ -60,6 +61,10 @@ public abstract class BaseBlock : MonoBehaviour
     // Hướng bị chặn
     protected Vector2 blockNormal = Vector2.zero;
 
+    //Block particle
+    [SerializeField] protected List<BlockParticle> blockParticles;
+
+
     public Direction BlockDirection { get => blockDirection; set => blockDirection = value; }
 
     // 
@@ -100,6 +105,8 @@ public abstract class BaseBlock : MonoBehaviour
         // for override
     }
 
+
+    // OnMouse Click
     void OnMouseDown()
     {
         zCoord = Camera.main.WorldToScreenPoint(transform.position).z;
@@ -207,7 +214,9 @@ public abstract class BaseBlock : MonoBehaviour
     protected IEnumerator ProcessTriggerWaterPipe(Collider2D other)
     {
         WaterPipe waterPipe = other.GetComponentInParent<WaterPipe>();
-        if (waterPipe != null && CheckSameColor(waterPipe.WaterTypeCounters[0].waterTypeColor, blockColorVisual))
+        if (waterPipe == null) yield break;
+        if (waterPipe.WaterTypeCounters.Count == 0) yield break;
+        if (CheckSameColor(waterPipe.WaterTypeCounters[0].waterTypeColor, blockColorVisual))
         {
             Debug.Log("Enter WaterPipe Color");
             // chặn không cho di chuyển nữa
@@ -215,8 +224,8 @@ public abstract class BaseBlock : MonoBehaviour
             Vector3 pos = transform.position;
             transform.position = SnapToGrid(pos);
             yield return StartCoroutine(FillPipeAndBlock(waterPipe));
+            // thả di chuyển ra khi đã fill song
             IsMove = true;
-
         }
     }
 
@@ -233,23 +242,31 @@ public abstract class BaseBlock : MonoBehaviour
         if (value <= remainingCapacity)
         {
             int addCapacity = currentCapacity + value;
-            yield return StartCoroutine(blockVisual.blockTypeVariant.FillWater(addCapacity * 1.0f / maxCapacity));
             currentCapacity += value;
             waterPipe.WaterTypeCounters[0].count -= value;
+            PlayParticleBlock();
+            yield return StartCoroutine(blockVisual.blockTypeVariant.FillWater(addCapacity * 1.0f / maxCapacity));
         }
         else
         {
             int addCapacity = currentCapacity + remainingCapacity;
-            yield return StartCoroutine(blockVisual.blockTypeVariant.FillWater(addCapacity * 1.0f / maxCapacity));
             currentCapacity += remainingCapacity;
             waterPipe.WaterTypeCounters[0].count -= remainingCapacity;
+            PlayParticleBlock();
+            yield return StartCoroutine(blockVisual.blockTypeVariant.FillWater(addCapacity * 1.0f / maxCapacity));
         }
+
         waterPipe.UpdateListWaterTypeCounter();
     }
 
     public IEnumerator ProcessFillWaterPipe(WaterPipe waterPipe)
     {
         yield return StartCoroutine(waterPipe.PipeLineCtrl.FillColor());
+    }
+
+    protected virtual void PlayParticleBlock()
+    {
+
     }
 
     void OnTriggerExit2D(Collider2D other)

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BlockL : BaseBlock
 {
-
     private void Awake()
     {
         blockType = BlockType.TWO;

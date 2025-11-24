@@ -273,9 +273,12 @@ MonoBehaviour:
   - colorID: 1
     Frame_01: {fileID: 2100000, guid: e384b58880fdb234a901f9b5012a6271, type: 2}
     Glass_01: {fileID: 2100000, guid: 27db03d3a9c21ec44a441cd4190b9948, type: 2}
-  - colorID: 0
+  - colorID: 1
     Frame_01: {fileID: 2100000, guid: 70f79173cc42ce14e8fba3ec269f8029, type: 2}
     Glass_01: {fileID: 2100000, guid: 11b602b9f0f91244181c17ed7d9251cd, type: 2}
+  - colorID: 3
+    Frame_01: {fileID: 2100000, guid: 825774f1b30210d4099fb00d9d6dfacb, type: 2}
+    Glass_01: {fileID: 2100000, guid: 7849191a9842bbc4e803fd15c09bf3d9, type: 2}
 --- !u!1 &1335591703
 GameObject:
   m_ObjectHideFlags: 0

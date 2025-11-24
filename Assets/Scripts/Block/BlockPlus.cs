@@ -6,7 +6,7 @@ public class BlockPlus : BaseBlock
     private void Awake()
     {
         blockType = BlockType.TWO;
-        maxCapacity = 2;
+        maxCapacity = 4;
         blockID = 12;
         currentCapacity = 0;
         rb = GetComponent<Rigidbody2D>();
@@ -82,5 +82,17 @@ public class BlockPlus : BaseBlock
     private Vector3 DirectionWater(Direction direction, Quaternion rotation)
     {
         return new Vector3(1, 0, 0);
+    }
+
+
+    // Override Play BlockParticle
+    protected override void PlayParticleBlock()
+    {
+        base.PlayParticleBlock();
+        for (int i = 0; i < currentCapacity; i++)
+        {
+            StartCoroutine(blockParticles[i].PlayParticle());
+        }
+
     }
 }

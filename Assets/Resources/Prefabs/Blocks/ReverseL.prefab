@@ -36880,6 +36880,7 @@ GameObject:
   - component: {fileID: 4898937816176774}
   - component: {fileID: 61456223776099243}
   - component: {fileID: 61754929100677837}
+  - component: {fileID: 2413843713800497661}
   m_Layer: 6
   m_Name: Block
   m_TagString: Untagged
@@ -36996,6 +36997,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &2413843713800497661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362548087720201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18abebe6663ccd042bd6ea77ba6fc9fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BigBubble: {fileID: 1978077525062731}
+  Idle_Bubbles_Variant: {fileID: 1225304407875047}
 --- !u!1 &1370439729522600
 GameObject:
   m_ObjectHideFlags: 0
@@ -47165,6 +47180,7 @@ GameObject:
   - component: {fileID: 4744409059046437}
   - component: {fileID: 61902341998899789}
   - component: {fileID: 61177955583172002}
+  - component: {fileID: 1409362173032874865}
   m_Layer: 6
   m_Name: Block
   m_TagString: Untagged
@@ -47281,6 +47297,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1409362173032874865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610650905466095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18abebe6663ccd042bd6ea77ba6fc9fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BigBubble: {fileID: 1563946140587325}
+  Idle_Bubbles_Variant: {fileID: 1800042440872897}
 --- !u!1 &1612146576712996
 GameObject:
   m_ObjectHideFlags: 0
@@ -76632,6 +76662,7 @@ GameObject:
   - component: {fileID: 4651496442659636}
   - component: {fileID: 61481432836821533}
   - component: {fileID: 61316255260635676}
+  - component: {fileID: 4517833104782867439}
   m_Layer: 6
   m_Name: Block
   m_TagString: Untagged
@@ -76748,6 +76779,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &4517833104782867439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949162649119091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18abebe6663ccd042bd6ea77ba6fc9fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BigBubble: {fileID: 1889041110341397}
+  Idle_Bubbles_Variant: {fileID: 1532220099294210}
 --- !u!1 &1957380064331127
 GameObject:
   m_ObjectHideFlags: 0
@@ -82002,6 +82047,7 @@ GameObject:
   - component: {fileID: 4663782877082282}
   - component: {fileID: 61579848439755058}
   - component: {fileID: 61169858089716053}
+  - component: {fileID: 8898243130155943982}
   m_Layer: 6
   m_Name: Block
   m_TagString: Untagged
@@ -82118,3 +82164,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &8898243130155943982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992449594113099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18abebe6663ccd042bd6ea77ba6fc9fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BigBubble: {fileID: 1102904701574282}
+  Idle_Bubbles_Variant: {fileID: 1795377229295282}
