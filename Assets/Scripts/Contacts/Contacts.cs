@@ -14,6 +14,7 @@ public class Contacts : MonoBehaviour
     public static Contacts Instance { get; private set; }
 
     [SerializeField] private List<ColorMaterialCongig> Materials;
+    [SerializeField] public Material ice;
 
     private void Awake()
     {
@@ -41,17 +42,35 @@ public class Contacts : MonoBehaviour
         }
     }
 
+    public static ColorMaterialCongig GetColorMatPipe(WaterTypeColor colorID)
+    {
+        if (Instance == null || Instance.Materials == null || Instance.Materials.Count == 0)
+            return null;
+
+        switch (colorID)
+        {
+            case WaterTypeColor.Red:
+                return Instance.Materials.Count > 1 ? Instance.Materials[1] : null;
+            case WaterTypeColor.Blue:
+                return Instance.Materials[0];
+            case WaterTypeColor.Green:
+                return Instance.Materials[2];
+            default:
+                return null;
+        }
+    }
+
 
     public static string HexColor(BlockColor blockColor)
     {
         switch (blockColor)
         {
             case BlockColor.Red:
-                return "#ff1e00d0";
+                return "#ff1e00ff";
             case BlockColor.Blue:
-                return "#0022ffd7";
+                return "#0022ffff";
             case BlockColor.Green:
-                return "#54fc06b9";
+                return "#51ff00ff";
             default: return "";
         }
     }

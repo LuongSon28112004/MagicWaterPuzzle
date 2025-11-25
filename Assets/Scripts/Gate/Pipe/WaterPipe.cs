@@ -41,6 +41,8 @@ public class WaterPipe : MonoBehaviour
 
     [Header("ref")]
     [SerializeField] private PipeLineCtrl pipeLineCtrl;
+    [SerializeField] private PipeLineHeadCtrl pipeLineHeadCtrl;
+    [SerializeField] private PipeIdleBubbleParticle pipeIdleBubbleParticle;
 
 
 
@@ -48,6 +50,7 @@ public class WaterPipe : MonoBehaviour
     public DirectionPipe DirectionPipe { get => directionPipe; set => directionPipe = value; }
     public List<WaterTypeCounter> WaterTypeCounters { get => waterTypeCounters; set => waterTypeCounters = value; }
     public PipeLineCtrl PipeLineCtrl { get => pipeLineCtrl; set => pipeLineCtrl = value; }
+    public PipeLineHeadCtrl PipeLineHeadCtrl { get => pipeLineHeadCtrl; set => pipeLineHeadCtrl = value; }
 
     public void InitColorPipe(List<GateColorInfo> colorOutputs)
     {
@@ -84,6 +87,28 @@ public class WaterPipe : MonoBehaviour
                 waterTypeCounters.RemoveAt(i);
             }
         }
+        UpdateIce();
     }
+
+    public void UpdateIce()
+    {
+        if (waterTypeCounters.Count > 0)
+        {
+            WaterTypeColor waterTypeColor = waterTypeCounters[0].waterTypeColor;
+            pipeLineHeadCtrl.ChangeColorIce(Contacts.GetColorMatPipe(waterTypeColor).Frame_01);
+        }
+        else
+        {
+            pipeLineHeadCtrl.ChangeColorIce(Contacts.Instance.ice);
+            pipeIdleBubbleParticle.StopParticle();
+        }
+    }
+
+    public void PlayParticleIdleBubble()
+    {
+        pipeIdleBubbleParticle.PlayParticle();
+    }
+
+
 
 }

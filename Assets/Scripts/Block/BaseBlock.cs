@@ -57,6 +57,7 @@ public abstract class BaseBlock : MonoBehaviour
     // check kéo
     [SerializeField] protected bool isGragging = false;
     [SerializeField] protected bool IsMove = true;
+    [SerializeField] protected bool isFill = false;
 
     // Hướng bị chặn
     protected Vector2 blockNormal = Vector2.zero;
@@ -213,11 +214,13 @@ public abstract class BaseBlock : MonoBehaviour
 
     protected IEnumerator ProcessTriggerWaterPipe(Collider2D other)
     {
+        if (isFill) yield break;
         WaterPipe waterPipe = other.GetComponentInParent<WaterPipe>();
         if (waterPipe == null) yield break;
         if (waterPipe.WaterTypeCounters.Count == 0) yield break;
         if (CheckSameColor(waterPipe.WaterTypeCounters[0].waterTypeColor, blockColorVisual))
         {
+            isFill = true;
             Debug.Log("Enter WaterPipe Color");
             // chặn không cho di chuyển nữa
             IsMove = false;
@@ -226,11 +229,14 @@ public abstract class BaseBlock : MonoBehaviour
             yield return StartCoroutine(FillPipeAndBlock(waterPipe));
             // thả di chuyển ra khi đã fill song
             IsMove = true;
+            isFill = false;
         }
     }
 
     private IEnumerator FillPipeAndBlock(WaterPipe waterPipe)
     {
+        //play sound
+        AudioManager.Instance.PlayOneShot("WaterPOURvar1S1", 1);
         StartCoroutine(waterPipe.PipeLineCtrl.FillColor());
         yield return StartCoroutine(ProcessFillWaterBlock(waterPipe));
     }

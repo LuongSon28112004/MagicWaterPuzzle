@@ -112,4 +112,28 @@ public class BlockTwo : BaseBlock
 
         return new Vector3(1, 0, 0);
     }
+
+    protected override void PlayParticleBlock()
+    {
+        base.PlayParticleBlock();
+        if (blockDirection == Direction.HORIZONTAL)
+        {
+            StartCoroutine(blockParticles[0].PlayParticle());
+            StartCoroutine(blockParticles[1].PlayParticle());
+        }
+        else
+        {
+            // xet truong hop 0 độ của capacity
+            if (currentCapacity == 1)
+            {
+                StartCoroutine(blockParticles[1].PlayParticle());
+            }
+            else if (currentCapacity == 2)
+            {
+                StartCoroutine(blockParticles[0].PlayParticle());
+                StartCoroutine(blockParticles[1].PlayParticle());
+            }
+        }
+
+    }
 }

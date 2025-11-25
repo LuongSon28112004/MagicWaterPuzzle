@@ -11,7 +11,7 @@ public class BlockParticle : MonoBehaviour
     {
         BigBubble.SetActive(true);
         Idle_Bubbles_Variant.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         BigBubble.SetActive(false);
     }
 

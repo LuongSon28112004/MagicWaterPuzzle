@@ -49,7 +49,7 @@ public class BlockTypeVariant : MonoBehaviour
     }
 
 
-    public IEnumerator FillWater(float valueFill, float duration = 1.5f)
+    public IEnumerator FillWater(float valueFill, float duration = 1f)
     {
         yield return StartCoroutine(FillWaterCoroutine(valueFill, duration));
     }

@@ -9854,13 +9854,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4370788007001161}
+  - component: {fileID: 2858943329248677052}
   m_Layer: 8
   m_Name: Idle_Bubbles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4370788007001161
 Transform:
   m_ObjectHideFlags: 0
@@ -9877,6 +9878,20 @@ Transform:
   - {fileID: 4296688486616400}
   m_Father: {fileID: 4315859828979193}
   m_LocalEulerAnglesHint: {x: 90, y: -0, z: 0}
+--- !u!114 &2858943329248677052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272700310731450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998162c911c128b44beadfe61e9f0a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IdleBubble: {fileID: 1272700310731450}
+  isPlayParticle: 0
 --- !u!1 &1331036025706527
 GameObject:
   m_ObjectHideFlags: 0
@@ -10093,6 +10108,7 @@ GameObject:
   - component: {fileID: 4374178652226923}
   - component: {fileID: 33534070037532448}
   - component: {fileID: 23246029566422837}
+  - component: {fileID: 8123166386137600778}
   m_Layer: 0
   m_Name: Pipeline_head
   m_TagString: Untagged
@@ -10171,6 +10187,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8123166386137600778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454556427694899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 470e97dcb59e86741b498522c03379fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IceMeshRenderer: {fileID: 23782412492815122}
 --- !u!1 &1463883654916435
 GameObject:
   m_ObjectHideFlags: 0
@@ -15052,6 +15081,8 @@ MonoBehaviour:
   directionPipe: 0
   waterTypeCounters: []
   pipeLineCtrl: {fileID: 7941075028286157384}
+  pipeLineHeadCtrl: {fileID: 8123166386137600778}
+  pipeIdleBubbleParticle: {fileID: 2858943329248677052}
 --- !u!1 &1622862974946445
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ public class BoardCtrl : MonoBehaviour
 
         CreateObjects();
         StartCoroutine(ScaleObjects(gridSlotInstances, gateInstances, blockInstances));
+
     }
 
 
@@ -155,8 +156,13 @@ public class BoardCtrl : MonoBehaviour
                 {
                     waterPipe.DirectionPipe = DirectionPipe.Left;
                 }
-                // init color
+                //init color
                 waterPipe.InitColorPipe(gate.colorOutputs);
+                // udpate ice
+                waterPipe.UpdateIce();
+                // play particle bubble
+                waterPipe.PlayParticleIdleBubble();
+                waterPipe.PipeLineCtrl.HideWater();
             }
             gameObject.transform.localScale = Vector3.zero;
             gateInstances.Add(gameObject.transform);
@@ -180,5 +186,14 @@ public class BoardCtrl : MonoBehaviour
             sequence.Join(b.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack));
         }
         yield return sequence.WaitForCompletion();
+        yield return new WaitForSeconds(0.1f);
+
+        //show water
+        AudioManager.Instance.PlayOneShot("intro", 1f);
+        foreach (var g in gateInstances)
+        {
+            WaterPipe waterPipe = g.GetComponent<WaterPipe>();
+            waterPipe.PipeLineCtrl.ShowWater();
+        }
     }
 }

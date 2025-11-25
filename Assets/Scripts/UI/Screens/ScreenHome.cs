@@ -14,7 +14,7 @@ public class ScreenHome : ScreenUI
     public void Start()
     {
         buttonPlay.onClick.AddListener(OnClickPlay);
-        scrollRect.onValueChanged.AddListener(OnScroll);
+        //scrollRect.onValueChanged.AddListener(OnScroll);
         ScrollToBottom();
     }
 

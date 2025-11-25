@@ -12,6 +12,68 @@ public class PipeLineCtrl : MonoBehaviour
     float[] fills;
     protected MaterialPropertyBlock materialPropertyBlock;
 
+    public void HideWater()
+    {
+        PipeLineWater.SetActive(false);
+    }
+
+    public void ShowWater()
+    {
+        PipeLineWater.SetActive(true);
+        StartCoroutine(FillUpAllColors());
+    }
+
+    // Show Color Water
+    // Fill tất cả layer từ 0 lên đến fills[i] lần lượt
+    public IEnumerator FillUpAllColors(float durationPerLayer = 0.2f)
+    {
+        // reset currentFillColor
+        currentFillColor = 1;
+
+        // Set tất cả layer Fill = 0 trước khi fill từng cái
+        MeshRenderer mesh = PipeLineWater.GetComponent<MeshRenderer>();
+        mesh.GetPropertyBlock(materialPropertyBlock);
+
+        for (int i = 0; i < maxColor; i++)
+        {
+            materialPropertyBlock.SetFloat("_Fill" + (i + 1), 0f);
+        }
+        mesh.SetPropertyBlock(materialPropertyBlock);
+
+        // fill từng lớp một
+        for (int i = 1; i <= maxColor; i++)
+        {
+            yield return StartCoroutine(FillUpColorCoroutine(i, durationPerLayer));
+        }
+    }
+
+    // Coroutine fill 1 layer từ 0 → fills[layerIndex-1]
+    private IEnumerator FillUpColorCoroutine(int layerIndex, float duration)
+    {
+        MeshRenderer mesh = PipeLineWater.GetComponent<MeshRenderer>();
+        mesh.GetPropertyBlock(materialPropertyBlock);
+
+        float targetFill = fills[layerIndex - 1];
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            float currentFill = Mathf.Lerp(0f, targetFill, t);
+
+            materialPropertyBlock.SetFloat("_Fill" + layerIndex, currentFill / 3);
+            mesh.SetPropertyBlock(materialPropertyBlock);
+
+            yield return null;
+        }
+
+        materialPropertyBlock.SetFloat("_Fill" + layerIndex, targetFill / 3);
+        mesh.SetPropertyBlock(materialPropertyBlock);
+    }
+
+
+    //Init Color
     public void InitColor(List<GateColorInfo> colorOutputs)
     {
         currentFillColor = 1;
@@ -54,7 +116,8 @@ public class PipeLineCtrl : MonoBehaviour
     }
 
 
-    public IEnumerator FillColor(float duration = 1.5f)
+    //Fill Color
+    public IEnumerator FillColor(float duration = 1f)
     {
         yield return StartCoroutine(FillColorCoroutine(currentFillColor, duration));
     }

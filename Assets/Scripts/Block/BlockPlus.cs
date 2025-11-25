@@ -6,7 +6,7 @@ public class BlockPlus : BaseBlock
     private void Awake()
     {
         blockType = BlockType.TWO;
-        maxCapacity = 4;
+        maxCapacity = 5;
         blockID = 12;
         currentCapacity = 0;
         rb = GetComponent<Rigidbody2D>();
@@ -89,9 +89,24 @@ public class BlockPlus : BaseBlock
     protected override void PlayParticleBlock()
     {
         base.PlayParticleBlock();
-        for (int i = 0; i < currentCapacity; i++)
+        if (currentCapacity == 1)
         {
-            StartCoroutine(blockParticles[i].PlayParticle());
+            StartCoroutine(blockParticles[0].PlayParticle());
+        }
+        else if (currentCapacity > 1 && currentCapacity < 5)
+        {
+            StartCoroutine(blockParticles[0].PlayParticle());
+            StartCoroutine(blockParticles[1].PlayParticle());
+            StartCoroutine(blockParticles[2].PlayParticle());
+            StartCoroutine(blockParticles[3].PlayParticle());
+        }
+        else if (currentCapacity >= 5)
+        {
+            StartCoroutine(blockParticles[0].PlayParticle());
+            StartCoroutine(blockParticles[1].PlayParticle());
+            StartCoroutine(blockParticles[2].PlayParticle());
+            StartCoroutine(blockParticles[3].PlayParticle());
+            StartCoroutine(blockParticles[4].PlayParticle());
         }
 
     }

@@ -151,7 +151,7 @@ public class AudioManager : MonoBehaviour
             musicSource.Play();
         }
 
-        musicSource.volume = AudioMusicSetting ? volume * Ratio_Sound : 0;
+        // musicSource.volume = AudioMusicSetting ? volume * Ratio_Sound : 0;
     }
 
     public void PlayBGMusicMain()
