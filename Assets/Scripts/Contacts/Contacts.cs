@@ -75,4 +75,18 @@ public class Contacts : MonoBehaviour
         }
     }
 
+    public static string HexColorSplash(WaterTypeColor waterTypeColor)
+    {
+        switch (waterTypeColor)
+        {
+            case WaterTypeColor.Red:
+                return "#ff353578";
+            case WaterTypeColor.Blue:
+                return "#4059fc84";
+            case WaterTypeColor.Green:
+                return "#53f9406b";
+            default: return "";
+        }
+    }
+
 }

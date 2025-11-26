@@ -119,6 +119,7 @@ public abstract class BaseBlock : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.gravityScale = 1;
         isGragging = false;
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
         transform.position = SnapToGrid(transform.position);
     }
 
@@ -224,21 +225,33 @@ public abstract class BaseBlock : MonoBehaviour
             Debug.Log("Enter WaterPipe Color");
             // chặn không cho di chuyển nữa
             IsMove = false;
-            Vector3 pos = transform.position;
-            transform.position = SnapToGrid(pos);
+            AudioManager.Instance.PlayOneShot("ClickButton", 1f);
+            Vector3 pos = SnapToGrid(transform.position);
+            transform.position = SnapToPipe(pos, waterPipe);
             yield return StartCoroutine(FillPipeAndBlock(waterPipe));
             // thả di chuyển ra khi đã fill song
             IsMove = true;
+            // mở fill ra để được phép fill nhưng cái tiếp theo
             isFill = false;
         }
+    }
+
+    protected virtual Vector3 SnapToPipe(Vector3 pos, WaterPipe waterPipe)
+    {
+        return Vector3.zero;
     }
 
     private IEnumerator FillPipeAndBlock(WaterPipe waterPipe)
     {
         //play sound
         AudioManager.Instance.PlayOneShot("WaterPOURvar1S1", 1);
-        StartCoroutine(waterPipe.PipeLineCtrl.FillColor());
+        StartCoroutine(waterPipe.FillColorWater(SetHeightWaterFall(waterPipe.DirectionPipe, waterPipe.transform.position)));
         yield return StartCoroutine(ProcessFillWaterBlock(waterPipe));
+    }
+
+    protected virtual float SetHeightWaterFall(DirectionPipe directionPipe, Vector3 pipeTransform)
+    {
+        return 1;
     }
 
     public IEnumerator ProcessFillWaterBlock(WaterPipe waterPipe)

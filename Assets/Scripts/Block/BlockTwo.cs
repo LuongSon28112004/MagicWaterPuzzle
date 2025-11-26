@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -136,4 +137,69 @@ public class BlockTwo : BaseBlock
         }
 
     }
+
+    // override Set Height Water
+    protected override float SetHeightWaterFall(DirectionPipe directionPipe, Vector3 pipeTransform)
+    {
+        if (blockDirection == Direction.HORIZONTAL)
+        {
+            return 0.2f;
+        }
+        else if (blockDirection == Direction.VERTICAL)
+        {
+            if (pipeTransform.y > transform.position.y)
+            {
+                return 0.6f;
+            }
+            else
+            {
+                return 0.2f;
+            }
+        }
+        return 1f;
+    }
+
+    //override Set SnapToPipe
+    protected override Vector3 SnapToPipe(Vector3 pos, WaterPipe waterPipe)
+    {
+        Vector3 posSnap = pos;
+        if (waterPipe.DirectionPipe == DirectionPipe.Down || waterPipe.DirectionPipe == DirectionPipe.Down)
+        {
+            if (blockDirection == Direction.VERTICAL)
+            {
+                posSnap.x = waterPipe.transform.position.x;
+            }
+            else
+            {
+                if (pos.x < waterPipe.transform.position.x)
+                {
+                    posSnap.x = waterPipe.transform.position.x - 1;
+                }
+                else
+                {
+                    posSnap.x = waterPipe.transform.position.x + 1;
+                }
+            }
+        }
+        else if (waterPipe.DirectionPipe == DirectionPipe.Left || waterPipe.DirectionPipe == DirectionPipe.Right)
+        {
+            if (blockDirection == Direction.HORIZONTAL)
+            {
+                posSnap.y = waterPipe.transform.position.y;
+            }
+            else
+            {
+                if (pos.y < waterPipe.transform.position.y)
+                {
+                    posSnap.y = waterPipe.transform.position.y - 1;
+                }
+                else
+                {
+                    posSnap.y = waterPipe.transform.position.y + 1;
+                }
+            }
+        }
+        return posSnap;
+    }
+
 }

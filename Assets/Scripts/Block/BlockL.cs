@@ -7,7 +7,7 @@ public class BlockL : BaseBlock
     private void Awake()
     {
         blockType = BlockType.TWO;
-        maxCapacity = 2;
+        maxCapacity = 4;
         blockID = 12;
         currentCapacity = 0;
         rb = GetComponent<Rigidbody2D>();
@@ -112,6 +112,262 @@ public class BlockL : BaseBlock
 
         return Vector3.zero;
     }
+
+    protected override void PlayParticleBlock()
+    {
+        if (blockDirection == Direction.VERTICAL)
+        {
+            if (transform.rotation.eulerAngles.x == 0 || transform.rotation.eulerAngles.x == 360)
+            {
+                if (currentCapacity > 0)
+                {
+                    StartCoroutine(blockParticles[0].PlayParticle());
+                }
+
+                if (currentCapacity > 1)
+                {
+                    StartCoroutine(blockParticles[1].PlayParticle());
+                }
+
+                if (currentCapacity > 2)
+                {
+                    StartCoroutine(blockParticles[2].PlayParticle());
+                    StartCoroutine(blockParticles[3].PlayParticle());
+                }
+            }
+        }
+
+    }
+
+
+    // Set Height Water
+    // override Set Height Water
+    protected override float SetHeightWaterFall(DirectionPipe directionPipe, Vector3 pipeTransform)
+    {
+        if (blockDirection == Direction.VERTICAL)
+        {
+            if (transform.rotation.eulerAngles.z == 0 || transform.rotation.eulerAngles.z == 360)
+            {
+                if (directionPipe == DirectionPipe.Left)
+                {
+                    return 0.2f;
+                }
+                else if (directionPipe == DirectionPipe.Right)
+                {
+                    if (transform.position.y < pipeTransform.y)
+                    {
+                        return 1;
+                    }
+                    else if (transform.position.y == pipeTransform.y)
+                    {
+                        return 0.6f;
+                    }
+                    else
+                    {
+                        return 0.2f;
+                    }
+                }
+                else if (directionPipe == DirectionPipe.Down)
+                {
+                    if (transform.position.x < pipeTransform.x)
+                    {
+                        return 1f;
+                    }
+                    else
+                    {
+                        return 0.2f;
+                    }
+                }
+
+            }
+        }
+        else if (blockDirection == Direction.HORIZONTAL)
+        {
+            if (transform.rotation.eulerAngles.z == 90 || transform.rotation.eulerAngles.z == -270)
+            {
+                if (directionPipe == DirectionPipe.Left)
+                {
+                    if (transform.position.y < pipeTransform.y)
+                    {
+                        return 0.6f;
+                    }
+                    else
+                    {
+                        return 0.2f;
+                    }
+                }
+                else if (directionPipe == DirectionPipe.Right)
+                {
+                    return 0.2f;
+                }
+                else if (directionPipe == DirectionPipe.Down)
+                {
+                    if (transform.position.x < pipeTransform.x)
+                    {
+                        return 0.6f;
+                    }
+                    else if (transform.position.y == pipeTransform.y)
+                    {
+                        return 0.2f;
+                    }
+                    else
+                    {
+                        return 0.2f;
+                    }
+                }
+            }
+            else if (transform.rotation.eulerAngles.z == -90 || transform.rotation.eulerAngles.z == 270)
+            {
+                if (directionPipe == DirectionPipe.Left)
+                {
+                    return 0.2f;
+                }
+                else if (directionPipe == DirectionPipe.Right)
+                {
+                    if (transform.position.y < pipeTransform.y)
+                    {
+                        return 0.6f;
+                    }
+                    else
+                    {
+                        return 0.2f;
+                    }
+                }
+                else if (directionPipe == DirectionPipe.Down)
+                {
+                    return 0.6f;
+                }
+            }
+        }
+        return 1f;
+    }
+
+    //override Set SnapToPipe
+    protected override Vector3 SnapToPipe(Vector3 pos, WaterPipe waterPipe)
+    {
+        Vector3 snapPos = pos;
+        if (blockDirection == Direction.VERTICAL)
+        {
+            if (transform.rotation.eulerAngles.z == 0 || transform.rotation.eulerAngles.z == 360)
+            {
+                if (waterPipe.DirectionPipe == DirectionPipe.Up)
+                {
+                    snapPos.x = waterPipe.transform.position.x - 1;
+                }
+                else if (waterPipe.DirectionPipe == DirectionPipe.Down)
+                {
+                    if (pos.x < waterPipe.transform.position.x)
+                    {
+                        snapPos.x = waterPipe.transform.position.x - 1;
+                    }
+                    else
+                    {
+                        snapPos.x = waterPipe.transform.position.x + 1;
+                    }
+                }
+                else if (waterPipe.DirectionPipe == DirectionPipe.Left)
+                {
+                    snapPos.y = waterPipe.transform.position.y - 2;
+                }
+                else
+                {
+                    if (pos.y < waterPipe.transform.position.y)
+                    {
+                        snapPos.y = waterPipe.transform.position.y - 2;
+                    }
+                    else if (pos.y == waterPipe.transform.position.y)
+                    {
+                        snapPos.y = waterPipe.transform.position.y;
+                    }
+                    else
+                    {
+                        snapPos.y = waterPipe.transform.position.y + 2;
+                    }
+                }
+
+            }
+        }
+        else if (blockDirection == Direction.HORIZONTAL)
+        {
+            if (transform.rotation.eulerAngles.z == 90 || transform.rotation.eulerAngles.z == -270)
+            {
+                if (waterPipe.DirectionPipe == DirectionPipe.Up)
+                {
+                    snapPos.x = waterPipe.transform.position.x + 2;
+                }
+                else if (waterPipe.DirectionPipe == DirectionPipe.Down)
+                {
+                    if (pos.x < waterPipe.transform.position.x)
+                    {
+                        snapPos.x = waterPipe.transform.position.x - 2;
+                    }
+                    else if (pos.x == waterPipe.transform.position.x)
+                    {
+                        snapPos.x = waterPipe.transform.position.x;
+                    }//sau nay co the phai chinh cho chuan hon
+                    else
+                    {
+                        snapPos.x = waterPipe.transform.position.x + 2;
+                    }
+                }
+                else if (waterPipe.DirectionPipe == DirectionPipe.Left)
+                {
+                    if (pos.y < waterPipe.transform.position.y)
+                    {
+                        snapPos.y = waterPipe.transform.position.y - 1;
+                    }
+                    else
+                    {
+                        snapPos.y = waterPipe.transform.position.y + 1;
+                    }
+                }
+                else
+                {
+                    snapPos.y = waterPipe.transform.position.y - 1;
+                }
+            }
+            else if (transform.rotation.eulerAngles.z == -90 || transform.rotation.eulerAngles.z == 270)
+            {
+                if (waterPipe.DirectionPipe == DirectionPipe.Up)
+                {
+                    if (pos.x < waterPipe.transform.position.x)
+                    {
+                        snapPos.x = waterPipe.transform.position.x - 2;
+                    }
+                    else if (pos.x == waterPipe.transform.position.x)
+                    {
+                        snapPos.x = waterPipe.transform.position.x;
+                    }//sau nay co the phai chinh cho chuan hon
+                    else
+                    {
+                        snapPos.x = waterPipe.transform.position.x + 2;
+                    }
+                }
+                else if (waterPipe.DirectionPipe == DirectionPipe.Down)
+                {
+                    snapPos.x = waterPipe.transform.position.x - 2;
+                }
+                else if (waterPipe.DirectionPipe == DirectionPipe.Left)
+                {
+                    snapPos.y = waterPipe.transform.position.y + 1;
+                }
+                else
+                {
+                    if (pos.y < waterPipe.transform.position.y)
+                    {
+                        snapPos.y = waterPipe.transform.position.y - 1;
+                    }
+                    else
+                    {
+                        snapPos.y = waterPipe.transform.position.y + 1;
+                    }
+                }
+            }
+        }
+        return snapPos;
+    }
+
+
 
 
 }

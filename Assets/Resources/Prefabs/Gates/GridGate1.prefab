@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4026402803383080}
+  - component: {fileID: 2245732949593419355}
   m_Layer: 0
   m_Name: Water_Splash_L
   m_TagString: Untagged
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 4398254100165941}
   m_Father: {fileID: 4236793074042066}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -90}
+--- !u!114 &2245732949593419355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005454325779696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831340b2626067e4ab52aeb16b9e7885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 23507055585343498}
 --- !u!1 &1021520831607340
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,7 +89,7 @@ GameObject:
   - component: {fileID: 33918705310707904}
   - component: {fileID: 23065227415877557}
   m_Layer: 0
-  m_Name: Side
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,7 +105,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0, y: 0, z: -0.4}
-  m_LocalScale: {x: 1, y: 1, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4370594177557169}
@@ -7171,7 +7185,7 @@ GameObject:
   - component: {fileID: 33693069938721199}
   - component: {fileID: 23507055585343498}
   m_Layer: 0
-  m_Name: Side
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7187,7 +7201,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: -0.4}
-  m_LocalScale: {x: 1, y: 1, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4026402803383080}
@@ -9988,6 +10002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4720954415375797}
+  - component: {fileID: 3379435985508801966}
   m_Layer: 0
   m_Name: Water_Splash_U
   m_TagString: Untagged
@@ -10011,6 +10026,19 @@ Transform:
   - {fileID: 4786375673528859}
   m_Father: {fileID: 4236793074042066}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3379435985508801966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392982620075814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5428e68285fe29542935005e33c828c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 23557145951658427}
 --- !u!1 &1415090225452892
 GameObject:
   m_ObjectHideFlags: 0
@@ -10039,7 +10067,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0, y: -0.5, z: -0.4}
-  m_LocalScale: {x: 1, y: 1, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4720954415375797}
@@ -10200,6 +10228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IceMeshRenderer: {fileID: 23782412492815122}
+  waterFall: {fileID: 8669544844903127159}
 --- !u!1 &1463883654916435
 GameObject:
   m_ObjectHideFlags: 0
@@ -20253,6 +20282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4236793074042066}
+  - component: {fileID: 8669544844903127159}
   m_Layer: 0
   m_Name: WaterFall
   m_TagString: Untagged
@@ -20278,6 +20308,26 @@ Transform:
   - {fileID: 4720954415375797}
   m_Father: {fileID: 4374178652226923}
   m_LocalEulerAnglesHint: {x: -90, y: -0, z: 0}
+--- !u!114 &8669544844903127159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753994995534805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a90f6eaf7cfd94a912b6239f4f7e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionWaterSplash: 0
+  SideSplashUp: {fileID: 1415090225452892}
+  splashUp: {fileID: 3379435985508801966}
+  SideSplashLeft: {fileID: 1062374911354437}
+  splashLeft: {fileID: 2245732949593419355}
+  SideSplashRight: {fileID: 1040806919068672}
+  splashRight: {fileID: 4813900740442537687}
+  isPlayParticle: 0
 --- !u!1 &1780959482364242
 GameObject:
   m_ObjectHideFlags: 0
@@ -20404,6 +20454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4370594177557169}
+  - component: {fileID: 4813900740442537687}
   m_Layer: 0
   m_Name: Water_Splash_R
   m_TagString: Untagged
@@ -20427,6 +20478,19 @@ Transform:
   - {fileID: 4819007782042223}
   m_Father: {fileID: 4236793074042066}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: 90}
+--- !u!114 &4813900740442537687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851164533605026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c002d764d6b2749468efb7fef7eca281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 23065227415877557}
 --- !u!1 &1851523479850126
 GameObject:
   m_ObjectHideFlags: 0

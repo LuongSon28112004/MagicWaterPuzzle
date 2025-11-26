@@ -143,23 +143,29 @@ public class BoardCtrl : MonoBehaviour
                 if (gate.rotation == new Vector3(0, 0, 0))
                 {
                     waterPipe.DirectionPipe = DirectionPipe.Up;
+                    waterPipe.PipeLineHeadCtrl.SetDirectionWaterFall(DirectionWaterSplash.UP);
                 }
                 else if (gate.rotation == new Vector3(0, 0, 90))
                 {
                     waterPipe.DirectionPipe = DirectionPipe.Right;
+                    waterPipe.PipeLineHeadCtrl.SetDirectionWaterFall(DirectionWaterSplash.RIGHT);
                 }
                 else if (gate.rotation == new Vector3(0, 0, 180))
                 {
                     waterPipe.DirectionPipe = DirectionPipe.Down;
+                    waterPipe.PipeLineHeadCtrl.SetDirectionWaterFall(DirectionWaterSplash.DOWN);
                 }
                 else if (gate.rotation == new Vector3(0, 0, 270))
                 {
                     waterPipe.DirectionPipe = DirectionPipe.Left;
+                    waterPipe.PipeLineHeadCtrl.SetDirectionWaterFall(DirectionWaterSplash.LEFT);
                 }
                 //init color
                 waterPipe.InitColorPipe(gate.colorOutputs);
                 // udpate ice
                 waterPipe.UpdateIce();
+                // update splash
+                waterPipe.UpdateColorSplash();
                 // play particle bubble
                 waterPipe.PlayParticleIdleBubble();
                 waterPipe.PipeLineCtrl.HideWater();

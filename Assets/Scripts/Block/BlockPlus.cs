@@ -110,4 +110,32 @@ public class BlockPlus : BaseBlock
         }
 
     }
+
+    // override Set Height Water Fall
+    protected override float SetHeightWaterFall(DirectionPipe directionPipe, Vector3 pipeTransform)
+    {
+        if (directionPipe == DirectionPipe.Down)
+        {
+            return 1f;
+        }
+        else
+        {
+            return 0.2f;
+        }
+    }
+
+    //override Set SnapToPipe
+    protected override Vector3 SnapToPipe(Vector3 pos, WaterPipe waterPipe)
+    {
+        Vector3 posSnap = pos;
+        if (waterPipe.DirectionPipe == DirectionPipe.Up || waterPipe.DirectionPipe == DirectionPipe.Down)
+        {
+            posSnap.x = waterPipe.transform.position.x;
+        }
+        else if (waterPipe.DirectionPipe == DirectionPipe.Left || waterPipe.DirectionPipe == DirectionPipe.Right)
+        {
+            posSnap.y = waterPipe.transform.position.y;
+        }
+        return posSnap;
+    }
 }

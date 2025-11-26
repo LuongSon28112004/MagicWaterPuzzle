@@ -6,7 +6,7 @@ public class BlockThreeSquare : BaseBlock
     private void Awake()
     {
         blockType = BlockType.TWO;
-        maxCapacity = 2;
+        maxCapacity = 9;
         blockID = 12;
         currentCapacity = 0;
         rb = GetComponent<Rigidbody2D>();
@@ -69,5 +69,100 @@ public class BlockThreeSquare : BaseBlock
     private Vector3 DirectionWater(Direction direction, Quaternion rotation)
     {
         return new Vector3(0, 0, 1);
+    }
+
+
+    // Override Play Particle
+    protected override void PlayParticleBlock()
+    {
+        base.PlayParticleBlock();
+        if (blockDirection == Direction.HORIZONTAL)
+        {
+            if (currentCapacity > 0)
+            {
+                StartCoroutine(blockParticles[0].PlayParticle());
+                StartCoroutine(blockParticles[1].PlayParticle());
+                StartCoroutine(blockParticles[2].PlayParticle());
+            }
+
+            if (currentCapacity > 3)
+            {
+                StartCoroutine(blockParticles[3].PlayParticle());
+                StartCoroutine(blockParticles[4].PlayParticle());
+                StartCoroutine(blockParticles[5].PlayParticle());
+            }
+            if (currentCapacity > 6)
+            {
+                StartCoroutine(blockParticles[6].PlayParticle());
+                StartCoroutine(blockParticles[7].PlayParticle());
+                StartCoroutine(blockParticles[8].PlayParticle());
+            }
+        }
+
+    }
+
+
+    // override Set Height Water
+    protected override float SetHeightWaterFall(DirectionPipe directionPipe, Vector3 pipeTransform)
+    {
+        if (directionPipe == DirectionPipe.Down)
+        {
+            return 1f;
+        }
+        else if (directionPipe == DirectionPipe.Left || directionPipe == DirectionPipe.Right)
+        {
+            if (transform.position.y < pipeTransform.y)
+            {
+                return 1f;
+            }
+            else if (transform.position.y == pipeTransform.y)
+            {
+                return 0.6f;
+            }
+            else return 0.2f;
+        }
+
+
+        return 1f;
+    }
+
+
+
+
+    //override Set SnapToPipe
+    protected override Vector3 SnapToPipe(Vector3 pos, WaterPipe waterPipe)
+    {
+        Vector3 posSnap = pos;
+        if (waterPipe.DirectionPipe == DirectionPipe.Up || waterPipe.DirectionPipe == DirectionPipe.Down)
+        {
+            if (pos.x < waterPipe.transform.position.x)
+            {
+                posSnap.x = waterPipe.transform.position.x - 2;
+            }
+            else if (pos.x == waterPipe.transform.position.x)
+            {
+                posSnap.x = waterPipe.transform.position.x;
+            }
+            else
+            {
+                posSnap.x = waterPipe.transform.position.x + 2;
+            }
+        }
+        else if (waterPipe.DirectionPipe == DirectionPipe.Left || waterPipe.DirectionPipe == DirectionPipe.Right)
+        {
+            if (pos.y < waterPipe.transform.position.y)
+            {
+                posSnap.y = waterPipe.transform.position.y - 2;
+            }
+            else if (pos.y == waterPipe.transform.position.y)
+            {
+                posSnap.y = waterPipe.transform.position.y;
+            }
+            else
+            {
+                posSnap.y = waterPipe.transform.position.y + 2;
+            }
+        }
+        return posSnap;
     }
 }

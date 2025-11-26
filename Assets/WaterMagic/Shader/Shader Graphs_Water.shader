@@ -98,3 +98,5 @@ Shader "Custom/BetterFlowWater_Upgraded"
         ENDCG
     }
 }
+
+//material.SetColor("_Tint", new Color(0f, 0.5f, 1f, 1f)); // xanh nước

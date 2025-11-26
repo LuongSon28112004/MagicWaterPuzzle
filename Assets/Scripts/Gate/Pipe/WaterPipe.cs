@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
@@ -88,8 +89,38 @@ public class WaterPipe : MonoBehaviour
             }
         }
         UpdateIce();
+        UpdateColorSplash();
     }
 
+    // FillColor
+    public IEnumerator FillColorWater(float Height)
+    {
+        PipeLineHeadCtrl.PlayParticleWaterFall(Height);
+        yield return StartCoroutine(PipeLineCtrl.FillColor());
+        PipeLineHeadCtrl.StopParticleWaterFall();
+    }
+
+
+    //Splash
+    public void UpdateColorSplash()
+    {
+        if (waterTypeCounters.Count > 0)
+        {
+            WaterTypeColor waterTypeColor = waterTypeCounters[0].waterTypeColor;
+            Color hexColor;
+            if (!ColorUtility.TryParseHtmlString(Contacts.HexColorSplash(waterTypeColor), out hexColor))
+            {
+                // fallback color if parsing fails
+                hexColor = Color.white;
+            }
+            PipeLineHeadCtrl.SetColorSplash(hexColor);
+        }
+
+    }
+
+
+
+    // ice
     public void UpdateIce()
     {
         if (waterTypeCounters.Count > 0)
@@ -104,9 +135,23 @@ public class WaterPipe : MonoBehaviour
         }
     }
 
+
+    // idle bubble
     public void PlayParticleIdleBubble()
     {
         pipeIdleBubbleParticle.PlayParticle();
+    }
+
+
+    // water fall
+    public void PlayParticleWaterFall(float Height)
+    {
+        pipeLineHeadCtrl.PlayParticleWaterFall(Height);
+    }
+
+    public void StopParticleWaterFall()
+    {
+        pipeLineHeadCtrl.StopParticleWaterFall();
     }
 
 
