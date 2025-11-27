@@ -26,5 +26,10 @@ public class TimerAndLevel : MonoBehaviour
         timerFreeze.Hide();
     }
 
+    public void UpdateTimer(string value)
+    {
+        timer.SetTimer(value);
+    }
+
 
 }

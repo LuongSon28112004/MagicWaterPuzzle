@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using DG.Tweening;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class ScreenGamePlay : ScreenUI
@@ -16,15 +15,28 @@ public class ScreenGamePlay : ScreenUI
     [Header("Booster")]
     [SerializeField] ListBooster listBooster;
 
+    [Header("CountDown Timer")]
+    [SerializeField] TimerCoutDown timer;
+    [SerializeField] FreezeCountDown freezeTimer;
+
+    private void OnEnable()
+    {
+        CustomeEventSystem.Instance.StartPlayAction += StartTimer;
+    }
+
+    private void OnDisable()
+    {
+        CustomeEventSystem.Instance.StartPlayAction -= StartTimer;
+    }
+
 
 
     private void Start()
     {
         StartCoroutine(AnimationIntro());
         AddEventListener();
+        InitTimerCountDown();
     }
-
-
     private IEnumerator AnimationIntro()
     {
         RectTransform rectTop = top.GetComponent<RectTransform>();
@@ -50,4 +62,42 @@ public class ScreenGamePlay : ScreenUI
         freeze.Show();
         timerAndLevel.StartFreeze();
     }
+
+    // timer
+    private void InitTimerCountDown()
+    {
+        timer.Init(20);
+        timerAndLevel.UpdateTimer(formatTime(20));
+
+    }
+
+    public void StartTimer()
+    {
+        timer.StartCountDownTimer();
+        timer.OnTick += (timer) =>
+        {
+            UpdateTimer(timer);
+        };
+    }
+
+    public void UpdateTimer(float timeLeft)
+    {
+        timerAndLevel.UpdateTimer(formatTime(timeLeft));
+    }
+
+    private string formatTime(float timeLeft)
+    {
+        TimeSpan ts = TimeSpan.FromSeconds(timeLeft);
+
+        //Nếu bạn chỉ muốn mm:ss
+        string formatted = ts.ToString(@"mm\:ss");
+
+        // Nếu muốn hh:mm (không dùng giây)
+        //string formatted = ts.ToString(@"hh\:mm");
+        return formatted;
+    }
+
+
+
+
 }

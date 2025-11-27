@@ -112,6 +112,8 @@ public abstract class BaseBlock : MonoBehaviour
     {
         zCoord = Camera.main.WorldToScreenPoint(transform.position).z;
         offset = transform.position - GetMouseWorldPos();
+        // bắt đầu game nếu có lượt kéo
+        LevelManager.Instance.StartPlay();
     }
 
     void OnMouseUp()
@@ -225,7 +227,6 @@ public abstract class BaseBlock : MonoBehaviour
             Debug.Log("Enter WaterPipe Color");
             // chặn không cho di chuyển nữa
             IsMove = false;
-            AudioManager.Instance.PlayOneShot("ClickButton", 1f);
             Vector3 pos = SnapToGrid(transform.position);
             transform.position = SnapToPipe(pos, waterPipe);
             yield return StartCoroutine(FillPipeAndBlock(waterPipe));

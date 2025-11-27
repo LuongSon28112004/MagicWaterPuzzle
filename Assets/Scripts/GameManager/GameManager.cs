@@ -67,10 +67,10 @@ public class GameManager : SingletonDDOL<GameManager>
                 UIManager.Instance.ShowPopup<PopupTab>(null);
                 break;
             case GameState.Menu:
-                yield return LoadSceneAndWait("UIMain", () =>
+                yield return LoadSceneAndWait("Init", () =>
                 {
-                    // UIManager.Instance.ShowScreen<ScreenMainMenu>();
-                    // UIManager.Instance.ShowPopup<PopupTab>(null);
+                    UIManager.Instance.ShowScreen<ScreenHome>();
+                    UIManager.Instance.ShowPopup<PopupTab>(null);
                 });
                 break;
             case GameState.GamePlay:

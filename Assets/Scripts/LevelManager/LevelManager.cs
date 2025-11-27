@@ -2,14 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using master;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private LevelData levelData;
     [SerializeField] private BoardCtrl boardCtrl;
     [SerializeField] private BoxCollider2D levelBoundsCollider;
+    [SerializeField] private bool startPlay = false;
 
     void Start()
     {
@@ -18,6 +20,15 @@ public class LevelManager : MonoBehaviour
         bounds.size = levelBoundsCollider.bounds.size;
         CameraManager.Instance.FitCameraToBounds3D(bounds);
         boardCtrl.LoadLevel(levelData);
+    }
+
+    public void StartPlay()
+    {
+        if (!startPlay)
+        {
+            startPlay = true;
+            CustomeEventSystem.Instance.StartPlay();
+        }
     }
 
 

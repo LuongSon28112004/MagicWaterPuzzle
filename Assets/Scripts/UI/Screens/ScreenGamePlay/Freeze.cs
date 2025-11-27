@@ -18,17 +18,17 @@ public class Freeze : MonoBehaviour
         {
             RectTransform rect = icon.GetComponent<RectTransform>();
 
-            // Reset rotation để đảm bảo về đúng góc ban đầu
-            rect.rotation = Quaternion.identity;
+            // Đặt góc ban đầu về -15 độ
+            rect.rotation = Quaternion.Euler(0, 0, -15f);
 
-            // Tạo tween xoay qua lại
-            float duration = UnityEngine.Random.Range(2f, 3f);
+            // Tween xoay qua lại giữa -15 và 15
             rect
-                .DORotate(new Vector3(0, 0, 15f), duration)
+                .DORotate(new Vector3(0, 0, 15f), 2f)
                 .SetEase(Ease.InOutSine)
                 .SetLoops(-1, LoopType.Yoyo);
         }
     }
+
 
 
     public void Show()
