@@ -126,11 +126,14 @@ public class BlockL : BaseBlock
 
                 if (currentCapacity > 1)
                 {
+                    StartCoroutine(blockParticles[0].PlayParticle());
                     StartCoroutine(blockParticles[1].PlayParticle());
                 }
 
                 if (currentCapacity > 2)
                 {
+                    StartCoroutine(blockParticles[0].PlayParticle());
+                    StartCoroutine(blockParticles[1].PlayParticle());
                     StartCoroutine(blockParticles[2].PlayParticle());
                     StartCoroutine(blockParticles[3].PlayParticle());
                 }

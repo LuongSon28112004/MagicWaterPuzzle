@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 3062135263459907088}
   - component: {fileID: 2322820146064284381}
   - component: {fileID: 7995490210239003939}
+  - component: {fileID: 8052908585293539987}
   m_Layer: 5
   m_Name: FreezeBooster
   m_TagString: Untagged
@@ -233,6 +234,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8052908585293539987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217489497644950211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caa0c5e88d1f3d459f2ce588289bc0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 6571703200246492330}
+  Icon: {fileID: 7657118277797562193}
+  PanelCount: {fileID: 8526508164489899337}
+  PanelPlus: {fileID: 4274429011320522054}
+  button: {fileID: 7995490210239003939}
 --- !u!1 &475368840301275297
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,6 +890,7 @@ GameObject:
   - component: {fileID: 8197612582047895109}
   - component: {fileID: 853777966147669626}
   - component: {fileID: 741974135500160097}
+  - component: {fileID: 4328635420394779516}
   m_Layer: 5
   m_Name: BombBooster
   m_TagString: Untagged
@@ -981,6 +1000,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4328635420394779516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618338108507184308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 666f00779a3afd944aa352e16ebdfa1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 641867924660077361}
+  Icon: {fileID: 2993183852630748782}
+  PanelCount: {fileID: 3182858089383711518}
+  PanelPlus: {fileID: 1962660598848167270}
+  button: {fileID: 741974135500160097}
 --- !u!1 &1634339615698329280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,6 +1254,7 @@ GameObject:
   - component: {fileID: 6424774364465369254}
   - component: {fileID: 8071642369775441887}
   - component: {fileID: 6800352961899488304}
+  - component: {fileID: 8107456456473894336}
   m_Layer: 5
   m_Name: HammerBooster
   m_TagString: Untagged
@@ -1327,6 +1364,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8107456456473894336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015615161770402897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00033d5faa7b9ee4fb77e34d6c86e9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 6452161365740717498}
+  Icon: {fileID: 132492612447720962}
+  PanelCount: {fileID: 659239696609805586}
+  PanelPlus: {fileID: 8586978319546343275}
+  button: {fileID: 6800352961899488304}
 --- !u!1 &2035224303236527963
 GameObject:
   m_ObjectHideFlags: 0
@@ -4928,8 +4982,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FreezeButton: {fileID: 7995490210239003939}
-  BombButton: {fileID: 0}
-  HammerButton: {fileID: 0}
+  BombButton: {fileID: 741974135500160097}
+  HammerButton: {fileID: 6800352961899488304}
+  freezeBoosterConfig: {fileID: 8052908585293539987}
+  hammerBoosterConfig: {fileID: 8107456456473894336}
+  bombBoosterConfig: {fileID: 4328635420394779516}
 --- !u!1 &9145131442074085876
 GameObject:
   m_ObjectHideFlags: 0
@@ -4988,7 +5045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.8862745}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

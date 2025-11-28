@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -163,7 +164,7 @@ public class BlockTwo : BaseBlock
     protected override Vector3 SnapToPipe(Vector3 pos, WaterPipe waterPipe)
     {
         Vector3 posSnap = pos;
-        if (waterPipe.DirectionPipe == DirectionPipe.Down || waterPipe.DirectionPipe == DirectionPipe.Down)
+        if (waterPipe.DirectionPipe == DirectionPipe.Down || waterPipe.DirectionPipe == DirectionPipe.Up)
         {
             if (blockDirection == Direction.VERTICAL)
             {
@@ -201,5 +202,7 @@ public class BlockTwo : BaseBlock
         }
         return posSnap;
     }
+
+    //override check done filling
 
 }

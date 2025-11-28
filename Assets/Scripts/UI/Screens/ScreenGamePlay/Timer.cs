@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 
@@ -14,8 +15,16 @@ public class Timer : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void SetTimer(string value)
+    public void SetTimer(float value)
     {
-        timer.text = value;
+        if (value <= 30)
+        {
+            timer.color = Color.red;
+        }
+        else
+        {
+            timer.color = Color.white;
+        }
+        timer.text = Contacts.formatTime(value);
     }
 }

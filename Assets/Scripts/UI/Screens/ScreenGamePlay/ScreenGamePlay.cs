@@ -36,6 +36,7 @@ public class ScreenGamePlay : ScreenUI
         StartCoroutine(AnimationIntro());
         AddEventListener();
         InitTimerCountDown();
+        InActiveBooster();
     }
     private IEnumerator AnimationIntro()
     {
@@ -61,14 +62,34 @@ public class ScreenGamePlay : ScreenUI
     {
         freeze.Show();
         timerAndLevel.StartFreeze();
+        timer.PauseCountDownTimer();
+        freezeTimer.Init(20);
+        freezeTimer.StartCountDownTimer();
+        freezeTimer.OnTick += (timerr) =>
+        {
+            UpdateFreezeTimer(timerr, timer.TimeLeft);
+        };
+
+    }
+
+    public void UpdateFreezeTimer(float timeLeft, float timerTimeleft)
+    {
+        timerAndLevel.UpdateFreezeTimer(timeLeft, timerTimeleft);
     }
 
     // timer
     private void InitTimerCountDown()
     {
-        timer.Init(20);
-        timerAndLevel.UpdateTimer(formatTime(20));
+        timer.Init(180);
+        timerAndLevel.UpdateTimer(180f);
 
+    }
+
+    public void ResumeTimer()
+    {
+        timer.ResumeCountDownTimer();
+        timerAndLevel.EndFreeze();
+        freeze.Hide();
     }
 
     public void StartTimer()
@@ -78,26 +99,22 @@ public class ScreenGamePlay : ScreenUI
         {
             UpdateTimer(timer);
         };
+        ActiveBooster();
     }
 
     public void UpdateTimer(float timeLeft)
     {
-        timerAndLevel.UpdateTimer(formatTime(timeLeft));
+        timerAndLevel.UpdateTimer(timeLeft);
     }
 
-    private string formatTime(float timeLeft)
+    private void InActiveBooster()
     {
-        TimeSpan ts = TimeSpan.FromSeconds(timeLeft);
-
-        //Nếu bạn chỉ muốn mm:ss
-        string formatted = ts.ToString(@"mm\:ss");
-
-        // Nếu muốn hh:mm (không dùng giây)
-        //string formatted = ts.ToString(@"hh\:mm");
-        return formatted;
+        listBooster.InActiveAllBooster();
     }
 
-
-
+    private void ActiveBooster()
+    {
+        listBooster.ActiveAllBooster();
+    }
 
 }

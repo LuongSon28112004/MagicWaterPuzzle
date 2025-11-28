@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.WebSockets;
 using DG.Tweening;
 using UnityEngine;
 
@@ -277,7 +276,94 @@ public abstract class BaseBlock : MonoBehaviour
         }
 
         waterPipe.UpdateListWaterTypeCounter();
+        StartCoroutine(CheckDoneFilling());
+
     }
+
+    // check filling
+    protected virtual IEnumerator CheckDoneFilling()
+    {
+        if (currentCapacity < maxCapacity) yield break;
+
+        SetNonClick();
+        blockVisual.soapBubbleEmitterVariant.PlayParticle();
+        yield return new WaitForSeconds(0.05f);
+
+        int dir = UnityEngine.Random.Range(0, 2) == 0 ? -1 : 1;
+        float distance = 30f;
+
+        Vector3 start = transform.position;
+        Vector3 up1 = start + new Vector3(0, 0.5f, -2f);
+
+        Vector3 left = up1 + new Vector3(-0.1f, 0, -2f);
+        Vector3 right = left + new Vector3(0.1f, 0, -2f);
+
+
+        Vector3 exit = right + new Vector3(dir * distance, 0, -distance);
+
+        // Tăng độ phân giải path => cực mượt
+        int resolution = 40;
+
+        Vector3[] path = new Vector3[]
+        {
+        start,
+        up1,
+        left,
+        right,
+        exit
+        };
+        if (dir == -1)
+        {
+            path = new Vector3[]
+            {
+            start,
+            up1,
+            right,
+            left,
+            exit
+            };
+        }
+
+        transform.DOPath(
+            path,
+            2.5f,
+            PathType.CatmullRom,
+            PathMode.Full3D,
+            resolution,
+            Color.white
+        )
+        .SetEase(Ease.InQuint);
+        // Tăng tốc mạnh về cuối
+
+        transform.DOScale(new Vector3(2.1f, 2.1f, 2.1f), 2.5f)
+            .SetEase(Ease.InQuint);
+        yield return new WaitForSeconds(0.4f);
+        blockVisual.soapBubbleEmitterVariant.StopParticle();
+        yield return new WaitForSeconds(2.1f);
+
+        LevelManager.Instance.boardCtrl.BlockInstances.Remove(transform);
+        if (LevelManager.Instance.boardCtrl.BlockInstances.Count == 0)
+        {
+            //Show Popup Win
+            AudioManager.Instance.PlayOneShot("Win", 1f);
+            UIManager.Instance.ShowPopup<PopupWin>(null);
+        }
+
+
+    }
+
+    // tắt click and collider
+    protected void SetNonClick()
+    {
+        IsMove = false;
+        for (int i = 0; i < blockParticles.Count; i++)
+        {
+            blockParticles[i].SetNonClick();
+        }
+    }
+
+
+    ////////////////////////////////////////////////
 
     public IEnumerator ProcessFillWaterPipe(WaterPipe waterPipe)
     {

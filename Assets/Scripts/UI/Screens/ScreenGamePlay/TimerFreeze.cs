@@ -15,13 +15,21 @@ public class TimerFreeze : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void SetTimer(string value)
+    public void SetTimer(float value)
     {
-        timer.text = value;
+        if (value <= 30)
+        {
+            timer.color = Color.red;
+        }
+        else
+        {
+            timer.color = Color.white;
+        }
+        timer.text = Contacts.formatTime(value);
     }
 
-    public void SetTimerCountDown(string value)
+    public void SetTimerCountDown(float value)
     {
-        timerCountDown.text = value;
+        timerCountDown.text = Contacts.formatTime(value);
     }
 }

@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a51125fda3652b4eb284f373447ffde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCache: 0
+  isCache: 1
   ButtonClose: {fileID: 0}
   animType: 0
   mainPopUp: {fileID: 0}

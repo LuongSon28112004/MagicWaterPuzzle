@@ -6,5 +6,6 @@ public class TimerCoutDown : CountdownTimer
     {
         base.StopCountDownTimer();
         UIManager.Instance.ShowPopup<PopupOutOfTime>(null);
+        AudioManager.Instance.PlayOneShot("Lose", 1f);
     }
 }

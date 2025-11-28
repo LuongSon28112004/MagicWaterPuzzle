@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class ColorMaterialCongig
@@ -88,5 +90,22 @@ public class Contacts : MonoBehaviour
             default: return "";
         }
     }
+
+    public static string formatTime(float timeLeft)
+    {
+        TimeSpan ts = TimeSpan.FromSeconds(timeLeft);
+
+        if (timeLeft > 60f)
+        {
+            // Hiện dạng mm:ss
+            return ts.ToString(@"mm\:ss");
+        }
+        else
+        {
+            // Hiện chỉ giây (ss)
+            return ts.ToString(@"ss");
+        }
+    }
+
 
 }

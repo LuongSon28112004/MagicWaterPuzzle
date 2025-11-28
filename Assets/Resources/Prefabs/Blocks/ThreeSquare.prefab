@@ -73772,6 +73772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockTypeVariant: {fileID: 3330725727881079439}
+  soapBubbleEmitterVariant: {fileID: 4345021900392384331}
 --- !u!1 &1500771108425465
 GameObject:
   m_ObjectHideFlags: 0
@@ -149515,6 +149516,7 @@ GameObject:
   - component: {fileID: 1022085673076427500}
   - component: {fileID: 5963447224211843511}
   - component: {fileID: 7808076746824470755}
+  - component: {fileID: 4345021900392384331}
   m_Layer: 9
   m_Name: SoapBubbleEmitter Variant
   m_TagString: Untagged
@@ -151930,6 +151932,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4345021900392384331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147592586918042868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9df7ec0e7cd8740af31072b150d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystem: {fileID: 5963447224211843511}
 --- !u!1 &5535486044275643371
 GameObject:
   m_ObjectHideFlags: 0

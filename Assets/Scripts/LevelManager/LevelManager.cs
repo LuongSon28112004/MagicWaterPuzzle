@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private LevelData levelData;
-    [SerializeField] private BoardCtrl boardCtrl;
+    [SerializeField] public BoardCtrl boardCtrl;
     [SerializeField] private BoxCollider2D levelBoundsCollider;
     [SerializeField] private bool startPlay = false;
 

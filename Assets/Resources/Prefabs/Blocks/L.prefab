@@ -34158,7 +34158,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 1
-      minScalar: 0.3
+      minScalar: 0.7
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -34609,7 +34609,7 @@ ParticleSystem:
         m_RotationOrder: 0
     y:
       serializedVersion: 2
-      minMaxState: 1
+      minMaxState: 2
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -34644,7 +34644,7 @@ ParticleSystem:
         m_RotationOrder: 4
     z:
       serializedVersion: 2
-      minMaxState: 1
+      minMaxState: 2
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -41830,8 +41830,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18abebe6663ccd042bd6ea77ba6fc9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BigBubble: {fileID: 1722689619817851}
-  Idle_Bubbles_Variant: {fileID: 1229515892834848}
+  BigBubble: {fileID: 1152283365494470}
+  Idle_Bubbles_Variant: {fileID: 1870545332762817}
 --- !u!1 &1588237064849014
 GameObject:
   m_ObjectHideFlags: 0
@@ -69891,6 +69891,7 @@ GameObject:
   - component: {fileID: 4131025076627375}
   - component: {fileID: 198993620641255056}
   - component: {fileID: 199357445328961670}
+  - component: {fileID: 4033926232177573902}
   m_Layer: 9
   m_Name: SoapBubbleEmitter Variant
   m_TagString: Untagged
@@ -69979,8 +69980,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 4
-      minScalar: 3
+      scalar: 8
+      minScalar: 7
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -70061,8 +70062,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.6
-      minScalar: 0.4
+      scalar: 1
+      minScalar: 0.8
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -72306,6 +72307,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4033926232177573902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805188088113314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9df7ec0e7cd8740af31072b150d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystem: {fileID: 198993620641255056}
 --- !u!1 &1805565979445220
 GameObject:
   m_ObjectHideFlags: 0
@@ -77938,6 +77952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockTypeVariant: {fileID: 1504546936883357804}
+  soapBubbleEmitterVariant: {fileID: 4033926232177573902}
 --- !u!1 &1896928650585087
 GameObject:
   m_ObjectHideFlags: 0

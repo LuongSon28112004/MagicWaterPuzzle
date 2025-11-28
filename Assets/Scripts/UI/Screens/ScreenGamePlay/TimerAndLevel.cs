@@ -7,11 +7,14 @@ public class TimerAndLevel : MonoBehaviour
     public TimerFreeze timerFreeze;
 
 
+    // change TextLevel
     public void SetTextLevel(int level)
     {
         textLevel.ChangeLevel(level);
     }
 
+
+    // freeze timer
     public void StartFreeze()
     {
         AudioManager.Instance.PlayOneShot("Freeze", 1f);
@@ -26,7 +29,14 @@ public class TimerAndLevel : MonoBehaviour
         timerFreeze.Hide();
     }
 
-    public void UpdateTimer(string value)
+    public void UpdateFreezeTimer(float value, float timerTimeLeft)
+    {
+        timerFreeze.SetTimerCountDown(value);
+        timerFreeze.SetTimer(timerTimeLeft);
+    }
+
+    //timer
+    public void UpdateTimer(float value)
     {
         timer.SetTimer(value);
     }

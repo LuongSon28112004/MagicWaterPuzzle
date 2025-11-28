@@ -16,6 +16,8 @@ public class BoardCtrl : MonoBehaviour
     [SerializeField] private List<Transform> gateInstances = new List<Transform>();
     [SerializeField] private List<Transform> blockInstances = new List<Transform>();
 
+    public List<Transform> BlockInstances { get => blockInstances; set => blockInstances = value; }
+
 
     // Method to load level based on levelData
     public void LoadLevel(LevelData levelData)

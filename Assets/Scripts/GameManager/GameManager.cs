@@ -79,7 +79,7 @@ public class GameManager : SingletonDDOL<GameManager>
                 {
                     // UIManager.Instance.HideAllPopup();
                     // LevelManager.Instance.Init();
-                    // UIManager.Instance.ShowScreen<ScreenGamePlay>();
+                    UIManager.Instance.ShowScreen<ScreenGamePlay>();
                 });
                 break;
             case GameState.Win:
