@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class BlockTypeVariant : MonoBehaviour
 {
+    [Header("BlockType Variant Component")]
     public GameObject BlockVaritant;
     public GameObject Water;
     public MeshRenderer waterMeshRenderer;
     public MeshFilter waterMeshFilter;
     protected MaterialPropertyBlock materialPropertyBlock;
+
+    // Dir
+    public BlockMoveDir blockMoveDir;
 
 
     public void AddVisual(BlockColor color)
@@ -108,6 +112,13 @@ public class BlockTypeVariant : MonoBehaviour
 
         materialPropertyBlock.SetFloat("_MinValue", minV);
         materialPropertyBlock.SetFloat("_MaxValue", maxV);
+    }
+
+
+    // add Dir Move
+    public void SetDirMove(MoveDir moveDir, Direction blockDirection)
+    {
+        blockMoveDir.InitMoveDirection(moveDir, blockDirection);
     }
 
 

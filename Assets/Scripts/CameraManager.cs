@@ -73,7 +73,7 @@ public class CameraManager : Singleton<CameraManager>
         Vector3 cameraCenter = targetBounds.center;
         mainCamera.transform.position = cameraCenter + (mainCamera.transform.rotation * Vector3.back) * Mathf.Abs(mainCamera.transform.position.z);
         Vector3 pos = mainCamera.transform.position + mainCamera.transform.forward * -60;
-        pos.y = -9;
+        pos.y = -13;
         mainCamera.transform.position = pos;
     }
 }

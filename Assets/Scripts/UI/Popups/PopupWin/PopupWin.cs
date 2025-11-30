@@ -74,8 +74,8 @@ public class PopupWin : PopupUI
         rect
             .DORotate(new Vector3(0, 0, -360), 3f, RotateMode.FastBeyond360)
             .SetEase(Ease.Linear)
-            .SetLoops(-1)
-            .Pause();  // Quan trọng: dừng trước, chỉ chạy sau khi object hiện lên
+            .SetLoops(-1);
+        //.Pause();  // Quan trọng: dừng trước, chỉ chạy sau khi object hiện lên
     }
 
     // -----------------------------

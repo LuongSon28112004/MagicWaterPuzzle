@@ -55,7 +55,6 @@ public abstract class BaseBlock : MonoBehaviour
     //Move
     [SerializeField] protected Vector3 offset;
     [SerializeField] protected float zCoord;
-    [SerializeField] private BlockMoveDir blockMoveDirection;
 
     // ref
     [SerializeField] protected BlockVisual blockVisual;
@@ -80,7 +79,7 @@ public abstract class BaseBlock : MonoBehaviour
     // Move Direction
     public void AddMoveDirection(MoveDir moveDir)
     {
-        blockMoveDirection.InitMoveDirection(moveDir, blockDirection);
+        blockVisual.blockTypeVariant.blockMoveDir.InitMoveDirection(moveDir, blockDirection);
     }
 
     // visual
@@ -190,11 +189,11 @@ public abstract class BaseBlock : MonoBehaviour
     {
         Vector3 mousePoint = Input.mousePosition;
         mousePoint.z = zCoord;
-        if (blockMoveDirection.BlockMoveDirection == BlockMoveDirection.HORIZONTAL)
+        if (blockVisual.blockTypeVariant.blockMoveDir.BlockMoveDirection == BlockMoveDirection.HORIZONTAL)
         {
             mousePoint.y = 0;
         }
-        else if (blockMoveDirection.BlockMoveDirection == BlockMoveDirection.VERTICAL)
+        else if (blockVisual.blockTypeVariant.blockMoveDir.BlockMoveDirection == BlockMoveDirection.VERTICAL)
         {
             mousePoint.x = 0;
         }

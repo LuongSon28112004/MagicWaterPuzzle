@@ -2712,6 +2712,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigBubble: {fileID: 1020382540603292}
   Idle_Bubbles_Variant: {fileID: 1119257224527518}
+  boxCollider: {fileID: 0}
+  boxTriggerCollider: {fileID: 0}
 --- !u!1 &1014526282947310
 GameObject:
   m_ObjectHideFlags: 0
@@ -13373,13 +13375,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4881275047313118}
+  - component: {fileID: 2643292228742684061}
   m_Layer: 0
   m_Name: Directional
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4881275047313118
 Transform:
   m_ObjectHideFlags: 0
@@ -13397,6 +13400,21 @@ Transform:
   - {fileID: 4297058838557969}
   m_Father: {fileID: 4517096614691666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2643292228742684061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123874059340656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8acda27af6e7da946abf79202bfb8002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockMoveDirection: 0
+  horizontal: {fileID: 4297058838557969}
+  vertical: {fileID: 4368093871541766}
 --- !u!1 &1125461039422503
 GameObject:
   m_ObjectHideFlags: 0
@@ -27142,6 +27160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigBubble: {fileID: 1095856344222448}
   Idle_Bubbles_Variant: {fileID: 1204024694314409}
+  boxCollider: {fileID: 0}
+  boxTriggerCollider: {fileID: 0}
 --- !u!1 &1236750967695419
 GameObject:
   m_ObjectHideFlags: 0
@@ -34825,6 +34845,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigBubble: {fileID: 1346633893590442}
   Idle_Bubbles_Variant: {fileID: 1419023805657558}
+  boxCollider: {fileID: 0}
+  boxTriggerCollider: {fileID: 0}
 --- !u!1 &1283228776731221
 GameObject:
   m_ObjectHideFlags: 0
@@ -75435,7 +75457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4297058838557969
 Transform:
   m_ObjectHideFlags: 0
@@ -76439,6 +76461,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigBubble: {fileID: 1923174525127407}
   Idle_Bubbles_Variant: {fileID: 1425244867317130}
+  boxCollider: {fileID: 0}
+  boxTriggerCollider: {fileID: 0}
 --- !u!1 &1727588737622139
 GameObject:
   m_ObjectHideFlags: 0
@@ -76771,7 +76795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4368093871541766
 Transform:
   m_ObjectHideFlags: 0
@@ -80716,6 +80740,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigBubble: {fileID: 1659484366207176}
   Idle_Bubbles_Variant: {fileID: 1084388211475101}
+  boxCollider: {fileID: 0}
+  boxTriggerCollider: {fileID: 0}
 --- !u!1 &1841707498166449
 GameObject:
   m_ObjectHideFlags: 0
@@ -88986,6 +89012,8 @@ MonoBehaviour:
   BlockVaritant: {fileID: 1543856319737451}
   Water: {fileID: 1951493988742100}
   waterMeshRenderer: {fileID: 23977561985492456}
+  waterMeshFilter: {fileID: 33808093274490260}
+  blockMoveDir: {fileID: 2643292228742684061}
 --- !u!1 &1941742612367627
 GameObject:
   m_ObjectHideFlags: 0

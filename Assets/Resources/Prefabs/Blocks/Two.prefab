@@ -15758,6 +15758,7 @@ MonoBehaviour:
   Water: {fileID: 1110584998208262}
   waterMeshRenderer: {fileID: 23572219187367137}
   waterMeshFilter: {fileID: 33200636308146929}
+  blockMoveDir: {fileID: 8253024465878625544}
 --- !u!1 &1388028585914235
 GameObject:
   m_ObjectHideFlags: 0
@@ -50235,7 +50236,6 @@ MonoBehaviour:
   rb: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   zCoord: 0
-  blockMoveDirection: {fileID: 8253024465878625544}
   blockVisual: {fileID: 2592983325937920234}
   blockColorVisual: 0
   isGragging: 0

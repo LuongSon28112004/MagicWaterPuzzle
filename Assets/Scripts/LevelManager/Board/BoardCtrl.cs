@@ -29,9 +29,6 @@ public class BoardCtrl : MonoBehaviour
 
     }
 
-
-
-
     private void CreateObjects()
     {
         List<GameObject> gridSlotList = new List<GameObject>(Resources.LoadAll<GameObject>("Prefabs/Grids"));
@@ -99,6 +96,7 @@ public class BoardCtrl : MonoBehaviour
                 BlockPlus blockPlus = gameObject.GetComponent<BlockPlus>();
                 blockPlus.AddVisualColor(block.color);
                 blockPlus.BlockDirection = Direction.NORMAL;
+                blockPlus.AddVisualWater(block.color);
                 blockPlus.AddMoveDirection(block.moveDir);
             }
             else if (block.name.Contains("L"))

@@ -5,9 +5,9 @@ public class BlockPlus : BaseBlock
 {
     private void Awake()
     {
-        blockType = BlockType.TWO;
+        blockType = BlockType.PLUS;
         maxCapacity = 5;
-        blockID = 12;
+        blockID = 3;
         currentCapacity = 0;
         rb = GetComponent<Rigidbody2D>();
     }
