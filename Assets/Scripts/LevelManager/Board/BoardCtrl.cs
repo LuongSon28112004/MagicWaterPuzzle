@@ -81,14 +81,16 @@ public class BoardCtrl : MonoBehaviour
                     blockTwo.BlockDirection = Direction.VERTICAL;
                 }
                 blockTwo.AddVisualWater(block.color);
+                blockTwo.AddMoveDirection(block.moveDir);
             }
             else if (block.name.Contains("One"))
             {
                 gameObject = Instantiate(blockList.Find(x => x.name == "One"), block.position, Quaternion.Euler(block.rotation), BlockParent.transform);
 
                 BlockOne blockOne = gameObject.GetComponent<BlockOne>();
-                blockOne.AddVisualColor(block.color);
                 blockOne.BlockDirection = Direction.NORMAL;
+                blockOne.AddVisualColor(block.color);
+                blockOne.AddMoveDirection(block.moveDir);
             }
             else if (block.name.Contains("Plus"))
             {
@@ -97,7 +99,7 @@ public class BoardCtrl : MonoBehaviour
                 BlockPlus blockPlus = gameObject.GetComponent<BlockPlus>();
                 blockPlus.AddVisualColor(block.color);
                 blockPlus.BlockDirection = Direction.NORMAL;
-                blockPlus.AddVisualWater(block.color);
+                blockPlus.AddMoveDirection(block.moveDir);
             }
             else if (block.name.Contains("L"))
             {
@@ -114,6 +116,7 @@ public class BoardCtrl : MonoBehaviour
                     blockL.BlockDirection = Direction.VERTICAL;
                 }
                 blockL.AddVisualWater(block.color);
+                blockL.AddMoveDirection(block.moveDir);
             }
             else if (block.name.Contains("ThreeSquare"))
             {
@@ -130,6 +133,7 @@ public class BoardCtrl : MonoBehaviour
                     blockThreeSquare.BlockDirection = Direction.VERTICAL;
                 }
                 blockThreeSquare.AddVisualWater(block.color);
+                blockThreeSquare.AddMoveDirection(block.moveDir);
             }
             gameObject.transform.localScale = Vector3.zero;
             blockInstances.Add(gameObject.transform);

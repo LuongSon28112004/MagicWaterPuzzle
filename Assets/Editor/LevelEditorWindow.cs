@@ -39,6 +39,7 @@ public class LevelToolWindow : EditorWindow
     private Vector2 scrollPos;
     private string newName = "NewObject";
     private BlockColor blockColor = BlockColor.Red;
+    private MoveDir moveDir = MoveDir.NORMAL;
     private List<GateColorInfo> gateColors = new List<GateColorInfo>();
 
     // *** ADDED FEATURE — type for importing selected objects
@@ -127,6 +128,8 @@ public class LevelToolWindow : EditorWindow
             EditorGUILayout.EndHorizontal();
 
             blockColor = (BlockColor)EditorGUILayout.EnumPopup("Block Color", blockColor);
+            moveDir = (MoveDir)EditorGUILayout.EnumPopup("Move Direction", moveDir);
+
 
             // Gate colors
             EditorGUILayout.LabelField("Gate Colors", EditorStyles.boldLabel);
@@ -291,7 +294,7 @@ public class LevelToolWindow : EditorWindow
                     break;
 
                 case ObjectType.Block:
-                    blockList.Add(new BlockData(go.name, go.transform.position, blockColor, go.transform.rotation.eulerAngles));
+                    blockList.Add(new BlockData(go.name, go.transform.position, blockColor, go.transform.rotation.eulerAngles, moveDir));
                     break;
 
                 case ObjectType.Gate:
@@ -337,7 +340,7 @@ public class LevelToolWindow : EditorWindow
                 break;
 
             case ObjectType.Block:
-                blockList.Add(new BlockData(finalName, go.transform.position, color, go.transform.rotation.eulerAngles));
+                blockList.Add(new BlockData(finalName, go.transform.position, color, go.transform.rotation.eulerAngles, moveDir));
                 break;
 
             case ObjectType.Gate:
@@ -384,7 +387,7 @@ public class LevelToolWindow : EditorWindow
                     break;
 
                 case ObjectType.Block:
-                    blockList.Add(new BlockData(name, go.transform.position, tag.color, go.transform.rotation.eulerAngles));
+                    blockList.Add(new BlockData(name, go.transform.position, tag.color, go.transform.rotation.eulerAngles, moveDir));
                     break;
 
                 case ObjectType.Gate:

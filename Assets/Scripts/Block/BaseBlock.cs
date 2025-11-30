@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum BlockType
@@ -30,6 +31,13 @@ public enum Direction
     HORIZONTAL,
 }
 
+public enum BlockMoveDirection
+{
+    NORMAL,
+    VERTICAL,
+    HORIZONTAL,
+}
+
 
 public abstract class BaseBlock : MonoBehaviour
 {
@@ -47,6 +55,7 @@ public abstract class BaseBlock : MonoBehaviour
     //Move
     [SerializeField] protected Vector3 offset;
     [SerializeField] protected float zCoord;
+    [SerializeField] private BlockMoveDir blockMoveDirection;
 
     // ref
     [SerializeField] protected BlockVisual blockVisual;
@@ -65,9 +74,16 @@ public abstract class BaseBlock : MonoBehaviour
     [SerializeField] protected List<BlockParticle> blockParticles;
 
 
+    //Getter And Setter
     public Direction BlockDirection { get => blockDirection; set => blockDirection = value; }
 
-    // 
+    // Move Direction
+    public void AddMoveDirection(MoveDir moveDir)
+    {
+        blockMoveDirection.InitMoveDirection(moveDir, blockDirection);
+    }
+
+    // visual
     public virtual void AddVisualColor(BlockColor color)
     {
         blockColorVisual = color;
@@ -174,6 +190,14 @@ public abstract class BaseBlock : MonoBehaviour
     {
         Vector3 mousePoint = Input.mousePosition;
         mousePoint.z = zCoord;
+        if (blockMoveDirection.BlockMoveDirection == BlockMoveDirection.HORIZONTAL)
+        {
+            mousePoint.y = 0;
+        }
+        else if (blockMoveDirection.BlockMoveDirection == BlockMoveDirection.VERTICAL)
+        {
+            mousePoint.x = 0;
+        }
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
     // Trigger xử lý va chạm

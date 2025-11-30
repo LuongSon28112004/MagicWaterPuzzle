@@ -28,6 +28,13 @@ public enum BlockColor
     Yellow
 }
 
+public enum MoveDir
+{
+    NORMAL,
+    HORIZONTAL,
+    VERTICAL
+}
+
 [Serializable]
 public class BlockData
 {
@@ -35,13 +42,15 @@ public class BlockData
     public Vector3 position;
     public Vector3 rotation;
     public BlockColor color;
+    public MoveDir moveDir;
 
-    public BlockData(string name, Vector3 position, BlockColor color, Vector3 rotation)
+    public BlockData(string name, Vector3 position, BlockColor color, Vector3 rotation, MoveDir moveDir)
     {
         this.name = name;
         this.position = position;
         this.rotation = rotation;
         this.color = color;
+        this.moveDir = moveDir;
     }
 }
 

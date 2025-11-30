@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BlockL : BaseBlock
 {
     private void Awake()
     {
-        blockType = BlockType.TWO;
+        blockType = BlockType.L;
         maxCapacity = 4;
         blockID = 12;
         currentCapacity = 0;
@@ -139,6 +140,39 @@ public class BlockL : BaseBlock
                 }
             }
         }
+        else
+        {
+            if (transform.rotation.eulerAngles.z == -90f || transform.rotation.eulerAngles.z == 270f)
+            {
+                if (currentCapacity > 0)
+                {
+                    StartCoroutine(blockParticles[1].PlayParticle());
+                    StartCoroutine(blockParticles[2].PlayParticle());
+                    StartCoroutine(blockParticles[3].PlayParticle());
+                }
+                if (currentCapacity > 3)
+                {
+                    StartCoroutine(blockParticles[0].PlayParticle());
+                    StartCoroutine(blockParticles[1].PlayParticle());
+                    StartCoroutine(blockParticles[2].PlayParticle());
+                    StartCoroutine(blockParticles[3].PlayParticle());
+                }
+            }
+            else if (transform.rotation.eulerAngles.z == 90f || transform.rotation.eulerAngles.z == -270f)
+            {
+                if (currentCapacity > 0)
+                {
+                    StartCoroutine(blockParticles[0].PlayParticle());
+                }
+                if (currentCapacity > 1)
+                {
+                    StartCoroutine(blockParticles[0].PlayParticle());
+                    StartCoroutine(blockParticles[1].PlayParticle());
+                    StartCoroutine(blockParticles[2].PlayParticle());
+                    StartCoroutine(blockParticles[3].PlayParticle());
+                }
+            }
+        }
 
     }
 
@@ -207,7 +241,7 @@ public class BlockL : BaseBlock
                 {
                     if (transform.position.x < pipeTransform.x)
                     {
-                        return 0.6f;
+                        return 0.2f;
                     }
                     else if (transform.position.y == pipeTransform.y)
                     {
@@ -215,7 +249,7 @@ public class BlockL : BaseBlock
                     }
                     else
                     {
-                        return 0.2f;
+                        return 0.6f;
                     }
                 }
             }

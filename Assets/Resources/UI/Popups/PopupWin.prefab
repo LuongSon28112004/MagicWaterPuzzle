@@ -510,7 +510,10 @@ MonoBehaviour:
   ButtonClose: {fileID: 0}
   animType: 2
   mainPopUp: {fileID: 982349086896403464}
-  AnimationWin: {fileID: 7363180769700314725}
+  textLevel: {fileID: 1073265058872511007}
+  textComplete: {fileID: 9100269446400411}
+  AnimationWin: {fileID: 7062549258383400597}
+  ImageAnimationWin: {fileID: 7363180769700314725}
   Claim: {fileID: 3050037803519960926}
   ClaimX2: {fileID: 6282019685046271126}
 --- !u!1 &1578656753036372097

@@ -7,6 +7,7 @@ public class BlockTypeVariant : MonoBehaviour
     public GameObject BlockVaritant;
     public GameObject Water;
     public MeshRenderer waterMeshRenderer;
+    public MeshFilter waterMeshFilter;
     protected MaterialPropertyBlock materialPropertyBlock;
 
 
@@ -36,6 +37,7 @@ public class BlockTypeVariant : MonoBehaviour
         waterMeshRenderer.GetPropertyBlock(materialPropertyBlock);
         materialPropertyBlock.SetFloat("_FillAmount", 0);
         materialPropertyBlock.SetVector("_FillDir", direction);
+        AutoComputeMinMax(direction);
 
         //xet color water
         string hex = Contacts.HexColor(color);
@@ -43,7 +45,6 @@ public class BlockTypeVariant : MonoBehaviour
         ColorUtility.TryParseHtmlString(hex, out waterColor);
 
         materialPropertyBlock.SetColor("_WaterColor", waterColor);
-
 
         waterMeshRenderer.SetPropertyBlock(materialPropertyBlock);
     }
@@ -84,5 +85,30 @@ public class BlockTypeVariant : MonoBehaviour
         materialPropertyBlock.SetFloat("_FillAmount", targetFill);
         waterMeshRenderer.SetPropertyBlock(materialPropertyBlock);
     }
+
+    public void AutoComputeMinMax(Vector3 fillDir)
+    {
+        fillDir.Normalize();
+
+        Mesh mesh = waterMeshFilter.sharedMesh;
+        Vector3[] verts = mesh.vertices;
+
+        float minV = float.MaxValue;
+        float maxV = float.MinValue;
+
+        for (int i = 0; i < verts.Length; i++)
+        {
+            float proj = Vector3.Dot(verts[i], fillDir);
+
+            if (proj < minV) minV = proj;
+            if (proj > maxV) maxV = proj;
+        }
+
+        Debug.Log(transform.root.name + "  " + minV + " " + maxV);
+
+        materialPropertyBlock.SetFloat("_MinValue", minV);
+        materialPropertyBlock.SetFloat("_MaxValue", maxV);
+    }
+
 
 }
