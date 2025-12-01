@@ -31,5 +31,22 @@ public class LevelManager : Singleton<LevelManager>
         }
     }
 
+    public GameObject findObjectNearOrigin()
+    {
+        List<Transform> transforms = boardCtrl.BlockInstances;
+        float min = 1000f;
+        GameObject resuit = null;
+        for (int i = 0; i < transforms.Count; i++)
+        {
+            float distance = Vector3.Magnitude(transforms[i].position - Vector3.zero);
+            if (distance < min)
+            {
+                min = distance;
+                resuit = transforms[i].gameObject;
+            }
+        }
+        return resuit;
+    }
+
 
 }

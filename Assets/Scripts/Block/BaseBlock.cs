@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public enum BlockType
@@ -71,6 +70,8 @@ public abstract class BaseBlock : MonoBehaviour
 
     //Block particle
     [SerializeField] protected List<BlockParticle> blockParticles;
+    // Tween Rorate
+    private Tween rotateTween;
 
 
     //Getter And Setter
@@ -188,31 +189,38 @@ public abstract class BaseBlock : MonoBehaviour
         float tiltX = 0f;
         float tiltY = 0f;
 
-
-
         // Xoay theo trục ngang
         if (target.x > transform.position.x)
-            tiltY = -7f; // nghiêng phải
+            tiltY = -5f;
         else if (target.x < transform.position.x)
-            tiltY = 7f;  // nghiêng trái
+            tiltY = 5f;
 
         // Xoay theo trục dọc
         if (target.y > transform.position.y)
-            tiltX = 7f;  // nghiêng lên
+            tiltX = 5f;
         else if (target.y < transform.position.y)
-            tiltX = -7f; // nghiêng xuống
+            tiltX = -5f;
 
+        // Kill tween xoay cũ
+        if (rotateTween != null && rotateTween.IsActive())
+            rotateTween.Kill();
 
-        // Kill tween cũ để không bị conflict
-        // transform.DOKill();
-
-        // Xoay mượt
-        transform
-            .DORotate(new Vector3(tiltX, tiltY, transform.rotation.eulerAngles.z), 0.15f)
+        // Tween xoay mới
+        rotateTween = transform
+            .DORotate(new Vector3(tiltX, tiltY, transform.rotation.eulerAngles.z), 0.1f)
             .OnComplete(() =>
-                transform.DORotate(new Vector3(0, 0, transform.rotation.eulerAngles.z), 0.2f)
-            );
+            {
+                // Kill tween cũ lần nữa trước khi reset xoay
+                if (rotateTween != null && rotateTween.IsActive())
+                    rotateTween.Kill();
+
+                rotateTween = transform.DORotate(
+                    new Vector3(0, 0, transform.rotation.eulerAngles.z),
+                    0.1f
+                );
+            });
     }
+
 
 
     private bool IsBlockedDirection(Vector3 targetPos)
@@ -347,6 +355,7 @@ public abstract class BaseBlock : MonoBehaviour
     protected virtual IEnumerator CheckDoneFilling()
     {
         if (currentCapacity < maxCapacity) yield break;
+        transform.position -= new Vector3(0, 0, 2);
 
         SetNonClick();
         blockVisual.soapBubbleEmitterVariant.PlayParticle();

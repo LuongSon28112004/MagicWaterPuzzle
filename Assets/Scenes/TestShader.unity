@@ -227,6 +227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridGate1
       objectReference: {fileID: 0}
+    - target: {fileID: 1589276869603768, guid: cd29e62d57da12b488bda521e3f5d30c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4979952861514128, guid: cd29e62d57da12b488bda521e3f5d30c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -468,10 +472,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlockBombHammerBreakEffect
       objectReference: {fileID: 0}
-    - target: {fileID: 1535597164659050, guid: 9e714c65c12f3424792850a38e8d9050, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4514995135040606, guid: 9e714c65c12f3424792850a38e8d9050, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -512,10 +512,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 199347002906882976, guid: 9e714c65c12f3424792850a38e8d9050, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 8a6a1c49c3c631548b845e851aca17c2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -28,9 +28,9 @@ Material:
     - _DepthDarkness: 0.35
     - _DepthStrength: 0.11
     - _FillAmount: 0.625
-    - _FresnelPower: 3
+    - _FresnelPower: 50
     - _FresnelStrength: 0.4
-    - _HighlightIntensity: 5.33
+    - _HighlightIntensity: 50
     - _HighlightWidth: 0.04
     - _MaxValue: 1
     - _MinValue: -1

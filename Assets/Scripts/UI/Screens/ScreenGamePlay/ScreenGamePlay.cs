@@ -56,7 +56,46 @@ public class ScreenGamePlay : ScreenUI
     private void AddEventListener()
     {
         listBooster.FreezeButton.onClick.AddListener(FreezeClick);
+        listBooster.BombButton.onClick.AddListener(BombClick);
     }
+
+    private void BombClick()
+    {
+        StartCoroutine(BombClickCoroutine());
+
+    }
+
+    private IEnumerator BombClickCoroutine()
+    {
+        AudioManager.Instance.PlayOneShot("Explo", 1f);
+        GameObject ParticleBombHammerSrc = Resources.Load<GameObject>("Particles/BlockBombHammerBreakEffect");
+        GameObject block = LevelManager.Instance.findObjectNearOrigin();
+
+        // Instantiate tại vị trí block nhưng không parent
+        GameObject ParticleBombHammer = Instantiate(
+            ParticleBombHammerSrc,
+            block.transform.position,
+            Quaternion.identity
+        );
+
+        // Play particle
+        ParticleBombHammerBreakEffect particleBombHammerBreakEffect =
+            ParticleBombHammer.GetComponent<ParticleBombHammerBreakEffect>();
+        particleBombHammerBreakEffect.PlayParticle();
+
+        // Xóa block sau khi particle chạy
+        block.SetActive(false);
+        LevelManager.Instance.boardCtrl.BlockInstances.Remove(block.transform);
+
+        yield return new WaitForSeconds(0.6f);
+        if (LevelManager.Instance.boardCtrl.BlockInstances.Count == 0)
+        {
+            //Show Popup Win
+            AudioManager.Instance.PlayOneShot("Win", 1f);
+            UIManager.Instance.ShowPopup<PopupWin>(null);
+        }
+    }
+
 
     private void FreezeClick()
     {
