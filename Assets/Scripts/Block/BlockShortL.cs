@@ -1,15 +1,14 @@
-using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using Unity.Android.Gradle;
 using UnityEngine;
 
-public class BlockL : BaseBlock
+public class BlockShortL : BaseBlock
 {
     private void Awake()
     {
-        blockType = BlockType.L;
-        maxCapacity = 4;
-        blockID = 12;
+        blockType = BlockType.SHORT_L;
+        maxCapacity = 3;
+        blockID = 7;
         currentCapacity = 0;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -40,17 +39,17 @@ public class BlockL : BaseBlock
         {
             if (blockDirection == Direction.HORIZONTAL)
             {
-                // Y phải chẵn, X phải lẻ
-                float yFix = Mathf.Round(c.y / 2f) * 2f + 1;
-                float xFix = Mathf.Round(c.x / 2f) * 2f;
+                // Y phải lẻ, X phải lẻ
+                float yFix = SnapOdd(c.y);
+                float xFix = SnapOdd(c.x);
 
                 filtered.Add(new Vector2(xFix, yFix));
             }
             else
             {
-                // X phải chẵn, Y phải lẻ
-                float xFix = Mathf.Round(c.x / 2f) * 2f + 1;
-                float yFix = Mathf.Round(c.y / 2f) * 2f;
+                // X phải lẻ, Y phải lẻ
+                float xFix = SnapOdd(c.x);
+                float yFix = SnapOdd(c.y);
 
                 filtered.Add(new Vector2(xFix, yFix));
             }
@@ -73,7 +72,6 @@ public class BlockL : BaseBlock
         return best;
     }
 
-
     // override init visual water
     public override void AddVisualWater(BlockColor blockColor)
     {
@@ -89,10 +87,10 @@ public class BlockL : BaseBlock
         if (direction == Direction.VERTICAL)
         {
             if (Mathf.Abs(z - 180f) < 1f)
-                return new Vector3(0, 0, 1);
+                return new Vector3(-1, 0, 0);
 
             if (Mathf.Abs(z - 0f) < 1f || Mathf.Abs(z - 360f) < 1f)
-                return new Vector3(0, 0, -1);
+                return new Vector3(1, 0, 0);
 
             return new Vector3(0, 0, -1);
         }
@@ -101,83 +99,43 @@ public class BlockL : BaseBlock
         {
             // 90° → (-1,0,0)
             if (Mathf.Abs(z - 90f) < 1f)
-                return new Vector3(-1, 0, 0);
+                return new Vector3(0, 0, -1);
 
             // 270° → (1,0,0)
             if (Mathf.Abs(z - 270f) < 1f)
-                return new Vector3(1, 0, 0);
+                return new Vector3(0, 0, 1);
 
             // fallback
             return new Vector3(1, 0, 0);
         }
 
-        return Vector3.zero;
+        return new Vector3(1, 0, 0);
     }
 
     protected override void PlayParticleBlock()
     {
-        if (blockDirection == Direction.VERTICAL)
+        base.PlayParticleBlock();
+        if (blockDirection == Direction.HORIZONTAL)
         {
-            if (transform.rotation.eulerAngles.x == 0 || transform.rotation.eulerAngles.x == 360)
-            {
-                if (currentCapacity > 0)
-                {
-                    StartCoroutine(blockParticles[0].PlayParticle());
-                }
-
-                if (currentCapacity > 1)
-                {
-                    StartCoroutine(blockParticles[0].PlayParticle());
-                    StartCoroutine(blockParticles[1].PlayParticle());
-                }
-
-                if (currentCapacity > 2)
-                {
-                    StartCoroutine(blockParticles[0].PlayParticle());
-                    StartCoroutine(blockParticles[1].PlayParticle());
-                    StartCoroutine(blockParticles[2].PlayParticle());
-                    StartCoroutine(blockParticles[3].PlayParticle());
-                }
-            }
+            StartCoroutine(blockParticles[0].PlayParticle());
+            StartCoroutine(blockParticles[1].PlayParticle());
         }
         else
         {
-            if (transform.rotation.eulerAngles.z == -90f || transform.rotation.eulerAngles.z == 270f)
+            // xet truong hop 0 độ của capacity
+            if (currentCapacity == 1)
             {
-                if (currentCapacity > 0)
-                {
-                    StartCoroutine(blockParticles[1].PlayParticle());
-                    StartCoroutine(blockParticles[2].PlayParticle());
-                    StartCoroutine(blockParticles[3].PlayParticle());
-                }
-                if (currentCapacity > 3)
-                {
-                    StartCoroutine(blockParticles[0].PlayParticle());
-                    StartCoroutine(blockParticles[1].PlayParticle());
-                    StartCoroutine(blockParticles[2].PlayParticle());
-                    StartCoroutine(blockParticles[3].PlayParticle());
-                }
+                StartCoroutine(blockParticles[1].PlayParticle());
             }
-            else if (transform.rotation.eulerAngles.z == 90f || transform.rotation.eulerAngles.z == -270f)
+            else if (currentCapacity == 2)
             {
-                if (currentCapacity > 0)
-                {
-                    StartCoroutine(blockParticles[0].PlayParticle());
-                }
-                if (currentCapacity > 1)
-                {
-                    StartCoroutine(blockParticles[0].PlayParticle());
-                    StartCoroutine(blockParticles[1].PlayParticle());
-                    StartCoroutine(blockParticles[2].PlayParticle());
-                    StartCoroutine(blockParticles[3].PlayParticle());
-                }
+                StartCoroutine(blockParticles[0].PlayParticle());
+                StartCoroutine(blockParticles[1].PlayParticle());
             }
         }
 
     }
 
-
-    // Set Height Water
     // override Set Height Water
     protected override float SetHeightWaterFall(DirectionPipe directionPipe, Vector3 pipeTransform)
     {
@@ -197,22 +155,11 @@ public class BlockL : BaseBlock
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
-                    if (transform.position.y < pipeTransform.y)
-                    {
-                        return 1f;
-                    }
-                    else if (transform.position.y == pipeTransform.y)
-                    {
-                        return 0.6f;
-                    }
-                    else
-                    {
-                        return 0.2f;
-                    }
+                    return transform.position.y < pipeTransform.y ? 0.6f : 0.2f;
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
-                    return transform.position.x < pipeTransform.x ? 1f : 0.2f;
+                    return transform.position.x < pipeTransform.x ? 0.6f : 0.2f;
                 }
             }
 
@@ -220,18 +167,7 @@ public class BlockL : BaseBlock
             {
                 if (directionPipe == DirectionPipe.Left)
                 {
-                    if (transform.position.y < pipeTransform.y)
-                    {
-                        return 1f;
-                    }
-                    else if (transform.position.y == pipeTransform.y)
-                    {
-                        return 0.6f;
-                    }
-                    else
-                    {
-                        return 0.2f;
-                    }
+                    return transform.position.y < pipeTransform.y ? 0.6f : 0.2f;
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
@@ -239,7 +175,7 @@ public class BlockL : BaseBlock
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
-                    return 1f;
+                    return 0.6f;
                 }
             }
         }
@@ -261,18 +197,7 @@ public class BlockL : BaseBlock
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
-                    if (transform.position.x < pipeTransform.x)
-                    {
-                        return 0.2f;
-                    }
-                    else if (transform.position.x == pipeTransform.x)
-                    {
-                        return 0.2f;
-                    }
-                    else
-                    {
-                        return 0.6f;
-                    }
+                    return transform.position.x < pipeTransform.x ? 0.2f : 0.6f;
                 }
             }
             // Góc -90° hoặc 270°
@@ -296,6 +221,7 @@ public class BlockL : BaseBlock
         // Default fallback
         return 1f;
     }
+
 
     //override Set SnapToPipe
     protected override Vector3 SnapToPipe(Vector3 pos, WaterPipe waterPipe)
@@ -328,21 +254,17 @@ public class BlockL : BaseBlock
                 {
                     if (pos.x < waterPipe.transform.position.x)
                     {
-                        posSnap.x = waterPipe.transform.position.x - 2;
-                    }
-                    else if (pos.x == waterPipe.transform.position.x)
-                    {
-                        posSnap.x = waterPipe.transform.position.x;
+                        posSnap.x = waterPipe.transform.position.x - 1;
                     }
                     else
                     {
-                        posSnap.x = waterPipe.transform.position.x + 2;
+                        posSnap.x = waterPipe.transform.position.x + 1;
                     }
                 }
 
                 if (ApproxAngle(-90, 1, z) || ApproxAngle(270, 1, z))
                 {
-                    posSnap.x = waterPipe.transform.position.x - 2;
+                    posSnap.x = waterPipe.transform.position.x - 1;
                 }
 
             }
@@ -353,40 +275,37 @@ public class BlockL : BaseBlock
             {
                 if (ApproxAngle(0, 1, z))
                 {
-                    posSnap.x = waterPipe.transform.position.x - 2;
+                    posSnap.x = waterPipe.transform.position.x - 1;
                 }
                 if (ApproxAngle(180, 0, 0))
                 {
                     if (pos.x < waterPipe.transform.position.x)
                     {
-                        posSnap.x = waterPipe.transform.position.x - 2;
+                        posSnap.x = waterPipe.transform.position.x - 1;
                     }
                     else
                     {
-                        posSnap.x = waterPipe.transform.position.x + 2;
+                        posSnap.x = waterPipe.transform.position.x + 1;
                     }
+
                 }
             }
             else
             {
                 if (ApproxAngle(90, 1, z) || ApproxAngle(-270, 1, z))
                 {
-                    posSnap.x = waterPipe.transform.position.x + 2;
+                    posSnap.x = waterPipe.transform.position.x + 1;
                 }
 
                 if (ApproxAngle(-90, 1, z) || ApproxAngle(270, 1, z))
                 {
                     if (pos.x < waterPipe.transform.position.x)
                     {
-                        posSnap.x = waterPipe.transform.position.x - 2;
-                    }
-                    else if (pos.x == waterPipe.transform.position.x)
-                    {
-                        posSnap.x = waterPipe.transform.position.x;
+                        posSnap.x = waterPipe.transform.position.x - 1;
                     }
                     else
                     {
-                        posSnap.x = waterPipe.transform.position.x + 2;
+                        posSnap.x = waterPipe.transform.position.x + 1;
                     }
                 }
 
@@ -398,21 +317,17 @@ public class BlockL : BaseBlock
             {
                 if (ApproxAngle(0, 1, z))
                 {
-                    posSnap.y = waterPipe.transform.position.y - 2;
+                    posSnap.y = waterPipe.transform.position.y - 1;
                 }
                 if (ApproxAngle(180, 0, 0))
                 {
                     if (pos.y < waterPipe.transform.position.y)
                     {
-                        posSnap.y = waterPipe.transform.position.y - 2;
-                    }
-                    else if (pos.y == waterPipe.transform.position.y)
-                    {
-                        posSnap.y = waterPipe.transform.position.y;
+                        posSnap.y = waterPipe.transform.position.y - 1;
                     }
                     else
                     {
-                        posSnap.y = waterPipe.transform.position.y + 2;
+                        posSnap.y = waterPipe.transform.position.y + 1;
                     }
                 }
             }
@@ -445,20 +360,16 @@ public class BlockL : BaseBlock
                 {
                     if (pos.y < waterPipe.transform.position.y)
                     {
-                        posSnap.y = waterPipe.transform.position.y - 2;
-                    }
-                    else if (pos.y == waterPipe.transform.position.y)
-                    {
-                        posSnap.y = waterPipe.transform.position.y;
+                        posSnap.y = waterPipe.transform.position.y - 1;
                     }
                     else
                     {
-                        posSnap.y = waterPipe.transform.position.y + 2;
+                        posSnap.y = waterPipe.transform.position.y + 1;
                     }
                 }
-                if (ApproxAngle(180, 1, z))
+                if (ApproxAngle(180, 0, 0))
                 {
-                    posSnap.y = waterPipe.transform.position.y + 2;
+                    posSnap.y = waterPipe.transform.position.y + 1;
                 }
             }
             else
@@ -485,7 +396,6 @@ public class BlockL : BaseBlock
         return posSnap;
     }
 
-
-
+    //override check done filling
 
 }

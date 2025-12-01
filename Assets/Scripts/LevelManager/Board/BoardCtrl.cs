@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class BoardCtrl : MonoBehaviour
@@ -63,7 +64,24 @@ public class BoardCtrl : MonoBehaviour
         foreach (var block in levelData.blocks)
         {
             GameObject gameObject = null;
-            if (block.name.Contains("Two"))
+            if (block.name.Contains("TwoSquare"))
+            {
+                gameObject = Instantiate(blockList.Find(x => x.name == "TwoSquare"), block.position, Quaternion.Euler(block.rotation), BlockParent.transform);
+
+                BlockTwoSquare blockTwoSquare = gameObject.GetComponent<BlockTwoSquare>();
+                blockTwoSquare.AddVisualColor(block.color);
+                if (block.rotation != new Vector3(0, 0, 0) || block.rotation != new Vector3(0, 0, 360))
+                {
+                    blockTwoSquare.BlockDirection = Direction.HORIZONTAL;
+                }
+                else
+                {
+                    blockTwoSquare.BlockDirection = Direction.VERTICAL;
+                }
+                blockTwoSquare.AddVisualWater(block.color);
+                blockTwoSquare.AddMoveDirection(block.moveDir);
+            }
+            else if (block.name.Contains("Two"))
             {
                 gameObject = Instantiate(blockList.Find(x => x.name == "Two"), block.position, Quaternion.Euler(block.rotation), BlockParent.transform);
 
@@ -98,6 +116,23 @@ public class BoardCtrl : MonoBehaviour
                 blockPlus.BlockDirection = Direction.NORMAL;
                 blockPlus.AddVisualWater(block.color);
                 blockPlus.AddMoveDirection(block.moveDir);
+            }
+            else if (block.name.Contains("ShortL"))
+            {
+                gameObject = Instantiate(blockList.Find(x => x.name == "ShortL"), block.position, Quaternion.Euler(block.rotation), BlockParent.transform);
+
+                BlockShortL blockShortL = gameObject.GetComponent<BlockShortL>();
+                blockShortL.AddVisualColor(block.color);
+                if (block.rotation != new Vector3(0, 0, 0) && block.rotation != new Vector3(0, 0, 180) && block.rotation != new Vector3(0, 0, -180) && block.rotation != new Vector3(0, 0, 360))
+                {
+                    blockShortL.BlockDirection = Direction.HORIZONTAL;
+                }
+                else
+                {
+                    blockShortL.BlockDirection = Direction.VERTICAL;
+                }
+                blockShortL.AddVisualWater(block.color);
+                blockShortL.AddMoveDirection(block.moveDir);
             }
             else if (block.name.Contains("L"))
             {

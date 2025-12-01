@@ -197,19 +197,9 @@ MonoBehaviour:
     position: {x: 2, y: -4, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   blocks:
-  - name: Two
-    position: {x: -3, y: 4, z: 0}
-    rotation: {x: 0, y: 0, z: 90}
-    color: 2
-    moveDir: 0
-  - name: Two
-    position: {x: 4, y: 3, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
-    color: 3
-    moveDir: 0
-  - name: L
-    position: {x: -1, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+  - name: ShortL
+    position: {x: 1, y: 1, z: 0}
+    rotation: {x: 0, y: 0, z: -90}
     color: 1
     moveDir: 0
   gates:
@@ -217,31 +207,23 @@ MonoBehaviour:
     position: {x: 2, y: 6.1, z: 0}
     rotation: {x: 0, y: 0, z: 180}
     colorOutputs:
-    - color: 2
-      capacity: 1
     - color: 1
-      capacity: 1
+      capacity: 2
   - name: GridGate1
     position: {x: -2, y: -6.1, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     colorOutputs:
     - color: 1
-      capacity: 1
-    - color: 3
-      capacity: 1
+      capacity: 2
   - name: GridGate1
     position: {x: 6.1, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 90}
     colorOutputs:
     - color: 1
-      capacity: 1
-    - color: 2
-      capacity: 1
+      capacity: 2
   - name: GridGate1
     position: {x: -6.1, y: 2, z: 0}
     rotation: {x: 0, y: 0, z: 270}
     colorOutputs:
-    - color: 3
-      capacity: 1
     - color: 1
-      capacity: 1
+      capacity: 3

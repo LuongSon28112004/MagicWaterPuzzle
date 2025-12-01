@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockThreeSquare : BaseBlock
+public class BlockTwoSquare : BaseBlock
 {
     private void Awake()
     {
-        blockType = BlockType.THREE_SQUARE;
-        maxCapacity = 9;
+        blockType = BlockType.TWO_SQUARE;
+        maxCapacity = 4;
         blockID = 11;
         currentCapacity = 0;
         rb = GetComponent<Rigidbody2D>();
@@ -35,8 +35,8 @@ public class BlockThreeSquare : BaseBlock
 
         foreach (var c in candidates)
         {
-            float yFix = Mathf.Round(c.y / 2f) * 2f;
-            float xFix = Mathf.Round(c.x / 2f) * 2f;
+            float yFix = SnapOdd(c.y);
+            float xFix = SnapOdd(c.x);
 
             filtered.Add(new Vector2(xFix, yFix));
         }
@@ -80,22 +80,14 @@ public class BlockThreeSquare : BaseBlock
         {
             if (currentCapacity > 0)
             {
-                StartCoroutine(blockParticles[0].PlayParticle());
-                StartCoroutine(blockParticles[1].PlayParticle());
                 StartCoroutine(blockParticles[2].PlayParticle());
+                StartCoroutine(blockParticles[3].PlayParticle());
             }
 
-            if (currentCapacity > 3)
+            if (currentCapacity > 2)
             {
-                StartCoroutine(blockParticles[3].PlayParticle());
-                StartCoroutine(blockParticles[4].PlayParticle());
-                StartCoroutine(blockParticles[5].PlayParticle());
-            }
-            if (currentCapacity > 6)
-            {
-                StartCoroutine(blockParticles[6].PlayParticle());
-                StartCoroutine(blockParticles[7].PlayParticle());
-                StartCoroutine(blockParticles[8].PlayParticle());
+                StartCoroutine(blockParticles[0].PlayParticle());
+                StartCoroutine(blockParticles[1].PlayParticle());
             }
         }
 
@@ -107,13 +99,13 @@ public class BlockThreeSquare : BaseBlock
     {
         if (directionPipe == DirectionPipe.Down)
         {
-            return 1f;
+            return 0.6f;
         }
         else if (directionPipe == DirectionPipe.Left || directionPipe == DirectionPipe.Right)
         {
             if (transform.position.y < pipeTransform.y)
             {
-                return 1f;
+                return 0.6f;
             }
             else if (transform.position.y == pipeTransform.y)
             {
@@ -123,7 +115,7 @@ public class BlockThreeSquare : BaseBlock
         }
 
 
-        return 1f;
+        return 0.6f;
     }
 
 
@@ -137,30 +129,22 @@ public class BlockThreeSquare : BaseBlock
         {
             if (pos.x < waterPipe.transform.position.x)
             {
-                posSnap.x = waterPipe.transform.position.x - 2;
-            }
-            else if (pos.x == waterPipe.transform.position.x)
-            {
-                posSnap.x = waterPipe.transform.position.x;
+                posSnap.x = waterPipe.transform.position.x - 1;
             }
             else
             {
-                posSnap.x = waterPipe.transform.position.x + 2;
+                posSnap.x = waterPipe.transform.position.x + 1;
             }
         }
         else if (waterPipe.DirectionPipe == DirectionPipe.Left || waterPipe.DirectionPipe == DirectionPipe.Right)
         {
             if (pos.y < waterPipe.transform.position.y)
             {
-                posSnap.y = waterPipe.transform.position.y - 2;
-            }
-            else if (pos.y == waterPipe.transform.position.y)
-            {
-                posSnap.y = waterPipe.transform.position.y;
+                posSnap.y = waterPipe.transform.position.y - 1;
             }
             else
             {
-                posSnap.y = waterPipe.transform.position.y + 2;
+                posSnap.y = waterPipe.transform.position.y + 1;
             }
         }
         return posSnap;

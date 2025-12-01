@@ -19960,6 +19960,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigBubble: {fileID: 1056275979336174}
   Idle_Bubbles_Variant: {fileID: 1144121833893735}
+  boxCollider: {fileID: 0}
+  boxTriggerCollider: {fileID: 0}
 --- !u!1 &1074727882370863
 GameObject:
   m_ObjectHideFlags: 0
@@ -38462,13 +38464,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4772377842377813}
+  - component: {fileID: 8365933140179999887}
   m_Layer: 0
   m_Name: Directional
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4772377842377813
 Transform:
   m_ObjectHideFlags: 0
@@ -38486,6 +38489,21 @@ Transform:
   - {fileID: 4797050325484481}
   m_Father: {fileID: 4340917377406261}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8365933140179999887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213336591608851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8acda27af6e7da946abf79202bfb8002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockMoveDirection: 0
+  horizontal: {fileID: 4797050325484481}
+  vertical: {fileID: 4626998211176156}
 --- !u!1 &1220200283102242
 GameObject:
   m_ObjectHideFlags: 0
@@ -47426,7 +47444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4797050325484481
 Transform:
   m_ObjectHideFlags: 0
@@ -57388,7 +57406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4626998211176156
 Transform:
   m_ObjectHideFlags: 0
@@ -60430,6 +60448,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigBubble: {fileID: 1505580879664163}
   Idle_Bubbles_Variant: {fileID: 1763486705985153}
+  boxCollider: {fileID: 0}
+  boxTriggerCollider: {fileID: 0}
 --- !u!1 &1397451821796742
 GameObject:
   m_ObjectHideFlags: 0
@@ -76741,6 +76761,8 @@ MonoBehaviour:
   BlockVaritant: {fileID: 1601288654972710}
   Water: {fileID: 1078491692211749}
   waterMeshRenderer: {fileID: 23058710181798843}
+  waterMeshFilter: {fileID: 33657789379263625}
+  blockMoveDir: {fileID: 8365933140179999887}
 --- !u!1 &1518623556780131
 GameObject:
   m_ObjectHideFlags: 0
@@ -86579,6 +86601,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigBubble: {fileID: 1018146217310639}
   Idle_Bubbles_Variant: {fileID: 1776831017852457}
+  boxCollider: {fileID: 0}
+  boxTriggerCollider: {fileID: 0}
 --- !u!1 &1546322489847556
 GameObject:
   m_ObjectHideFlags: 0
@@ -91538,6 +91562,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigBubble: {fileID: 1293451378767816}
   Idle_Bubbles_Variant: {fileID: 1718361430293685}
+  boxCollider: {fileID: 0}
+  boxTriggerCollider: {fileID: 0}
 --- !u!1 &1582892481581780
 GameObject:
   m_ObjectHideFlags: 0
@@ -94455,6 +94481,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigBubble: {fileID: 1763395981071048}
   Idle_Bubbles_Variant: {fileID: 1244660788229444}
+  boxCollider: {fileID: 0}
+  boxTriggerCollider: {fileID: 0}
 --- !u!1 &1597627481444270
 GameObject:
   m_ObjectHideFlags: 0
@@ -97025,6 +97053,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigBubble: {fileID: 1611109744390851}
   Idle_Bubbles_Variant: {fileID: 1235921367553427}
+  boxCollider: {fileID: 0}
+  boxTriggerCollider: {fileID: 0}
 --- !u!1 &1605290520947192
 GameObject:
   m_ObjectHideFlags: 0
@@ -113581,6 +113611,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigBubble: {fileID: 1464863819856794}
   Idle_Bubbles_Variant: {fileID: 1458478910196242}
+  boxCollider: {fileID: 0}
+  boxTriggerCollider: {fileID: 0}
 --- !u!1 &1760627875279969
 GameObject:
   m_ObjectHideFlags: 0
@@ -121164,6 +121196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigBubble: {fileID: 1552347778266530}
   Idle_Bubbles_Variant: {fileID: 1098857884460545}
+  boxCollider: {fileID: 0}
+  boxTriggerCollider: {fileID: 0}
 --- !u!1 &1785421239172831
 GameObject:
   m_ObjectHideFlags: 0
@@ -123962,6 +123996,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigBubble: {fileID: 1468692255439125}
   Idle_Bubbles_Variant: {fileID: 1716703386233454}
+  boxCollider: {fileID: 0}
+  boxTriggerCollider: {fileID: 0}
 --- !u!1 &1812139923661675
 GameObject:
   m_ObjectHideFlags: 0

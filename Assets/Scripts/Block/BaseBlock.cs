@@ -76,6 +76,13 @@ public abstract class BaseBlock : MonoBehaviour
     //Getter And Setter
     public Direction BlockDirection { get => blockDirection; set => blockDirection = value; }
 
+
+    // Hàm kiểm tra góc an toàn
+    protected bool ApproxAngle(float target, float tolerance = 1f, float z = 0)
+    {
+        return Mathf.Abs(Mathf.DeltaAngle(z, target)) < tolerance;
+    }
+
     // Move Direction
     public void AddMoveDirection(MoveDir moveDir)
     {
@@ -168,13 +175,45 @@ public abstract class BaseBlock : MonoBehaviour
         {
             return;
         }
-
+        RotateMove(target);
         rb.MovePosition(target);
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 0;
         rb.linearDamping = 0;
         rb.angularDamping = 0;
     }
+
+    private void RotateMove(Vector3 target)
+    {
+        float tiltX = 0f;
+        float tiltY = 0f;
+
+
+
+        // Xoay theo trục ngang
+        if (target.x > transform.position.x)
+            tiltY = -7f; // nghiêng phải
+        else if (target.x < transform.position.x)
+            tiltY = 7f;  // nghiêng trái
+
+        // Xoay theo trục dọc
+        if (target.y > transform.position.y)
+            tiltX = 7f;  // nghiêng lên
+        else if (target.y < transform.position.y)
+            tiltX = -7f; // nghiêng xuống
+
+
+        // Kill tween cũ để không bị conflict
+        // transform.DOKill();
+
+        // Xoay mượt
+        transform
+            .DORotate(new Vector3(tiltX, tiltY, transform.rotation.eulerAngles.z), 0.15f)
+            .OnComplete(() =>
+                transform.DORotate(new Vector3(0, 0, transform.rotation.eulerAngles.z), 0.2f)
+            );
+    }
+
 
     private bool IsBlockedDirection(Vector3 targetPos)
     {
@@ -252,6 +291,7 @@ public abstract class BaseBlock : MonoBehaviour
             Vector3 pos = SnapToGrid(transform.position);
             transform.position = SnapToPipe(pos, waterPipe);
             yield return StartCoroutine(FillPipeAndBlock(waterPipe));
+            if (currentCapacity >= maxCapacity) yield break;
             // thả di chuyển ra khi đã fill song
             IsMove = true;
             // mở fill ra để được phép fill nhưng cái tiếp theo
