@@ -20,6 +20,7 @@ public class PopupWin : PopupUI
         SetupInitialState();     // Set trạng thái ban đầu
         AddAnimationWin();       // Gắn hiệu ứng xoay
         AddEventListener();
+        AudioManager.Instance.PlayOneShot("Win", 1f);
     }
 
     private void OnEnable()

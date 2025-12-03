@@ -205,12 +205,12 @@ MonoBehaviour:
   - name: Two
     position: {x: -1, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 90}
-    color: 2
+    color: 1
     moveDir: 2
   - name: Two
     position: {x: -2, y: 3, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    color: 3
+    color: 1
     moveDir: 0
   gates:
   - name: GridGate1_1

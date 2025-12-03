@@ -20,52 +20,59 @@ Material:
   m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties:
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-      _MatcapTex:
+    - _MatcapTex:
         m_Texture: {fileID: 2800000, guid: a8417e0d08e3b7040bfa374964cd5f46, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-      _Texture:
+    - _NoiseTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture:
         m_Texture: {fileID: 2800000, guid: 4c6ae4f0ef66e2645a0c4b68e1220121, type: 3}
         m_Scale: {x: 0.5, y: 0.5}
         m_Offset: {x: 0, y: 0}
-      _TextureAlpha:
+    - _TextureAlpha:
         m_Texture: {fileID: 2800000, guid: 93f5fbb7d391f4344a943a8cdd541224, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Ints: {}
+    m_Ints: []
     m_Floats:
-      _Alpha: 1
-      _Brightness: 0.75
-      _BumpScale: 1
-      _CullMode: 2
-      _Cutoff: 0.5
-      _DetailNormalMapScale: 1
-      _DstBlend: 0
-      _FresnelPow: 0
-      _Gate: 0
-      _GlossMapScale: 1
-      _Glossiness: 0.5
-      _GlossyReflections: 1
-      _HasStar: 0
-      _Main: 1
-      _Metallic: 0
-      _Mode: 0
-      _OcclusionStrength: 1
-      _Parallax: 0.02
-      _SelectionGuide: 0
-      _SmoothnessTextureChannel: 0
-      _SpecularHighlights: 1
-      _Speed: 0
-      _SrcBlend: 1
-      _UVSec: 0
-      _ZWrite: 1
+    - _Alpha: 1
+    - _Brightness: 0.75
+    - _BumpScale: 1
+    - _CullMode: 2
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _FresnelPow: 0
+    - _FrostAmount: 0.5
+    - _Gate: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _HasStar: 0
+    - _Main: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SelectionGuide: 0
+    - _Smoothness: 0.3
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _Speed: 0
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
     m_Colors:
-      _Color: {r: 1, g: 1, b: 1, a: 1}
-      _ColorFresnel: {r: 0.107467055, g: 0.27050993, b: 0.6509434, a: 1}
-      _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-      _ShadowColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorFresnel: {r: 0.107467055, g: 0.27050993, b: 0.6509434, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadowColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1

@@ -333,6 +333,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a69536ff19269fb43a92a7d0d1be20d0, type: 3}
   - {fileID: 8300000, guid: 183e067a378ceec4eb06d7cd5187b0ea, type: 3}
   - {fileID: 8300000, guid: ae10fec5ccdd9914d803ab243def27bc, type: 3}
+  - {fileID: 8300000, guid: d6daf5371d9f14540bcce8f07931ed7c, type: 3}
   musics:
   - {fileID: 8300000, guid: 1889533accde21044a3942d63c9488d7, type: 3}
   musicSource: {fileID: 54899959}
@@ -805,7 +806,7 @@ Canvas:
   m_GameObject: {fileID: 973086717}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 963194227}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
@@ -817,7 +818,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!1 &1542437468
 GameObject:

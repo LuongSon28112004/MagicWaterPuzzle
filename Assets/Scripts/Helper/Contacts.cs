@@ -107,5 +107,19 @@ public class Contacts : MonoBehaviour
         }
     }
 
+    public Vector2 WorldToUIPosition(Canvas canvas, Vector3 worldPos)
+    {
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
+
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvas.transform as RectTransform,
+            screenPos,
+            null,
+            out Vector2 uiPos
+        );
+
+        return uiPos;
+    }
+
 
 }

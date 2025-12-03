@@ -2,12 +2,12 @@ Shader "Custom/GlassImproved"
 {
     Properties
     {
-        _Color("Glass Tint Color", Color) = (0.5, 0.6, 1, 0.2)
-        _Smoothness("Smoothness", Range(0,1)) = 0.95
-        _Metallic("Metallic", Range(0,1)) = 0.05
-        _Transparency("Transparency", Range(0,1)) = 0.15
+        _Color         ("Glass Tint Color", Color) = (0.5, 0.6, 1, 0.2)
+        _Smoothness    ("Smoothness", Range(0,1))  = 0.95
+        _Metallic      ("Metallic", Range(0,1))    = 0.05
+        _Transparency  ("Transparency", Range(0,1)) = 0.15
 
-        // Giúp tạo hiệu ứng viền sáng – giống Fresnel
+        // Hiệu ứng viền sáng (Fresnel)
         _EdgeBrightness("Edge Brightness", Range(0,3)) = 1.6
     }
 
@@ -38,19 +38,19 @@ Shader "Custom/GlassImproved"
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-            // Fresnel cơ bản – tạo viền sáng kiểu thủy tinh
+            // Fresnel: làm sáng viền thủy tinh
             float fresnel = 1.0 - saturate(dot(normalize(IN.viewDir), o.Normal));
             fresnel = pow(fresnel, 3) * _EdgeBrightness;
 
-            // Base color + Fresnel tăng sáng viền
-            float3 finalColor = _Color.rgb;
-            finalColor += fresnel;
+            // Màu thủy tinh + Fresnel
+            float3 finalColor = _Color.rgb + fresnel;
 
-            o.Albedo = finalColor;
-            o.Metallic = _Metallic;
+            o.Albedo = float3(0,0,0);     // không fill màu
+            o.Emission = finalColor;      // dùng emission để giữ viền sáng và tint
+            o.Metallic   = _Metallic;
             o.Smoothness = _Smoothness;
 
-            // Đảm bảo độ trong suốt
+            // Độ trong suốt
             o.Alpha = (1.0 - _Transparency) * _Color.a;
         }
         ENDCG

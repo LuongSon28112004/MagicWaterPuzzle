@@ -83,11 +83,10 @@ public class GameManager : SingletonDDOL<GameManager>
                 });
                 break;
             case GameState.Win:
-                // UIManager.Instance.ShowPopup<PopupWinGame>(null);
-                // yield return new WaitForSeconds(0.4f);
-                //Time.timeScale = 0;
+                yield return LoadSceneAndWait("PopupWin", () =>
+                {
+                });
                 break;
-
             case GameState.Lose:
                 // UIManager.Instance.ShowPopup<PopupLoseGame>(null);
                 // yield return new WaitForSeconds(0.4f);

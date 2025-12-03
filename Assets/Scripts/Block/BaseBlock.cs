@@ -132,6 +132,11 @@ public abstract class BaseBlock : MonoBehaviour
     // OnMouse Click
     void OnMouseDown()
     {
+        if (LevelManager.Instance.BoosterHammerUsed)
+        {
+            CustomeEventSystem.Instance.UserBoosterHammer(gameObject);
+            return;
+        }
         zCoord = Camera.main.WorldToScreenPoint(transform.position).z;
         offset = transform.position - GetMouseWorldPos();
         // bắt đầu game nếu có lượt kéo
@@ -140,6 +145,7 @@ public abstract class BaseBlock : MonoBehaviour
 
     void OnMouseUp()
     {
+        if (LevelManager.Instance.BoosterHammerUsed) return;
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.gravityScale = 1;
         isGragging = false;
@@ -168,7 +174,7 @@ public abstract class BaseBlock : MonoBehaviour
 
     void OnMouseDrag()
     {
-        if (!IsMove) return;
+        if (!IsMove || LevelManager.Instance.BoosterHammerUsed) return;
         isGragging = true;
         Vector3 target = GetMouseWorldPos() + offset;
 
@@ -418,7 +424,7 @@ public abstract class BaseBlock : MonoBehaviour
         {
             //Show Popup Win
             AudioManager.Instance.PlayOneShot("Win", 1f);
-            UIManager.Instance.ShowPopup<PopupWin>(null);
+            StartCoroutine(GameManager.Instance.ChangeState(GameState.Win));
         }
 
 

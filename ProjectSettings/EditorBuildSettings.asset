@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GamePlay.unity
     guid: f81e30fce5585bb44869bd32cc568b58
+  - enabled: 1
+    path: Assets/Scenes/PopupWin.unity
+    guid: 792abe9573b4d7e4ba605816b1cf88d7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -12,6 +12,9 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] public BoardCtrl boardCtrl;
     [SerializeField] private BoxCollider2D levelBoundsCollider;
     [SerializeField] private bool startPlay = false;
+    [SerializeField] private bool boosterHammerUsed = false;
+
+    public bool BoosterHammerUsed { get => boosterHammerUsed; set => boosterHammerUsed = value; }
 
     void Start()
     {

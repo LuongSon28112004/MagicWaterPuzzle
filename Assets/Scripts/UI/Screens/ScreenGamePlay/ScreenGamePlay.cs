@@ -2,15 +2,20 @@ using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScreenGamePlay : ScreenUI
 {
     [SerializeField] GameObject top;
     [SerializeField] GameObject bottom;
+    [Header("Component")]
     [Header("Timer and Level")]
     [SerializeField] TimerAndLevel timerAndLevel;
     [Header("BG Freeze")]
     [SerializeField] Freeze freeze;
+    [Header("Menu")]
+    [SerializeField] Button BackButton;
+    [SerializeField] Button PauseButton;
 
     [Header("Booster")]
     [SerializeField] ListBooster listBooster;
@@ -55,46 +60,58 @@ public class ScreenGamePlay : ScreenUI
     }
     private void AddEventListener()
     {
+
+        listBooster.FreezeButton.onClick.RemoveAllListeners();
+        listBooster.BombButton.onClick.RemoveAllListeners();
+        listBooster.HammerButton.onClick.RemoveAllListeners();
         listBooster.FreezeButton.onClick.AddListener(FreezeClick);
         listBooster.BombButton.onClick.AddListener(BombClick);
+        listBooster.HammerButton.onClick.AddListener(HammerClick);
     }
+
+    private void HammerClick()
+    {
+        if (LevelManager.Instance.boardCtrl.BlockInstances.Count == 0) return;
+        LevelManager.Instance.BoosterHammerUsed = true;
+        UIManager.Instance.ShowPopup<PopupHammerBooster>(null);
+        HideButton();
+    }
+
 
     private void BombClick()
     {
-        StartCoroutine(BombClickCoroutine());
-
+        if (LevelManager.Instance.boardCtrl.BlockInstances.Count == 0) return;
+        UIManager.Instance.ShowPopup<PopupBombBooster>(null);
+        // PopupBombBooster popupBombBooster = UIManager.Instance.GetPopup<PopupBombBooster>();
+        // if (popupBombBooster == null)
+        // {
+        //     UIManager.Instance.ShowPopup<PopupBombBooster>(null);
+        // }
+        // else
+        // {
+        //     StartCoroutine(popupBombBooster.PlayBombBooster());
+        // }
+        HideButton();
     }
-
-    private IEnumerator BombClickCoroutine()
+    private void HideButton()
     {
-        AudioManager.Instance.PlayOneShot("Explo", 1f);
-        GameObject ParticleBombHammerSrc = Resources.Load<GameObject>("Particles/BlockBombHammerBreakEffect");
-        GameObject block = LevelManager.Instance.findObjectNearOrigin();
-
-        // Instantiate tại vị trí block nhưng không parent
-        GameObject ParticleBombHammer = Instantiate(
-            ParticleBombHammerSrc,
-            block.transform.position,
-            Quaternion.identity
-        );
-
-        // Play particle
-        ParticleBombHammerBreakEffect particleBombHammerBreakEffect =
-            ParticleBombHammer.GetComponent<ParticleBombHammerBreakEffect>();
-        particleBombHammerBreakEffect.PlayParticle();
-
-        // Xóa block sau khi particle chạy
-        block.SetActive(false);
-        LevelManager.Instance.boardCtrl.BlockInstances.Remove(block.transform);
-
-        yield return new WaitForSeconds(0.6f);
-        if (LevelManager.Instance.boardCtrl.BlockInstances.Count == 0)
-        {
-            //Show Popup Win
-            AudioManager.Instance.PlayOneShot("Win", 1f);
-            UIManager.Instance.ShowPopup<PopupWin>(null);
-        }
+        listBooster.HideBooster();
+        BackButton.transform.DOScale(Vector3.zero, 0.4f);
+        BackButton.interactable = false;
+        PauseButton.transform.DOScale(Vector3.zero, 0.4f);
+        PauseButton.interactable = false;
+        AddEventListener();
     }
+
+    public void ShowButton()
+    {
+        listBooster.ShowBooster();
+        BackButton.transform.DOScale(Vector3.one, 0.4f);
+        BackButton.interactable = true;
+        PauseButton.transform.DOScale(Vector3.one, 0.4f);
+        PauseButton.interactable = true;
+    }
+
 
 
     private void FreezeClick()
