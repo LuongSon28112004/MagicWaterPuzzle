@@ -90,6 +90,7 @@ public class LevelToolWindow : EditorWindow
         if (GUILayout.Button("Save To SO", EditorStyles.toolbarButton))
             SaveToSO();
 
+
         EditorGUILayout.EndHorizontal();
         EditorGUILayout.Space();
 
@@ -530,6 +531,8 @@ public class LevelToolWindow : EditorWindow
         var tag = uidToObject[uid].GetComponent<LevelToolTag>();
         return tag != null ? tag.type.ToString() : "";
     }
+
+
 }
 
 // ===== TAG COMPONENT =====

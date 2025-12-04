@@ -193,7 +193,7 @@ public class BlockL : BaseBlock
             {
                 if (directionPipe == DirectionPipe.Left)
                 {
-                    return 0.2f;
+                    return 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
@@ -203,11 +203,11 @@ public class BlockL : BaseBlock
                     }
                     else if (transform.position.y == pipeTransform.y)
                     {
-                        return 0.6f;
+                        return 0.67f;
                     }
                     else
                     {
-                        return 0.2f;
+                        return 0.25f;
                     }
                 }
                 else if (directionPipe == DirectionPipe.Down)
@@ -226,16 +226,16 @@ public class BlockL : BaseBlock
                     }
                     else if (transform.position.y == pipeTransform.y)
                     {
-                        return 0.6f;
+                        return 0.67f;
                     }
                     else
                     {
-                        return 0.2f;
+                        return 0.25f;
                     }
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
-                    return 0.2f;
+                    return 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
@@ -257,21 +257,21 @@ public class BlockL : BaseBlock
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
-                    return 0.2f;
+                    return 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
                     if (transform.position.x < pipeTransform.x)
                     {
-                        return 0.2f;
+                        return 0.25f;
                     }
                     else if (transform.position.x == pipeTransform.x)
                     {
-                        return 0.2f;
+                        return 0.25f;
                     }
                     else
                     {
-                        return 0.6f;
+                        return 0.67f;
                     }
                 }
             }
@@ -280,15 +280,15 @@ public class BlockL : BaseBlock
             {
                 if (directionPipe == DirectionPipe.Left)
                 {
-                    return 0.2f;
+                    return 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
-                    return transform.position.y < pipeTransform.y ? 0.6f : 0.2f;
+                    return transform.position.y < pipeTransform.y ? 0.67f : 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
-                    return 0.6f;
+                    return 0.67f;
                 }
             }
         }

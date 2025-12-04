@@ -23,18 +23,41 @@ public class ScreenGamePlay : ScreenUI
     [Header("CountDown Timer")]
     [SerializeField] TimerCoutDown timer;
     [SerializeField] FreezeCountDown freezeTimer;
-
+    [Header("Collect Booster")]
+    [SerializeField] Transform CollectBooster;
+    [SerializeField] Transform BGBlack;
+    [SerializeField] CollectBooster collectBooster;
     private void OnEnable()
     {
         CustomeEventSystem.Instance.StartPlayAction += StartTimer;
+        collectBooster.DoneAction += ShowTut;
     }
 
     private void OnDisable()
     {
         CustomeEventSystem.Instance.StartPlayAction -= StartTimer;
+        collectBooster.DoneAction -= ShowTut;
     }
 
-
+    private void ShowTut(bool resuit)
+    {
+        if (resuit)
+        {
+            if (collectBooster.TypeCollectBooster == TypeCollectBooster.FREEZE)
+            {
+                listBooster.freezeBoosterConfig.PlayTutorial();
+            }
+            else if (collectBooster.TypeCollectBooster == TypeCollectBooster.BOMB)
+            {
+                listBooster.bombBoosterConfig.PlayTutorial();
+            }
+            else if (collectBooster.TypeCollectBooster == TypeCollectBooster.HAMMER)
+            {
+                listBooster.hammerBoosterConfig.PlayTutorial();
+            }
+            BGBlack.gameObject.SetActive(true);
+        }
+    }
 
     private void Start()
     {
@@ -42,6 +65,21 @@ public class ScreenGamePlay : ScreenUI
         AddEventListener();
         InitTimerCountDown();
         InActiveBooster();
+        if (GameManager.Instance.Level == 1)
+        {
+            CollectBooster.gameObject.SetActive(true);
+            collectBooster.setTypeCollect(TypeCollectBooster.FREEZE);
+        }
+        else if (GameManager.Instance.Level == 2)
+        {
+            CollectBooster.gameObject.SetActive(true);
+            collectBooster.setTypeCollect(TypeCollectBooster.BOMB);
+        }
+        else if (GameManager.Instance.Level == 3)
+        {
+            CollectBooster.gameObject.SetActive(true);
+            collectBooster.setTypeCollect(TypeCollectBooster.HAMMER);
+        }
     }
     private IEnumerator AnimationIntro()
     {
@@ -56,7 +94,6 @@ public class ScreenGamePlay : ScreenUI
         yield return new WaitForSeconds(0.6f);
         rectTop.DOAnchorPosY(valueRectTop, 0.4f).SetEase(Ease.Linear);
         rectBottom.DOAnchorPosY(valueRectBottom, 0.4f).SetEase(Ease.Linear);
-
     }
     private void AddEventListener()
     {
@@ -71,6 +108,12 @@ public class ScreenGamePlay : ScreenUI
 
     private void HammerClick()
     {
+        if (BGBlack.gameObject.activeSelf)
+        {
+            BGBlack.gameObject.SetActive(false);
+            listBooster.hammerBoosterConfig.StopTutorial();
+            LevelManager.Instance.StartPlay();
+        }
         if (LevelManager.Instance.boardCtrl.BlockInstances.Count == 0) return;
         LevelManager.Instance.BoosterHammerUsed = true;
         UIManager.Instance.ShowPopup<PopupHammerBooster>(null);
@@ -80,17 +123,15 @@ public class ScreenGamePlay : ScreenUI
 
     private void BombClick()
     {
+        if (BGBlack.gameObject.activeSelf)
+        {
+            BGBlack.gameObject.SetActive(false);
+            listBooster.bombBoosterConfig.StopTutorial();
+            LevelManager.Instance.StartPlay();
+
+        }
         if (LevelManager.Instance.boardCtrl.BlockInstances.Count == 0) return;
         UIManager.Instance.ShowPopup<PopupBombBooster>(null);
-        // PopupBombBooster popupBombBooster = UIManager.Instance.GetPopup<PopupBombBooster>();
-        // if (popupBombBooster == null)
-        // {
-        //     UIManager.Instance.ShowPopup<PopupBombBooster>(null);
-        // }
-        // else
-        // {
-        //     StartCoroutine(popupBombBooster.PlayBombBooster());
-        // }
         HideButton();
     }
     private void HideButton()
@@ -116,6 +157,13 @@ public class ScreenGamePlay : ScreenUI
 
     private void FreezeClick()
     {
+        if (BGBlack.gameObject.activeSelf)
+        {
+            BGBlack.gameObject.SetActive(false);
+            listBooster.freezeBoosterConfig.StopTutorial();
+            LevelManager.Instance.StartPlay();
+
+        }
         freeze.Show();
         timerAndLevel.StartFreeze();
         timer.PauseCountDownTimer();

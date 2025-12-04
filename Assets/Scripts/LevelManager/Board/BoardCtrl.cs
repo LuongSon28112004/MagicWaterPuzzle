@@ -150,6 +150,23 @@ public class BoardCtrl : MonoBehaviour
                 blockL.AddVisualWater(block.color);
                 blockL.AddMoveDirection(block.moveDir);
             }
+            else if (block.name.Contains("Three"))
+            {
+                gameObject = Instantiate(blockList.Find(x => x.name == "Three"), block.position, Quaternion.Euler(block.rotation), BlockParent.transform);
+
+                BlockThree blockThree = gameObject.GetComponent<BlockThree>();
+                blockThree.AddVisualColor(block.color);
+                if (block.rotation != new Vector3(0, 0, 0) && block.rotation != new Vector3(0, 0, 180) && block.rotation != new Vector3(0, 0, -180) && block.rotation != new Vector3(0, 0, 360))
+                {
+                    blockThree.BlockDirection = Direction.HORIZONTAL;
+                }
+                else
+                {
+                    blockThree.BlockDirection = Direction.VERTICAL;
+                }
+                blockThree.AddVisualWater(block.color);
+                blockThree.AddMoveDirection(block.moveDir);
+            }
             else if (block.name.Contains("ThreeSquare"))
             {
                 gameObject = Instantiate(blockList.Find(x => x.name == "ThreeSquare"), block.position, Quaternion.Euler(block.rotation), BlockParent.transform);

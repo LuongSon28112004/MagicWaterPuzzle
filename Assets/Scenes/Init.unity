@@ -334,6 +334,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 183e067a378ceec4eb06d7cd5187b0ea, type: 3}
   - {fileID: 8300000, guid: ae10fec5ccdd9914d803ab243def27bc, type: 3}
   - {fileID: 8300000, guid: d6daf5371d9f14540bcce8f07931ed7c, type: 3}
+  - {fileID: 8300000, guid: 1a30f38e724ab2a49a0f3b7d37f5dd0c, type: 3}
+  - {fileID: 8300000, guid: 41eecba6d301ec24f9e28da5a966ddc4, type: 3}
+  - {fileID: 8300000, guid: f6c78a34635a67d4d86e46c3283d64a7, type: 3}
   musics:
   - {fileID: 8300000, guid: 1889533accde21044a3942d63c9488d7, type: 3}
   musicSource: {fileID: 54899959}

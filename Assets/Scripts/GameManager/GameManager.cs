@@ -36,8 +36,9 @@ public class GameManager : SingletonDDOL<GameManager>
 #endif
 
         StartCoroutine(ChangeState(GameState.Loading));
-        // Level = UserData.level;
-        // SaveDataManager.Load();
+        //Loading data
+        SaveDataManager.Load();
+        Level = UserData.level;
     }
 
     public IEnumerator ChangeState(GameState newState)

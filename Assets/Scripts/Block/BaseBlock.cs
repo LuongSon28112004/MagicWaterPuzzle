@@ -304,6 +304,7 @@ public abstract class BaseBlock : MonoBehaviour
             IsMove = false;
             Vector3 pos = SnapToGrid(transform.position);
             transform.position = SnapToPipe(pos, waterPipe);
+            yield return new WaitForSeconds(0.15f);
             yield return StartCoroutine(FillPipeAndBlock(waterPipe));
             if (currentCapacity >= maxCapacity) yield break;
             // thả di chuyển ra khi đã fill song
@@ -422,8 +423,6 @@ public abstract class BaseBlock : MonoBehaviour
         LevelManager.Instance.boardCtrl.BlockInstances.Remove(transform);
         if (LevelManager.Instance.boardCtrl.BlockInstances.Count == 0)
         {
-            //Show Popup Win
-            AudioManager.Instance.PlayOneShot("Win", 1f);
             StartCoroutine(GameManager.Instance.ChangeState(GameState.Win));
         }
 

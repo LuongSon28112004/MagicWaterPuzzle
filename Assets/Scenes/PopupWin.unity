@@ -198,6 +198,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &391349754 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 485798700918339176, guid: 145806513b268b749b7f4a9a167cc1bc, type: 3}
+  m_PrefabInstance: {fileID: 1638127956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &703462272
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,9 +480,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 543347264160014767, guid: 145806513b268b749b7f4a9a167cc1bc, type: 3}
+      propertyPath: targetPig
+      value: 
+      objectReference: {fileID: 1638127958}
+    - target: {fileID: 543347264160014767, guid: 145806513b268b749b7f4a9a167cc1bc, type: 3}
+      propertyPath: targetSpawner
+      value: 
+      objectReference: {fileID: 391349754}
     - target: {fileID: 1569442660187419153, guid: 145806513b268b749b7f4a9a167cc1bc, type: 3}
       propertyPath: m_Name
       value: PopupWin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323526867843487774, guid: 145806513b268b749b7f4a9a167cc1bc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323526867843487774, guid: 145806513b268b749b7f4a9a167cc1bc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -487,6 +508,11 @@ PrefabInstance:
 --- !u!224 &1638127957 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 49834134773182625, guid: 145806513b268b749b7f4a9a167cc1bc, type: 3}
+  m_PrefabInstance: {fileID: 1638127956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1638127958 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1821347967134349932, guid: 145806513b268b749b7f4a9a167cc1bc, type: 3}
   m_PrefabInstance: {fileID: 1638127956}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2034661208

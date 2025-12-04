@@ -150,15 +150,15 @@ public class BlockShortL : BaseBlock
             {
                 if (directionPipe == DirectionPipe.Left)
                 {
-                    return 0.2f;
+                    return 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
-                    return transform.position.y < pipeTransform.y ? 0.6f : 0.2f;
+                    return transform.position.y < pipeTransform.y ? 0.67f : 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
-                    return transform.position.x < pipeTransform.x ? 0.6f : 0.2f;
+                    return transform.position.x < pipeTransform.x ? 0.67f : 0.25f;
                 }
             }
 
@@ -166,15 +166,15 @@ public class BlockShortL : BaseBlock
             {
                 if (directionPipe == DirectionPipe.Left)
                 {
-                    return transform.position.y < pipeTransform.y ? 0.6f : 0.2f;
+                    return transform.position.y < pipeTransform.y ? 0.67f : 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
-                    return 0.2f;
+                    return 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
-                    return 0.6f;
+                    return 0.67f;
                 }
             }
         }
@@ -188,15 +188,15 @@ public class BlockShortL : BaseBlock
             {
                 if (directionPipe == DirectionPipe.Left)
                 {
-                    return transform.position.y < pipeTransform.y ? 0.6f : 0.2f;
+                    return transform.position.y < pipeTransform.y ? 0.67f : 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
-                    return 0.2f;
+                    return 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
-                    return transform.position.x < pipeTransform.x ? 0.2f : 0.6f;
+                    return transform.position.x < pipeTransform.x ? 0.25f : 0.67f;
                 }
             }
             // Góc -90° hoặc 270°
@@ -204,15 +204,15 @@ public class BlockShortL : BaseBlock
             {
                 if (directionPipe == DirectionPipe.Left)
                 {
-                    return 0.2f;
+                    return 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
-                    return transform.position.y < pipeTransform.y ? 0.6f : 0.2f;
+                    return transform.position.y < pipeTransform.y ? 0.67f : 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
-                    return 0.6f;
+                    return 0.67f;
                 }
             }
         }

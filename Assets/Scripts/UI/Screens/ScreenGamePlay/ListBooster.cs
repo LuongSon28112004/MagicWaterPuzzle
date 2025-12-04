@@ -9,9 +9,9 @@ public class ListBooster : MonoBehaviour
     public Button BombButton;
     public Button HammerButton;
 
-    [SerializeField] private FreezeBoosterConfig freezeBoosterConfig;
-    [SerializeField] private HammerBoosterConfig hammerBoosterConfig;
-    [SerializeField] private BombBoosterConfig bombBoosterConfig;
+    [SerializeField] public FreezeBoosterConfig freezeBoosterConfig;
+    [SerializeField] public HammerBoosterConfig hammerBoosterConfig;
+    [SerializeField] public BombBoosterConfig bombBoosterConfig;
 
     public void ActiveAllBooster()
     {
@@ -42,4 +42,7 @@ public class ListBooster : MonoBehaviour
         HammerButton.transform.DOScale(Vector3.zero, 0.4f);
         InActiveAllBooster();
     }
+
+
+
 }

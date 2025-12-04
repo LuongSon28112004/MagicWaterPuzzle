@@ -117,9 +117,9 @@ public class BlockThreeSquare : BaseBlock
             }
             else if (transform.position.y == pipeTransform.y)
             {
-                return 0.6f;
+                return 0.65f;
             }
-            else return 0.2f;
+            else return 0.25f;
         }
 
 

@@ -1,14 +1,21 @@
 
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BoosterConfig : MonoBehaviour
 {
-    [SerializeField] private Image Panel;
-    [SerializeField] private Image Icon;
-    [SerializeField] private Image PanelCount;
-    [SerializeField] private Image PanelPlus;
-    [SerializeField] Button button;
+    [Header("Booster Config")]
+    [SerializeField] protected Image Panel;
+    [SerializeField] protected Image Icon;
+    [SerializeField] protected Image PanelCount;
+    [SerializeField] protected Image PanelPlus;
+    [SerializeField] protected Button button;
+    [Header("FreezeBooster Config")]
+    [SerializeField] protected Image handTut;
+    [SerializeField] protected Transform targetTut;
+    [SerializeField] Transform Targetnew;
+    [SerializeField] Transform TargetOld;
 
     public void Active()
     {
@@ -34,6 +41,21 @@ public class BoosterConfig : MonoBehaviour
         Color c = img.color;
         c.a = alpha;
         img.color = c;
+    }
+    public void PlayTutorial()
+    {
+        transform.SetParent(Targetnew, true);
+        handTut.gameObject.SetActive(true);
+        targetTut.gameObject.SetActive(true);
+        Active();
+        handTut.rectTransform.DOAnchorPos(targetTut.GetComponent<RectTransform>().anchoredPosition, 2f).SetLoops(-1);
+    }
+
+    public void StopTutorial()
+    {
+        transform.SetParent(TargetOld, true);
+        handTut.gameObject.SetActive(false);
+        targetTut.gameObject.SetActive(false);
     }
 
 

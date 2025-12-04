@@ -99,7 +99,7 @@ public class BlockTwoSquare : BaseBlock
     {
         if (directionPipe == DirectionPipe.Down)
         {
-            return 0.6f;
+            return 0.75f;
         }
         else if (directionPipe == DirectionPipe.Left || directionPipe == DirectionPipe.Right)
         {
@@ -111,7 +111,7 @@ public class BlockTwoSquare : BaseBlock
             {
                 return 0.6f;
             }
-            else return 0.2f;
+            else return 0.25f;
         }
 
 

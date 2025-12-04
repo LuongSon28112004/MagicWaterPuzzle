@@ -120,7 +120,7 @@ public class BlockPlus : BaseBlock
         }
         else
         {
-            return 0.2f;
+            return 0.25f;
         }
     }
 

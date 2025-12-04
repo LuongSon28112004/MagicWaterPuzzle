@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -12,16 +13,77 @@ public class PopupWin : PopupUI
     [SerializeField] Image ImageAnimationWin;
     [SerializeField] Button Claim;
     [SerializeField] Button ClaimX2;
+    [Header("Ctrl Popup Coin")]
+    [SerializeField] GameObject ReceiverCoin;
+    [SerializeField] Sprite Coin;
+    [SerializeField] Transform target_1;
+    [SerializeField] Transform target_2;
+    [SerializeField] bool isSuccess = false;
+    [Header("Pig receiver Coin")]
+    [SerializeField] Transform targetSpawner;
+    [SerializeField] Transform targetPig;
+    [SerializeField] TextMeshProUGUI textCount;
 
     private Sequence popupSequence;
 
     private void Awake()
     {
+        StartCoroutine(InitPigReceiveCoin());
         SetupInitialState();     // Set trạng thái ban đầu
         AddAnimationWin();       // Gắn hiệu ứng xoay
         AddEventListener();
         AudioManager.Instance.PlayOneShot("Win", 1f);
+        UserData.level += 1;
+        GameManager.Instance.Level = UserData.level;
+        SaveDataManager.Save();
     }
+
+    private IEnumerator InitPigReceiveCoin()
+    {
+        int amount = 7;
+        RectTransform pigRect = targetPig.GetComponent<RectTransform>();
+
+        for (int i = 0; i < amount; i++)
+        {
+            GameObject coin = new GameObject("PigCoinUI");
+            coin.transform.SetParent(targetSpawner, false);
+            coin.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+
+            Image img = coin.AddComponent<Image>();
+            img.sprite = Coin;
+            img.SetNativeSize();
+
+            RectTransform rect = coin.GetComponent<RectTransform>();
+
+            // random nhẹ cho đẹp
+            // rect.anchoredPosition += new Vector2(UnityEngine.Random.Range(-40f, 40f), 0);
+
+            float fallTime = 0.5f;
+
+            Vector2 targetPos = pigRect.anchoredPosition; // <-- CHỖ QUAN TRỌNG
+
+            Sequence seq = DOTween.Sequence();
+
+            seq.Append(
+                rect.DOAnchorPos(targetPos, fallTime)
+                    .SetEase(Ease.OutQuad)
+            );
+
+            // seq.Join(
+            //     rect.DORotate(new Vector3(0, 0, -90), fallTime, RotateMode.FastBeyond360)
+            //         .SetEase(Ease.Linear)
+            // );
+
+            seq.OnComplete(() =>
+            {
+                Destroy(coin);
+            });
+
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+
 
     private void OnEnable()
     {
@@ -35,8 +97,91 @@ public class PopupWin : PopupUI
 
     private void ClaimClick()
     {
-        GameManager.Instance.BackToMenu();
+        ReceiverCoin.gameObject.SetActive(true);
+        StartCoroutine(InitCoinReceiver());
     }
+
+    private IEnumerator InitCoinReceiver()
+    {
+        ReceiverCoin.transform.DOScale(Vector3.one, 0.25f).OnComplete(() =>
+        {
+            StartCoroutine(ShowCoin());
+        });
+        yield break;
+    }
+
+    private IEnumerator ShowCoin()
+    {
+        yield return new WaitForSeconds(0.7f);
+        int amount = 20;
+        int completed = 0;
+
+        float radius = 120f;    // bán kính để tản coin ra đều
+
+        for (int i = 0; i < amount; i++)
+        {
+            GameObject coin = new GameObject("CoinUI");
+            coin.transform.SetParent(ReceiverCoin.transform, false);
+
+            Image img = coin.AddComponent<Image>();
+            img.sprite = Coin;
+            img.SetNativeSize();
+
+            RectTransform rect = coin.GetComponent<RectTransform>();
+
+            // =============== TẢN ĐỀU GÓC ================
+            // float angle = (360f / amount) * i;  // chia đều góc
+            // float rad = angle * Mathf.Deg2Rad;
+
+            // // đặt vị trí theo vòng tròn
+            // rect.anchoredPosition = new Vector2(
+            //     Mathf.Cos(rad) * radius,
+            //     Mathf.Sin(rad) * radius
+            // );
+
+            // rect.localScale = Vector3.zero;
+            rect.anchoredPosition = new Vector2(UnityEngine.Random.Range(-50f, 150f), UnityEngine.Random.Range(-50f, 150f));
+            rect.localScale = Vector3.zero;
+
+            float delay = i * 0.03f;
+            float delayShow = i * 0.01f;
+
+            Sequence seq = DOTween.Sequence();
+
+            // Scale lên
+            seq.Append(rect.DOScale(1f, 0.25f).SetDelay(delay).SetEase(Ease.OutBack));
+
+            // Bay về target_2
+            seq.Append(rect.DOMove(target_2.position, 0.2f)
+                .SetDelay(delay)
+                .SetEase(Ease.InOutSine));
+
+            // Bay về target_1
+            seq.Append(rect.DOMove(target_1.position, 0.35f)
+                .SetEase(Ease.Linear));
+
+            seq.OnComplete(() =>
+            {
+                Destroy(coin);
+                completed++;
+                AudioManager.Instance.PlayOneShot("Coin", 1f);
+
+                if (completed >= amount - 8 && !isSuccess)
+                {
+                    AudioManager.Instance.PlayOneShot("ReceiveCoin", 1f);
+                    isSuccess = true;
+                }
+
+                if (completed >= amount)
+                {
+                    GameManager.Instance.BackToMenu();
+                }
+            });
+        }
+    }
+
+
+
 
     // -----------------------------
     // 1. Set trạng thái ban đầu

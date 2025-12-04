@@ -144,17 +144,17 @@ public class BlockTwo : BaseBlock
     {
         if (blockDirection == Direction.HORIZONTAL)
         {
-            return 0.2f;
+            return 0.25f;
         }
         else if (blockDirection == Direction.VERTICAL)
         {
             if (pipeTransform.y > transform.position.y)
             {
-                return 0.6f;
+                return 0.65f;
             }
             else
             {
-                return 0.2f;
+                return 0.25f;
             }
         }
         return 1f;
