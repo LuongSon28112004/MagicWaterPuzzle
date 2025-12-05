@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Coffee.UIExtensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,12 +13,15 @@ public enum Mode
 
 public class PopupLoading : PopupUI
 {
+    [Header("Popup Loading ref")]
     [SerializeField] private Mode mode = Mode.LoadingGame;
     [SerializeField] private Slider sliderLoading;
     [SerializeField] Image Logo;
     [SerializeField] private TextMeshProUGUI textLoadingPercent;
     [SerializeField] private TextMeshProUGUI textLoadingTitle;
     [SerializeField] private bool loadingSuccess = false;
+    [Header("Shiny Effect Logo")]
+    [SerializeField] ShinyEffectForUGUI shinyEffectForUGUI;
 
     public bool LoadingSuccess { get => loadingSuccess; set => loadingSuccess = value; }
     public Mode Mode { get => mode; set => mode = value; }
@@ -31,6 +35,16 @@ public class PopupLoading : PopupUI
         else if (mode == Mode.LoadingLevel)
         {
             StartCoroutine(LoadingLevel());
+        }
+        StartCoroutine(ShinyEffectPlay());
+    }
+
+    private IEnumerator ShinyEffectPlay()
+    {
+        while (true)
+        {
+            shinyEffectForUGUI.Play(1.5f);
+            yield return new WaitForSeconds(1.5f);
         }
     }
 

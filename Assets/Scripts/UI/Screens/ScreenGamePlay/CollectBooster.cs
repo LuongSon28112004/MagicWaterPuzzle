@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Data.SqlTypes;
 using DG.Tweening;
 using NUnit.Framework.Constraints;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class CollectBooster : MonoBehaviour
     [Header("Collect Booster Config")]
     [SerializeField] TypeCollectBooster typeCollectBooster;
     [SerializeField] Button ClaimButton;
+    [SerializeField] GameObject Pannel;
     [Header("Image")]
     [SerializeField] Image Freeze;
     [SerializeField] Image Bomb;
@@ -59,13 +61,25 @@ public class CollectBooster : MonoBehaviour
         img.sprite = Choice;
         img.SetNativeSize();
 
+        Sequence seq = DOTween.Sequence();
+        seq.Append(booster.transform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 0.6f));
+        seq.Append(booster.transform.DORotate(new Vector3(0, 0, 45f), 0.15f, RotateMode.FastBeyond360));
+        seq.Append(booster.transform.DORotate(new Vector3(0, 0, -45f), 0.15f, RotateMode.FastBeyond360));
+        seq.Append(booster.transform.DORotate(Vector2.zero, 0.15f, RotateMode.FastBeyond360));
+
+
+        Pannel.transform.DOScale(Vector3.zero, 0.4f);
+        yield return seq.WaitForCompletion();
+        seq.Kill();
+        booster.transform.DOScale(Vector3.one, 0.4f);
+        booster.transform.DORotate(new Vector3(0, 0, 0f), 0.4f, RotateMode.FastBeyond360);
         booster.transform.DOMove(TargetChoice.position, 0.4f).OnComplete(() =>
         {
             Destroy(booster);
             DoneAction.Invoke(true);
             AudioManager.Instance.PlayOneShot("CollectBooster", 1f);
+            transform.gameObject.SetActive(false);
         });
-        transform.DOScale(Vector3.zero, 0.4f);
     }
 
     private Transform ChoiceTarget()

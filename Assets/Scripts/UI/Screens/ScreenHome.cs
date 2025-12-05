@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Coffee.UIExtensions;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,15 +8,30 @@ using UnityEngine.UI;
 
 public class ScreenHome : ScreenUI
 {
+    [Header("Screen Home Component")]
     [SerializeField] private Button buttonPlay;
     [SerializeField] private ScrollRect scrollRect;
 
-
+    [Header("Shiny Effect Button")]
+    [SerializeField] ShinyEffectForUGUI shinyEffectForUGUI_1;
+    [SerializeField] ShinyEffectForUGUI shinyEffectForUGUI_2;
     public void Start()
     {
         buttonPlay.onClick.AddListener(OnClickPlay);
         //scrollRect.onValueChanged.AddListener(OnScroll);
         ScrollToBottom();
+        StartCoroutine(ShinyEffectButtonPlay());
+    }
+
+    private IEnumerator ShinyEffectButtonPlay()
+    {
+        while (true)
+        {
+            shinyEffectForUGUI_1.Play(0.75f);
+            yield return new WaitForSeconds(0.75f);
+            shinyEffectForUGUI_2.Play(0.75f);
+            yield return new WaitForSeconds(0.75f);
+        }
     }
 
     private void OnScroll(Vector2 value)

@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc3559f59788d845b4ffcb05bd186ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelData: {fileID: 11400000, guid: 7d17b9de5726a374da2e020db53cabac, type: 2}
+  levelDatas: []
   boardCtrl: {fileID: 1656141903}
   levelBoundsCollider: {fileID: 1874352863}
   startPlay: 0
@@ -995,7 +995,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 14, y: 14}
+  m_Size: {x: 15, y: 15}
   m_EdgeRadius: 0
 --- !u!1 &2065788716
 GameObject:

@@ -64,6 +64,9 @@ public abstract class BaseBlock : MonoBehaviour
     [SerializeField] protected bool isGragging = false;
     [SerializeField] protected bool IsMove = true;
     [SerializeField] protected bool isFill = false;
+    private Vector3 smoothVelocity = Vector3.zero;
+    [SerializeField] private float smoothTime = 0.03f; // mượt hơn khi giảm giá trị
+
 
     // Hướng bị chặn
     protected Vector2 blockNormal = Vector2.zero;
@@ -132,11 +135,15 @@ public abstract class BaseBlock : MonoBehaviour
     // OnMouse Click
     void OnMouseDown()
     {
+        // nếu chuột đang ở trên UI → không cho nhấc block
+        if (UIBlockChecker.IsPointerOverUI())
+            return;
         if (LevelManager.Instance.BoosterHammerUsed)
         {
             CustomeEventSystem.Instance.UserBoosterHammer(gameObject);
             return;
         }
+        if (!IsMove) return;
         zCoord = Camera.main.WorldToScreenPoint(transform.position).z;
         offset = transform.position - GetMouseWorldPos();
         // bắt đầu game nếu có lượt kéo
@@ -145,7 +152,17 @@ public abstract class BaseBlock : MonoBehaviour
 
     void OnMouseUp()
     {
-        if (LevelManager.Instance.BoosterHammerUsed) return;
+        // Ngăn kéo khi chuột đang trên UI
+        if (UIBlockChecker.IsPointerOverUI())
+            return;
+        if (LevelManager.Instance.BoosterHammerUsed || !IsMove)
+        {
+            transform.position = SnapToGrid(transform.position);
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.gravityScale = 1;
+            isGragging = false;
+            return;
+        }
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.gravityScale = 1;
         isGragging = false;
@@ -174,7 +191,19 @@ public abstract class BaseBlock : MonoBehaviour
 
     void OnMouseDrag()
     {
-        if (!IsMove || LevelManager.Instance.BoosterHammerUsed) return;
+        // Ngăn kéo khi chuột đang trên UI
+        if (UIBlockChecker.IsPointerOverUI())
+            return;
+        if (!IsMove || LevelManager.Instance.BoosterHammerUsed)
+        {
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.gravityScale = 0;
+            rb.linearDamping = 0;
+            rb.angularDamping = 0;
+            // nếu kéo mà gặp gatepipe thì snap lại luôn
+            transform.position = SnapToGrid(transform.position);
+            return;
+        }
         isGragging = true;
         Vector3 target = GetMouseWorldPos() + offset;
 
@@ -182,12 +211,13 @@ public abstract class BaseBlock : MonoBehaviour
         {
             return;
         }
-        RotateMove(target);
-        rb.MovePosition(target);
+        //RotateMove(target);
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 0;
         rb.linearDamping = 0;
         rb.angularDamping = 0;
+        Vector3 smoothPos = Vector3.SmoothDamp(transform.position, target, ref smoothVelocity, smoothTime);
+        rb.MovePosition(smoothPos);
     }
 
     private void RotateMove(Vector3 target)

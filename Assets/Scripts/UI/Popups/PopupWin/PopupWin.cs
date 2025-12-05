@@ -23,6 +23,7 @@ public class PopupWin : PopupUI
     [SerializeField] Transform targetSpawner;
     [SerializeField] Transform targetPig;
     [SerializeField] TextMeshProUGUI textCount;
+    [SerializeField] Image PigIcon;
 
     private Sequence popupSequence;
 
@@ -41,47 +42,109 @@ public class PopupWin : PopupUI
     private IEnumerator InitPigReceiveCoin()
     {
         int amount = 7;
+        int completed = 0;
+
+        RectTransform spawnRect = targetSpawner.GetComponent<RectTransform>();
         RectTransform pigRect = targetPig.GetComponent<RectTransform>();
+        RectTransform pigIconRect = PigIcon.GetComponent<RectTransform>();
+
+        Vector2 originalPos = pigIconRect.anchoredPosition;
+
+        // Idle trước khi nhận tiền
+        Sequence idleTween = DOTween.Sequence();
+        idleTween.Append(pigIconRect.DOAnchorPosY(originalPos.y + 15f, 0.35f));
+        idleTween.Join(pigIconRect.DOScale(1.1f, 0.35f));
+        idleTween.Append(pigIconRect.DOAnchorPosY(originalPos.y - 15f, 0.35f));
+        idleTween.Join(pigIconRect.DOScale(1f, 0.35f));
+        idleTween.SetLoops(-1, LoopType.Yoyo);
+
+        lastJumpTime = -999f;
 
         for (int i = 0; i < amount; i++)
         {
-            GameObject coin = new GameObject("PigCoinUI");
-            coin.transform.SetParent(targetSpawner, false);
-            coin.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+            GameObject coin = new GameObject("PigCoinUI", typeof(RectTransform), typeof(Image));
+            RectTransform rect = coin.GetComponent<RectTransform>();
+            rect.SetParent(targetSpawner, false);
 
-            Image img = coin.AddComponent<Image>();
+            Image img = coin.GetComponent<Image>();
             img.sprite = Coin;
             img.SetNativeSize();
 
-            RectTransform rect = coin.GetComponent<RectTransform>();
+            rect.position = spawnRect.position;
 
-            // random nhẹ cho đẹp
-            // rect.anchoredPosition += new Vector2(UnityEngine.Random.Range(-40f, 40f), 0);
-
-            float fallTime = 0.5f;
-
-            Vector2 targetPos = pigRect.anchoredPosition; // <-- CHỖ QUAN TRỌNG
+            float timeFly = 0.7f + UnityEngine.Random.Range(-0.05f, 0.05f);
+            float delay = i * 0.1f;
+            Vector3 worldTarget = pigRect.position;
 
             Sequence seq = DOTween.Sequence();
+            seq.AppendInterval(delay);
 
-            seq.Append(
-                rect.DOAnchorPos(targetPos, fallTime)
-                    .SetEase(Ease.OutQuad)
-            );
+            rect.localScale = Vector3.zero;
+            seq.Append(rect.DOScale(0.6f, 0.25f).SetEase(Ease.OutBack));
 
-            // seq.Join(
-            //     rect.DORotate(new Vector3(0, 0, -90), fallTime, RotateMode.FastBeyond360)
-            //         .SetEase(Ease.Linear)
-            // );
+            seq.Append(rect.DOMove(worldTarget, timeFly).SetEase(Ease.InQuad));
+            seq.Join(rect.DORotate(new Vector3(0, 90, 0), timeFly, RotateMode.FastBeyond360));
 
             seq.OnComplete(() =>
             {
                 Destroy(coin);
+                completed++;
+
+                // hứng coin ngay lúc coin chạm
+                PigJump(pigIconRect, originalPos);
+
+                // Coin cuối → Jump mạnh hơn
+                if (completed >= amount)
+                {
+                    idleTween.Kill();
+
+                    pigIconRect.DOAnchorPosY(originalPos.y + 30f, 0.25f)
+                        .SetEase(Ease.OutQuad)
+                        .OnComplete(() =>
+                        {
+                            pigIconRect.DOAnchorPosY(originalPos.y, 0.25f).SetEase(Ease.InQuad);
+                            pigIconRect.DOScale(1f, 0.25f).SetEase(Ease.InOutQuad);
+                        });
+                }
             });
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
+
+    private float lastJumpTime = -999f;
+    private float jumpCooldown = 0.12f;  // tránh spam quá nhanh
+
+    private void PigJump(RectTransform pig, Vector2 originalPos)
+    {
+        if (Time.time - lastJumpTime < jumpCooldown)
+            return;
+
+        lastJumpTime = Time.time;
+
+        Sequence pigSeq = DOTween.Sequence();
+
+        pigSeq.Append(
+            pig.DOAnchorPosY(originalPos.y + 20f, 0.18f).SetEase(Ease.OutQuad)
+        );
+        pigSeq.Join(
+            pig.DOScale(1.1f, 0.18f).SetEase(Ease.OutSine)
+        );
+
+        pigSeq.Append(
+            pig.DOAnchorPosY(originalPos.y, 0.18f).SetEase(Ease.InQuad)
+        );
+        pigSeq.Join(
+            pig.DOScale(1f, 0.18f).SetEase(Ease.InSine)
+        );
+    }
+
+
+
+
+
+
+
 
 
 
@@ -113,7 +176,7 @@ public class PopupWin : PopupUI
     private IEnumerator ShowCoin()
     {
         yield return new WaitForSeconds(0.7f);
-        int amount = 20;
+        int amount = 15;
         int completed = 0;
 
         float radius = 120f;    // bán kính để tản coin ra đều
@@ -144,7 +207,7 @@ public class PopupWin : PopupUI
             rect.localScale = Vector3.zero;
 
             float delay = i * 0.03f;
-            float delayShow = i * 0.01f;
+            //float delayShow = i * 0.01f;
 
             Sequence seq = DOTween.Sequence();
 
