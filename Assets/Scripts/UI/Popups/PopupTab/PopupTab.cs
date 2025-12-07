@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public enum StatusChoice
@@ -10,7 +11,7 @@ public enum StatusChoice
     RANKING,
 }
 
-public class PopupTab : PopupUI
+public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
 {
     [Header("Buttons")]
     [SerializeField] private Button ShopButton;
@@ -26,6 +27,10 @@ public class PopupTab : PopupUI
     [SerializeField] private Transform Parent;
 
     private StatusChoice currentStatus;
+
+    // Swipe
+    private Vector2 touchStart;
+    private float minSwipeDistance = 100f;
 
     void Start()
     {
@@ -116,7 +121,7 @@ public class PopupTab : PopupUI
                 UIManager.Instance.ShowScreen<ScreenHome>();
                 break;
             case StatusChoice.RANKING:
-                UIManager.Instance.ShowScreen<ScreenLock>();
+                UIManager.Instance.ShowScreen<ScreenRanking>();
                 break;
         }
     }
@@ -154,5 +159,54 @@ public class PopupTab : PopupUI
             StatusChoice.RANKING => 2,
             _ => 0
         };
+    }
+
+    // ========================
+    //       SWIPE SYSTEM
+    // ========================
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        touchStart = eventData.position;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        Vector2 touchEnd = eventData.position;
+        float deltaX = touchEnd.x - touchStart.x;
+
+        if (Mathf.Abs(deltaX) < minSwipeDistance)
+            return;
+
+        if (deltaX > 0)
+            SwipeRight();
+        else
+            SwipeLeft();
+    }
+
+    private void SwipeLeft()
+    {
+        switch (currentStatus)
+        {
+            case StatusChoice.Home:
+                ChangeStatusChoicePanel(StatusChoice.RANKING);
+                break;
+            case StatusChoice.Shop:
+                ChangeStatusChoicePanel(StatusChoice.Home);
+                break;
+        }
+    }
+
+    private void SwipeRight()
+    {
+        switch (currentStatus)
+        {
+            case StatusChoice.Home:
+                ChangeStatusChoicePanel(StatusChoice.Shop);
+                break;
+            case StatusChoice.RANKING:
+                ChangeStatusChoicePanel(StatusChoice.Home);
+                break;
+        }
     }
 }

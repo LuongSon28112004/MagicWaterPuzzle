@@ -15,6 +15,11 @@ public class ScreenHome : ScreenUI
     [Header("Shiny Effect Button")]
     [SerializeField] ShinyEffectForUGUI shinyEffectForUGUI_1;
     [SerializeField] ShinyEffectForUGUI shinyEffectForUGUI_2;
+
+    private void OnEnable()
+    {
+        StartCoroutine(ShinyEffectButtonPlay());
+    }
     public void Start()
     {
         buttonPlay.onClick.AddListener(OnClickPlay);
@@ -27,10 +32,10 @@ public class ScreenHome : ScreenUI
     {
         while (true)
         {
-            shinyEffectForUGUI_1.Play(0.75f);
-            yield return new WaitForSeconds(0.75f);
-            shinyEffectForUGUI_2.Play(0.75f);
-            yield return new WaitForSeconds(0.75f);
+            shinyEffectForUGUI_1.Play(3f);
+            yield return new WaitForSeconds(0.28f);
+            shinyEffectForUGUI_2.Play(3f);
+            yield return new WaitForSeconds(4f);
         }
     }
 

@@ -50,6 +50,7 @@ public class PopupLoading : PopupUI
 
     private void OnEnable()
     {
+        StartCoroutine(ShinyEffectPlay());
         if (mode == Mode.LoadingGame)
         {
             StartCoroutine(LoadingGame());
@@ -71,7 +72,7 @@ public class PopupLoading : PopupUI
             SetProgress(progress);
             if (progress < 20)
             {
-                yield return new WaitForSeconds(0.07f);
+                yield return new WaitForSeconds(0.08f);
             }
             else if (progress < 90)
             {

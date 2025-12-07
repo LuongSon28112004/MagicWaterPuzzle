@@ -65,7 +65,7 @@ public abstract class BaseBlock : MonoBehaviour
     [SerializeField] protected bool IsMove = true;
     [SerializeField] protected bool isFill = false;
     private Vector3 smoothVelocity = Vector3.zero;
-    [SerializeField] private float smoothTime = 0.03f; // mượt hơn khi giảm giá trị
+    [SerializeField] private float smoothTime = 0.02f; // mượt hơn khi giảm giá trị
 
 
     // Hướng bị chặn
