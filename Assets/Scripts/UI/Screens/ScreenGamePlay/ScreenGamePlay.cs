@@ -70,16 +70,19 @@ public class ScreenGamePlay : ScreenUI
         {
             CollectBooster.gameObject.SetActive(true);
             collectBooster.setTypeCollect(TypeCollectBooster.FREEZE);
+            AudioManager.Instance.PlayOneShot("BoosterAppear", 1f);
         }
         else if (GameManager.Instance.Level == 2)
         {
             CollectBooster.gameObject.SetActive(true);
             collectBooster.setTypeCollect(TypeCollectBooster.BOMB);
+            AudioManager.Instance.PlayOneShot("BoosterAppear", 1f);
         }
         else if (GameManager.Instance.Level == 3)
         {
             CollectBooster.gameObject.SetActive(true);
             collectBooster.setTypeCollect(TypeCollectBooster.HAMMER);
+            AudioManager.Instance.PlayOneShot("BoosterAppear", 1f);
         }
     }
     private IEnumerator AnimationIntro()

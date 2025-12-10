@@ -148,6 +148,7 @@ public abstract class BaseBlock : MonoBehaviour
     void OnMouseDown()
     {
         // nếu chuột đang ở trên UI → không cho nhấc block
+        if (blockVisual.blockIce.IsActive) return;
         if (UIBlockChecker.IsPointerOverUI())
             return;
         if (LevelManager.Instance.BoosterHammerUsed)
@@ -164,6 +165,7 @@ public abstract class BaseBlock : MonoBehaviour
 
     void OnMouseUp()
     {
+        if (blockVisual.blockIce.IsActive) return;
         // Ngăn kéo khi chuột đang trên UI
         if (UIBlockChecker.IsPointerOverUI())
             return;
@@ -203,6 +205,7 @@ public abstract class BaseBlock : MonoBehaviour
 
     void OnMouseDrag()
     {
+        if (blockVisual.blockIce.IsActive) return;
         // Ngăn kéo khi chuột đang trên UI
         if (UIBlockChecker.IsPointerOverUI())
             return;
@@ -408,6 +411,7 @@ public abstract class BaseBlock : MonoBehaviour
     {
         if (currentCapacity < maxCapacity) yield break;
         transform.position -= new Vector3(0, 0, 2);
+        AudioManager.Instance.PlayOneShot("ClearBlock", 1f);
 
         SetNonClick();
         blockVisual.soapBubbleEmitterVariant.PlayParticle();

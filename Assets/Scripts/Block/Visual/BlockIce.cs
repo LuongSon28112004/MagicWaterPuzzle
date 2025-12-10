@@ -9,6 +9,8 @@ public class BlockIce : MonoBehaviour
     [SerializeField] private bool isActive;
     [SerializeField] private TextMeshProUGUI textCountIce;
 
+    public bool IsActive { get => isActive; set => isActive = value; }
+
     public void ActiveIce(int count, Direction blockDirection)
     {
         this.isActive = true;

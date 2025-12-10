@@ -55,7 +55,7 @@ Material:
     - _DstBlend: 0
     - _FresnelPow: 0
     - _FrostAmount: 0.5
-    - _FrostBlur: 0
+    - _FrostBlur: 1
     - _FrostIntensity: 0
     - _Gate: 0
     - _GlossMapScale: 1
@@ -70,7 +70,7 @@ Material:
     - _SelectionGuide: 0
     - _Smoothness: 0.3
     - _SmoothnessTextureChannel: 0
-    - _SnowGlowIntensity: 1.46
+    - _SnowGlowIntensity: 0.5
     - _SpecularHighlights: 1
     - _Speed: 0
     - _SrcBlend: 1
