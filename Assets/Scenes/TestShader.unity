@@ -235,6 +235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridGate1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1589276869603768, guid: cd29e62d57da12b488bda521e3f5d30c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4979952861514128, guid: cd29e62d57da12b488bda521e3f5d30c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

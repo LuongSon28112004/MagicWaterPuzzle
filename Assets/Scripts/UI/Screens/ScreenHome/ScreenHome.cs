@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Coffee.UIExtensions;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,6 +13,8 @@ public class ScreenHome : ScreenUI
     [Header("Screen Home Component")]
     [SerializeField] private Button buttonPlay;
     [SerializeField] private ScrollRect scrollRect;
+    [Header("List Level Text")]
+    [SerializeField] private List<TextMeshProUGUI> listLevelText;
 
     [Header("Shiny Effect Button")]
     [SerializeField] ShinyEffectForUGUI shinyEffectForUGUI_1;
@@ -26,6 +30,17 @@ public class ScreenHome : ScreenUI
         //scrollRect.onValueChanged.AddListener(OnScroll);
         ScrollToBottom();
         StartCoroutine(ShinyEffectButtonPlay());
+        LoadListLevelText();
+    }
+
+    private void LoadListLevelText()
+    {
+        int currentLevel = UserData.level;
+        for (int i = 0; i < listLevelText.Count; i++)
+        {
+            listLevelText[i].text = currentLevel.ToString();
+            currentLevel++;
+        }
     }
 
     private IEnumerator ShinyEffectButtonPlay()

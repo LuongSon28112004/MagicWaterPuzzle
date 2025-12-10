@@ -24,11 +24,19 @@ public class PopupWin : PopupUI
     [SerializeField] Transform targetPig;
     [SerializeField] TextMeshProUGUI textCount;
     [SerializeField] Image PigIcon;
+    [Header("Text Coin")]
+    [SerializeField] TextMeshProUGUI textCoin;
+    [SerializeField] TextMeshProUGUI textCoinPlus;
+    [SerializeField] Transform targetCoin;
+    private int MAX_COIN = 60;
+
+    // Sequence
 
     private Sequence popupSequence;
 
     private void Awake()
     {
+        InitCoinGame();
         StartCoroutine(InitPigReceiveCoin());
         SetupInitialState();     // Set trạng thái ban đầu
         AddAnimationWin();       // Gắn hiệu ứng xoay
@@ -37,6 +45,39 @@ public class PopupWin : PopupUI
         UserData.level += 1;
         GameManager.Instance.Level = UserData.level;
         SaveDataManager.Save();
+    }
+
+    private void AddAnimationTextCoin()
+    {
+        StartCoroutine(ShowAnimTextCoin());
+    }
+
+    private IEnumerator ShowAnimTextCoin()
+    {
+        yield return new WaitForSeconds(1.2f);
+        textCoinPlus.transform.DOMove(targetCoin.position, 0.2f);
+        textCoinPlus.transform.DOScale(Vector3.zero, 0.2f);
+        yield return new WaitForSeconds(0.1f);
+        StartCoroutine(PlusCoin());
+    }
+
+    private IEnumerator PlusCoin()
+    {
+        int currentCoin = UserData.coin;
+        for (int i = 0; i < MAX_COIN; i++)
+        {
+            currentCoin += 1;
+            textCoin.text = currentCoin.ToString();
+            yield return new WaitForSeconds(0.01f);
+        }
+        UserData.coin += 60;
+        SaveDataManager.Save();
+        yield break;
+    }
+
+    private void InitCoinGame()
+    {
+        textCoin.text = UserData.coin.ToString();
     }
 
     private IEnumerator InitPigReceiveCoin()
@@ -162,6 +203,7 @@ public class PopupWin : PopupUI
     {
         ReceiverCoin.gameObject.SetActive(true);
         StartCoroutine(InitCoinReceiver());
+        AddAnimationTextCoin();
     }
 
     private IEnumerator InitCoinReceiver()

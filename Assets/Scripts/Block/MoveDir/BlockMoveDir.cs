@@ -9,10 +9,10 @@ public class BlockMoveDir : MonoBehaviour
 
     public BlockMoveDirection BlockMoveDirection { get => blockMoveDirection; set => blockMoveDirection = value; }
 
-    public void InitMoveDirection(MoveDir moveDir, Direction blockDirection)
+    public void InitMoveDirection(MoveDir moveDir, Direction blockDirection, bool normal)
     {
         AsignMoveDir(moveDir);
-        SetDirection(blockDirection);
+        SetDirection(blockDirection, normal);
 
     }
 
@@ -23,21 +23,39 @@ public class BlockMoveDir : MonoBehaviour
         if (moveDir == MoveDir.VERTICAL) blockMoveDirection = BlockMoveDirection.VERTICAL;
     }
 
-    private void SetDirection(Direction blockDirection)
+    private void SetDirection(Direction blockDirection, bool normal = true)
     {
-        if (blockDirection == Direction.NORMAL || blockDirection == Direction.VERTICAL)
+        if (normal)
         {
-            if (blockMoveDirection == BlockMoveDirection.NORMAL) return;
-            if (blockMoveDirection == BlockMoveDirection.HORIZONTAL)
+            if (blockDirection == Direction.NORMAL || blockDirection == Direction.VERTICAL)
             {
-                horizontal.gameObject.SetActive(true);
-                vertical.gameObject.SetActive(false);
-            }
+                if (blockMoveDirection == BlockMoveDirection.NORMAL) return;
+                if (blockMoveDirection == BlockMoveDirection.HORIZONTAL)
+                {
+                    horizontal.gameObject.SetActive(true);
+                    vertical.gameObject.SetActive(false);
+                }
 
-            if (blockMoveDirection == BlockMoveDirection.VERTICAL)
+                if (blockMoveDirection == BlockMoveDirection.VERTICAL)
+                {
+                    horizontal.gameObject.SetActive(false);
+                    vertical.gameObject.SetActive(true);
+                }
+            }
+            else
             {
-                horizontal.gameObject.SetActive(false);
-                vertical.gameObject.SetActive(true);
+                if (blockMoveDirection == BlockMoveDirection.NORMAL) return;
+                if (blockMoveDirection == BlockMoveDirection.HORIZONTAL)
+                {
+                    horizontal.gameObject.SetActive(false);
+                    vertical.gameObject.SetActive(true);
+                }
+
+                if (blockMoveDirection == BlockMoveDirection.VERTICAL)
+                {
+                    horizontal.gameObject.SetActive(true);
+                    vertical.gameObject.SetActive(false);
+                }
             }
         }
         else
@@ -45,14 +63,14 @@ public class BlockMoveDir : MonoBehaviour
             if (blockMoveDirection == BlockMoveDirection.NORMAL) return;
             if (blockMoveDirection == BlockMoveDirection.HORIZONTAL)
             {
-                horizontal.gameObject.SetActive(false);
-                vertical.gameObject.SetActive(true);
+                horizontal.gameObject.SetActive(true);
+                vertical.gameObject.SetActive(false);
             }
 
             if (blockMoveDirection == BlockMoveDirection.VERTICAL)
             {
-                horizontal.gameObject.SetActive(true);
-                vertical.gameObject.SetActive(false);
+                horizontal.gameObject.SetActive(false);
+                vertical.gameObject.SetActive(true);
             }
         }
     }

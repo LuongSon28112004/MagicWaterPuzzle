@@ -17,6 +17,7 @@ public class BoardCtrl : MonoBehaviour
     [SerializeField] private List<Transform> blockInstances = new List<Transform>();
 
     public List<Transform> BlockInstances { get => blockInstances; set => blockInstances = value; }
+    public List<Transform> GateInstances { get => gateInstances; set => gateInstances = value; }
 
 
     // Method to load level based on levelData
@@ -79,6 +80,11 @@ public class BoardCtrl : MonoBehaviour
                 }
                 blockTwoSquare.AddVisualWater(block.color);
                 blockTwoSquare.AddMoveDirection(block.moveDir);
+                //ice infor
+                if (block.iceInfor.IsIce)
+                {
+                    blockTwoSquare.AddIceBlock(block.iceInfor.CountBreak);
+                }
             }
             else if (block.name.Contains("Two"))
             {
@@ -96,6 +102,10 @@ public class BoardCtrl : MonoBehaviour
                 }
                 blockTwo.AddVisualWater(block.color);
                 blockTwo.AddMoveDirection(block.moveDir);
+                if (block.iceInfor.IsIce)
+                {
+                    blockTwo.AddIceBlock(block.iceInfor.CountBreak);
+                }
             }
             else if (block.name.Contains("One"))
             {
@@ -105,6 +115,10 @@ public class BoardCtrl : MonoBehaviour
                 blockOne.BlockDirection = Direction.NORMAL;
                 blockOne.AddVisualColor(block.color);
                 blockOne.AddMoveDirection(block.moveDir);
+                if (block.iceInfor.IsIce)
+                {
+                    blockOne.AddIceBlock(block.iceInfor.CountBreak);
+                }
             }
             else if (block.name.Contains("Plus"))
             {
@@ -115,6 +129,10 @@ public class BoardCtrl : MonoBehaviour
                 blockPlus.BlockDirection = Direction.NORMAL;
                 blockPlus.AddVisualWater(block.color);
                 blockPlus.AddMoveDirection(block.moveDir);
+                if (block.iceInfor.IsIce)
+                {
+                    blockPlus.AddIceBlock(block.iceInfor.CountBreak);
+                }
             }
             else if (block.name.Contains("ShortL"))
             {
@@ -132,6 +150,10 @@ public class BoardCtrl : MonoBehaviour
                 }
                 blockShortL.AddVisualWater(block.color);
                 blockShortL.AddMoveDirection(block.moveDir);
+                if (block.iceInfor.IsIce)
+                {
+                    blockShortL.AddIceBlock(block.iceInfor.CountBreak);
+                }
             }
             else if (block.name.Contains("L"))
             {
@@ -149,6 +171,10 @@ public class BoardCtrl : MonoBehaviour
                 }
                 blockL.AddVisualWater(block.color);
                 blockL.AddMoveDirection(block.moveDir);
+                if (block.iceInfor.IsIce)
+                {
+                    blockL.AddIceBlock(block.iceInfor.CountBreak);
+                }
             }
             else if (block.name.Contains("Three"))
             {
@@ -166,6 +192,10 @@ public class BoardCtrl : MonoBehaviour
                 }
                 blockThree.AddVisualWater(block.color);
                 blockThree.AddMoveDirection(block.moveDir);
+                if (block.iceInfor.IsIce)
+                {
+                    blockThree.AddIceBlock(block.iceInfor.CountBreak);
+                }
             }
             else if (block.name.Contains("ThreeSquare"))
             {
@@ -183,6 +213,10 @@ public class BoardCtrl : MonoBehaviour
                 }
                 blockThreeSquare.AddVisualWater(block.color);
                 blockThreeSquare.AddMoveDirection(block.moveDir);
+                if (block.iceInfor.IsIce)
+                {
+                    blockThreeSquare.AddIceBlock(block.iceInfor.CountBreak);
+                }
             }
             gameObject.transform.localScale = Vector3.zero;
             blockInstances.Add(gameObject.transform);

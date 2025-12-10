@@ -220,3 +220,5 @@ MonoBehaviour:
     colorOutputs:
     - color: 1
       capacity: 3
+  IsEven: 0
+  BoundCam: {x: 15, y: 15}

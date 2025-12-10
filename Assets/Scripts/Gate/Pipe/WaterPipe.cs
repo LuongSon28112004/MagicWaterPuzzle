@@ -18,7 +18,11 @@ public enum WaterTypeColor
     Red,
     Blue,
     Green,
-    Yellow
+    Yellow,
+    purple,
+    pink,
+    Brown,
+    Turquoise
 }
 
 [Serializable]
@@ -73,6 +77,16 @@ public class WaterPipe : MonoBehaviour
                 waterColor = WaterTypeColor.Blue;
             else if (colorOutputs[i].color == BlockColor.Green)
                 waterColor = WaterTypeColor.Green;
+            else if (colorOutputs[i].color == BlockColor.Yellow)
+                waterColor = WaterTypeColor.Yellow;
+            else if (colorOutputs[i].color == BlockColor.purple)
+                waterColor = WaterTypeColor.purple;
+            else if (colorOutputs[i].color == BlockColor.pink)
+                waterColor = WaterTypeColor.pink;
+            else if (colorOutputs[i].color == BlockColor.Brown)
+                waterColor = WaterTypeColor.Brown;
+            else if (colorOutputs[i].color == BlockColor.Turquoise)
+                waterColor = WaterTypeColor.Turquoise;
 
             // Thêm phần tử mới thay vì truy cập theo index
             waterTypeCounters.Add(new WaterTypeCounter(waterColor, colorOutputs[i].capacity));
@@ -93,10 +107,10 @@ public class WaterPipe : MonoBehaviour
     }
 
     // FillColor
-    public IEnumerator FillColorWater(float Height)
+    public IEnumerator FillColorWater(float Height, int value, Action<int> action)
     {
         PipeLineHeadCtrl.PlayParticleWaterFall(Height);
-        yield return StartCoroutine(PipeLineCtrl.FillColor());
+        yield return StartCoroutine(PipeLineCtrl.FillColor(value, action));
         PipeLineHeadCtrl.StopParticleWaterFall();
     }
 

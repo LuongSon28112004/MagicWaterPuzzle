@@ -11,6 +11,11 @@ public class BlockTwoSquare : BaseBlock
         currentCapacity = 0;
         rb = GetComponent<Rigidbody2D>();
     }
+
+    public override void AddMoveDirection(MoveDir moveDir)
+    {
+        blockVisual.blockTypeVariant.SetDirMove(moveDir, blockDirection, false);
+    }
     protected override Vector2 SnapToGrid(Vector2 pos)
     {
         float cellSize = 1f;

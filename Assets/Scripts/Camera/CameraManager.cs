@@ -6,6 +6,17 @@ using UnityEngine;
 public class CameraManager : Singleton<CameraManager>
 {
     public Camera mainCamera;
+    public BoxCollider2D boxCamera;
+
+    public void InitBoxCam(Vector2 boxcam)
+    {
+        boxCamera.size = boxcam;
+        Bounds bounds = new Bounds();
+        bounds.center = boxCamera.bounds.center;
+        bounds.size = boxCamera.bounds.size;
+        FitCameraToBounds3D(bounds);
+    }
+
     //2D OrthorCamera
     public void FitCameraToBounds(Bounds bounds)
     {

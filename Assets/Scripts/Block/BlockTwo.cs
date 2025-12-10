@@ -144,7 +144,7 @@ public class BlockTwo : BaseBlock
     {
         if (blockDirection == Direction.HORIZONTAL)
         {
-            return 0.4f;
+            return 0.25f;
         }
         else if (blockDirection == Direction.VERTICAL)
         {

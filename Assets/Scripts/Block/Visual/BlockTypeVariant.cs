@@ -116,9 +116,9 @@ public class BlockTypeVariant : MonoBehaviour
 
 
     // add Dir Move
-    public void SetDirMove(MoveDir moveDir, Direction blockDirection)
+    public void SetDirMove(MoveDir moveDir, Direction blockDirection, bool normal)
     {
-        blockMoveDir.InitMoveDirection(moveDir, blockDirection);
+        blockMoveDir.InitMoveDirection(moveDir, blockDirection, normal);
     }
 
 

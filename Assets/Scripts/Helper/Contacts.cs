@@ -39,6 +39,16 @@ public class Contacts : MonoBehaviour
                 return Instance.Materials[0];
             case BlockColor.Green:
                 return Instance.Materials[2];
+            case BlockColor.Yellow:
+                return Instance.Materials[3];
+            case BlockColor.purple:
+                return Instance.Materials[4];
+            case BlockColor.pink:
+                return Instance.Materials[5];
+            case BlockColor.Brown:
+                return Instance.Materials[6];
+            case BlockColor.Turquoise:
+                return Instance.Materials[7];
             default:
                 return null;
         }
@@ -57,6 +67,16 @@ public class Contacts : MonoBehaviour
                 return Instance.Materials[0];
             case WaterTypeColor.Green:
                 return Instance.Materials[2];
+            case WaterTypeColor.Yellow:
+                return Instance.Materials[3];
+            case WaterTypeColor.purple:
+                return Instance.Materials[4];
+            case WaterTypeColor.pink:
+                return Instance.Materials[5];
+            case WaterTypeColor.Brown:
+                return Instance.Materials[6];
+            case WaterTypeColor.Turquoise:
+                return Instance.Materials[7];
             default:
                 return null;
         }
@@ -73,6 +93,16 @@ public class Contacts : MonoBehaviour
                 return "#0022ffff";
             case BlockColor.Green:
                 return "#51ff00ff";
+            case BlockColor.Yellow:
+                return "#eaff00ff";
+            case BlockColor.purple:
+                return "#a600ffff";
+            case BlockColor.pink:
+                return "#ff00a6ff";
+            case BlockColor.Brown:
+                return "#ff6600ff";
+            case BlockColor.Turquoise:
+                return "#00fbffff";
             default: return "";
         }
     }
@@ -87,6 +117,17 @@ public class Contacts : MonoBehaviour
                 return "#4059fc84";
             case WaterTypeColor.Green:
                 return "#53f9406b";
+            case WaterTypeColor.Yellow:
+                return "#eaff00ff";
+            case WaterTypeColor.purple:
+                return "#a600ffff";
+            case WaterTypeColor.pink:
+                return "#ea00ffff";
+            case WaterTypeColor.Brown:
+                return "#ff6600ff";
+            case WaterTypeColor.Turquoise:
+                return "#00fbffff";
+
             default: return "";
         }
     }

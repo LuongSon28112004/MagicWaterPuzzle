@@ -5,13 +5,11 @@ using System.Linq;
 using DG.Tweening;
 using master;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private List<LevelData> levelDatas;
     [SerializeField] public BoardCtrl boardCtrl;
-    [SerializeField] private BoxCollider2D levelBoundsCollider;
     [SerializeField] private bool startPlay = false;
     [SerializeField] private bool boosterHammerUsed = false;
 
@@ -19,10 +17,6 @@ public class LevelManager : Singleton<LevelManager>
 
     void Start()
     {
-        Bounds bounds = new Bounds();
-        bounds.center = levelBoundsCollider.bounds.center;
-        bounds.size = levelBoundsCollider.bounds.size;
-        CameraManager.Instance.FitCameraToBounds3D(bounds);
         LoadListLevelSO();
     }
 
@@ -30,14 +24,22 @@ public class LevelManager : Singleton<LevelManager>
     {
         LevelData[] levels = Resources.LoadAll<LevelData>("LevelData");
         List<LevelData> levelDatas = levels.ToList();
-        if (GameManager.Instance.Level > 3)
+        LevelData levelData;
+        if (GameManager.Instance.Level > 9)
         {
-            boardCtrl.LoadLevel(levelDatas[2]);
+            levelData = levelDatas[8];
         }
         else
         {
-            boardCtrl.LoadLevel(levelDatas[GameManager.Instance.Level - 1]);
+            levelData = levelDatas[GameManager.Instance.Level - 1];
         }
+        boardCtrl.LoadLevel(levelData);
+        if (levelData.IsEven)
+        {
+            boardCtrl.transform.position += new Vector3(-1f, -1f, 0);
+            CameraManager.Instance.transform.position += new Vector3(-1f, -1f, 0);
+        }
+        CameraManager.Instance.InitBoxCam(levelData.BoundCam);
     }
 
     public void StartPlay()

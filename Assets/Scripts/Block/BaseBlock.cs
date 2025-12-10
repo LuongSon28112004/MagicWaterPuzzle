@@ -57,7 +57,7 @@ public abstract class BaseBlock : MonoBehaviour
 
     // ref
     [SerializeField] protected BlockVisual blockVisual;
-    [SerializeField] protected BlockColor blockColorVisual;
+    [SerializeField] private BlockColor blockColorVisual;
 
 
     // check kéo
@@ -65,7 +65,7 @@ public abstract class BaseBlock : MonoBehaviour
     [SerializeField] protected bool IsMove = true;
     [SerializeField] protected bool isFill = false;
     private Vector3 smoothVelocity = Vector3.zero;
-    [SerializeField] private float smoothTime = 0.02f; // mượt hơn khi giảm giá trị
+    private float smoothTime = 0.03f; // mượt hơn khi giảm giá trị
 
 
     // Hướng bị chặn
@@ -79,6 +79,8 @@ public abstract class BaseBlock : MonoBehaviour
 
     //Getter And Setter
     public Direction BlockDirection { get => blockDirection; set => blockDirection = value; }
+    public BlockColor BlockColorVisual { get => blockColorVisual; set => blockColorVisual = value; }
+
 
 
     // Hàm kiểm tra góc an toàn
@@ -88,9 +90,9 @@ public abstract class BaseBlock : MonoBehaviour
     }
 
     // Move Direction
-    public void AddMoveDirection(MoveDir moveDir)
+    public virtual void AddMoveDirection(MoveDir moveDir)
     {
-        blockVisual.blockTypeVariant.blockMoveDir.InitMoveDirection(moveDir, blockDirection);
+        blockVisual.blockTypeVariant.SetDirMove(moveDir, blockDirection, true);
     }
 
     // visual
@@ -98,6 +100,11 @@ public abstract class BaseBlock : MonoBehaviour
     {
         blockColorVisual = color;
         blockVisual.blockTypeVariant.AddVisual(color);
+    }
+
+    public virtual void AddIceBlock(int count)
+    {
+        blockVisual.blockIce.ActiveIce(count, BlockDirection);
     }
 
     protected Vector2 SnapToPipe(Vector2 pipePos)
@@ -115,6 +122,11 @@ public abstract class BaseBlock : MonoBehaviour
             float yFix = SnapOdd(pipePos.y);
             return new Vector2(xFix, yFix);
         }
+    }
+
+    public int TakeRemainingCapacity()
+    {
+        return maxCapacity - currentCapacity;
     }
 
 
@@ -159,12 +171,12 @@ public abstract class BaseBlock : MonoBehaviour
         {
             transform.position = SnapToGrid(transform.position);
             rb.bodyType = RigidbodyType2D.Kinematic;
-            rb.gravityScale = 1;
+            rb.gravityScale = 0;
             isGragging = false;
             return;
         }
         rb.bodyType = RigidbodyType2D.Kinematic;
-        rb.gravityScale = 1;
+        rb.gravityScale = 0;
         isGragging = false;
         AudioManager.Instance.PlayOneShot("ClickButton", 1f);
         transform.position = SnapToGrid(transform.position);
@@ -305,7 +317,7 @@ public abstract class BaseBlock : MonoBehaviour
              other.GetComponentInParent<BaseBlock>() != null) && isGragging)
         {
             Vector3 pos = transform.position;
-            pos.z = -1;
+            pos.z = -0.1f;
             transform.position = pos;
         }
         Collider2D myCol = GetComponent<Collider2D>();
@@ -353,7 +365,10 @@ public abstract class BaseBlock : MonoBehaviour
     {
         //play sound
         AudioManager.Instance.PlayOneShot("WaterPOURvar1S1", 1);
-        StartCoroutine(waterPipe.FillColorWater(SetHeightWaterFall(waterPipe.DirectionPipe, waterPipe.transform.position)));
+        StartCoroutine(waterPipe.FillColorWater(SetHeightWaterFall(waterPipe.DirectionPipe, waterPipe.transform.position), maxCapacity - currentCapacity, (value) =>
+        {
+            Debug.Log(value);
+        }));
         yield return StartCoroutine(ProcessFillWaterBlock(waterPipe));
     }
 
@@ -472,10 +487,10 @@ public abstract class BaseBlock : MonoBehaviour
 
     ////////////////////////////////////////////////
 
-    public IEnumerator ProcessFillWaterPipe(WaterPipe waterPipe)
-    {
-        yield return StartCoroutine(waterPipe.PipeLineCtrl.FillColor());
-    }
+    // public IEnumerator ProcessFillWaterPipe(WaterPipe waterPipe)
+    // {
+    //     yield return StartCoroutine(waterPipe.PipeLineCtrl.FillColor(maxCapacity - currentCapacity));
+    // }
 
     protected virtual void PlayParticleBlock()
     {

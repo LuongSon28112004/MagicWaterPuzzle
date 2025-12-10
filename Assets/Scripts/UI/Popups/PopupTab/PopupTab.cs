@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -21,6 +22,12 @@ public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
     [SerializeField] private TextMeshProUGUI TextShop;
     [SerializeField] private TextMeshProUGUI TextHome;
     [SerializeField] private TextMeshProUGUI TextRanking;
+    [Header("Coin")]
+    [SerializeField] private TextMeshProUGUI textCoin;
+    [Header("Heart System")]
+    [SerializeField] private HeartSystem heartSystem;
+    [SerializeField] private TextMeshProUGUI textTimerHeart;
+    [SerializeField] private TextMeshProUGUI textCountHeart;
 
     [Header("Parents")]
     [SerializeField] private GameObject ChoicePanel;
@@ -32,10 +39,57 @@ public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
     private Vector2 touchStart;
     private float minSwipeDistance = 100f;
 
+    private void OnEnable()
+    {
+        heartSystem.OnHeartChanged += UpdateHeartUI;
+        UpdateHeartUI();
+    }
+
+    private void OnDisable()
+    {
+        heartSystem.OnHeartChanged -= UpdateHeartUI;
+    }
+
+
     void Start()
     {
+        InitCoin();
         AddButtonListeners();
         currentStatus = StatusChoice.Home; // hoặc cái nào là mặc định hiển thị
+    }
+
+    private void Update()
+    {
+        UpdateHeartUI(); // Cập nhật UI mỗi frame
+    }
+
+
+    private void UpdateHeartUI()
+    {
+        // Cập nhật số tim
+        textCountHeart.text = heartSystem.CurrentHearts.ToString();
+
+        // Nếu đủ 5 tim → hiển thị MAX
+        if (heartSystem.CurrentHearts >= heartSystem.MaxHearts)
+        {
+            textTimerHeart.text = "MAX";
+            return;
+        }
+
+        // Ngược lại → hiển thị thời gian còn lại để hồi 1 tim
+        float remain = heartSystem.SecondsPerHeart - heartSystem.Timer;
+
+        if (remain < 0) remain = 0;
+
+        TimeSpan t = TimeSpan.FromSeconds(remain);
+
+        textTimerHeart.text = $"{t.Minutes:00}:{t.Seconds:00}";
+    }
+
+
+    private void InitCoin()
+    {
+        textCoin.text = UserData.coin.ToString();
     }
 
     private void AddButtonListeners()

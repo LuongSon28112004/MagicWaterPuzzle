@@ -25,7 +25,11 @@ public enum BlockColor
     Red,
     Blue,
     Green,
-    Yellow
+    Yellow,
+    purple,
+    pink,
+    Brown,
+    Turquoise
 }
 
 public enum MoveDir
@@ -36,9 +40,17 @@ public enum MoveDir
 }
 
 [Serializable]
+public class IceInfor
+{
+    public bool IsIce;
+    public int CountBreak;
+}
+
+[Serializable]
 public class BlockData
 {
     public string name;
+    public IceInfor iceInfor;
     public Vector3 position;
     public Vector3 rotation;
     public BlockColor color;
@@ -92,4 +104,6 @@ public class LevelData : ScriptableObject
     public List<SlotHolderData> slotHolders = new List<SlotHolderData>();
     public List<BlockData> blocks = new List<BlockData>();
     public List<GateData> gates = new List<GateData>();
+    public bool IsEven;
+    public Vector2 BoundCam;
 }

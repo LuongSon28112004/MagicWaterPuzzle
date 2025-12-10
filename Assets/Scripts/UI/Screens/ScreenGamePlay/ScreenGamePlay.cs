@@ -16,6 +16,7 @@ public class ScreenGamePlay : ScreenUI
     [Header("Menu")]
     [SerializeField] Button BackButton;
     [SerializeField] Button PauseButton;
+    [SerializeField] Button RestartButton;
 
     [Header("Booster")]
     [SerializeField] ListBooster listBooster;
@@ -97,13 +98,36 @@ public class ScreenGamePlay : ScreenUI
     }
     private void AddEventListener()
     {
-
+        //booster
         listBooster.FreezeButton.onClick.RemoveAllListeners();
         listBooster.BombButton.onClick.RemoveAllListeners();
         listBooster.HammerButton.onClick.RemoveAllListeners();
         listBooster.FreezeButton.onClick.AddListener(FreezeClick);
         listBooster.BombButton.onClick.AddListener(BombClick);
         listBooster.HammerButton.onClick.AddListener(HammerClick);
+        //pause
+        PauseButton.onClick.AddListener(PauseClick);
+        //Back
+        BackButton.onClick.AddListener(BackClick);
+        // Restart
+        RestartButton.onClick.AddListener(RestartClick);
+    }
+
+    private void RestartClick()
+    {
+        var ui = UIManager.Instance.ShowPopup<PopupExitLevel>(null);
+        ui.InitMode(ModeShowPopupExit.RESTART);
+    }
+
+    private void BackClick()
+    {
+        var ui = UIManager.Instance.ShowPopup<PopupExitLevel>(null);
+        ui.InitMode(ModeShowPopupExit.MENU);
+    }
+
+    private void PauseClick()
+    {
+        UIManager.Instance.ShowPopup<PopupSetting>(null);
     }
 
     private void HammerClick()

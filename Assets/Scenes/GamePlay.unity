@@ -253,6 +253,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1290067055}
+  - {fileID: 1874352862}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &381773264
@@ -268,6 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1290067054}
+  boxCamera: {fileID: 1874352863}
 --- !u!1 &432217282
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,7 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Materials:
-  - colorID: 1
+  - colorID: 2
     Frame_01: {fileID: 2100000, guid: e384b58880fdb234a901f9b5012a6271, type: 2}
     Glass_01: {fileID: 2100000, guid: 27db03d3a9c21ec44a441cd4190b9948, type: 2}
   - colorID: 1
@@ -584,6 +586,21 @@ MonoBehaviour:
   - colorID: 3
     Frame_01: {fileID: 2100000, guid: 825774f1b30210d4099fb00d9d6dfacb, type: 2}
     Glass_01: {fileID: 2100000, guid: 7849191a9842bbc4e803fd15c09bf3d9, type: 2}
+  - colorID: 4
+    Frame_01: {fileID: 2100000, guid: 31c2c1c10a0655442aa585052cfb3497, type: 2}
+    Glass_01: {fileID: 2100000, guid: 7e8cb0876307fd44b937127adc188be5, type: 2}
+  - colorID: 5
+    Frame_01: {fileID: 2100000, guid: 14dd3e46c8b173b42aef9ad7a2f182e8, type: 2}
+    Glass_01: {fileID: 2100000, guid: 2e5804f76775ff84e9331621ad7d42a6, type: 2}
+  - colorID: 6
+    Frame_01: {fileID: 2100000, guid: 06799388e4e987940bb441e357288ed0, type: 2}
+    Glass_01: {fileID: 2100000, guid: 04af8267bd4ebf840ae45103d8f6b75a, type: 2}
+  - colorID: 7
+    Frame_01: {fileID: 2100000, guid: c3fc0edf501e8a441b5177f5d87213f0, type: 2}
+    Glass_01: {fileID: 2100000, guid: 0ffb446baa050ff4395f142d94567c4f, type: 2}
+  - colorID: 7
+    Frame_01: {fileID: 2100000, guid: d4ce580c2fe3b7942978478fc070b0e7, type: 2}
+    Glass_01: {fileID: 2100000, guid: 33e5277529243b04592fe025f54ad4fa, type: 2}
   ice: {fileID: 2100000, guid: a1238dc5266b3a749bca69699e290a95, type: 2}
 --- !u!1 &1335591703
 GameObject:
@@ -616,7 +633,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelDatas: []
   boardCtrl: {fileID: 1656141903}
-  levelBoundsCollider: {fileID: 1874352863}
   startPlay: 0
   boosterHammerUsed: 0
 --- !u!4 &1335591705
@@ -945,11 +961,11 @@ Transform:
   m_GameObject: {fileID: 1874352861}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 20.3}
+  m_LocalPosition: {x: 0, y: 10, z: 30.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 381773263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1874352863
 BoxCollider2D:
@@ -1098,7 +1114,6 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1874352862}
   - {fileID: 381773263}
   - {fileID: 2065788718}
   - {fileID: 1685086582}

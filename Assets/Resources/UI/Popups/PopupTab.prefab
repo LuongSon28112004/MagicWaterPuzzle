@@ -315,6 +315,10 @@ MonoBehaviour:
   TextShop: {fileID: 2893897365017524288}
   TextHome: {fileID: 1652674866849283295}
   TextRanking: {fileID: 4696279097967267935}
+  textCoin: {fileID: 4858766444871539539}
+  heartSystem: {fileID: 7989974089172911827}
+  textTimerHeart: {fileID: 8286543437933690347}
+  textCountHeart: {fileID: 5349121387289529903}
   ChoicePanel: {fileID: 8875114306767809739}
   Parent: {fileID: 6733705747129919286}
 --- !u!1 &2606728709254284278
@@ -1280,7 +1284,7 @@ GameObject:
   - component: {fileID: 8296144447026157323}
   - component: {fileID: 8286543437933690347}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TextHeart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1629,7 +1633,7 @@ GameObject:
   - component: {fileID: 1290708249032801811}
   - component: {fileID: 5349121387289529903}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TextCountHeart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2415,6 +2419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8610773665677913593}
+  - component: {fileID: 7989974089172911827}
   m_Layer: 5
   m_Name: Heart
   m_TagString: Untagged
@@ -2442,6 +2447,21 @@ RectTransform:
   m_AnchoredPosition: {x: 559, y: -150.99997}
   m_SizeDelta: {x: 275, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7989974089172911827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8880024727021545335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a47885ef03325418f2a43e983aa5f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHearts: 5
+  CurrentHearts: 0
+  SecondsPerHeart: 60
 --- !u!1 &8927933105473582563
 GameObject:
   m_ObjectHideFlags: 0

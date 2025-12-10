@@ -1,16 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
+
 using UnityEngine;
+
+
+[Serializable]
+public class InforColorPipe
+{
+    public Color color;
+    public WaterTypeColor waterTypeColor;
+}
 
 public class PipeLineCtrl : MonoBehaviour
 {
     [SerializeField] private GameObject PipeLineWater;
     [SerializeField] private int currentFillColor;
     [SerializeField] private int maxColor;
-    Color[] colors;
-    float[] fills;
+    [SerializeField] InforColorPipe[] colors;
+    [SerializeField] float[] fills;
     protected MaterialPropertyBlock materialPropertyBlock;
+
+    public InforColorPipe[] Colors { get => colors; set => colors = value; }
+    public float[] Fills { get => fills; set => fills = value; }
 
     public void HideWater()
     {
@@ -79,22 +91,54 @@ public class PipeLineCtrl : MonoBehaviour
         currentFillColor = 1;
         maxColor = colorOutputs.Count;
         int layerCount = colorOutputs.Count;
-        colors = new Color[layerCount];
+        colors = new InforColorPipe[layerCount];
         fills = new float[layerCount];
         for (int i = 0; i < layerCount; i++)
         {
             fills[i] = colorOutputs[i].capacity;
+            // khoi tao
+            colors[i] = new InforColorPipe();
             if (colorOutputs[i].color == BlockColor.Red)
             {
-                colors[i] = Color.red;
+                colors[i].color = Color.red;
+                colors[i].waterTypeColor = WaterTypeColor.Red;
             }
             else if (colorOutputs[i].color == BlockColor.Blue)
             {
-                colors[i] = Color.blue;
+                colors[i].color = Color.blue;
+                colors[i].waterTypeColor = WaterTypeColor.Blue;
             }
             else if (colorOutputs[i].color == BlockColor.Green)
             {
-                colors[i] = Color.green;
+                colors[i].color = Color.green;
+                colors[i].waterTypeColor = WaterTypeColor.Green;
+            }
+            else if (colorOutputs[i].color == BlockColor.Yellow)
+            {
+                colors[i].color = Color.yellow;
+                colors[i].waterTypeColor = WaterTypeColor.Yellow;
+            }
+            else if (colorOutputs[i].color == BlockColor.purple)
+            {
+                colors[i].color = new Color(173f / 255f, 3f / 255f, 252f / 255f);
+                colors[i].waterTypeColor = WaterTypeColor.purple;
+
+            }
+            else if (colorOutputs[i].color == BlockColor.pink)
+            {
+                colors[i].color = new Color(252f / 255f, 3f / 255f, 173f / 255f);
+                colors[i].waterTypeColor = WaterTypeColor.pink;
+            }
+            else if (colorOutputs[i].color == BlockColor.Brown)
+            {
+                colors[i].color = new Color(139f / 255f, 69f / 255f, 19f / 255f);
+                colors[i].waterTypeColor = WaterTypeColor.Brown;
+
+            }
+            else if (colorOutputs[i].color == BlockColor.Turquoise)
+            {
+                colors[i].color = new Color(64f / 255f, 224f / 255f, 208f / 255f);
+                colors[i].waterTypeColor = WaterTypeColor.Turquoise;
             }
         }
         if (materialPropertyBlock == null)
@@ -107,7 +151,7 @@ public class PipeLineCtrl : MonoBehaviour
         materialPropertyBlock.SetFloat("_LayerCount", layerCount);
         for (int i = 0; i < layerCount; i++)
         {
-            materialPropertyBlock.SetColor("_Color" + (i + 1), colors[i]);
+            materialPropertyBlock.SetColor("_Color" + (i + 1), colors[i].color);
             materialPropertyBlock.SetFloat("_Fill" + (i + 1), fills[i] / 3);
         }
 
@@ -117,33 +161,112 @@ public class PipeLineCtrl : MonoBehaviour
 
 
     //Fill Color
-    public IEnumerator FillColor(float duration = 1f)
+    public IEnumerator FillColor(int reduce, Action<int> action, float duration = 1f)
     {
-        yield return StartCoroutine(FillColorCoroutine(currentFillColor, duration));
+        yield return StartCoroutine(FillColorCoroutine(reduce, currentFillColor, duration, action));
     }
 
-    private IEnumerator FillColorCoroutine(int layerIndex, float duration)
+    private IEnumerator FillColorCoroutine(int reduce, int layerIndex, float duration, Action<int> action)
     {
         MeshRenderer mesh = PipeLineWater.GetComponent<MeshRenderer>();
         mesh.GetPropertyBlock(materialPropertyBlock);
+        while (fills[layerIndex - 1] == 0)
+        {
+            layerIndex++;
+            currentFillColor++;
+        }
+
+        print(layerIndex);
 
         float startFill = fills[layerIndex - 1]; // giá trị fill hiện tại
+        if (fills[layerIndex - 1] < reduce)
+        {
+            fills[layerIndex - 1] = 0;
+            reduce -= (int)fills[layerIndex - 1];
+        }
+        else if (fills[layerIndex - 1] == reduce)
+        {
+            fills[layerIndex - 1] = 0;
+            reduce = 0;
+        }
+        else
+        {
+            fills[layerIndex - 1] -= reduce;
+            reduce = 0;
+        }
+        float endFill = fills[layerIndex - 1];
         float elapsed = 0f;
-
+        float currentFill = 0;
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / duration);
-            float currentFill = Mathf.Lerp(startFill, 0f, t); // giảm dần về 0
+            currentFill = Mathf.Lerp(startFill, endFill, t); // giảm dần về 0
             materialPropertyBlock.SetFloat("_Fill" + layerIndex, currentFill / 3); // chia 3 như lúc trước
             mesh.SetPropertyBlock(materialPropertyBlock);
             yield return null;
         }
 
-        // đảm bảo chắc chắn fill = 0
-        materialPropertyBlock.SetFloat("_Fill" + layerIndex, 0f);
+        // đảm bảo chắc chắn fill = endfill
+        materialPropertyBlock.SetFloat("_Fill" + layerIndex, currentFill / 3);
         mesh.SetPropertyBlock(materialPropertyBlock);
-        currentFillColor += 1;
+        if (fills[layerIndex - 1] == 0)
+        {
+            currentFillColor += 1;
+        }
+        action.Invoke(reduce);
     }
+    public IEnumerator FillColor(int indexColor, int reduce, float duration = 1f)
+    {
+        yield return StartCoroutine(FillColorCoroutineReduce(reduce, indexColor, duration));
+    }
+
+    private IEnumerator FillColorCoroutineReduce(int reduce, int layerIndex, float duration)
+    {
+        MeshRenderer mesh = PipeLineWater.GetComponent<MeshRenderer>();
+        mesh.GetPropertyBlock(materialPropertyBlock);
+
+        while (fills[layerIndex - 1] == 0)
+        {
+            layerIndex++;
+            currentFillColor++;
+        }
+
+        float startFill = fills[layerIndex - 1]; // giá trị fill hiện tại
+        if (fills[layerIndex - 1] < reduce)
+        {
+            fills[layerIndex - 1] = 0;
+            reduce -= (int)fills[layerIndex - 1];
+        }
+        else if (fills[layerIndex - 1] == reduce)
+        {
+            fills[layerIndex - 1] = 0;
+            reduce = 0;
+        }
+        else
+        {
+            fills[layerIndex - 1] -= reduce;
+            reduce = 0;
+        }
+        float endFill = fills[layerIndex - 1];
+        float elapsed = 0f;
+        float currentFill = 0;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            currentFill = Mathf.Lerp(startFill, endFill, t); // giảm dần về 0
+            materialPropertyBlock.SetFloat("_Fill" + layerIndex, currentFill / 3); // chia 3 như lúc trước
+            mesh.SetPropertyBlock(materialPropertyBlock);
+            yield return null;
+        }
+
+        // đảm bảo chắc chắn fill = endfill
+        materialPropertyBlock.SetFloat("_Fill" + layerIndex, currentFill / 3);
+        mesh.SetPropertyBlock(materialPropertyBlock);
+    }
+
+
+
 
 }

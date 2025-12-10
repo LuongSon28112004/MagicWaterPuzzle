@@ -157,7 +157,7 @@ public class BlockThree : BaseBlock
             }
             else if (pipeTransform.y == transform.position.y)
             {
-                return 0.67f;
+                return 0.6f;
             }
             else
             {

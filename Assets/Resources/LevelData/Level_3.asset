@@ -245,3 +245,5 @@ MonoBehaviour:
       capacity: 1
     - color: 1
       capacity: 1
+  IsEven: 0
+  BoundCam: {x: 15, y: 15}

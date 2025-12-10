@@ -188,7 +188,7 @@ public class BlockShortL : BaseBlock
             {
                 if (directionPipe == DirectionPipe.Left)
                 {
-                    return transform.position.y < pipeTransform.y ? 0.67f : 0.25f;
+                    return transform.position.y < pipeTransform.y ? 0.65f : 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -89,6 +90,8 @@ public class PopupBombBooster : PopupUI
                     block.SetActive(false);
                     LevelManager.Instance.boardCtrl.BlockInstances.Remove(block.transform);
 
+                    StartCoroutine(ReduceWaterPipe(block));
+                    AudioManager.Instance.PlayOneShot("WaterPOURvar1S1", 1);
                     StartCoroutine(CheckWin());
                     StartCoroutine(ShowButtonScreen());
                 });
@@ -97,12 +100,73 @@ public class PopupBombBooster : PopupUI
         yield break;
     }
 
+    private IEnumerator ReduceWaterPipe(GameObject block)
+    {
+        BaseBlock baseBlock = block.GetComponent<BaseBlock>();
+        BlockColor blockColor = baseBlock.BlockColorVisual;
+        int remainingCapacity = baseBlock.TakeRemainingCapacity();
+
+        //reduce pipe
+        List<Transform> gates = LevelManager.Instance.boardCtrl.GateInstances;
+        for (int i = 0; i < gates.Count; i++)
+        {
+            WaterPipe waterPipe = gates[i].GetComponent<WaterPipe>();
+            for (int j = 0; j < waterPipe.WaterTypeCounters.Count; j++)
+            {
+                if (checkTypeColor(blockColor, waterPipe.WaterTypeCounters[j].waterTypeColor))
+                {
+                    int value = waterPipe.WaterTypeCounters[j].count;
+                    int tmp = waterPipe.WaterTypeCounters[j].count;
+                    int reduce = remainingCapacity - value;
+                    if (reduce < 0)
+                    {
+                        value -= remainingCapacity;
+                        remainingCapacity = 0;
+                    }
+                    else if (reduce == 0)
+                    {
+                        value = 0;
+                        remainingCapacity = 0;
+                    }
+                    else
+                    {
+                        remainingCapacity = remainingCapacity - value;
+                        value = 0;
+                    }
+
+                    waterPipe.WaterTypeCounters[j].count = value;
+                    waterPipe.UpdateListWaterTypeCounter();
+                    StartCoroutine(waterPipe.PipeLineCtrl.FillColor(j + 1, tmp - value));
+                    if (remainingCapacity == 0)
+                    {
+                        yield break;
+                    }
+                }
+            }
+        }
+        yield break;
+
+    }
+
+    public bool checkTypeColor(BlockColor blockColor, WaterTypeColor waterTypeColor)
+    {
+        if (blockColor == BlockColor.Red && waterTypeColor == WaterTypeColor.Red) return true;
+        if (blockColor == BlockColor.Blue && waterTypeColor == WaterTypeColor.Blue) return true;
+        if (blockColor == BlockColor.Brown && waterTypeColor == WaterTypeColor.Brown) return true;
+        if (blockColor == BlockColor.Green && waterTypeColor == WaterTypeColor.Green) return true;
+        if (blockColor == BlockColor.pink && waterTypeColor == WaterTypeColor.pink) return true;
+        if (blockColor == BlockColor.purple && waterTypeColor == WaterTypeColor.purple) return true;
+        if (blockColor == BlockColor.Turquoise && waterTypeColor == WaterTypeColor.Turquoise) return true;
+        if (blockColor == BlockColor.Yellow && waterTypeColor == WaterTypeColor.Yellow) return true;
+        return false;
+    }
+
     private IEnumerator CheckWin()
     {
         yield return new WaitForSeconds(0.3f);
         if (LevelManager.Instance.boardCtrl.BlockInstances.Count == 0)
         {
-             StartCoroutine(GameManager.Instance.ChangeState(GameState.Win));
+            StartCoroutine(GameManager.Instance.ChangeState(GameState.Win));
         }
     }
 
