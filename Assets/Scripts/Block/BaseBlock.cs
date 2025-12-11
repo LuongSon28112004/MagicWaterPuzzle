@@ -59,6 +59,9 @@ public abstract class BaseBlock : MonoBehaviour
     [SerializeField] protected BlockVisual blockVisual;
     [SerializeField] private BlockColor blockColorVisual;
 
+    // ice Point
+    [SerializeField] private List<Transform> listIcePos;
+
 
     // check kéo
     [SerializeField] protected bool isGragging = false;
@@ -80,6 +83,7 @@ public abstract class BaseBlock : MonoBehaviour
     //Getter And Setter
     public Direction BlockDirection { get => blockDirection; set => blockDirection = value; }
     public BlockColor BlockColorVisual { get => blockColorVisual; set => blockColorVisual = value; }
+    public List<Transform> ListIcePos { get => listIcePos; set => listIcePos = value; }
 
 
 
@@ -145,10 +149,19 @@ public abstract class BaseBlock : MonoBehaviour
 
 
     // OnMouse Click
+    private Sequence ClickLock;
     void OnMouseDown()
     {
         // nếu chuột đang ở trên UI → không cho nhấc block
-        if (blockVisual.blockIce.IsActive) return;
+        if (blockVisual.blockIce.IsActive)
+        {
+            transform.localScale = Vector3.one;
+            ClickLock.Kill();
+            ClickLock.Append(transform.DOScale(new Vector3(0.7f, 0.7f, 0.7f), 0.2f));
+            ClickLock.Append(transform.DOScale(Vector3.one, 0.2f));
+            AudioManager.Instance.PlayOneShot("Rockblock", 1f);
+            return;
+        }
         if (UIBlockChecker.IsPointerOverUI())
             return;
         if (LevelManager.Instance.BoosterHammerUsed)
@@ -412,6 +425,7 @@ public abstract class BaseBlock : MonoBehaviour
         if (currentCapacity < maxCapacity) yield break;
         transform.position -= new Vector3(0, 0, 2);
         AudioManager.Instance.PlayOneShot("ClearBlock", 1f);
+        BreakIceBlock();
 
         SetNonClick();
         blockVisual.soapBubbleEmitterVariant.PlayParticle();
@@ -476,6 +490,45 @@ public abstract class BaseBlock : MonoBehaviour
         }
 
 
+    }
+
+    private void BreakIceBlock()
+    {
+        List<Transform> blocks = LevelManager.Instance.boardCtrl.BlockInstances;
+        GameObject prefabIceLight = Resources.Load<GameObject>("Particles/BlockIceLightBreakEffect");
+        GameObject prefabIceBreak = Resources.Load<GameObject>("Particles/BlockIceBreakEffect");
+        for (int i = 0; i < blocks.Count; i++)
+        {
+            BaseBlock baseBlock = blocks[i].GetComponent<BaseBlock>();
+            if (baseBlock.blockVisual.blockIce.IsActive)
+            {
+                baseBlock.blockVisual.blockIce.Count--;
+                baseBlock.blockVisual.blockIce.UpdateText();
+                if (baseBlock.blockVisual.blockIce.Count > 0)
+                {
+                    for (int j = 0; j < baseBlock.ListIcePos.Count; j++)
+                    {
+                        GameObject IceLight = Instantiate(prefabIceLight, baseBlock.ListIcePos[j]);
+                        BlockIceLightBreakEffect blockIceLightBreakEffect = IceLight.GetComponent<BlockIceLightBreakEffect>();
+                        blockIceLightBreakEffect.PlayParticle();
+                        AudioManager.Instance.PlayOneShot("Rockblock", 1f);
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < baseBlock.ListIcePos.Count; j++)
+                    {
+                        GameObject IceBreak = Instantiate(prefabIceBreak, baseBlock.ListIcePos[j]);
+                        BlockIceBreakEffect blockIceBreakEffect = IceBreak.GetComponent<BlockIceBreakEffect>();
+                        blockIceBreakEffect.PlayParticle();
+                        baseBlock.blockVisual.blockIce.IsActive = false;
+                        baseBlock.blockVisual.blockIce.InActiveIce();
+                        AudioManager.Instance.PlayOneShot("Rockblock", 1f);
+                    }
+                }
+
+            }
+        }
     }
 
     // tắt click and collider

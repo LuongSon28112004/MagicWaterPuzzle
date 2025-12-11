@@ -2840,7 +2840,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: -0.5}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 0.8957063, y: 0.1, z: 0.1}
+    m_Scale: {x: 0.8229957, y: 0.1, z: 0.1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -12730,6 +12730,8 @@ MonoBehaviour:
   PipeLineWater: {fileID: 138487816440039925}
   currentFillColor: 0
   maxColor: 0
+  colors: []
+  fills: []
 --- !u!1 &1557203984606951
 GameObject:
   m_ObjectHideFlags: 0

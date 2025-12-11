@@ -141590,6 +141590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  count: 0
   textCountIce: {fileID: 233890171253971927}
 --- !u!1 &1914453869027699
 GameObject:
@@ -144169,6 +144170,16 @@ MonoBehaviour:
   zCoord: 0
   blockVisual: {fileID: 4344442553384990602}
   blockColorVisual: 0
+  listIcePos:
+  - {fileID: 4118560220520980}
+  - {fileID: 4999353744200370}
+  - {fileID: 4406074735739858}
+  - {fileID: 4873360309202633}
+  - {fileID: 4856357022634948}
+  - {fileID: 4984314289943426}
+  - {fileID: 4075425963609616}
+  - {fileID: 4206353421005385}
+  - {fileID: 4279155013350897}
   isGragging: 0
   IsMove: 1
   isFill: 0
@@ -152067,7 +152078,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c90e6b20cfb4c3f4fab52124cfce9229, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -152133,7 +152144,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5535486044275643371

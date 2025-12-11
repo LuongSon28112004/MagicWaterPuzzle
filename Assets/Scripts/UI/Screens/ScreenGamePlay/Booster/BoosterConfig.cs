@@ -10,6 +10,8 @@ public class BoosterConfig : MonoBehaviour
     [SerializeField] protected Image Icon;
     [SerializeField] protected Image PanelCount;
     [SerializeField] protected Image PanelPlus;
+    [SerializeField] GameObject CountBooster;
+    [SerializeField] GameObject PlusBooster;
     [SerializeField] protected Button button;
     [Header("FreezeBooster Config")]
     [SerializeField] protected Image handTut;
@@ -56,6 +58,19 @@ public class BoosterConfig : MonoBehaviour
         transform.SetParent(TargetOld, true);
         handTut.gameObject.SetActive(false);
         targetTut.gameObject.SetActive(false);
+    }
+
+
+    public void ActiveCountBooster()
+    {
+        CountBooster.gameObject.SetActive(true);
+        PlusBooster.gameObject.SetActive(false);
+    }
+
+    public void ActivePlusBooster()
+    {
+        PlusBooster.gameObject.SetActive(true);
+        CountBooster.gameObject.SetActive(false);
     }
 
 

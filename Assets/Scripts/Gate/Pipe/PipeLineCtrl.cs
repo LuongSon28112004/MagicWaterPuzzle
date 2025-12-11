@@ -216,7 +216,7 @@ public class PipeLineCtrl : MonoBehaviour
         }
         action.Invoke(reduce);
     }
-    public IEnumerator FillColor(int indexColor, int reduce, float duration = 1f)
+    public IEnumerator FillColor(int indexColor, int reduce, float duration = 0.5f)
     {
         yield return StartCoroutine(FillColorCoroutineReduce(reduce, indexColor, duration));
     }

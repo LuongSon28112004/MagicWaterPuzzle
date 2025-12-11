@@ -55,8 +55,8 @@ public class PopupWin : PopupUI
     private IEnumerator ShowAnimTextCoin()
     {
         yield return new WaitForSeconds(1.2f);
-        textCoinPlus.transform.DOMove(targetCoin.position, 0.2f);
-        textCoinPlus.transform.DOScale(Vector3.zero, 0.2f);
+        textCoinPlus.transform.DOMove(targetCoin.position, 0.5f);
+        textCoinPlus.transform.DOScale(Vector3.zero, 0.5f);
         yield return new WaitForSeconds(0.1f);
         StartCoroutine(PlusCoin());
     }
@@ -179,15 +179,6 @@ public class PopupWin : PopupUI
             pig.DOScale(1f, 0.18f).SetEase(Ease.InSine)
         );
     }
-
-
-
-
-
-
-
-
-
 
     private void OnEnable()
     {

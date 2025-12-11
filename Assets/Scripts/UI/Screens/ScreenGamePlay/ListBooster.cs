@@ -5,13 +5,17 @@ using UnityEngine.UI;
 
 public class ListBooster : MonoBehaviour
 {
+    [Header("ListBooster Components")]
     public Button FreezeButton;
     public Button BombButton;
     public Button HammerButton;
 
+    [Header("ref")]
     [SerializeField] public FreezeBoosterConfig freezeBoosterConfig;
     [SerializeField] public HammerBoosterConfig hammerBoosterConfig;
     [SerializeField] public BombBoosterConfig bombBoosterConfig;
+
+
 
     public void ActiveAllBooster()
     {
@@ -43,6 +47,34 @@ public class ListBooster : MonoBehaviour
         InActiveAllBooster();
     }
 
+    public void InitCountBooster(bool isFreeze, bool isBomb, bool isHammer)
+    {
+        if (isFreeze)
+        {
+            freezeBoosterConfig.ActiveCountBooster();
+        }
+        else
+        {
+            freezeBoosterConfig.ActivePlusBooster();
+        }
 
+        if (isBomb)
+        {
+            bombBoosterConfig.ActiveCountBooster();
+        }
+        else
+        {
+            bombBoosterConfig.ActivePlusBooster();
+        }
+
+        if (isHammer)
+        {
+            hammerBoosterConfig.ActiveCountBooster();
+        }
+        else
+        {
+            hammerBoosterConfig.ActivePlusBooster();
+        }
+    }
 
 }

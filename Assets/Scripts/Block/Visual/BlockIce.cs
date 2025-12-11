@@ -7,13 +7,21 @@ public class BlockIce : MonoBehaviour
 {
     [Header("BlockIce Component")]
     [SerializeField] private bool isActive;
+    [SerializeField] private int count;
     [SerializeField] private TextMeshProUGUI textCountIce;
 
     public bool IsActive { get => isActive; set => isActive = value; }
+    public int Count { get => count; set => count = value; }
+
+    public void UpdateText()
+    {
+        textCountIce.text = count.ToString();
+    }
 
     public void ActiveIce(int count, Direction blockDirection)
     {
         this.isActive = true;
+        this.Count = count;
         this.transform.gameObject.SetActive(true);
         textCountIce.text = count.ToString();
         SetDirText(blockDirection);
