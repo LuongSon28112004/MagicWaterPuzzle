@@ -77,4 +77,11 @@ public class ListBooster : MonoBehaviour
         }
     }
 
+    public void UpdateText()
+    {
+        freezeBoosterConfig.UpdateTextCount(UserData.listBoosterCounters[0].count);
+        bombBoosterConfig.UpdateTextCount(UserData.listBoosterCounters[1].count);
+        hammerBoosterConfig.UpdateTextCount(UserData.listBoosterCounters[2].count);
+    }
+
 }

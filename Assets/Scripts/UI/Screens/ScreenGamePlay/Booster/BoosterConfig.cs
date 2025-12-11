@@ -1,5 +1,6 @@
 
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,7 @@ public class BoosterConfig : MonoBehaviour
     [SerializeField] protected Image PanelPlus;
     [SerializeField] GameObject CountBooster;
     [SerializeField] GameObject PlusBooster;
+    [SerializeField] TextMeshProUGUI textCountBooster;
     [SerializeField] protected Button button;
     [Header("FreezeBooster Config")]
     [SerializeField] protected Image handTut;
@@ -71,6 +73,11 @@ public class BoosterConfig : MonoBehaviour
     {
         PlusBooster.gameObject.SetActive(true);
         CountBooster.gameObject.SetActive(false);
+    }
+
+    public void UpdateTextCount(int count)
+    {
+        textCountBooster.text = count.ToString();
     }
 
 

@@ -14,6 +14,7 @@ public class InforColorPipe
 
 public class PipeLineCtrl : MonoBehaviour
 {
+    private const int MAX_HEIGHT_FILL = 5;
     [SerializeField] private GameObject PipeLineWater;
     [SerializeField] private int currentFillColor;
     [SerializeField] private int maxColor;
@@ -74,13 +75,13 @@ public class PipeLineCtrl : MonoBehaviour
             float t = Mathf.Clamp01(elapsed / duration);
             float currentFill = Mathf.Lerp(0f, targetFill, t);
 
-            materialPropertyBlock.SetFloat("_Fill" + layerIndex, currentFill / 3);
+            materialPropertyBlock.SetFloat("_Fill" + layerIndex, currentFill / MAX_HEIGHT_FILL);
             mesh.SetPropertyBlock(materialPropertyBlock);
 
             yield return null;
         }
 
-        materialPropertyBlock.SetFloat("_Fill" + layerIndex, targetFill / 3);
+        materialPropertyBlock.SetFloat("_Fill" + layerIndex, targetFill / MAX_HEIGHT_FILL);
         mesh.SetPropertyBlock(materialPropertyBlock);
     }
 
@@ -152,7 +153,7 @@ public class PipeLineCtrl : MonoBehaviour
         for (int i = 0; i < layerCount; i++)
         {
             materialPropertyBlock.SetColor("_Color" + (i + 1), colors[i].color);
-            materialPropertyBlock.SetFloat("_Fill" + (i + 1), fills[i] / 3);
+            materialPropertyBlock.SetFloat("_Fill" + (i + 1), fills[i] / MAX_HEIGHT_FILL);
         }
 
         mesh.SetPropertyBlock(materialPropertyBlock);
@@ -202,13 +203,13 @@ public class PipeLineCtrl : MonoBehaviour
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / duration);
             currentFill = Mathf.Lerp(startFill, endFill, t); // giảm dần về 0
-            materialPropertyBlock.SetFloat("_Fill" + layerIndex, currentFill / 3); // chia 3 như lúc trước
+            materialPropertyBlock.SetFloat("_Fill" + layerIndex, currentFill / MAX_HEIGHT_FILL); // chia 3 như lúc trước
             mesh.SetPropertyBlock(materialPropertyBlock);
             yield return null;
         }
 
         // đảm bảo chắc chắn fill = endfill
-        materialPropertyBlock.SetFloat("_Fill" + layerIndex, currentFill / 3);
+        materialPropertyBlock.SetFloat("_Fill" + layerIndex, currentFill / MAX_HEIGHT_FILL);
         mesh.SetPropertyBlock(materialPropertyBlock);
         if (fills[layerIndex - 1] == 0)
         {
@@ -256,13 +257,13 @@ public class PipeLineCtrl : MonoBehaviour
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / duration);
             currentFill = Mathf.Lerp(startFill, endFill, t); // giảm dần về 0
-            materialPropertyBlock.SetFloat("_Fill" + layerIndex, currentFill / 3); // chia 3 như lúc trước
+            materialPropertyBlock.SetFloat("_Fill" + layerIndex, currentFill / MAX_HEIGHT_FILL); // chia 3 như lúc trước
             mesh.SetPropertyBlock(materialPropertyBlock);
             yield return null;
         }
 
         // đảm bảo chắc chắn fill = endfill
-        materialPropertyBlock.SetFloat("_Fill" + layerIndex, currentFill / 3);
+        materialPropertyBlock.SetFloat("_Fill" + layerIndex, currentFill / MAX_HEIGHT_FILL);
         mesh.SetPropertyBlock(materialPropertyBlock);
     }
 

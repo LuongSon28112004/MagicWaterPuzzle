@@ -337,8 +337,9 @@ MonoBehaviour:
   Icon: {fileID: 7657118277797562193}
   PanelCount: {fileID: 8526508164489899337}
   PanelPlus: {fileID: 4274429011320522054}
-  CountBooster: {fileID: 0}
-  PlusBooster: {fileID: 0}
+  CountBooster: {fileID: 3824791887856091266}
+  PlusBooster: {fileID: 6784985003307604112}
+  textCountBooster: {fileID: 1232766627073701967}
   button: {fileID: 7995490210239003939}
   handTut: {fileID: 8043956278823760408}
   targetTut: {fileID: 6175458471255657118}
@@ -1821,8 +1822,9 @@ MonoBehaviour:
   Icon: {fileID: 2993183852630748782}
   PanelCount: {fileID: 3182858089383711518}
   PanelPlus: {fileID: 1962660598848167270}
-  CountBooster: {fileID: 0}
-  PlusBooster: {fileID: 0}
+  CountBooster: {fileID: 3362404689614288784}
+  PlusBooster: {fileID: 2646153015356809233}
+  textCountBooster: {fileID: 1378666065787898199}
   button: {fileID: 741974135500160097}
   handTut: {fileID: 2775460591043792394}
   targetTut: {fileID: 6631623693715240328}
@@ -2268,8 +2270,9 @@ MonoBehaviour:
   Icon: {fileID: 132492612447720962}
   PanelCount: {fileID: 659239696609805586}
   PanelPlus: {fileID: 8586978319546343275}
-  CountBooster: {fileID: 0}
-  PlusBooster: {fileID: 0}
+  CountBooster: {fileID: 2613555824117987799}
+  PlusBooster: {fileID: 6303330734590237355}
+  textCountBooster: {fileID: 4785833590094607445}
   button: {fileID: 6800352961899488304}
   handTut: {fileID: 4870957744444903733}
   targetTut: {fileID: 676041288327292376}

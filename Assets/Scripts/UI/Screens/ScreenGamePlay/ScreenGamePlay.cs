@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -65,6 +66,7 @@ public class ScreenGamePlay : ScreenUI
         StartCoroutine(AnimationIntro());
         AddEventListener();
         InitTimerCountDown();
+        InitCountBooster();
         InActiveBooster();
         if (GameManager.Instance.Level == 1)
         {
@@ -135,6 +137,11 @@ public class ScreenGamePlay : ScreenUI
 
     private void HammerClick()
     {
+        if (UserData.listBoosterCounters[2].count == 0 && GameManager.Instance.Level != 1 && GameManager.Instance.Level != 2 && GameManager.Instance.Level != 3)
+        {
+            UIManager.Instance.ShowPopup<PopupBuyBooster>(null);
+            return;
+        }
         if (BGBlack.gameObject.activeSelf)
         {
             BGBlack.gameObject.SetActive(false);
@@ -145,11 +152,27 @@ public class ScreenGamePlay : ScreenUI
         LevelManager.Instance.BoosterHammerUsed = true;
         UIManager.Instance.ShowPopup<PopupHammerBooster>(null);
         HideButton();
+        if (GameManager.Instance.Level != 1 && GameManager.Instance.Level != 2 && GameManager.Instance.Level != 3)
+        {
+            UserData.listBoosterCounters[2].count -= 1;
+            if (UserData.listBoosterCounters[2].count == 0)
+            {
+                List<BoosterCounter> boosterConfigs = UserData.listBoosterCounters;
+                listBooster.InitCountBooster(boosterConfigs[0].count > 0 ? true : false, boosterConfigs[1].count > 0 ? true : false, false);
+            }
+            SaveDataManager.Save();
+            listBooster.UpdateText();
+        }
     }
 
 
     private void BombClick()
     {
+        if (UserData.listBoosterCounters[1].count == 0 && GameManager.Instance.Level != 1 && GameManager.Instance.Level != 2 && GameManager.Instance.Level != 3)
+        {
+            UIManager.Instance.ShowPopup<PopupBuyBooster>(null);
+            return;
+        }
         if (BGBlack.gameObject.activeSelf)
         {
             BGBlack.gameObject.SetActive(false);
@@ -160,6 +183,18 @@ public class ScreenGamePlay : ScreenUI
         if (LevelManager.Instance.boardCtrl.BlockInstances.Count == 0) return;
         UIManager.Instance.ShowPopup<PopupBombBooster>(null);
         HideButton();
+        if (GameManager.Instance.Level != 1 && GameManager.Instance.Level != 2 && GameManager.Instance.Level != 3)
+        {
+            UserData.listBoosterCounters[1].count -= 1;
+            if (UserData.listBoosterCounters[1].count == 0)
+            {
+                List<BoosterCounter> boosterConfigs = UserData.listBoosterCounters;
+                listBooster.InitCountBooster(boosterConfigs[0].count > 0 ? true : false, false, boosterConfigs[2].count > 0 ? true : false);
+            }
+            SaveDataManager.Save();
+            listBooster.UpdateText();
+        }
+
     }
     private void HideButton()
     {
@@ -184,6 +219,11 @@ public class ScreenGamePlay : ScreenUI
 
     private void FreezeClick()
     {
+        if (UserData.listBoosterCounters[0].count == 0 && GameManager.Instance.Level != 1 && GameManager.Instance.Level != 2 && GameManager.Instance.Level != 3)
+        {
+            UIManager.Instance.ShowPopup<PopupBuyBooster>(null);
+            return;
+        }
         if (BGBlack.gameObject.activeSelf)
         {
             BGBlack.gameObject.SetActive(false);
@@ -200,6 +240,18 @@ public class ScreenGamePlay : ScreenUI
         {
             UpdateFreezeTimer(timerr, timer.TimeLeft);
         };
+
+        if (GameManager.Instance.Level != 1 && GameManager.Instance.Level != 2 && GameManager.Instance.Level != 3)
+        {
+            UserData.listBoosterCounters[0].count -= 1;
+            if (UserData.listBoosterCounters[0].count == 0)
+            {
+                List<BoosterCounter> boosterConfigs = UserData.listBoosterCounters;
+                listBooster.InitCountBooster(false, boosterConfigs[1].count > 0 ? true : false, boosterConfigs[2].count > 0 ? true : false);
+            }
+            SaveDataManager.Save();
+            listBooster.UpdateText();
+        }
 
     }
 
@@ -236,6 +288,12 @@ public class ScreenGamePlay : ScreenUI
     public void UpdateTimer(float timeLeft)
     {
         timerAndLevel.UpdateTimer(timeLeft);
+    }
+
+    private void InitCountBooster()
+    {
+        List<BoosterCounter> boosterConfigs = UserData.listBoosterCounters;
+        listBooster.InitCountBooster(boosterConfigs[0].count > 0 ? true : false, boosterConfigs[1].count > 0 ? true : false, boosterConfigs[2].count > 0 ? true : false);
     }
 
     private void InActiveBooster()

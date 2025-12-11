@@ -70,7 +70,7 @@ Material:
     - _SelectionGuide: 0
     - _Smoothness: 0.3
     - _SmoothnessTextureChannel: 0
-    - _SnowGlowIntensity: 0.5
+    - _SnowGlowIntensity: 3
     - _SpecularHighlights: 1
     - _Speed: 0
     - _SrcBlend: 1
