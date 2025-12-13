@@ -25,15 +25,15 @@ public class GameManager : SingletonDDOL<GameManager>
 
     private void Start()
     {
-        // #if UNITY_EDITOR
-        //         Application.targetFrameRate = 120;
-        //         QualitySettings.vSyncCount = 0;
-        //         Debug.Log("Set FPS = 120 in Editor");
-        // #if UNITY_ANDROID
-        //         Application.targetFrameRate = 60;
-        //         QualitySettings.vSyncCount = 0;
-        //         Debug.Log("Set FPS = 60 for Android");
-        // #endif
+#if UNITY_EDITOR
+        Application.targetFrameRate = 120;
+        QualitySettings.vSyncCount = 0;
+        Debug.Log("Set FPS = 120 in Editor");
+#elif UNITY_ANDROID
+        Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0;
+        Debug.Log("Set FPS = 60 for Android");
+#endif
 
         StartCoroutine(ChangeState(GameState.Loading));
         //Loading data

@@ -100,7 +100,7 @@ public class Contacts : MonoBehaviour
             case BlockColor.pink:
                 return "#ff00a6ff";
             case BlockColor.Brown:
-                return "#ff6600ff";
+                return "#9f4000ff";
             case BlockColor.Turquoise:
                 return "#00fbffff";
             default: return "";

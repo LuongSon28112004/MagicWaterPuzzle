@@ -447,4 +447,4 @@ MonoBehaviour:
     - color: 8
       capacity: 2
   IsEven: 0
-  BoundCam: {x: 18, y: 18}
+  BoundCam: {x: 19, y: 19}

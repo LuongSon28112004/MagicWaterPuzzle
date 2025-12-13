@@ -425,23 +425,23 @@ public abstract class BaseBlock : MonoBehaviour
     protected virtual IEnumerator CheckDoneFilling()
     {
         if (currentCapacity < maxCapacity) yield break;
-        transform.position -= new Vector3(0, 0, 2);
+        transform.position -= new Vector3(0, 0, 1);
         AudioManager.Instance.PlayOneShot("ClearBlock", 1f);
         LevelManager.Instance.boardCtrl.BreakIceBlock();
 
         SetNonClick();
+        yield return new WaitForSeconds(0.2f);
         BlockVisual.blockImpactParticle.PlayParticle();
         BlockVisual.soapBubbleEmitterVariant.PlayParticle();
-        //yield return new WaitForSeconds(0.05f);
 
         int dir = UnityEngine.Random.Range(0, 2) == 0 ? -1 : 1;
-        float distance = 30f;
+        float distance = 22f;
 
         Vector3 start = transform.position;
-        Vector3 up1 = start + new Vector3(0, 0.5f, -2f);
+        Vector3 up1 = start + new Vector3(0, 0.5f, -1f);
 
-        Vector3 left = up1 + new Vector3(-2f, 0, -2f);
-        Vector3 right = left + new Vector3(2f, 0f, -2f);
+        Vector3 left = up1 + new Vector3(-1.5f, 0, 0);
+        Vector3 right = up1 + new Vector3(1.5f, 0f, 0);
 
 
         Vector3 exit = right + new Vector3(dir * distance, 0, -distance);
@@ -479,26 +479,14 @@ public abstract class BaseBlock : MonoBehaviour
             Color.white
         )
         .SetEase(Ease.InQuint);
+        transform.DORotate(new Vector3(transform.rotation.eulerAngles.x, dir * -15f, transform.rotation.eulerAngles.z), 1.5f).SetEase(Ease.InQuint);
         // Tăng tốc mạnh về cuối
 
-        transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 1.5f)
+        transform.DOScale(new Vector3(2f, 2f, 2f), 2f)
             .SetEase(Ease.InQuint);
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.3f);
         BlockVisual.soapBubbleEmitterVariant.StopParticle();
-        yield return new WaitForSeconds(0.65f);
-        transform.DORotate(new Vector3(transform.rotation.eulerAngles.x, dir * -75f, transform.rotation.eulerAngles.z), 0.6f).SetEase(Ease.InQuint);
-        // if (blockDirection == Direction.VERTICAL)
-        // {
-        //     transform.DORotate(new Vector3(transform.rotation.eulerAngles.x, dir * -90f, transform.rotation.eulerAngles.z), 0.8f).SetEase(Ease.Linear);
-        // }
-        // else
-        // {
-        //     transform.DORotate(new Vector3(dir * -90f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z), 0.8f).SetEase(Ease.Linear);
-        // }
-        yield return new WaitForSeconds(1f);
-
-
-
+        yield return new WaitForSeconds(1.7f);
 
         // remove block
 

@@ -50352,7 +50352,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -50369,8 +50369,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 6.5
-      minScalar: 6
+      scalar: 6
+      minScalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -50385,9 +50385,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 2
+      minMaxState: 0
       minColor: {r: 0.9411765, g: 0.5803922, b: 1, a: 1}
-      maxColor: {r: 0.4117647, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -50451,8 +50451,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.8
+      scalar: 0.7
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -50627,7 +50627,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.01
+      value: 0.1
       mode: 0
       spread: 0
       speed:
@@ -50674,7 +50674,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 35
+      scalar: 30
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -52104,12 +52104,12 @@ ParticleSystem:
     enabled: 1
     subEmitters:
     - serializedVersion: 3
-      emitter: {fileID: 198834500117263845}
+      emitter: {fileID: 0}
       type: 2
       properties: 0
       emitProbability: 1
     - serializedVersion: 3
-      emitter: {fileID: 198172692087510550}
+      emitter: {fileID: 0}
       type: 2
       properties: 0
       emitProbability: 1
@@ -53581,6 +53581,14 @@ PrefabInstance:
       propertyPath: ShapeModule.radius.value
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1565774183949077308, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565774183949077308, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3196485231069121154, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -53595,7 +53603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4037180129984245754, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4037180129984245754, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: m_LocalRotation.w
@@ -53624,6 +53632,10 @@ PrefabInstance:
     - target: {fileID: 4037180129984245754, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524051843621014986, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9206998296379763204, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: m_IsActive
@@ -53697,7 +53709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4773980445893808751, guid: 045194c85f9c02a4eb98846aba8c5682, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4773980445893808751, guid: 045194c85f9c02a4eb98846aba8c5682, type: 3}
       propertyPath: m_LocalRotation.w
@@ -53730,6 +53742,10 @@ PrefabInstance:
     - target: {fileID: 6863101233408344346, guid: 045194c85f9c02a4eb98846aba8c5682, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863101233408344346, guid: 045194c85f9c02a4eb98846aba8c5682, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

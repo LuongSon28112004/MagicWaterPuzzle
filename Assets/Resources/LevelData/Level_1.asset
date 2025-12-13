@@ -198,11 +198,17 @@ MonoBehaviour:
     rotation: {x: -0, y: 0, z: 0}
   blocks:
   - name: Three_1
+    iceInfor:
+      IsIce: 0
+      CountBreak: 0
     position: {x: 2, y: -2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 2
     moveDir: 0
   - name: Three
+    iceInfor:
+      IsIce: 0
+      CountBreak: 0
     position: {x: -2, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 1
@@ -221,4 +227,4 @@ MonoBehaviour:
     - color: 2
       capacity: 3
   IsEven: 0
-  BoundCam: {x: 15, y: 15}
+  BoundCam: {x: 16, y: 16}
