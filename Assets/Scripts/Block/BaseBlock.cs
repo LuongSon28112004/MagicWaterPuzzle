@@ -56,7 +56,7 @@ public abstract class BaseBlock : MonoBehaviour
     [SerializeField] protected float zCoord;
 
     // ref
-    [SerializeField] protected BlockVisual blockVisual;
+    [SerializeField] private BlockVisual blockVisual;
     [SerializeField] private BlockColor blockColorVisual;
 
     // ice Point
@@ -84,6 +84,7 @@ public abstract class BaseBlock : MonoBehaviour
     public Direction BlockDirection { get => blockDirection; set => blockDirection = value; }
     public BlockColor BlockColorVisual { get => blockColorVisual; set => blockColorVisual = value; }
     public List<Transform> ListIcePos { get => listIcePos; set => listIcePos = value; }
+    public BlockVisual BlockVisual { get => blockVisual; set => blockVisual = value; }
 
 
 
@@ -96,19 +97,19 @@ public abstract class BaseBlock : MonoBehaviour
     // Move Direction
     public virtual void AddMoveDirection(MoveDir moveDir)
     {
-        blockVisual.blockTypeVariant.SetDirMove(moveDir, blockDirection, true);
+        BlockVisual.blockTypeVariant.SetDirMove(moveDir, blockDirection, true);
     }
 
     // visual
     public virtual void AddVisualColor(BlockColor color)
     {
         blockColorVisual = color;
-        blockVisual.blockTypeVariant.AddVisual(color);
+        BlockVisual.blockTypeVariant.AddVisual(color);
     }
 
     public virtual void AddIceBlock(int count)
     {
-        blockVisual.blockIce.ActiveIce(count, BlockDirection);
+        BlockVisual.blockIce.ActiveIce(count, BlockDirection);
     }
 
     protected Vector2 SnapToPipe(Vector2 pipePos)
@@ -152,8 +153,10 @@ public abstract class BaseBlock : MonoBehaviour
     private Sequence ClickLock;
     void OnMouseDown()
     {
+        if (UIBlockChecker.IsPointerOverUI())
+            return;
         // nếu chuột đang ở trên UI → không cho nhấc block
-        if (blockVisual.blockIce.IsActive)
+        if (BlockVisual.blockIce.IsActive)
         {
             transform.localScale = Vector3.one;
             ClickLock.Kill();
@@ -162,8 +165,6 @@ public abstract class BaseBlock : MonoBehaviour
             AudioManager.Instance.PlayOneShot("Rockblock", 1f);
             return;
         }
-        if (UIBlockChecker.IsPointerOverUI())
-            return;
         if (LevelManager.Instance.BoosterHammerUsed)
         {
             CustomeEventSystem.Instance.UserBoosterHammer(gameObject);
@@ -178,7 +179,7 @@ public abstract class BaseBlock : MonoBehaviour
 
     void OnMouseUp()
     {
-        if (blockVisual.blockIce.IsActive) return;
+        if (BlockVisual.blockIce.IsActive) return;
         // Ngăn kéo khi chuột đang trên UI
         if (UIBlockChecker.IsPointerOverUI())
             return;
@@ -218,7 +219,7 @@ public abstract class BaseBlock : MonoBehaviour
 
     void OnMouseDrag()
     {
-        if (blockVisual.blockIce.IsActive) return;
+        if (BlockVisual.blockIce.IsActive) return;
         // Ngăn kéo khi chuột đang trên UI
         if (UIBlockChecker.IsPointerOverUI())
             return;
@@ -300,11 +301,11 @@ public abstract class BaseBlock : MonoBehaviour
     {
         Vector3 mousePoint = Input.mousePosition;
         mousePoint.z = zCoord;
-        if (blockVisual.blockTypeVariant.blockMoveDir.BlockMoveDirection == BlockMoveDirection.HORIZONTAL)
+        if (BlockVisual.blockTypeVariant.blockMoveDir.BlockMoveDirection == BlockMoveDirection.HORIZONTAL)
         {
             mousePoint.y = 0;
         }
-        else if (blockVisual.blockTypeVariant.blockMoveDir.BlockMoveDirection == BlockMoveDirection.VERTICAL)
+        else if (BlockVisual.blockTypeVariant.blockMoveDir.BlockMoveDirection == BlockMoveDirection.VERTICAL)
         {
             mousePoint.x = 0;
         }
@@ -381,6 +382,7 @@ public abstract class BaseBlock : MonoBehaviour
     {
         //play sound
         AudioManager.Instance.PlayOneShot("WaterPOURvar1S1", 1);
+        AudioManager.Instance.PlayOneShot("WaterPOURvar2S1", 1);
         StartCoroutine(waterPipe.FillColorWater(SetHeightWaterFall(waterPipe.DirectionPipe, waterPipe.transform.position), maxCapacity - currentCapacity, (value) =>
         {
             Debug.Log(value);
@@ -403,7 +405,7 @@ public abstract class BaseBlock : MonoBehaviour
             currentCapacity += value;
             waterPipe.WaterTypeCounters[0].count -= value;
             PlayParticleBlock();
-            yield return StartCoroutine(blockVisual.blockTypeVariant.FillWater(addCapacity * 1.0f / maxCapacity));
+            yield return StartCoroutine(BlockVisual.blockTypeVariant.FillWater(addCapacity * 1.0f / maxCapacity));
         }
         else
         {
@@ -411,7 +413,7 @@ public abstract class BaseBlock : MonoBehaviour
             currentCapacity += remainingCapacity;
             waterPipe.WaterTypeCounters[0].count -= remainingCapacity;
             PlayParticleBlock();
-            yield return StartCoroutine(blockVisual.blockTypeVariant.FillWater(addCapacity * 1.0f / maxCapacity));
+            yield return StartCoroutine(BlockVisual.blockTypeVariant.FillWater(addCapacity * 1.0f / maxCapacity));
         }
 
         waterPipe.UpdateListWaterTypeCounter();
@@ -425,11 +427,12 @@ public abstract class BaseBlock : MonoBehaviour
         if (currentCapacity < maxCapacity) yield break;
         transform.position -= new Vector3(0, 0, 2);
         AudioManager.Instance.PlayOneShot("ClearBlock", 1f);
-        BreakIceBlock();
+        LevelManager.Instance.boardCtrl.BreakIceBlock();
 
         SetNonClick();
-        blockVisual.soapBubbleEmitterVariant.PlayParticle();
-        yield return new WaitForSeconds(0.05f);
+        BlockVisual.blockImpactParticle.PlayParticle();
+        BlockVisual.soapBubbleEmitterVariant.PlayParticle();
+        //yield return new WaitForSeconds(0.05f);
 
         int dir = UnityEngine.Random.Range(0, 2) == 0 ? -1 : 1;
         float distance = 30f;
@@ -437,14 +440,14 @@ public abstract class BaseBlock : MonoBehaviour
         Vector3 start = transform.position;
         Vector3 up1 = start + new Vector3(0, 0.5f, -2f);
 
-        Vector3 left = up1 + new Vector3(-0.1f, 0, -2f);
-        Vector3 right = left + new Vector3(0.1f, 0, -2f);
+        Vector3 left = up1 + new Vector3(-2f, 0, -2f);
+        Vector3 right = left + new Vector3(2f, 0f, -2f);
 
 
         Vector3 exit = right + new Vector3(dir * distance, 0, -distance);
 
         // Tăng độ phân giải path => cực mượt
-        int resolution = 40;
+        int resolution = 80;
 
         Vector3[] path = new Vector3[]
         {
@@ -466,9 +469,10 @@ public abstract class BaseBlock : MonoBehaviour
             };
         }
 
+        BlockVisual.blockTrailsParticle.PlayParticle();
         transform.DOPath(
             path,
-            2.5f,
+            2f,
             PathType.CatmullRom,
             PathMode.Full3D,
             resolution,
@@ -477,11 +481,26 @@ public abstract class BaseBlock : MonoBehaviour
         .SetEase(Ease.InQuint);
         // Tăng tốc mạnh về cuối
 
-        transform.DOScale(new Vector3(2.1f, 2.1f, 2.1f), 2.5f)
+        transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 1.5f)
             .SetEase(Ease.InQuint);
         yield return new WaitForSeconds(0.4f);
-        blockVisual.soapBubbleEmitterVariant.StopParticle();
-        yield return new WaitForSeconds(2.1f);
+        BlockVisual.soapBubbleEmitterVariant.StopParticle();
+        yield return new WaitForSeconds(0.65f);
+        transform.DORotate(new Vector3(transform.rotation.eulerAngles.x, dir * -75f, transform.rotation.eulerAngles.z), 0.6f).SetEase(Ease.InQuint);
+        // if (blockDirection == Direction.VERTICAL)
+        // {
+        //     transform.DORotate(new Vector3(transform.rotation.eulerAngles.x, dir * -90f, transform.rotation.eulerAngles.z), 0.8f).SetEase(Ease.Linear);
+        // }
+        // else
+        // {
+        //     transform.DORotate(new Vector3(dir * -90f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z), 0.8f).SetEase(Ease.Linear);
+        // }
+        yield return new WaitForSeconds(1f);
+
+
+
+
+        // remove block
 
         LevelManager.Instance.boardCtrl.BlockInstances.Remove(transform);
         if (LevelManager.Instance.boardCtrl.BlockInstances.Count == 0)
@@ -492,44 +511,9 @@ public abstract class BaseBlock : MonoBehaviour
 
     }
 
-    private void BreakIceBlock()
-    {
-        List<Transform> blocks = LevelManager.Instance.boardCtrl.BlockInstances;
-        GameObject prefabIceLight = Resources.Load<GameObject>("Particles/BlockIceLightBreakEffect");
-        GameObject prefabIceBreak = Resources.Load<GameObject>("Particles/BlockIceBreakEffect");
-        for (int i = 0; i < blocks.Count; i++)
-        {
-            BaseBlock baseBlock = blocks[i].GetComponent<BaseBlock>();
-            if (baseBlock.blockVisual.blockIce.IsActive)
-            {
-                baseBlock.blockVisual.blockIce.Count--;
-                baseBlock.blockVisual.blockIce.UpdateText();
-                if (baseBlock.blockVisual.blockIce.Count > 0)
-                {
-                    for (int j = 0; j < baseBlock.ListIcePos.Count; j++)
-                    {
-                        GameObject IceLight = Instantiate(prefabIceLight, baseBlock.ListIcePos[j]);
-                        BlockIceLightBreakEffect blockIceLightBreakEffect = IceLight.GetComponent<BlockIceLightBreakEffect>();
-                        blockIceLightBreakEffect.PlayParticle();
-                        AudioManager.Instance.PlayOneShot("Rockblock", 1f);
-                    }
-                }
-                else
-                {
-                    for (int j = 0; j < baseBlock.ListIcePos.Count; j++)
-                    {
-                        GameObject IceBreak = Instantiate(prefabIceBreak, baseBlock.ListIcePos[j]);
-                        BlockIceBreakEffect blockIceBreakEffect = IceBreak.GetComponent<BlockIceBreakEffect>();
-                        blockIceBreakEffect.PlayParticle();
-                        baseBlock.blockVisual.blockIce.IsActive = false;
-                        baseBlock.blockVisual.blockIce.InActiveIce();
-                        AudioManager.Instance.PlayOneShot("Rockblock", 1f);
-                    }
-                }
 
-            }
-        }
-    }
+
+
 
     // tắt click and collider
     protected void SetNonClick()

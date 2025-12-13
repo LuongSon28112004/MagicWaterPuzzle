@@ -73,5 +73,48 @@ public class BlockOne : BaseBlock
         return best;
     }
 
+    // override init visual water
+    public override void AddVisualWater(BlockColor blockColor)
+    {
+        base.AddVisualWater(blockColor);
+        Vector3 direction = DirectionWater(blockDirection, transform.rotation);
+        BlockVisual.blockTypeVariant.InitWater(blockColor, direction);
+    }
+
+    private Vector3 DirectionWater(Direction direction, Quaternion rotation)
+    {
+        return new Vector3(1, 0, 0);
+    }
+
+
+    // Override Play BlockParticle
+    protected override void PlayParticleBlock()
+    {
+        base.PlayParticleBlock();
+        StartCoroutine(blockParticles[0].PlayParticle());
+    }
+
+    // override Set Height Water Fall
+    protected override float SetHeightWaterFall(DirectionPipe directionPipe, Vector3 pipeTransform)
+    {
+
+        return 0.25f;
+    }
+
+    //override Set SnapToPipe
+    protected override Vector3 SnapToPipe(Vector3 pos, WaterPipe waterPipe)
+    {
+        Vector3 posSnap = pos;
+        if (waterPipe.DirectionPipe == DirectionPipe.Up || waterPipe.DirectionPipe == DirectionPipe.Down)
+        {
+            posSnap.x = waterPipe.transform.position.x;
+        }
+        else if (waterPipe.DirectionPipe == DirectionPipe.Left || waterPipe.DirectionPipe == DirectionPipe.Right)
+        {
+            posSnap.y = waterPipe.transform.position.y;
+        }
+        return posSnap;
+    }
+
 
 }

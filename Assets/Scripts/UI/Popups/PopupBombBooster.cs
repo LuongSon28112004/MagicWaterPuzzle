@@ -90,7 +90,13 @@ public class PopupBombBooster : PopupUI
                     block.SetActive(false);
                     LevelManager.Instance.boardCtrl.BlockInstances.Remove(block.transform);
 
+
+                    // update ice
+                    LevelManager.Instance.boardCtrl.BreakIceBlock();
+
+                    // reduce ice
                     StartCoroutine(ReduceWaterPipe(block));
+                    //sound
                     AudioManager.Instance.PlayOneShot("WaterPOURvar1S1", 1);
                     StartCoroutine(CheckWin());
                     StartCoroutine(ShowButtonScreen());

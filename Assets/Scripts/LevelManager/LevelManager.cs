@@ -23,22 +23,33 @@ public class LevelManager : Singleton<LevelManager>
     private void LoadListLevelSO()
     {
         LevelData[] levels = Resources.LoadAll<LevelData>("LevelData");
-        List<LevelData> levelDatas = levels.ToList();
+
+        // Sort theo số phía sau "Level_"
+        var levelDatas = levels
+            .OrderBy(l =>
+            {
+                string name = l.name.Replace("Level_", "");
+                return int.Parse(name);
+            })
+            .ToList();
+
         LevelData levelData;
-        if (GameManager.Instance.Level > 9)
-        {
-            levelData = levelDatas[8];
-        }
-        else
-        {
-            levelData = levelDatas[GameManager.Instance.Level - 1];
-        }
+
+        int levelIndex = GameManager.Instance.Level;
+
+        if (levelIndex > levelDatas.Count)
+            levelIndex = levelDatas.Count;
+
+        levelData = levelDatas[levelIndex - 1];
+
         boardCtrl.LoadLevel(levelData);
+
         if (levelData.IsEven)
         {
             boardCtrl.transform.position += new Vector3(-1f, -1f, 0);
             CameraManager.Instance.transform.position += new Vector3(-1f, -1f, 0);
         }
+
         CameraManager.Instance.InitBoxCam(levelData.BoundCam);
     }
 

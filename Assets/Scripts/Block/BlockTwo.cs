@@ -80,7 +80,7 @@ public class BlockTwo : BaseBlock
     {
         base.AddVisualWater(blockColor);
         Vector3 direction = DirectionWater(blockDirection, transform.rotation);
-        blockVisual.blockTypeVariant.InitWater(blockColor, direction);
+        BlockVisual.blockTypeVariant.InitWater(blockColor, direction);
     }
 
     private Vector3 DirectionWater(Direction direction, Quaternion rotation)
@@ -150,7 +150,7 @@ public class BlockTwo : BaseBlock
         {
             if (pipeTransform.y > transform.position.y)
             {
-                return 0.65f;
+                return 0.6f;
             }
             else
             {

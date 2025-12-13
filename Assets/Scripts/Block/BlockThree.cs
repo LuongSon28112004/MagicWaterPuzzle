@@ -76,7 +76,7 @@ public class BlockThree : BaseBlock
     {
         base.AddVisualWater(blockColor);
         Vector3 direction = DirectionWater(blockDirection, transform.rotation);
-        blockVisual.blockTypeVariant.InitWater(blockColor, direction);
+        BlockVisual.blockTypeVariant.InitWater(blockColor, direction);
     }
 
     private Vector3 DirectionWater(Direction direction, Quaternion rotation)

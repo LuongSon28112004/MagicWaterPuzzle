@@ -116,12 +116,15 @@ public class PopupHammerBooster : PopupUI
         var effect = particle.GetComponent<ParticleBombHammerBreakEffect>();
         if (effect != null)
             effect.PlayParticle();
-        yield return new WaitForSeconds(0.3f);
+        block.SetActive(false);
+        yield return new WaitForSeconds(0.2f);
+        // break ice
+        LevelManager.Instance.boardCtrl.BreakIceBlock();
+        yield return new WaitForSeconds(0.1f);
         //reduce water
         StartCoroutine(ReduceWaterPipe(block));
         AudioManager.Instance.PlayOneShot("WaterPOURvar1S1", 1);
         //
-        block.SetActive(false);
         LevelManager.Instance.boardCtrl.BlockInstances.Remove(block.transform);
         StartCoroutine(CheckWin());
         HideTutorial();

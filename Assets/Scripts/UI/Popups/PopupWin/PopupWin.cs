@@ -314,7 +314,7 @@ public class PopupWin : PopupUI
         RectTransform rect = ImageAnimationWin.GetComponent<RectTransform>();
 
         rect
-            .DORotate(new Vector3(0, 0, -360), 3f, RotateMode.FastBeyond360)
+            .DORotate(new Vector3(0, 0, -360), 10f, RotateMode.FastBeyond360)
             .SetEase(Ease.Linear)
             .SetLoops(-1);
         //.Pause();  // Quan trọng: dừng trước, chỉ chạy sau khi object hiện lên
@@ -370,7 +370,7 @@ public class PopupWin : PopupUI
         {
             // bật xoay khi hiện ra
             ImageAnimationWin.transform
-                .DORotate(new Vector3(0, 0, -360), 3f, RotateMode.FastBeyond360)
+                .DORotate(new Vector3(0, 0, -360), 10f, RotateMode.FastBeyond360)
                 .SetEase(Ease.Linear)
                 .SetLoops(-1)
                 .Play();

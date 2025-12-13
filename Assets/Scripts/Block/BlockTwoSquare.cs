@@ -14,7 +14,7 @@ public class BlockTwoSquare : BaseBlock
 
     public override void AddMoveDirection(MoveDir moveDir)
     {
-        blockVisual.blockTypeVariant.SetDirMove(moveDir, blockDirection, false);
+        BlockVisual.blockTypeVariant.SetDirMove(moveDir, blockDirection, false);
     }
     protected override Vector2 SnapToGrid(Vector2 pos)
     {
@@ -68,7 +68,7 @@ public class BlockTwoSquare : BaseBlock
     {
         base.AddVisualWater(blockColor);
         Vector3 direction = DirectionWater(blockDirection, transform.rotation);
-        blockVisual.blockTypeVariant.InitWater(blockColor, direction);
+        BlockVisual.blockTypeVariant.InitWater(blockColor, direction);
     }
 
     private Vector3 DirectionWater(Direction direction, Quaternion rotation)

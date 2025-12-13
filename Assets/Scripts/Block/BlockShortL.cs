@@ -76,7 +76,7 @@ public class BlockShortL : BaseBlock
     {
         base.AddVisualWater(blockColor);
         Vector3 direction = DirectionWater(blockDirection, transform.rotation);
-        blockVisual.blockTypeVariant.InitWater(blockColor, direction);
+        BlockVisual.blockTypeVariant.InitWater(blockColor, direction);
     }
 
     private Vector3 DirectionWater(Direction direction, Quaternion rotation)
@@ -154,11 +154,11 @@ public class BlockShortL : BaseBlock
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
-                    return transform.position.y < pipeTransform.y ? 0.67f : 0.25f;
+                    return transform.position.y < pipeTransform.y ? 0.62f : 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
-                    return transform.position.x < pipeTransform.x ? 0.67f : 0.25f;
+                    return transform.position.x < pipeTransform.x ? 0.62f : 0.25f;
                 }
             }
 
@@ -166,7 +166,7 @@ public class BlockShortL : BaseBlock
             {
                 if (directionPipe == DirectionPipe.Left)
                 {
-                    return transform.position.y < pipeTransform.y ? 0.67f : 0.25f;
+                    return transform.position.y < pipeTransform.y ? 0.62f : 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
@@ -174,7 +174,7 @@ public class BlockShortL : BaseBlock
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
-                    return 0.67f;
+                    return 0.62f;
                 }
             }
         }
@@ -188,7 +188,7 @@ public class BlockShortL : BaseBlock
             {
                 if (directionPipe == DirectionPipe.Left)
                 {
-                    return transform.position.y < pipeTransform.y ? 0.65f : 0.25f;
+                    return transform.position.y < pipeTransform.y ? 0.62f : 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
@@ -196,7 +196,7 @@ public class BlockShortL : BaseBlock
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
-                    return transform.position.x < pipeTransform.x ? 0.25f : 0.67f;
+                    return transform.position.x < pipeTransform.x ? 0.25f : 0.62f;
                 }
             }
             // Góc -90° hoặc 270°
@@ -208,11 +208,11 @@ public class BlockShortL : BaseBlock
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
-                    return transform.position.y < pipeTransform.y ? 0.67f : 0.25f;
+                    return transform.position.y < pipeTransform.y ? 0.62f : 0.25f;
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
-                    return 0.67f;
+                    return 0.62f;
                 }
             }
         }
@@ -276,7 +276,7 @@ public class BlockShortL : BaseBlock
                 {
                     posSnap.x = waterPipe.transform.position.x - 1;
                 }
-                if (ApproxAngle(180, 0, 0))
+                if (ApproxAngle(180, 0, z))
                 {
                     if (pos.x < waterPipe.transform.position.x)
                     {

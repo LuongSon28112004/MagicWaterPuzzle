@@ -198,21 +198,33 @@ MonoBehaviour:
     rotation: {x: -0, y: 0, z: 0}
   blocks:
   - name: TwoSquare_1
+    iceInfor:
+      IsIce: 0
+      CountBreak: 0
     position: {x: -3, y: -3, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 2
     moveDir: 0
   - name: TwoSquare
+    iceInfor:
+      IsIce: 0
+      CountBreak: 0
     position: {x: 3, y: 3, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 3
     moveDir: 0
   - name: Three_1
+    iceInfor:
+      IsIce: 0
+      CountBreak: 0
     position: {x: 4, y: -2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 1
     moveDir: 0
   - name: Three
+    iceInfor:
+      IsIce: 0
+      CountBreak: 0
     position: {x: -4, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 4
@@ -223,26 +235,26 @@ MonoBehaviour:
     rotation: {x: -0, y: 0, z: 270}
     colorOutputs:
     - color: 1
-      capacity: 2
+      capacity: 1
   - name: GridGate1_2
     position: {x: 2, y: -6.1, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     colorOutputs:
-    - color: 1
-      capacity: 2
-    - color: 4
-      capacity: 3
+    - color: 3
+      capacity: 4
   - name: GridGate1_1
     position: {x: 6.1, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 90}
     colorOutputs:
-    - color: 3
+    - color: 2
       capacity: 4
   - name: GridGate1
     position: {x: -2, y: 6.1, z: 0}
     rotation: {x: -0, y: 0, z: 180}
     colorOutputs:
-    - color: 2
-      capacity: 4
+    - color: 1
+      capacity: 2
+    - color: 4
+      capacity: 3
   IsEven: 0
   BoundCam: {x: 15, y: 15}

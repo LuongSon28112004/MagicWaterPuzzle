@@ -114,6 +114,7 @@ public class BoardCtrl : MonoBehaviour
                 BlockOne blockOne = gameObject.GetComponent<BlockOne>();
                 blockOne.BlockDirection = Direction.NORMAL;
                 blockOne.AddVisualColor(block.color);
+                blockOne.AddVisualWater(block.color);
                 blockOne.AddMoveDirection(block.moveDir);
                 if (block.iceInfor.IsIce)
                 {
@@ -125,8 +126,8 @@ public class BoardCtrl : MonoBehaviour
                 gameObject = Instantiate(blockList.Find(x => x.name == "Plus"), block.position, Quaternion.Euler(block.rotation), BlockParent.transform);
 
                 BlockPlus blockPlus = gameObject.GetComponent<BlockPlus>();
-                blockPlus.AddVisualColor(block.color);
                 blockPlus.BlockDirection = Direction.NORMAL;
+                blockPlus.AddVisualColor(block.color);
                 blockPlus.AddVisualWater(block.color);
                 blockPlus.AddMoveDirection(block.moveDir);
                 if (block.iceInfor.IsIce)
@@ -153,6 +154,27 @@ public class BoardCtrl : MonoBehaviour
                 if (block.iceInfor.IsIce)
                 {
                     blockShortL.AddIceBlock(block.iceInfor.CountBreak);
+                }
+            }
+            else if (block.name.Contains("ShortT"))
+            {
+                gameObject = Instantiate(blockList.Find(x => x.name == "ShortT"), block.position, Quaternion.Euler(block.rotation), BlockParent.transform);
+
+                BlockShortT blockShortT = gameObject.GetComponent<BlockShortT>();
+                blockShortT.AddVisualColor(block.color);
+                if (block.rotation != new Vector3(0, 0, 0) && block.rotation != new Vector3(0, 0, 180) && block.rotation != new Vector3(0, 0, 360))
+                {
+                    blockShortT.BlockDirection = Direction.VERTICAL;
+                }
+                else
+                {
+                    blockShortT.BlockDirection = Direction.HORIZONTAL;
+                }
+                blockShortT.AddVisualWater(block.color);
+                blockShortT.AddMoveDirection(block.moveDir);
+                if (block.iceInfor.IsIce)
+                {
+                    blockShortT.AddIceBlock(block.iceInfor.CountBreak);
                 }
             }
             else if (block.name.Contains("L"))
@@ -289,6 +311,46 @@ public class BoardCtrl : MonoBehaviour
         {
             WaterPipe waterPipe = g.GetComponent<WaterPipe>();
             waterPipe.PipeLineCtrl.ShowWater();
+        }
+    }
+
+    // break ice
+    public void BreakIceBlock()
+    {
+        List<Transform> blocks = LevelManager.Instance.boardCtrl.BlockInstances;
+        GameObject prefabIceLight = Resources.Load<GameObject>("Particles/BlockIceLightBreakEffect");
+        GameObject prefabIceBreak = Resources.Load<GameObject>("Particles/BlockIceBreakEffect");
+        for (int i = 0; i < blocks.Count; i++)
+        {
+            BaseBlock baseBlock = blocks[i].GetComponent<BaseBlock>();
+            if (baseBlock.BlockVisual.blockIce.IsActive)
+            {
+                baseBlock.BlockVisual.blockIce.Count--;
+                baseBlock.BlockVisual.blockIce.UpdateText();
+                if (baseBlock.BlockVisual.blockIce.Count > 0)
+                {
+                    for (int j = 0; j < baseBlock.ListIcePos.Count; j++)
+                    {
+                        GameObject IceLight = Instantiate(prefabIceLight, baseBlock.ListIcePos[j]);
+                        BlockIceLightBreakEffect blockIceLightBreakEffect = IceLight.GetComponent<BlockIceLightBreakEffect>();
+                        blockIceLightBreakEffect.PlayParticle();
+                        AudioManager.Instance.PlayOneShot("Rockblock", 1f);
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < baseBlock.ListIcePos.Count; j++)
+                    {
+                        GameObject IceBreak = Instantiate(prefabIceBreak, baseBlock.ListIcePos[j]);
+                        BlockIceBreakEffect blockIceBreakEffect = IceBreak.GetComponent<BlockIceBreakEffect>();
+                        blockIceBreakEffect.PlayParticle();
+                        baseBlock.BlockVisual.blockIce.IsActive = false;
+                        baseBlock.BlockVisual.blockIce.InActiveIce();
+                        AudioManager.Instance.PlayOneShot("Rockblock", 1f);
+                    }
+                }
+
+            }
         }
     }
 }
