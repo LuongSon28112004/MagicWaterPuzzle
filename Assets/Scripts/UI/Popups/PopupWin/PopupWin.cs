@@ -68,7 +68,7 @@ public class PopupWin : PopupUI
         {
             currentCoin += 1;
             textCoin.text = currentCoin.ToString();
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.012f);
         }
         UserData.coin += 60;
         SaveDataManager.Save();

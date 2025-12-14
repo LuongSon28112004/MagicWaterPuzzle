@@ -86,6 +86,7 @@ public class GameManager : SingletonDDOL<GameManager>
             case GameState.Win:
                 yield return LoadSceneAndWait("PopupWin", () =>
                 {
+
                 });
                 break;
             case GameState.Lose:

@@ -353,4 +353,23 @@ public class BoardCtrl : MonoBehaviour
             }
         }
     }
+
+    //scale zero
+    public IEnumerator ScaleZeroObjects()
+    {
+        Sequence sequence = DOTween.Sequence();
+
+        foreach (var g in gateInstances)
+        {
+            sequence.Join(g.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack));
+        }
+        yield return sequence.WaitForCompletion();
+        yield return new WaitForSeconds(0.4f);
+
+        foreach (var g in gridSlotInstances)
+        {
+            sequence.Join(g.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack));
+        }
+        yield return sequence.WaitForCompletion();
+    }
 }

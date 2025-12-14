@@ -101,6 +101,18 @@ public class ScreenGamePlay : ScreenUI
         rectTop.DOAnchorPosY(valueRectTop, 0.4f).SetEase(Ease.Linear);
         rectBottom.DOAnchorPosY(valueRectBottom, 0.4f).SetEase(Ease.Linear);
     }
+
+    public void HideAnimationIntro()
+    {
+        RectTransform rectTop = top.GetComponent<RectTransform>();
+        RectTransform rectBottom = bottom.GetComponent<RectTransform>();
+
+        float valueRectTop = rectTop.anchoredPosition.y;
+        float valueRectBottom = rectBottom.anchoredPosition.y;
+
+        rectTop.DOAnchorPosY(250, 0.4f).SetEase(Ease.Linear);
+        rectBottom.DOAnchorPosY(-250, 0.4f).SetEase(Ease.Linear);
+    }
     private void AddEventListener()
     {
         //booster

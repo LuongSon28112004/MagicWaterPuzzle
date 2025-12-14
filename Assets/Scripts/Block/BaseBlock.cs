@@ -425,7 +425,7 @@ public abstract class BaseBlock : MonoBehaviour
     protected virtual IEnumerator CheckDoneFilling()
     {
         if (currentCapacity < maxCapacity) yield break;
-        transform.position -= new Vector3(0, 0, 1);
+        transform.position -= new Vector3(0, 0, 0.5f);
         AudioManager.Instance.PlayOneShot("ClearBlock", 1f);
         LevelManager.Instance.boardCtrl.BreakIceBlock();
 
@@ -435,25 +435,26 @@ public abstract class BaseBlock : MonoBehaviour
         BlockVisual.soapBubbleEmitterVariant.PlayParticle();
 
         int dir = UnityEngine.Random.Range(0, 2) == 0 ? -1 : 1;
-        float distance = 22f;
+        float distance = 25f;
 
         Vector3 start = transform.position;
-        Vector3 up1 = start + new Vector3(0, 0.5f, -1f);
+        Vector3 up1 = start + new Vector3(0, 0f, 0f);
 
-        Vector3 left = up1 + new Vector3(-1.5f, 0, 0);
-        Vector3 right = up1 + new Vector3(1.5f, 0f, 0);
+        Vector3 left = up1 + new Vector3(-3f, -0.5f, -0.5f);
+        Vector3 right = up1 + new Vector3(3f, -0.5f, -0.5f);
+        Vector3 Mid = (left + right) / 2;
 
-
-        Vector3 exit = right + new Vector3(dir * distance, 0, -distance);
+        Vector3 exit = right + new Vector3(dir * distance, 0, 0);
 
         // Tăng độ phân giải path => cực mượt
-        int resolution = 80;
+        int resolution = 180;
 
         Vector3[] path = new Vector3[]
         {
         start,
         up1,
         left,
+        Mid,
         right,
         exit
         };
@@ -464,6 +465,7 @@ public abstract class BaseBlock : MonoBehaviour
             start,
             up1,
             right,
+            Mid,
             left,
             exit
             };
@@ -472,17 +474,17 @@ public abstract class BaseBlock : MonoBehaviour
         BlockVisual.blockTrailsParticle.PlayParticle();
         transform.DOPath(
             path,
-            2f,
+            1.5f,
             PathType.CatmullRom,
             PathMode.Full3D,
             resolution,
             Color.white
         )
         .SetEase(Ease.InQuint);
-        transform.DORotate(new Vector3(transform.rotation.eulerAngles.x, dir * -15f, transform.rotation.eulerAngles.z), 1.5f).SetEase(Ease.InQuint);
+        transform.DORotate(new Vector3(transform.rotation.eulerAngles.x, dir * -45f, transform.rotation.eulerAngles.z), 1.5f).SetEase(Ease.InQuint);
         // Tăng tốc mạnh về cuối
 
-        transform.DOScale(new Vector3(2f, 2f, 2f), 2f)
+        transform.DOScale(new Vector3(1.85f, 1.85f, 1.85f), 1.5f)
             .SetEase(Ease.InQuint);
         yield return new WaitForSeconds(0.3f);
         BlockVisual.soapBubbleEmitterVariant.StopParticle();
@@ -493,6 +495,11 @@ public abstract class BaseBlock : MonoBehaviour
         LevelManager.Instance.boardCtrl.BlockInstances.Remove(transform);
         if (LevelManager.Instance.boardCtrl.BlockInstances.Count == 0)
         {
+
+            StartCoroutine(LevelManager.Instance.boardCtrl.ScaleZeroObjects());
+            ScreenGamePlay screenGamePlay = UIManager.Instance.GetScreen<ScreenGamePlay>();
+            screenGamePlay.HideAnimationIntro();
+            yield return new WaitForSeconds(1.2f);
             StartCoroutine(GameManager.Instance.ChangeState(GameState.Win));
         }
 
