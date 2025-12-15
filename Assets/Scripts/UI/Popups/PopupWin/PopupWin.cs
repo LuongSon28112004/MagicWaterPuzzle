@@ -68,7 +68,7 @@ public class PopupWin : PopupUI
         {
             currentCoin += 1;
             textCoin.text = currentCoin.ToString();
-            yield return new WaitForSeconds(0.012f);
+            yield return new WaitForSeconds(0.015f);
         }
         UserData.coin += 60;
         SaveDataManager.Save();
@@ -246,6 +246,9 @@ public class PopupWin : PopupUI
 
             // Scale lên
             seq.Append(rect.DOScale(1f, 0.25f).SetDelay(delay).SetEase(Ease.OutBack));
+            // float x = rect.anchoredPosition.x;
+            // float y = rect.anchoredPosition.y - 50f;
+            // seq.Append(rect.DOAnchorPos(new Vector2(x, y), 0.05f).SetEase(Ease.OutBack));
 
             // Bay về target_2
             seq.Append(rect.DOMove(target_2.position, 0.2f)

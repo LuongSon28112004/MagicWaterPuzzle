@@ -24,6 +24,8 @@ public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
     [SerializeField] private TextMeshProUGUI TextRanking;
     [Header("Coin")]
     [SerializeField] private TextMeshProUGUI textCoin;
+    [Header("Settings")]
+    [SerializeField] private Button settingsButton;
     [Header("Heart System")]
     [SerializeField] private HeartSystem heartSystem;
     [SerializeField] private TextMeshProUGUI textTimerHeart;
@@ -97,6 +99,14 @@ public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
         ShopButton.onClick.AddListener(() => ChangeStatusChoicePanel(StatusChoice.Shop));
         HomeButton.onClick.AddListener(() => ChangeStatusChoicePanel(StatusChoice.Home));
         RankingButton.onClick.AddListener(() => ChangeStatusChoicePanel(StatusChoice.RANKING));
+        //Settings
+        settingsButton.onClick.AddListener(SettingsClick);
+
+    }
+
+    private void SettingsClick()
+    {
+        UIManager.Instance.ShowPopup<PopupSetting>(null);
     }
 
     private void ChangeStatusChoicePanel(StatusChoice newChoice)

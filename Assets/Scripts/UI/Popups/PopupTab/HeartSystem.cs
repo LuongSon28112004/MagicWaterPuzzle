@@ -1,15 +1,21 @@
 using UnityEngine;
 using System;
+using master;
 
 public class HeartSystem : MonoBehaviour
 {
-    public int MaxHearts = 5;
-    public int CurrentHearts = 4;
-    public int SecondsPerHeart = 60; // 15 phút
+
+    private int maxHearts = 5;
+    private int currentHearts = 0;
+    private int secondsPerHeart = 1800; // 30 phút
 
     private float timer;
 
     public float Timer => timer;
+
+    public int MaxHearts { get => maxHearts; set => maxHearts = value; }
+    public int CurrentHearts { get => currentHearts; set => currentHearts = value; }
+    public int SecondsPerHeart { get => secondsPerHeart; set => secondsPerHeart = value; }
 
     public event Action OnHeartChanged;
 
@@ -50,7 +56,7 @@ public class HeartSystem : MonoBehaviour
 
     // ---------------- SAVE & LOAD -----------------
 
-    void SaveHearts()
+    public void SaveHearts()
     {
         PlayerPrefs.SetInt("Hearts", CurrentHearts);
         PlayerPrefs.SetFloat("Timer", timer);
@@ -85,5 +91,6 @@ public class HeartSystem : MonoBehaviour
                 timer = 0;
             }
         }
+        SaveHearts();
     }
 }

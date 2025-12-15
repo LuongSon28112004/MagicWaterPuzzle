@@ -179,6 +179,10 @@ public class AudioManager : MonoBehaviour
 
     public void StopMusic() => musicSource.Stop();
     public void StopSFX() => soundSource.Stop();
+    public void PauseMusic() => musicSource.Pause();
+    public void ResumeMusic() => musicSource.UnPause();
+    public void PauseSound() => soundSource.Pause();
+    public void ResumeSound() => soundSource.UnPause();
 
     public void PlayOneShot(string name, float volume = 1, float delayPlay = 0)
     {

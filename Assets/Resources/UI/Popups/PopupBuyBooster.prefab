@@ -1840,6 +1840,9 @@ MonoBehaviour:
   mainPopUp: {fileID: 6414743779652754678}
   buttonExit: {fileID: 7800305657234896793}
   textCountCoin: {fileID: 1037549629423838047}
+  yellowButton: {fileID: 21300000, guid: 15b318ad3df6b8d44a71943f15d392b5, type: 2}
+  imageBuyButton_1: {fileID: 8915734991319558699}
+  imageBuyButton_2: {fileID: 8208714780958154592}
 --- !u!1 &7754300417501851062
 GameObject:
   m_ObjectHideFlags: 0

@@ -66,6 +66,12 @@ public class ScreenHome : ScreenUI
 
     private IEnumerator PlayCoroutine()
     {
+        int currentHearts = PlayerPrefs.GetInt("Hearts", 0);
+        if (currentHearts <= 0)
+        {
+            UIManager.Instance.ShowPopup<PopupRefillYourLives>(null);
+            yield break;
+        }
         PopupLoading popupLoading = UIManager.Instance.GetPopup<PopupLoading>();
         if (popupLoading == null)
         {

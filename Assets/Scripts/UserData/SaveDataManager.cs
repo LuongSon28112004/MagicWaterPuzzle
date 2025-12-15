@@ -44,6 +44,7 @@ public static class SaveDataManager
                 new BoosterCounter { name = "Bomb", count = 1 },
                 new BoosterCounter { name = "Hammer", count = 1 },
             };
+            PlayerPrefs.SetInt("Hearts", 5);
 
             Save(); // Tạo file mới
             return;

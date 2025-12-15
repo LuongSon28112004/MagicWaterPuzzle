@@ -116,7 +116,7 @@ public class BlockTwoSquare : BaseBlock
             {
                 return 0.6f;
             }
-            else return 0.25f;
+            else return 0.22f;
         }
 
 

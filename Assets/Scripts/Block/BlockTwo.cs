@@ -150,11 +150,11 @@ public class BlockTwo : BaseBlock
         {
             if (pipeTransform.y > transform.position.y)
             {
-                return 0.6f;
+                return 0.57f;
             }
             else
             {
-                return 0.25f;
+                return 0.22f;
             }
         }
         return 1f;

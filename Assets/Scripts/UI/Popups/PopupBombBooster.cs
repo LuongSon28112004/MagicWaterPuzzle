@@ -102,6 +102,7 @@ public class PopupBombBooster : PopupUI
                     StartCoroutine(ShowButtonScreen());
                 });
             });
+        bombBooster.DORotate(new Vector3(720, -720, 720), 15f, RotateMode.FastBeyond360).SetEase(Ease.OutCubic);
 
         yield break;
     }

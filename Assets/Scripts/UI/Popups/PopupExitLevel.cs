@@ -48,6 +48,12 @@ public class PopupExitLevel : PopupUI
         {
             ui.StartModeQuitBreak(ModeOutgame.RESTART);
         }
+        int CurrentHearts = PlayerPrefs.GetInt("Hearts", 0);
+        if (CurrentHearts > 0)
+        {
+            CurrentHearts -= 1;
+            PlayerPrefs.SetInt("Hearts", CurrentHearts);
+        }
     }
 
     private void CloseClick()
