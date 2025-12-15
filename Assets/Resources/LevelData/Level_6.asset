@@ -337,5 +337,6 @@ MonoBehaviour:
     colorOutputs:
     - color: 6
       capacity: 2
+  durationTime: 180
   IsEven: 1
   BoundCam: {x: 17, y: 17}

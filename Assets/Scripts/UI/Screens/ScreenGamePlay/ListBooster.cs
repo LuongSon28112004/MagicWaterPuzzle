@@ -47,11 +47,11 @@ public class ListBooster : MonoBehaviour
         InActiveAllBooster();
     }
 
-    public void InitCountBooster(bool isFreeze, bool isBomb, bool isHammer)
+    public void InitCountBooster(bool isFreeze, bool isBomb, bool isHammer, List<int> count)
     {
         if (isFreeze)
         {
-            freezeBoosterConfig.ActiveCountBooster();
+            freezeBoosterConfig.ActiveCountBooster(count[0]);
         }
         else
         {
@@ -60,7 +60,7 @@ public class ListBooster : MonoBehaviour
 
         if (isBomb)
         {
-            bombBoosterConfig.ActiveCountBooster();
+            bombBoosterConfig.ActiveCountBooster(count[1]);
         }
         else
         {
@@ -69,7 +69,7 @@ public class ListBooster : MonoBehaviour
 
         if (isHammer)
         {
-            hammerBoosterConfig.ActiveCountBooster();
+            hammerBoosterConfig.ActiveCountBooster(count[2]);
         }
         else
         {

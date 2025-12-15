@@ -225,21 +225,33 @@ MonoBehaviour:
     rotation: {x: -0, y: 0, z: 0}
   blocks:
   - name: ShortL_1
+    iceInfor:
+      IsIce: 0
+      CountBreak: 0
     position: {x: -3, y: -1, z: 0}
     rotation: {x: -0, y: 0, z: 180}
     color: 5
     moveDir: 2
   - name: TwoSquare
+    iceInfor:
+      IsIce: 0
+      CountBreak: 0
     position: {x: -1, y: 1, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     color: 2
     moveDir: 1
   - name: ShortL
+    iceInfor:
+      IsIce: 0
+      CountBreak: 0
     position: {x: 1, y: 3, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 6
     moveDir: 2
   - name: Three
+    iceInfor:
+      IsIce: 0
+      CountBreak: 0
     position: {x: -2, y: 6, z: 0}
     rotation: {x: -0, y: 0, z: 90}
     color: 4
@@ -269,5 +281,6 @@ MonoBehaviour:
     colorOutputs:
     - color: 4
       capacity: 3
+  durationTime: 180
   IsEven: 0
   BoundCam: {x: 16, y: 16}

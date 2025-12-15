@@ -10,7 +10,7 @@ public class BoosterCounter
 
 public static class UserData
 {
-    public static int coin = 99999;
+    public static int coin = 1000;
     public static int level = 1;
     public static List<BoosterCounter> listBoosterCounters = new List<BoosterCounter>();
 }

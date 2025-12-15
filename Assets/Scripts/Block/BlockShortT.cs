@@ -229,9 +229,10 @@ public class BlockShortT : BaseBlock
     protected override Vector3 SnapToPipe(Vector3 pos, WaterPipe waterPipe)
     {
         Vector3 posSnap = pos;
+        float z = transform.rotation.eulerAngles.z;
         if (blockDirection == Direction.HORIZONTAL)
         {
-            if (transform.rotation.eulerAngles.z == 0)
+            if (ApproxAngle(0, 1, z))
             {
                 if (waterPipe.DirectionPipe == DirectionPipe.Up)
                 {
@@ -286,7 +287,7 @@ public class BlockShortT : BaseBlock
         }
         else
         {
-            if (transform.rotation.z == 90f || transform.rotation.z == -270f)
+            if (ApproxAngle(90, 1, z) || ApproxAngle(-270, 1, z))
             {
                 if (waterPipe.DirectionPipe == DirectionPipe.Down)
                 {
@@ -316,7 +317,7 @@ public class BlockShortT : BaseBlock
                     }
                 }
             }
-            else if (transform.rotation.z == -90f || transform.rotation.z == 270f)
+            else if (ApproxAngle(-90, 1, z) || ApproxAngle(270, 1, z))
             {
                 if (waterPipe.DirectionPipe == DirectionPipe.Down)
                 {

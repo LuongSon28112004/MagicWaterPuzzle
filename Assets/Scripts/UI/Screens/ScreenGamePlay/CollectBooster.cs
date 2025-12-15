@@ -1,8 +1,7 @@
 using System;
 using System.Collections;
-using System.Data.SqlTypes;
 using DG.Tweening;
-using NUnit.Framework.Constraints;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,6 +33,8 @@ public class CollectBooster : MonoBehaviour
     [SerializeField] Transform TargetFreeze;
     [SerializeField] Transform TargetBomb;
     [SerializeField] Transform TargetHammer;
+    [Header("Title text")]
+    [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] public Action<bool> DoneAction;
 
     public TypeCollectBooster TypeCollectBooster { get => typeCollectBooster; set => typeCollectBooster = value; }
@@ -120,7 +121,26 @@ public class CollectBooster : MonoBehaviour
     {
         this.typeCollectBooster = typeCollectBooster;
         ChangeIcon();
+        ChangeTitle();
         AddEventListener();
+    }
+
+    private void ChangeTitle()
+    {
+        switch (typeCollectBooster)
+        {
+
+            case TypeCollectBooster.BOMB:
+                titleText.text = Contacts.Instance.GetTutBooster(TypeCollectBooster.BOMB);
+                break;
+            case TypeCollectBooster.FREEZE:
+                titleText.text = Contacts.Instance.GetTutBooster(TypeCollectBooster.FREEZE);
+                break;
+            case TypeCollectBooster.HAMMER:
+                titleText.text = Contacts.Instance.GetTutBooster(TypeCollectBooster.HAMMER);
+                break;
+
+        }
     }
 
     private void ChangeIcon()

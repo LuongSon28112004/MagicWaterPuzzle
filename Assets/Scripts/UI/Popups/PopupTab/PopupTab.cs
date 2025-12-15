@@ -106,11 +106,13 @@ public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
 
     private void SettingsClick()
     {
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
         UIManager.Instance.ShowPopup<PopupSetting>(null);
     }
 
     private void ChangeStatusChoicePanel(StatusChoice newChoice)
     {
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
         if (newChoice == currentStatus) return;
 
 

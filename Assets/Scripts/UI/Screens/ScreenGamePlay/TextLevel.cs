@@ -5,7 +5,7 @@ public class TextLevel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textLevel;
 
-    private void Start()
+    private void Awake()
     {
         textLevel = GetComponent<TextMeshProUGUI>();
     }

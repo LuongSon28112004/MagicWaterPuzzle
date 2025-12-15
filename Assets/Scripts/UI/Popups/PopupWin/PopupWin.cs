@@ -64,14 +64,14 @@ public class PopupWin : PopupUI
     private IEnumerator PlusCoin()
     {
         int currentCoin = UserData.coin;
+        UserData.coin += 60;
+        SaveDataManager.Save();
         for (int i = 0; i < MAX_COIN; i++)
         {
             currentCoin += 1;
             textCoin.text = currentCoin.ToString();
             yield return new WaitForSeconds(0.015f);
         }
-        UserData.coin += 60;
-        SaveDataManager.Save();
         yield break;
     }
 

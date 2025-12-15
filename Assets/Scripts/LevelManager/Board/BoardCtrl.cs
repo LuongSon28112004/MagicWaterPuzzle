@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -25,9 +26,16 @@ public class BoardCtrl : MonoBehaviour
     {
         this.levelData = levelData;
 
+        InitTimer();
         CreateObjects();
         StartCoroutine(ScaleObjects(gridSlotInstances, gateInstances, blockInstances));
 
+    }
+
+    private void InitTimer()
+    {
+        var UI = UIManager.Instance.GetScreen<ScreenGamePlay>();
+        UI.InitTimerCountDown(levelData.durationTime);
     }
 
     private void CreateObjects()
@@ -366,10 +374,32 @@ public class BoardCtrl : MonoBehaviour
         yield return sequence.WaitForCompletion();
         yield return new WaitForSeconds(0.4f);
 
+        // 2.Scale gridSlot KHÁC tên "GridSlot"
+        Sequence gridSlotOtherSeq = DOTween.Sequence();
         foreach (var g in gridSlotInstances)
         {
-            sequence.Join(g.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack));
+            if (g.name != "GridSlot(Clone)")
+            {
+                gridSlotOtherSeq.Join(
+                    g.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack)
+                );
+            }
         }
-        yield return sequence.WaitForCompletion();
+        yield return gridSlotOtherSeq.WaitForCompletion();
+
+        yield return new WaitForSeconds(0.4f);
+
+        // 3. Scale gridSlot TÊN "GridSlot" (sau cùng)
+        Sequence gridSlotMainSeq = DOTween.Sequence();
+        foreach (var g in gridSlotInstances)
+        {
+            if (g.name == "GridSlot(Clone)")
+            {
+                gridSlotMainSeq.Join(
+                    g.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack)
+                );
+            }
+        }
+        yield return gridSlotMainSeq.WaitForCompletion();
     }
 }

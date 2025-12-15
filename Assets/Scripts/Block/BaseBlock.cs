@@ -499,7 +499,7 @@ public abstract class BaseBlock : MonoBehaviour
             StartCoroutine(LevelManager.Instance.boardCtrl.ScaleZeroObjects());
             ScreenGamePlay screenGamePlay = UIManager.Instance.GetScreen<ScreenGamePlay>();
             screenGamePlay.HideAnimationIntro();
-            yield return new WaitForSeconds(1.2f);
+            yield return new WaitForSeconds(1.8f);
             StartCoroutine(GameManager.Instance.ChangeState(GameState.Win));
         }
 

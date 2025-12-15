@@ -61,6 +61,7 @@ public class ScreenHome : ScreenUI
 
     private void OnClickPlay()
     {
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
         StartCoroutine(PlayCoroutine());
     }
 

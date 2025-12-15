@@ -163,4 +163,22 @@ public class Contacts : MonoBehaviour
     }
 
 
+    public string GetTutBooster(TypeCollectBooster typeCollectBooster)
+    {
+        switch (typeCollectBooster)
+        {
+
+            case TypeCollectBooster.BOMB:
+                return "Drop a bomb on a random box and clear it!";
+            case TypeCollectBooster.FREEZE:
+                return "Freeze time for 20 seconds.";
+            case TypeCollectBooster.HAMMER:
+                return "Break any box on the map and filled it";
+            default:
+                return "";
+
+        }
+    }
+
+
 }

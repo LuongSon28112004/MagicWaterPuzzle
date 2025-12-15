@@ -33,6 +33,7 @@ public class PopupSetting : PopupUI
 
     private void SoundMusicClick()
     {
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
         if (onSoundMusic)
         {
             ImageMusicSlack.gameObject.SetActive(true);
@@ -51,6 +52,7 @@ public class PopupSetting : PopupUI
 
     private void SoundFXClick()
     {
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
         if (onSoundFX)
         {
             ImageSoundSlack.gameObject.SetActive(true);

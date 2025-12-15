@@ -47,7 +47,7 @@ public class FPSDisplay : SingletonDDOL<FPSDisplay>
             $"RAM Used: {ramUsed:0.0} MB\n" +
             $"RAM Reserved: {ramReserved:0.0} MB";
 
-        Rect rect = new Rect(10, 10, w, h * 6 / 100);
+        Rect rect = new Rect(50, 50, w, h * 6 / 100);
         GUI.Label(rect, text, style);
     }
 }

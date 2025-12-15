@@ -36,8 +36,8 @@ Material:
     - _MinValue: -1
     - _SpecularIntensity: 0.35
     - _SpecularSize: 0
-    - _WaveScale: 0.02
-    - _WaveSpeed: 8
+    - _WaveScale: 0.03
+    - _WaveSpeed: 10
     m_Colors:
     - _FillDir: {r: 0, g: 0, b: 1, a: 0}
     - _HighlightColor: {r: 1, g: 1, b: 1, a: 1}

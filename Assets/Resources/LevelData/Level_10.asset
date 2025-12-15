@@ -423,7 +423,7 @@ MonoBehaviour:
     - color: 4
       capacity: 2
     - color: 8
-      capacity: 2
+      capacity: 1
   - name: GridGate1
     position: {x: 8.1, y: 4, z: 0}
     rotation: {x: 0, y: 0, z: 90}
@@ -446,5 +446,6 @@ MonoBehaviour:
       capacity: 2
     - color: 8
       capacity: 2
+  durationTime: 180
   IsEven: 0
   BoundCam: {x: 19, y: 19}

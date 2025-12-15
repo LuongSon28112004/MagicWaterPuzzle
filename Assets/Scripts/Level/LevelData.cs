@@ -104,6 +104,7 @@ public class LevelData : ScriptableObject
     public List<SlotHolderData> slotHolders = new List<SlotHolderData>();
     public List<BlockData> blocks = new List<BlockData>();
     public List<GateData> gates = new List<GateData>();
+    public int durationTime;
     public bool IsEven;
     public Vector2 BoundCam;
 }

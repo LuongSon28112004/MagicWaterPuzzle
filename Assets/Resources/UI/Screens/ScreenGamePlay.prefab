@@ -575,8 +575,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Claim
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a98901d448bb37c499d4650b50a0c756, type: 2}
-  m_sharedMaterial: {fileID: -2773544281124926163, guid: a98901d448bb37c499d4650b50a0c756, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c90e6b20cfb4c3f4fab52124cfce9229, type: 2}
+  m_sharedMaterial: {fileID: -1018155284441210000, guid: c90e6b20cfb4c3f4fab52124cfce9229, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1034,8 +1034,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Drop a bomb on a random \nbox and clear it"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c90e6b20cfb4c3f4fab52124cfce9229, type: 2}
+  m_sharedMaterial: {fileID: -1018155284441210000, guid: c90e6b20cfb4c3f4fab52124cfce9229, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1065,7 +1065,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4066,8 +4066,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: UNLOCKED!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a98901d448bb37c499d4650b50a0c756, type: 2}
-  m_sharedMaterial: {fileID: -2773544281124926163, guid: a98901d448bb37c499d4650b50a0c756, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c90e6b20cfb4c3f4fab52124cfce9229, type: 2}
+  m_sharedMaterial: {fileID: -1018155284441210000, guid: c90e6b20cfb4c3f4fab52124cfce9229, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7368,6 +7368,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3314667489727932057}
     m_Modifications:
+    - target: {fileID: 4081764889987274786, guid: ea3d5f25482a01549b0884d6ac2974ba, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4919872302864400531, guid: ea3d5f25482a01549b0884d6ac2974ba, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7505,6 +7509,7 @@ MonoBehaviour:
   TargetFreeze: {fileID: 7723473172916223285}
   TargetBomb: {fileID: 8431637124694164307}
   TargetHammer: {fileID: 314664321545613128}
+  titleText: {fileID: 275168527581924463}
 --- !u!222 &1606541208483269304
 CanvasRenderer:
   m_ObjectHideFlags: 0

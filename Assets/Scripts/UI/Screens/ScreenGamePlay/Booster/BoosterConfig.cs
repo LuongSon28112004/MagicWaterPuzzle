@@ -63,10 +63,11 @@ public class BoosterConfig : MonoBehaviour
     }
 
 
-    public void ActiveCountBooster()
+    public void ActiveCountBooster(int count)
     {
         CountBooster.gameObject.SetActive(true);
         PlusBooster.gameObject.SetActive(false);
+        UpdateTextCount(count);
     }
 
     public void ActivePlusBooster()

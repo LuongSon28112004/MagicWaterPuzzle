@@ -276,7 +276,7 @@ public class BlockShortL : BaseBlock
                 {
                     posSnap.x = waterPipe.transform.position.x - 1;
                 }
-                if (ApproxAngle(180, 0, z))
+                if (ApproxAngle(180, 1, z))
                 {
                     if (pos.x < waterPipe.transform.position.x)
                     {
