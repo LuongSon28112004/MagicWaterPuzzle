@@ -44,10 +44,10 @@ public class LevelManager : Singleton<LevelManager>
 
         boardCtrl.LoadLevel(levelData);
 
-        if (levelData.IsEven)
+        if (levelData.IsEvenX || levelData.IsEvenY)
         {
-            boardCtrl.transform.position += new Vector3(-1f, -1f, 0);
-            CameraManager.Instance.transform.position += new Vector3(-1f, -1f, 0);
+            boardCtrl.transform.position += new Vector3(levelData.IsEvenX == true ? -1f : 0f, levelData.IsEvenY == true ? -1f : 0f, 0);
+            CameraManager.Instance.transform.position += new Vector3(levelData.IsEvenX == true ? -1f : 0f, levelData.IsEvenY == true ? -1f : 0f, 0);
         }
 
         CameraManager.Instance.InitBoxCam(levelData.BoundCam);

@@ -242,7 +242,7 @@ public class BlockShortL : BaseBlock
                         posSnap.x = waterPipe.transform.position.x + 1;
                     }
                 }
-                if (ApproxAngle(180, 0, 0))
+                if (ApproxAngle(180, 1, 0))
                 {
                     posSnap.x = waterPipe.transform.position.x + 1;
                 }
@@ -318,7 +318,7 @@ public class BlockShortL : BaseBlock
                 {
                     posSnap.y = waterPipe.transform.position.y - 1;
                 }
-                if (ApproxAngle(180, 0, 0))
+                if (ApproxAngle(180, 1, 0))
                 {
                     if (pos.y < waterPipe.transform.position.y)
                     {
@@ -366,7 +366,7 @@ public class BlockShortL : BaseBlock
                         posSnap.y = waterPipe.transform.position.y + 1;
                     }
                 }
-                if (ApproxAngle(180, 0, 0))
+                if (ApproxAngle(180, 1, 0))
                 {
                     posSnap.y = waterPipe.transform.position.y + 1;
                 }

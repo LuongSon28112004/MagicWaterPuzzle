@@ -150,7 +150,7 @@ public class BlockTwo : BaseBlock
         {
             if (pipeTransform.y > transform.position.y)
             {
-                return 0.57f;
+                return 0.58f;
             }
             else
             {

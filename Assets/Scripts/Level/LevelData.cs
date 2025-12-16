@@ -105,6 +105,7 @@ public class LevelData : ScriptableObject
     public List<BlockData> blocks = new List<BlockData>();
     public List<GateData> gates = new List<GateData>();
     public int durationTime;
-    public bool IsEven;
+    public bool IsEvenX;
+    public bool IsEvenY;
     public Vector2 BoundCam;
 }

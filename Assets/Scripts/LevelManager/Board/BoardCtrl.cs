@@ -387,7 +387,7 @@ public class BoardCtrl : MonoBehaviour
         }
         yield return gridSlotOtherSeq.WaitForCompletion();
 
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.1f);
 
         // 3. Scale gridSlot TÊN "GridSlot" (sau cùng)
         Sequence gridSlotMainSeq = DOTween.Sequence();
