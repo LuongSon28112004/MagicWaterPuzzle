@@ -128,6 +128,7 @@ public class PopupBuyBooster : PopupUI
             {
                 UI.HammerClick();
             }
+            AudioManager.Instance.PlayOneShot("CollectBooster", 1f);
             Hide();
         }
     }

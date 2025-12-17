@@ -59,6 +59,11 @@ public class LevelManager : Singleton<LevelManager>
         {
             startPlay = true;
             CustomeEventSystem.Instance.StartPlay();
+            if (GameManager.Instance.Level == 1)
+            {
+                var screenGamePlay = UIManager.Instance.GetScreen<ScreenGamePlay>();
+                screenGamePlay.DeactiveTut();
+            }
         }
     }
 

@@ -29,6 +29,8 @@ public class ScreenGamePlay : ScreenUI
     [SerializeField] Transform CollectBooster;
     [SerializeField] Transform BGBlack;
     [SerializeField] CollectBooster collectBooster;
+    [Header("Tut Level 1")]
+    [SerializeField] TutHand tutHand;
     private void OnEnable()
     {
         CustomeEventSystem.Instance.StartPlayAction += StartTimer;
@@ -67,25 +69,65 @@ public class ScreenGamePlay : ScreenUI
         StartCoroutine(AnimationIntro());
         AddEventListener();
         InitCountBooster();
+        InitLockBooster();
         InActiveBooster();
-        if (GameManager.Instance.Level == 1)
+        if (GameManager.Instance.Level == 8)
         {
             CollectBooster.gameObject.SetActive(true);
             collectBooster.setTypeCollect(TypeCollectBooster.FREEZE);
             AudioManager.Instance.PlayOneShot("BoosterAppear", 1f);
         }
-        else if (GameManager.Instance.Level == 2)
+        else if (GameManager.Instance.Level == 10)
         {
             CollectBooster.gameObject.SetActive(true);
             collectBooster.setTypeCollect(TypeCollectBooster.BOMB);
             AudioManager.Instance.PlayOneShot("BoosterAppear", 1f);
         }
-        else if (GameManager.Instance.Level == 3)
+        else if (GameManager.Instance.Level == 13)
         {
             CollectBooster.gameObject.SetActive(true);
             collectBooster.setTypeCollect(TypeCollectBooster.HAMMER);
             AudioManager.Instance.PlayOneShot("BoosterAppear", 1f);
         }
+    }
+
+    public void ActiveTut()
+    {
+        tutHand.gameObject.SetActive(true);
+    }
+
+    public void DeactiveTut()
+    {
+        tutHand.gameObject.SetActive(false);
+    }
+
+    private void InitLockBooster()
+    {
+        if (GameManager.Instance.Level < 8)
+        {
+            listBooster.freezeBoosterConfig.LockBooster();
+            listBooster.bombBoosterConfig.LockBooster();
+            listBooster.hammerBoosterConfig.LockBooster();
+        }
+        else if (GameManager.Instance.Level < 10)
+        {
+            listBooster.freezeBoosterConfig.UnlockBooster();
+            listBooster.bombBoosterConfig.LockBooster();
+            listBooster.hammerBoosterConfig.LockBooster();
+        }
+        else if (GameManager.Instance.Level < 13)
+        {
+            listBooster.freezeBoosterConfig.UnlockBooster();
+            listBooster.bombBoosterConfig.UnlockBooster();
+            listBooster.hammerBoosterConfig.LockBooster();
+        }
+        else
+        {
+            listBooster.freezeBoosterConfig.UnlockBooster();
+            listBooster.bombBoosterConfig.UnlockBooster();
+            listBooster.hammerBoosterConfig.UnlockBooster();
+        }
+
     }
 
     private void InitLevelText()
@@ -107,6 +149,11 @@ public class ScreenGamePlay : ScreenUI
         yield return new WaitForSeconds(0.6f);
         rectTop.DOAnchorPosY(valueRectTop, 0.4f).SetEase(Ease.Linear);
         rectBottom.DOAnchorPosY(valueRectBottom, 0.4f).SetEase(Ease.Linear);
+        //active Tut level 1
+        if (GameManager.Instance.Level == 1)
+        {
+            ActiveTut();
+        }
     }
 
     public void HideAnimationIntro()
@@ -160,7 +207,7 @@ public class ScreenGamePlay : ScreenUI
     public void HammerClick()
     {
         AudioManager.Instance.PlayOneShot("ClickButton", 1f);
-        if (UserData.listBoosterCounters[2].count == 0 && GameManager.Instance.Level != 1 && GameManager.Instance.Level != 2 && GameManager.Instance.Level != 3)
+        if (UserData.listBoosterCounters[2].count == 0 && GameManager.Instance.Level != 8 && GameManager.Instance.Level != 10 && GameManager.Instance.Level != 13)
         {
             var ui = UIManager.Instance.ShowPopup<PopupBuyBooster>(null);
             ui.ChangeTypeBooster(TypeCollectBooster.HAMMER);
@@ -176,7 +223,7 @@ public class ScreenGamePlay : ScreenUI
         LevelManager.Instance.BoosterHammerUsed = true;
         UIManager.Instance.ShowPopup<PopupHammerBooster>(null);
         HideButton();
-        if (GameManager.Instance.Level != 1 && GameManager.Instance.Level != 2 && GameManager.Instance.Level != 3)
+        if (GameManager.Instance.Level != 8 && GameManager.Instance.Level != 10 && GameManager.Instance.Level != 13)
         {
             UserData.listBoosterCounters[2].count -= 1;
             if (UserData.listBoosterCounters[2].count == 0)
@@ -193,7 +240,7 @@ public class ScreenGamePlay : ScreenUI
     public void BombClick()
     {
         AudioManager.Instance.PlayOneShot("ClickButton", 1f);
-        if (UserData.listBoosterCounters[1].count == 0 && GameManager.Instance.Level != 1 && GameManager.Instance.Level != 2 && GameManager.Instance.Level != 3)
+        if (UserData.listBoosterCounters[1].count == 0 && GameManager.Instance.Level != 8 && GameManager.Instance.Level != 10 && GameManager.Instance.Level != 13)
         {
             var ui = UIManager.Instance.ShowPopup<PopupBuyBooster>(null);
             ui.ChangeTypeBooster(TypeCollectBooster.BOMB);
@@ -209,7 +256,7 @@ public class ScreenGamePlay : ScreenUI
         if (LevelManager.Instance.boardCtrl.BlockInstances.Count == 0) return;
         UIManager.Instance.ShowPopup<PopupBombBooster>(null);
         HideButton();
-        if (GameManager.Instance.Level != 1 && GameManager.Instance.Level != 2 && GameManager.Instance.Level != 3)
+        if (GameManager.Instance.Level != 8 && GameManager.Instance.Level != 10 && GameManager.Instance.Level != 13)
         {
             UserData.listBoosterCounters[1].count -= 1;
             if (UserData.listBoosterCounters[1].count == 0)
@@ -246,7 +293,7 @@ public class ScreenGamePlay : ScreenUI
     public void FreezeClick()
     {
         AudioManager.Instance.PlayOneShot("ClickButton", 1f);
-        if (UserData.listBoosterCounters[0].count == 0 && GameManager.Instance.Level != 1 && GameManager.Instance.Level != 2 && GameManager.Instance.Level != 3)
+        if (UserData.listBoosterCounters[0].count == 0 && GameManager.Instance.Level != 8 && GameManager.Instance.Level != 10 && GameManager.Instance.Level != 13)
         {
             var ui = UIManager.Instance.ShowPopup<PopupBuyBooster>(null);
             ui.ChangeTypeBooster(TypeCollectBooster.FREEZE);
@@ -269,7 +316,7 @@ public class ScreenGamePlay : ScreenUI
             UpdateFreezeTimer(timerr, timer.TimeLeft);
         };
 
-        if (GameManager.Instance.Level != 1 && GameManager.Instance.Level != 2 && GameManager.Instance.Level != 3)
+        if (GameManager.Instance.Level != 8 && GameManager.Instance.Level != 10 && GameManager.Instance.Level != 13)
         {
             UserData.listBoosterCounters[0].count -= 1;
             if (UserData.listBoosterCounters[0].count == 0)
@@ -332,7 +379,21 @@ public class ScreenGamePlay : ScreenUI
 
     private void ActiveBooster()
     {
-        listBooster.ActiveAllBooster();
+        if (GameManager.Instance.Level >= 8 && GameManager.Instance.Level < 10)
+        {
+            listBooster.freezeBoosterConfig.Active();
+        }
+        else if (GameManager.Instance.Level >= 10 && GameManager.Instance.Level < 13)
+        {
+            listBooster.freezeBoosterConfig.Active();
+            listBooster.bombBoosterConfig.Active();
+        }
+        else if (GameManager.Instance.Level >= 13)
+        {
+            listBooster.freezeBoosterConfig.Active();
+            listBooster.bombBoosterConfig.Active();
+            listBooster.hammerBoosterConfig.Active();
+        }
     }
 
 }

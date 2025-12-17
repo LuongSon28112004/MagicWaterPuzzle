@@ -257,7 +257,7 @@ MonoBehaviour:
       CountBreak: 0
     position: {x: -2, y: -3, z: 0}
     rotation: {x: -0, y: 0, z: 0}
-    color: 8
+    color: 9
     moveDir: 0
   - name: Two_2
     iceInfor:
@@ -265,7 +265,7 @@ MonoBehaviour:
       CountBreak: 0
     position: {x: 0, y: -1, z: 0}
     rotation: {x: -0, y: 0, z: 0}
-    color: 7
+    color: 8
     moveDir: 0
   - name: Two_1
     iceInfor:
@@ -273,7 +273,7 @@ MonoBehaviour:
       CountBreak: 0
     position: {x: 1, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 90}
-    color: 4
+    color: 7
     moveDir: 0
   - name: Two
     iceInfor:
@@ -337,7 +337,7 @@ MonoBehaviour:
       CountBreak: 0
     position: {x: -3, y: 5, z: 0}
     rotation: {x: -0, y: 0, z: 90}
-    color: 3
+    color: 10
     moveDir: 1
   gates:
   - name: GridGate1_5
@@ -346,7 +346,7 @@ MonoBehaviour:
     colorOutputs:
     - color: 7
       capacity: 2
-    - color: 3
+    - color: 10
       capacity: 1
   - name: GridGate1_4
     position: {x: -6, y: 4, z: 0}
@@ -356,13 +356,13 @@ MonoBehaviour:
       capacity: 3
     - color: 4
       capacity: 1
-    - color: 3
+    - color: 10
       capacity: 2
   - name: GridGate1_3
     position: {x: -6, y: -2, z: 0}
     rotation: {x: 0, y: 0, z: 270}
     colorOutputs:
-    - color: 4
+    - color: 9
       capacity: 2
     - color: 8
       capacity: 2
@@ -382,8 +382,6 @@ MonoBehaviour:
     position: {x: 6, y: -4, z: 0}
     rotation: {x: -0, y: 0, z: 90}
     colorOutputs:
-    - color: 5
-      capacity: 1
     - color: 6
       capacity: 3
   - name: GridGate1

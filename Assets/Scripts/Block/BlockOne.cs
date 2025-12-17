@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -88,10 +89,10 @@ public class BlockOne : BaseBlock
 
 
     // Override Play BlockParticle
-    protected override void PlayParticleBlock()
+    protected override IEnumerator PlayParticleBlock()
     {
-        base.PlayParticleBlock();
         StartCoroutine(blockParticles[0].PlayParticle());
+        yield break;
     }
 
     // override Set Height Water Fall

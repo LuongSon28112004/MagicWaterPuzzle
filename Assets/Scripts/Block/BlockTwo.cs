@@ -115,9 +115,8 @@ public class BlockTwo : BaseBlock
         return new Vector3(1, 0, 0);
     }
 
-    protected override void PlayParticleBlock()
+    protected override IEnumerator PlayParticleBlock()
     {
-        base.PlayParticleBlock();
         if (blockDirection == Direction.HORIZONTAL)
         {
             StartCoroutine(blockParticles[0].PlayParticle());
@@ -136,6 +135,7 @@ public class BlockTwo : BaseBlock
                 StartCoroutine(blockParticles[1].PlayParticle());
             }
         }
+        yield break;
 
     }
 

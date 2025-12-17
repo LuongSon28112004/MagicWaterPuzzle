@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -111,9 +112,8 @@ public class BlockThree : BaseBlock
         return new Vector3(1, 0, 0);
     }
 
-    protected override void PlayParticleBlock()
+    protected override IEnumerator PlayParticleBlock()
     {
-        base.PlayParticleBlock();
         if (blockDirection == Direction.HORIZONTAL)
         {
             StartCoroutine(blockParticles[0].PlayParticle());
@@ -130,15 +130,19 @@ public class BlockThree : BaseBlock
             else if (currentCapacity == 2)
             {
                 StartCoroutine(blockParticles[0].PlayParticle());
+                yield return new WaitForSeconds(0.2f);
                 StartCoroutine(blockParticles[1].PlayParticle());
             }
             else if (currentCapacity == 3)
             {
-                StartCoroutine(blockParticles[0].PlayParticle());
-                StartCoroutine(blockParticles[1].PlayParticle());
                 StartCoroutine(blockParticles[2].PlayParticle());
+                yield return new WaitForSeconds(0.2f);
+                StartCoroutine(blockParticles[1].PlayParticle());
+                yield return new WaitForSeconds(0.2f);
+                StartCoroutine(blockParticles[0].PlayParticle());
             }
         }
+        yield break;
 
     }
 
@@ -147,7 +151,18 @@ public class BlockThree : BaseBlock
     {
         if (blockDirection == Direction.HORIZONTAL)
         {
-            return 0.25f;
+            if (directionPipe == DirectionPipe.Left)
+            {
+                return 0.25f;
+            }
+            else if (directionPipe == DirectionPipe.Right)
+            {
+                return 0.25f;
+            }
+            else
+            {
+                return 0.4f;
+            }
         }
         else if (blockDirection == Direction.VERTICAL)
         {

@@ -208,7 +208,7 @@ public class PopupWin : PopupUI
 
     private IEnumerator ShowCoin()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.4f);
         int amount = 15;
         int completed = 0;
 

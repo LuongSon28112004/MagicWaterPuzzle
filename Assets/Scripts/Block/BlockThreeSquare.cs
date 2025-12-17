@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -73,9 +74,8 @@ public class BlockThreeSquare : BaseBlock
 
 
     // Override Play Particle
-    protected override void PlayParticleBlock()
+    protected override IEnumerator PlayParticleBlock()
     {
-        base.PlayParticleBlock();
         if (blockDirection == Direction.HORIZONTAL)
         {
             if (currentCapacity > 0)
@@ -98,6 +98,7 @@ public class BlockThreeSquare : BaseBlock
                 StartCoroutine(blockParticles[8].PlayParticle());
             }
         }
+        yield break;
 
     }
 

@@ -22,7 +22,9 @@ public enum WaterTypeColor
     purple,
     pink,
     Brown,
-    Turquoise
+    Turquoise,
+    Orange,
+    Darkgreen
 }
 
 [Serializable]
@@ -87,6 +89,10 @@ public class WaterPipe : MonoBehaviour
                 waterColor = WaterTypeColor.Brown;
             else if (colorOutputs[i].color == BlockColor.Turquoise)
                 waterColor = WaterTypeColor.Turquoise;
+            else if (colorOutputs[i].color == BlockColor.Orange)
+                waterColor = WaterTypeColor.Orange;
+            else if (colorOutputs[i].color == BlockColor.Darkgreen)
+                waterColor = WaterTypeColor.Darkgreen;
 
             // Thêm phần tử mới thay vì truy cập theo index
             waterTypeCounters.Add(new WaterTypeCounter(waterColor, colorOutputs[i].capacity));

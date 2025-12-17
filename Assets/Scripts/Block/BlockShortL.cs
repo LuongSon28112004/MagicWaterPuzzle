@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -111,9 +112,8 @@ public class BlockShortL : BaseBlock
         return new Vector3(1, 0, 0);
     }
 
-    protected override void PlayParticleBlock()
+    protected override IEnumerator PlayParticleBlock()
     {
-        base.PlayParticleBlock();
         if (blockDirection == Direction.HORIZONTAL)
         {
             StartCoroutine(blockParticles[0].PlayParticle());
@@ -129,9 +129,14 @@ public class BlockShortL : BaseBlock
             else if (currentCapacity == 2)
             {
                 StartCoroutine(blockParticles[0].PlayParticle());
+                yield return new WaitForSeconds(0.2f);
                 StartCoroutine(blockParticles[1].PlayParticle());
+                yield return new WaitForSeconds(0.2f);
+                StartCoroutine(blockParticles[2].PlayParticle());
             }
         }
+
+        yield break;
 
     }
 
@@ -158,7 +163,7 @@ public class BlockShortL : BaseBlock
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
-                    return transform.position.x < pipeTransform.x ? 0.62f : 0.22f;
+                    return transform.position.x < pipeTransform.x ? 0.62f : 0.38f;
                 }
             }
 
@@ -196,7 +201,7 @@ public class BlockShortL : BaseBlock
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
-                    return transform.position.x < pipeTransform.x ? 0.22f : 0.62f;
+                    return transform.position.x < pipeTransform.x ? 0.38f : 0.62f;
                 }
             }
             // Góc -90° hoặc 270°
@@ -208,7 +213,7 @@ public class BlockShortL : BaseBlock
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
-                    return transform.position.y < pipeTransform.y ? 0.62f : 0.22f;
+                    return transform.position.y < pipeTransform.y ? 0.62f : 0.38f;
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
@@ -242,7 +247,7 @@ public class BlockShortL : BaseBlock
                         posSnap.x = waterPipe.transform.position.x + 1;
                     }
                 }
-                if (ApproxAngle(180, 1, 0))
+                if (ApproxAngle(180, 1, z))
                 {
                     posSnap.x = waterPipe.transform.position.x + 1;
                 }
@@ -318,7 +323,7 @@ public class BlockShortL : BaseBlock
                 {
                     posSnap.y = waterPipe.transform.position.y - 1;
                 }
-                if (ApproxAngle(180, 1, 0))
+                if (ApproxAngle(180, 1, z))
                 {
                     if (pos.y < waterPipe.transform.position.y)
                     {
@@ -366,7 +371,7 @@ public class BlockShortL : BaseBlock
                         posSnap.y = waterPipe.transform.position.y + 1;
                     }
                 }
-                if (ApproxAngle(180, 1, 0))
+                if (ApproxAngle(180, 1, z))
                 {
                     posSnap.y = waterPipe.transform.position.y + 1;
                 }

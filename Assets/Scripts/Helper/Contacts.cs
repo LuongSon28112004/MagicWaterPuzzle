@@ -49,6 +49,10 @@ public class Contacts : MonoBehaviour
                 return Instance.Materials[6];
             case BlockColor.Turquoise:
                 return Instance.Materials[7];
+            case BlockColor.Orange:
+                return Instance.Materials[8];
+            case BlockColor.Darkgreen:
+                return Instance.Materials[9];
             default:
                 return null;
         }
@@ -77,6 +81,10 @@ public class Contacts : MonoBehaviour
                 return Instance.Materials[6];
             case WaterTypeColor.Turquoise:
                 return Instance.Materials[7];
+            case WaterTypeColor.Orange:
+                return Instance.Materials[8];
+            case WaterTypeColor.Darkgreen:
+                return Instance.Materials[9];
             default:
                 return null;
         }
@@ -103,6 +111,10 @@ public class Contacts : MonoBehaviour
                 return "#9f4000ff";
             case BlockColor.Turquoise:
                 return "#00fbffff";
+            case BlockColor.Orange:
+                return "#ff6600ff";
+            case BlockColor.Darkgreen:
+                return "#006400ff";
             default: return "";
         }
     }
@@ -127,6 +139,10 @@ public class Contacts : MonoBehaviour
                 return "#ff6600ff";
             case WaterTypeColor.Turquoise:
                 return "#00fbffff";
+            case WaterTypeColor.Orange:
+                return "#ff6600ff";
+            case WaterTypeColor.Darkgreen:
+                return "#006400ff";
 
             default: return "";
         }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -114,7 +115,7 @@ public class BlockL : BaseBlock
         return Vector3.zero;
     }
 
-    protected override void PlayParticleBlock()
+    protected override IEnumerator PlayParticleBlock()
     {
         if (blockDirection == Direction.VERTICAL)
         {
@@ -173,6 +174,8 @@ public class BlockL : BaseBlock
                 }
             }
         }
+
+        yield break;
 
     }
 

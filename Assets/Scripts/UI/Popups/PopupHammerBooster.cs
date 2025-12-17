@@ -10,6 +10,7 @@ public class PopupHammerBooster : PopupUI
     [SerializeField] Transform Tutotial;
     [SerializeField] Transform PanelTut;
     [SerializeField] Image IconHammer;
+    [SerializeField] bool isPlaying = false;
     private Tween rotateTween;
 
     private void Start()
@@ -102,6 +103,8 @@ public class PopupHammerBooster : PopupUI
 
     private IEnumerator PlayHammerBooster(GameObject block)
     {
+        if (isPlaying) yield break;
+        isPlaying = true;
         GameObject bombBoosterpre = Resources.Load<GameObject>("Particles/Hammer");
         GameObject particlePrefab = Resources.Load<GameObject>("Particles/BlockBombHammerBreakEffect");
         GameObject particle = Instantiate(particlePrefab, block.transform.position, Quaternion.identity);
@@ -189,6 +192,8 @@ public class PopupHammerBooster : PopupUI
         if (blockColor == BlockColor.purple && waterTypeColor == WaterTypeColor.purple) return true;
         if (blockColor == BlockColor.Turquoise && waterTypeColor == WaterTypeColor.Turquoise) return true;
         if (blockColor == BlockColor.Yellow && waterTypeColor == WaterTypeColor.Yellow) return true;
+        if (blockColor == BlockColor.Orange && waterTypeColor == WaterTypeColor.Orange) return true;
+        if (blockColor == BlockColor.Darkgreen && waterTypeColor == WaterTypeColor.Darkgreen) return true;
         return false;
     }
 

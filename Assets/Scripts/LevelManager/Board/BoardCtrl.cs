@@ -369,10 +369,10 @@ public class BoardCtrl : MonoBehaviour
 
         foreach (var g in gateInstances)
         {
-            sequence.Join(g.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack));
+            sequence.Join(g.DOScale(Vector3.zero, 0.2f).SetEase(Ease.InBack));
         }
         yield return sequence.WaitForCompletion();
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.05f);
 
         // 2.Scale gridSlot KHÁC tên "GridSlot"
         Sequence gridSlotOtherSeq = DOTween.Sequence();
@@ -381,13 +381,13 @@ public class BoardCtrl : MonoBehaviour
             if (g.name != "GridSlot(Clone)")
             {
                 gridSlotOtherSeq.Join(
-                    g.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack)
+                    g.DOScale(Vector3.zero, 0.2f).SetEase(Ease.InBack)
                 );
             }
         }
         yield return gridSlotOtherSeq.WaitForCompletion();
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
 
         // 3. Scale gridSlot TÊN "GridSlot" (sau cùng)
         Sequence gridSlotMainSeq = DOTween.Sequence();
@@ -396,7 +396,7 @@ public class BoardCtrl : MonoBehaviour
             if (g.name == "GridSlot(Clone)")
             {
                 gridSlotMainSeq.Join(
-                    g.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack)
+                    g.DOScale(Vector3.zero, 0.2f).SetEase(Ease.InBack)
                 );
             }
         }

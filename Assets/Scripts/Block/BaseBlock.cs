@@ -150,32 +150,50 @@ public abstract class BaseBlock : MonoBehaviour
 
 
     // OnMouse Click
-    private Sequence ClickLock;
+    private Sequence clickLock;
+
     void OnMouseDown()
     {
         if (UIBlockChecker.IsPointerOverUI())
             return;
-        // nếu chuột đang ở trên UI → không cho nhấc block
+
         if (BlockVisual.blockIce.IsActive)
         {
             transform.localScale = Vector3.one;
-            ClickLock.Kill();
-            ClickLock.Append(transform.DOScale(new Vector3(0.7f, 0.7f, 0.7f), 0.2f));
-            ClickLock.Append(transform.DOScale(Vector3.one, 0.2f));
+
+            // Kill an toàn
+            if (clickLock != null && clickLock.IsActive())
+                clickLock.Kill();
+
+            // TẠO sequence mới
+            clickLock = DOTween.Sequence();
+            clickLock.Append(transform.DOScale(0.8f, 0.2f));
+            clickLock.Append(transform.DOScale(1f, 0.2f));
+
             AudioManager.Instance.PlayOneShot("Rockblock", 1f);
             return;
         }
+
         if (LevelManager.Instance.BoosterHammerUsed)
         {
             CustomeEventSystem.Instance.UserBoosterHammer(gameObject);
             return;
         }
+
         if (!IsMove) return;
+
         zCoord = Camera.main.WorldToScreenPoint(transform.position).z;
         offset = transform.position - GetMouseWorldPos();
-        // bắt đầu game nếu có lượt kéo
+
         LevelManager.Instance.StartPlay();
     }
+
+    void OnDisable()
+    {
+        clickLock?.Kill();
+    }
+
+
 
     void OnMouseUp()
     {
@@ -404,7 +422,7 @@ public abstract class BaseBlock : MonoBehaviour
             int addCapacity = currentCapacity + value;
             currentCapacity += value;
             waterPipe.WaterTypeCounters[0].count -= value;
-            PlayParticleBlock();
+            StartCoroutine(PlayParticleBlock());
             yield return StartCoroutine(BlockVisual.blockTypeVariant.FillWater(addCapacity * 1.0f / maxCapacity));
         }
         else
@@ -412,7 +430,7 @@ public abstract class BaseBlock : MonoBehaviour
             int addCapacity = currentCapacity + remainingCapacity;
             currentCapacity += remainingCapacity;
             waterPipe.WaterTypeCounters[0].count -= remainingCapacity;
-            PlayParticleBlock();
+            StartCoroutine(PlayParticleBlock());
             yield return StartCoroutine(BlockVisual.blockTypeVariant.FillWater(addCapacity * 1.0f / maxCapacity));
         }
 
@@ -499,7 +517,7 @@ public abstract class BaseBlock : MonoBehaviour
             StartCoroutine(LevelManager.Instance.boardCtrl.ScaleZeroObjects());
             ScreenGamePlay screenGamePlay = UIManager.Instance.GetScreen<ScreenGamePlay>();
             screenGamePlay.HideAnimationIntro();
-            yield return new WaitForSeconds(1.8f);
+            yield return new WaitForSeconds(0.8f);
             StartCoroutine(GameManager.Instance.ChangeState(GameState.Win));
         }
 
@@ -528,9 +546,9 @@ public abstract class BaseBlock : MonoBehaviour
     //     yield return StartCoroutine(waterPipe.PipeLineCtrl.FillColor(maxCapacity - currentCapacity));
     // }
 
-    protected virtual void PlayParticleBlock()
+    protected virtual IEnumerator PlayParticleBlock()
     {
-
+        yield break;
     }
 
     void OnTriggerExit2D(Collider2D other)

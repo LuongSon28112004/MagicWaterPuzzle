@@ -7,6 +7,7 @@ using UnityEngine;
 public class PopupBombBooster : PopupUI
 {
     [SerializeField] private Transform bombBooster;
+    [SerializeField] private bool isPlaying = false;
     private Coroutine playRoutine;
 
     private void OnEnable()
@@ -46,6 +47,8 @@ public class PopupBombBooster : PopupUI
 
     public IEnumerator PlayBombBooster()
     {
+        if (isPlaying) yield break;
+        isPlaying = true;
         GameObject block = LevelManager.Instance.findObjectNearOrigin();
         if (block == null)
             yield break;
@@ -164,6 +167,8 @@ public class PopupBombBooster : PopupUI
         if (blockColor == BlockColor.purple && waterTypeColor == WaterTypeColor.purple) return true;
         if (blockColor == BlockColor.Turquoise && waterTypeColor == WaterTypeColor.Turquoise) return true;
         if (blockColor == BlockColor.Yellow && waterTypeColor == WaterTypeColor.Yellow) return true;
+        if (blockColor == BlockColor.Orange && waterTypeColor == WaterTypeColor.Orange) return true;
+        if (blockColor == BlockColor.Darkgreen && waterTypeColor == WaterTypeColor.Darkgreen) return true;
         return false;
     }
 

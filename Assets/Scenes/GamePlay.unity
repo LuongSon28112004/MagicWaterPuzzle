@@ -598,9 +598,15 @@ MonoBehaviour:
   - colorID: 7
     Frame_01: {fileID: 2100000, guid: c3fc0edf501e8a441b5177f5d87213f0, type: 2}
     Glass_01: {fileID: 2100000, guid: 0ffb446baa050ff4395f142d94567c4f, type: 2}
-  - colorID: 7
+  - colorID: 8
     Frame_01: {fileID: 2100000, guid: d4ce580c2fe3b7942978478fc070b0e7, type: 2}
     Glass_01: {fileID: 2100000, guid: 33e5277529243b04592fe025f54ad4fa, type: 2}
+  - colorID: 9
+    Frame_01: {fileID: 2100000, guid: aa8cbb0b9b8a0a844a9935ec58524128, type: 2}
+    Glass_01: {fileID: 2100000, guid: f26441b7866540e4bbf8aa46c4086d0e, type: 2}
+  - colorID: 10
+    Frame_01: {fileID: 2100000, guid: c8cd77d08820828489f86912cef8e51d, type: 2}
+    Glass_01: {fileID: 2100000, guid: 852625b0ae032b44dbd7040aadff88e1, type: 2}
   ice: {fileID: 2100000, guid: a1238dc5266b3a749bca69699e290a95, type: 2}
 --- !u!1 &1335591703
 GameObject:

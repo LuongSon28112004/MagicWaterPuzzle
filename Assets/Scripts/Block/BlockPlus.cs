@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -86,7 +87,7 @@ public class BlockPlus : BaseBlock
 
 
     // Override Play BlockParticle
-    protected override void PlayParticleBlock()
+    protected override IEnumerator PlayParticleBlock()
     {
         base.PlayParticleBlock();
         if (currentCapacity == 1)
@@ -108,6 +109,7 @@ public class BlockPlus : BaseBlock
             StartCoroutine(blockParticles[3].PlayParticle());
             StartCoroutine(blockParticles[4].PlayParticle());
         }
+        yield break;
 
     }
 

@@ -141,6 +141,16 @@ public class PipeLineCtrl : MonoBehaviour
                 colors[i].color = new Color(64f / 255f, 224f / 255f, 208f / 255f);
                 colors[i].waterTypeColor = WaterTypeColor.Turquoise;
             }
+            else if (colorOutputs[i].color == BlockColor.Orange)
+            {
+                colors[i].color = new Color(1f, 165f / 255f, 0f);
+                colors[i].waterTypeColor = WaterTypeColor.Orange;
+            }
+            else if (colorOutputs[i].color == BlockColor.Darkgreen)
+            {
+                colors[i].color = new Color(0f, 100f / 255f, 0f);
+                colors[i].waterTypeColor = WaterTypeColor.Darkgreen;
+            }
         }
         if (materialPropertyBlock == null)
         {

@@ -29,7 +29,9 @@ public enum BlockColor
     purple,
     pink,
     Brown,
-    Turquoise
+    Turquoise,
+    Orange,
+    Darkgreen
 }
 
 public enum MoveDir

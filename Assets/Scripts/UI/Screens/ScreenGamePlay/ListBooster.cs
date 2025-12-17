@@ -24,6 +24,24 @@ public class ListBooster : MonoBehaviour
         hammerBoosterConfig.Active();
     }
 
+    public void ActiveAllBooster(bool isFreeze, bool isBomb, bool isHammer)
+    {
+        if (isFreeze)
+        {
+            freezeBoosterConfig.Active();
+        }
+
+        if (isBomb)
+        {
+            bombBoosterConfig.Active();
+        }
+
+        if (isHammer)
+        {
+            hammerBoosterConfig.Active();
+        }
+    }
+
     public void InActiveAllBooster()
     {
         freezeBoosterConfig.InActive();

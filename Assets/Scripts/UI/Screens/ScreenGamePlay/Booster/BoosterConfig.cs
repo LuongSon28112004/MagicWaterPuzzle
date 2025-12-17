@@ -15,7 +15,7 @@ public class BoosterConfig : MonoBehaviour
     [SerializeField] GameObject PlusBooster;
     [SerializeField] TextMeshProUGUI textCountBooster;
     [SerializeField] protected Button button;
-    [Header("FreezeBooster Config")]
+    [Header("Hand Booster Config")]
     [SerializeField] protected Image handTut;
     [SerializeField] protected Transform targetTut;
     [SerializeField] Transform Targetnew;
