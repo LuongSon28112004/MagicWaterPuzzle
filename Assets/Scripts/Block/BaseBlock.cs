@@ -475,7 +475,7 @@ public abstract class BaseBlock : MonoBehaviour
         LevelManager.Instance.boardCtrl.BreakIceBlock();
 
         SetNonClick();
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         BlockVisual.blockImpactParticle.PlayParticle();
         BlockVisual.soapBubbleEmitterVariant.PlayParticle();
 

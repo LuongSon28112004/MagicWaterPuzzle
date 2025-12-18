@@ -49,6 +49,7 @@ public class KeyLock : MonoBehaviour
 
         seq.Play();
         yield return seq.WaitForCompletion();
+        yield return new WaitForSeconds(2f);
         CloseTut();
     }
 

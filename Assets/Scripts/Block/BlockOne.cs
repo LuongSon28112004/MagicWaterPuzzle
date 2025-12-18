@@ -105,7 +105,7 @@ public class BlockOne : BaseBlock
         }
         else
         {
-            return 0.5f;
+            return 0.45f;
         }
     }
 

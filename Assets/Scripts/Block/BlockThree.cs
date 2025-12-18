@@ -166,17 +166,24 @@ public class BlockThree : BaseBlock
         }
         else if (blockDirection == Direction.VERTICAL)
         {
-            if (pipeTransform.y > transform.position.y)
+            if (directionPipe == DirectionPipe.Down)
             {
                 return 1.1f;
             }
-            else if (pipeTransform.y == transform.position.y)
-            {
-                return 0.6f;
-            }
             else
             {
-                return 0.25f;
+                if (pipeTransform.y > transform.position.y)
+                {
+                    return 1f;
+                }
+                else if (pipeTransform.y == transform.position.y)
+                {
+                    return 0.6f;
+                }
+                else
+                {
+                    return 0.25f;
+                }
             }
         }
         return 1f;

@@ -812,8 +812,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Location: 0
-  m_Width: 0.132
-  m_Softness: 0.01
+  m_Width: 0.331
+  m_Softness: 0.437
   m_Brightness: 0.29
   m_Rotation: 115
   m_Highlight: 1
