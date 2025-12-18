@@ -50,6 +50,7 @@ public class WaterPipe : MonoBehaviour
     [SerializeField] private PipeLineCtrl pipeLineCtrl;
     [SerializeField] private PipeLineHeadCtrl pipeLineHeadCtrl;
     [SerializeField] private PipeIdleBubbleParticle pipeIdleBubbleParticle;
+    [SerializeField] private PipeKeyLock pipeKeyLock;
 
 
 
@@ -58,6 +59,7 @@ public class WaterPipe : MonoBehaviour
     public List<WaterTypeCounter> WaterTypeCounters { get => waterTypeCounters; set => waterTypeCounters = value; }
     public PipeLineCtrl PipeLineCtrl { get => pipeLineCtrl; set => pipeLineCtrl = value; }
     public PipeLineHeadCtrl PipeLineHeadCtrl { get => pipeLineHeadCtrl; set => pipeLineHeadCtrl = value; }
+    public PipeKeyLock PipeKeyLock { get => pipeKeyLock; set => pipeKeyLock = value; }
 
     public void InitColorPipe(List<GateColorInfo> colorOutputs)
     {
@@ -174,6 +176,12 @@ public class WaterPipe : MonoBehaviour
         pipeLineHeadCtrl.StopParticleWaterFall();
     }
 
+
+    // key lock
+    public void InitKeyLock(KeyInfor colorKey)
+    {
+        pipeKeyLock.InitKeyLock(colorKey);
+    }
 
 
 }

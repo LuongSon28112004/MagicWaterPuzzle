@@ -42,6 +42,7 @@ public class PopupWin : PopupUI
         AddAnimationWin();       // Gắn hiệu ứng xoay
         AddEventListener();
         AudioManager.Instance.PlayOneShot("Win", 1f);
+        AudioManager.Instance.PlayVibrate();
         UserData.level += 1;
         GameManager.Instance.Level = UserData.level;
         SaveDataManager.Save();
@@ -209,10 +210,10 @@ public class PopupWin : PopupUI
     private IEnumerator ShowCoin()
     {
         yield return new WaitForSeconds(0.4f);
-        int amount = 15;
+        int amount = 10;
         int completed = 0;
 
-        float radius = 120f;    // bán kính để tản coin ra đều
+        //float radiuss = 120f;    // bán kính để tản coin ra đều
 
         for (int i = 0; i < amount; i++)
         {

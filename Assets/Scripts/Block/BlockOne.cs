@@ -99,7 +99,14 @@ public class BlockOne : BaseBlock
     protected override float SetHeightWaterFall(DirectionPipe directionPipe, Vector3 pipeTransform)
     {
 
-        return 0.25f;
+        if (directionPipe == DirectionPipe.Left || directionPipe == DirectionPipe.Right)
+        {
+            return 0.225f;
+        }
+        else
+        {
+            return 0.5f;
+        }
     }
 
     //override Set SnapToPipe

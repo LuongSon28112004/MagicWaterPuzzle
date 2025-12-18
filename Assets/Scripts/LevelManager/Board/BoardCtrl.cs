@@ -93,6 +93,12 @@ public class BoardCtrl : MonoBehaviour
                 {
                     blockTwoSquare.AddIceBlock(block.iceInfor.CountBreak);
                 }
+
+                //key infor
+                if (block.keyInfor.IsKey)
+                {
+                    blockTwoSquare.BlockVisual.blockTypeVariant.InitKeyLock(block.keyInfor);
+                }
             }
             else if (block.name.Contains("Two"))
             {
@@ -114,6 +120,11 @@ public class BoardCtrl : MonoBehaviour
                 {
                     blockTwo.AddIceBlock(block.iceInfor.CountBreak);
                 }
+                //key infor
+                if (block.keyInfor.IsKey)
+                {
+                    blockTwo.BlockVisual.blockTypeVariant.InitKeyLock(block.keyInfor);
+                }
             }
             else if (block.name.Contains("One"))
             {
@@ -128,6 +139,11 @@ public class BoardCtrl : MonoBehaviour
                 {
                     blockOne.AddIceBlock(block.iceInfor.CountBreak);
                 }
+                //key infor
+                if (block.keyInfor.IsKey)
+                {
+                    blockOne.BlockVisual.blockTypeVariant.InitKeyLock(block.keyInfor);
+                }
             }
             else if (block.name.Contains("Plus"))
             {
@@ -141,6 +157,11 @@ public class BoardCtrl : MonoBehaviour
                 if (block.iceInfor.IsIce)
                 {
                     blockPlus.AddIceBlock(block.iceInfor.CountBreak);
+                }
+                // key infor
+                if (block.keyInfor.IsKey)
+                {
+                    blockPlus.BlockVisual.blockTypeVariant.InitKeyLock(block.keyInfor);
                 }
             }
             else if (block.name.Contains("ShortL"))
@@ -163,6 +184,11 @@ public class BoardCtrl : MonoBehaviour
                 {
                     blockShortL.AddIceBlock(block.iceInfor.CountBreak);
                 }
+                // key infor
+                if (block.keyInfor.IsKey)
+                {
+                    blockShortL.BlockVisual.blockTypeVariant.InitKeyLock(block.keyInfor);
+                }
             }
             else if (block.name.Contains("ShortT"))
             {
@@ -183,6 +209,11 @@ public class BoardCtrl : MonoBehaviour
                 if (block.iceInfor.IsIce)
                 {
                     blockShortT.AddIceBlock(block.iceInfor.CountBreak);
+                }
+                // key infor
+                if (block.keyInfor.IsKey)
+                {
+                    blockShortT.BlockVisual.blockTypeVariant.InitKeyLock(block.keyInfor);
                 }
             }
             else if (block.name.Contains("L"))
@@ -205,6 +236,11 @@ public class BoardCtrl : MonoBehaviour
                 {
                     blockL.AddIceBlock(block.iceInfor.CountBreak);
                 }
+                // key infor
+                if (block.keyInfor.IsKey)
+                {
+                    blockL.BlockVisual.blockTypeVariant.InitKeyLock(block.keyInfor);
+                }
             }
             else if (block.name.Contains("Three"))
             {
@@ -226,6 +262,12 @@ public class BoardCtrl : MonoBehaviour
                 {
                     blockThree.AddIceBlock(block.iceInfor.CountBreak);
                 }
+
+                // key infor
+                if (block.keyInfor.IsKey)
+                {
+                    blockThree.BlockVisual.blockTypeVariant.InitKeyLock(block.keyInfor);
+                }
             }
             else if (block.name.Contains("ThreeSquare"))
             {
@@ -246,6 +288,12 @@ public class BoardCtrl : MonoBehaviour
                 if (block.iceInfor.IsIce)
                 {
                     blockThreeSquare.AddIceBlock(block.iceInfor.CountBreak);
+                }
+
+                // key infor
+                if (block.keyInfor.IsKey)
+                {
+                    blockThreeSquare.BlockVisual.blockTypeVariant.InitKeyLock(block.keyInfor);
                 }
             }
             gameObject.transform.localScale = Vector3.zero;
@@ -288,6 +336,7 @@ public class BoardCtrl : MonoBehaviour
                 // play particle bubble
                 waterPipe.PlayParticleIdleBubble();
                 waterPipe.PipeLineCtrl.HideWater();
+                waterPipe.InitKeyLock(gate.keyInfor);
             }
             gameObject.transform.localScale = Vector3.zero;
             gateInstances.Add(gameObject.transform);

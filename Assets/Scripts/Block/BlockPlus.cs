@@ -118,7 +118,7 @@ public class BlockPlus : BaseBlock
     {
         if (directionPipe == DirectionPipe.Down)
         {
-            return 1f;
+            return 1.1f;
         }
         else
         {

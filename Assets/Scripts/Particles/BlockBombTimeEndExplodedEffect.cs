@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class BlockBombTimeEndExplodedEffect : MonoBehaviour, IControlParticle
 {
-    [SerializeField] private ParticleSystem particleSystem;
+    [SerializeField] private ParticleSystem particleSystems;
     [SerializeField] private GameObject TNT_EXplode;
     public void PlayParticle()
     {
         TNT_EXplode.gameObject.SetActive(true);
-        particleSystem.Play();
+        particleSystems.Play();
     }
 
     public void RestartParticle()
@@ -18,6 +18,6 @@ public class BlockBombTimeEndExplodedEffect : MonoBehaviour, IControlParticle
     public void StopParticle()
     {
         TNT_EXplode.gameObject.SetActive(false);
-        particleSystem.Stop();
+        particleSystems.Stop();
     }
 }

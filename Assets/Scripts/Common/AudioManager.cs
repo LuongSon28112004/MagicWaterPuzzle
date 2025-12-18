@@ -302,4 +302,12 @@ public class AudioManager : MonoBehaviour
         Handheld.Vibrate(); // Short default vibration
 #endif
     }
+
+    public void VibrateAndroid(long milliseconds)
+    {
+#if UNITY_ANDROID && !UNITY_EDITOR
+    VibrateAndroid(milliseconds);
+#endif
+    }
+
 }

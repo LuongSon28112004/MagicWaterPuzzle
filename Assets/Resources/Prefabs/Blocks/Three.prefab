@@ -40317,6 +40317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4975546023708745}
+  - component: {fileID: 989128073326995567}
   m_Layer: 0
   m_Name: Key_Lock Variant
   m_TagString: Untagged
@@ -40342,6 +40343,24 @@ Transform:
   - {fileID: 4847350343263388}
   m_Father: {fileID: 4568468840962480}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &989128073326995567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690942582418527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1657f56e2da04a4a998ec18b3d6b190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLocked: 0
+  colorKey: 0
+  keyObject: {fileID: 1967669559197307}
+  keyMeshRenderer: {fileID: 23788769743988690}
+  center: {fileID: 198067210153044523}
+  MagicDust: {fileID: 198755433050298486}
 --- !u!1 &1702315284275995
 GameObject:
   m_ObjectHideFlags: 0
@@ -58488,7 +58507,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4822e48ab77593d49bdd8a00178346c0, type: 2}
+  - {fileID: 2100000, guid: db013c343c144b345b6ae1a26a849f82, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -61466,7 +61485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce9df7ec0e7cd8740af31072b150d172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 198788760656651700}
+  particleSystems: {fileID: 198788760656651700}
 --- !u!1 &1921204013360897
 GameObject:
   m_ObjectHideFlags: 0
@@ -61813,6 +61832,7 @@ MonoBehaviour:
   waterMeshRenderer: {fileID: 23450163685242601}
   waterMeshFilter: {fileID: 33084714373943545}
   blockMoveDir: {fileID: 6977177516185647427}
+  blockKeyLock: {fileID: 989128073326995567}
 --- !u!1 &1935017793923494
 GameObject:
   m_ObjectHideFlags: 0
@@ -67563,6 +67583,7 @@ GameObject:
   - component: {fileID: 7953125196936711064}
   - component: {fileID: 5363831965115056658}
   - component: {fileID: 8408314682819101538}
+  - component: {fileID: 5093462083807289414}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -67690,6 +67711,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &5093462083807289414
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3610253927000785895}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &4427997740378860605
 GameObject:
   m_ObjectHideFlags: 0

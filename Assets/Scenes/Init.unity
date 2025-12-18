@@ -341,6 +341,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d6efb41620bbbb94ab5a6549db367c1b, type: 3}
   - {fileID: 8300000, guid: 5273833ec6abefb48bfba02df9e10abb, type: 3}
   - {fileID: 8300000, guid: 1eccb19338e6d814885bd256cb76c371, type: 3}
+  - {fileID: 8300000, guid: e3a7a00a8a1218a4ab3faaca1d3d38ef, type: 3}
+  - {fileID: 8300000, guid: 83213c53bcc7f8f40930c2a53be4708a, type: 3}
+  - {fileID: 8300000, guid: ec7ac81bc306c3d4dbe3ec6db2bb87a1, type: 3}
   musics:
   - {fileID: 8300000, guid: 1889533accde21044a3942d63c9488d7, type: 3}
   musicSource: {fileID: 54899959}
@@ -985,6 +988,10 @@ PrefabInstance:
     - target: {fileID: 132536, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440770, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 22426080, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_AnchorMax.x

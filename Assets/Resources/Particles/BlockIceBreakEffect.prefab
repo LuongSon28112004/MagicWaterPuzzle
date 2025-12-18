@@ -12200,5 +12200,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d641850f8d31747b4549bfb4867637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 198067122255443456}
+  particleSystems: {fileID: 198067122255443456}
   RockBreak: {fileID: 1424823261768643}

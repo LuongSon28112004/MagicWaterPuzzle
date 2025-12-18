@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [Serializable]
 public class SlotHolderData
@@ -49,10 +50,18 @@ public class IceInfor
 }
 
 [Serializable]
+public class KeyInfor
+{
+    public bool IsKey;
+    public BlockColor ColorKey;
+}
+
+[Serializable]
 public class BlockData
 {
     public string name;
     public IceInfor iceInfor;
+    public KeyInfor keyInfor;
     public Vector3 position;
     public Vector3 rotation;
     public BlockColor color;
@@ -87,6 +96,7 @@ public class GateData
     public string name;
     public Vector3 position;
     public Vector3 rotation;
+    public KeyInfor keyInfor;
 
     // List các màu mà gate sẽ đổ ra
     public List<GateColorInfo> colorOutputs = new List<GateColorInfo>();

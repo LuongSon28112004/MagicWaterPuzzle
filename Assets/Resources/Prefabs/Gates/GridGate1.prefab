@@ -15114,6 +15114,7 @@ MonoBehaviour:
   pipeLineCtrl: {fileID: 7941075028286157384}
   pipeLineHeadCtrl: {fileID: 8123166386137600778}
   pipeIdleBubbleParticle: {fileID: 2858943329248677052}
+  pipeKeyLock: {fileID: 6713777089924119018}
 --- !u!1 &1622862974946445
 GameObject:
   m_ObjectHideFlags: 0
@@ -20543,6 +20544,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLocked: 0
   keyObject: {fileID: 1835371550419531}
+  GateObject: {fileID: 1331036025706527}
+  LockObject: {fileID: 1724343680776070}
+  LockIcon: {fileID: 1243146662139643}
+  keyInfor:
+    IsKey: 0
+    ColorKey: 0
+  keyMeshRenderer: {fileID: 23515338451002714}
 --- !u!1 &1854383649711219
 GameObject:
   m_ObjectHideFlags: 0

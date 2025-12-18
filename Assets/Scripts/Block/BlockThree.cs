@@ -153,22 +153,22 @@ public class BlockThree : BaseBlock
         {
             if (directionPipe == DirectionPipe.Left)
             {
-                return 0.25f;
+                return 0.23f;
             }
             else if (directionPipe == DirectionPipe.Right)
             {
-                return 0.25f;
+                return 0.23f;
             }
             else
             {
-                return 0.4f;
+                return 0.45f;
             }
         }
         else if (blockDirection == Direction.VERTICAL)
         {
             if (pipeTransform.y > transform.position.y)
             {
-                return 1f;
+                return 1.1f;
             }
             else if (pipeTransform.y == transform.position.y)
             {

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1596a4c7fd5cf41bcc1c0f75ec2198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 198348102260607947}
+  particleSystems: {fileID: 198348102260607947}
   RockCrack: {fileID: 1903174398210475}
 --- !u!1 &1275844039335329
 GameObject:

@@ -342,6 +342,18 @@ public abstract class BaseBlock : MonoBehaviour
             Debug.Log("Enter BoxCamera");
             return;
         }
+
+        WaterPipe waterPipe = other.GetComponentInParent<WaterPipe>();
+        if (waterPipe == null)
+        {
+            return;
+        }
+
+        if (waterPipe.PipeKeyLock.IsLocked)
+        {
+            return;
+        }
+
         ProcessTriggerMove(other);
         StartCoroutine(ProcessTriggerWaterPipe(other));
     }
@@ -377,6 +389,7 @@ public abstract class BaseBlock : MonoBehaviour
         {
             isFill = true;
             Debug.Log("Enter WaterPipe Color");
+
             // chặn không cho di chuyển nữa
             IsMove = false;
             Vector3 pos = SnapToGrid(transform.position);
@@ -384,10 +397,23 @@ public abstract class BaseBlock : MonoBehaviour
             yield return new WaitForSeconds(0.15f);
             yield return StartCoroutine(FillPipeAndBlock(waterPipe));
             if (currentCapacity >= maxCapacity) yield break;
+
+
             // thả di chuyển ra khi đã fill song
             IsMove = true;
+
+
             // mở fill ra để được phép fill nhưng cái tiếp theo
             isFill = false;
+        }
+    }
+
+    private void CheckKeyLock()
+    {
+        GameObject PipeLockObj = LevelManager.Instance.findObjectHasKeyColor(blockVisual.blockTypeVariant.blockKeyLock.ColorKey);
+        if (PipeLockObj != null)
+        {
+            blockVisual.blockTypeVariant.blockKeyLock.UnlockKeyLock(PipeLockObj);
         }
     }
 
@@ -433,6 +459,7 @@ public abstract class BaseBlock : MonoBehaviour
             StartCoroutine(PlayParticleBlock());
             yield return StartCoroutine(BlockVisual.blockTypeVariant.FillWater(addCapacity * 1.0f / maxCapacity));
         }
+        CheckKeyLock();
 
         waterPipe.UpdateListWaterTypeCounter();
         StartCoroutine(CheckDoneFilling());

@@ -14338,5 +14338,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6721c4295503bc48aafdb4c6c72cca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 198187722837723530}
+  particleSystems: {fileID: 198187722837723530}
   TNT_EXplode: {fileID: 1638740382590195}

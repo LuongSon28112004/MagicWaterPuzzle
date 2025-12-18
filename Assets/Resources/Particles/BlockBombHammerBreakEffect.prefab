@@ -9504,5 +9504,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18708c11500f3dd468e59681abd99007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 198738777307031331}
+  particleSystems: {fileID: 198738777307031331}
   TNTPop: {fileID: 1471581536573207}

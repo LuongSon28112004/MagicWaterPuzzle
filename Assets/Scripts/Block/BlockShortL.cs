@@ -201,7 +201,7 @@ public class BlockShortL : BaseBlock
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {
-                    return transform.position.x < pipeTransform.x ? 0.38f : 0.62f;
+                    return transform.position.x < pipeTransform.x ? 0.38f : 0.65f;
                 }
             }
             // Góc -90° hoặc 270°

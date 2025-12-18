@@ -18822,7 +18822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce9df7ec0e7cd8740af31072b150d172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 198391536007896542}
+  particleSystems: {fileID: 198391536007896542}
 --- !u!1 &1144127847539898
 GameObject:
   m_ObjectHideFlags: 0
@@ -51754,7 +51754,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4822e48ab77593d49bdd8a00178346c0, type: 2}
+  - {fileID: 2100000, guid: db013c343c144b345b6ae1a26a849f82, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81264,6 +81264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4195242949810065}
+  - component: {fileID: 5489482589130770026}
   m_Layer: 0
   m_Name: Key_Lock Variant
   m_TagString: Untagged
@@ -81289,6 +81290,24 @@ Transform:
   - {fileID: 4932948689235765}
   m_Father: {fileID: 4603684347866889}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &5489482589130770026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864696377302845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1657f56e2da04a4a998ec18b3d6b190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLocked: 0
+  colorKey: 0
+  keyObject: {fileID: 1718650897138530}
+  keyMeshRenderer: {fileID: 23923304071357903}
+  center: {fileID: 198344121493168805}
+  MagicDust: {fileID: 198833984120858895}
 --- !u!1 &1874231750890710
 GameObject:
   m_ObjectHideFlags: 0
@@ -89096,6 +89115,7 @@ MonoBehaviour:
   waterMeshRenderer: {fileID: 23977561985492456}
   waterMeshFilter: {fileID: 33808093274490260}
   blockMoveDir: {fileID: 2643292228742684061}
+  blockKeyLock: {fileID: 5489482589130770026}
 --- !u!1 &1941742612367627
 GameObject:
   m_ObjectHideFlags: 0

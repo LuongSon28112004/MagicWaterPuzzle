@@ -84,5 +84,19 @@ public class LevelManager : Singleton<LevelManager>
         return resuit;
     }
 
+    public GameObject findObjectHasKeyColor(BlockColor color)
+    {
+        List<Transform> transforms = boardCtrl.GateInstances;
+        for (int i = 0; i < transforms.Count; i++)
+        {
+            WaterPipe gate = transforms[i].GetComponent<WaterPipe>();
+            if (gate != null && gate.PipeKeyLock.IsLocked && gate.PipeKeyLock.KeyInfor.ColorKey == color)
+            {
+                return transforms[i].gameObject;
+            }
+        }
+        return null;
+    }
+
 
 }

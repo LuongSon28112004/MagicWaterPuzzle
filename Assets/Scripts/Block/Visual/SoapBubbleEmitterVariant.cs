@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class SoapBubbleEmitterVariant : MonoBehaviour, IControlParticle
 {
-    [SerializeField] ParticleSystem particleSystem;
+    [SerializeField] ParticleSystem particleSystems;
     public void PlayParticle()
     {
-        particleSystem.Play();
+        particleSystems.Play();
     }
 
     public void RestartParticle()
@@ -14,6 +14,6 @@ public class SoapBubbleEmitterVariant : MonoBehaviour, IControlParticle
 
     public void StopParticle()
     {
-        particleSystem.Stop();
+        particleSystems.Stop();
     }
 }

@@ -13,6 +13,15 @@ public class BlockTypeVariant : MonoBehaviour
 
     // Dir
     public BlockMoveDir blockMoveDir;
+    //key
+    public BlockKeyLock blockKeyLock;
+
+
+    //key init
+    public void InitKeyLock(KeyInfor colorKey)
+    {
+        blockKeyLock.InitKeyLock(colorKey);
+    }
 
 
     public void AddVisual(BlockColor color)

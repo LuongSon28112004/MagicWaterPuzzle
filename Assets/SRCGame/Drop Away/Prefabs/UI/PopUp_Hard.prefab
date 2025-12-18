@@ -363,7 +363,8 @@ GameObject:
   m_Component:
   - component: {fileID: 224541053297137927}
   - component: {fileID: 222778318081639603}
-  - component: {fileID: 7008974959500620437}
+  - component: {fileID: 2304655220489252931}
+  - component: {fileID: 675500136887954136}
   m_Layer: 5
   m_Name: PopUp_Hard
   m_TagString: Untagged
@@ -400,7 +401,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324064493016597}
   m_CullTransparentMesh: 1
---- !u!225 &7008974959500620437
+--- !u!225 &2304655220489252931
 CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -412,6 +413,22 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &675500136887954136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324064493016597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a30a5464201ac244b94076b8b3a9ed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rectTitle: {fileID: 224085454389458510}
+  rectTop: {fileID: 5867368407811900115}
+  rectBot: {fileID: 224651753231100528}
+  canvasGroup: {fileID: 2304655220489252931}
 --- !u!1 &1340946251336723
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,7 +730,7 @@ GameObject:
   - component: {fileID: 4993777825618678472}
   - component: {fileID: 8130900374970805248}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ImageFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1021,7 +1038,7 @@ GameObject:
   - component: {fileID: 7534803916893708338}
   - component: {fileID: 3496660145887273716}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: ImageSkull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -31,6 +31,10 @@ public class ScreenGamePlay : ScreenUI
     [SerializeField] CollectBooster collectBooster;
     [Header("Tut Level 1")]
     [SerializeField] TutHand tutHand;
+    [Header("HardLevel")]
+    [SerializeField] GameObject HardLevel;
+    [Header("Key Lock")]
+    [SerializeField] KeyLock keyLock;
     private void OnEnable()
     {
         CustomeEventSystem.Instance.StartPlayAction += StartTimer;
@@ -75,19 +79,30 @@ public class ScreenGamePlay : ScreenUI
         {
             CollectBooster.gameObject.SetActive(true);
             collectBooster.setTypeCollect(TypeCollectBooster.FREEZE);
-            AudioManager.Instance.PlayOneShot("BoosterAppear", 1f);
+            AudioManager.Instance.PlayOneShot("BoosterAppear_1", 0.75f);
         }
         else if (GameManager.Instance.Level == 10)
         {
             CollectBooster.gameObject.SetActive(true);
             collectBooster.setTypeCollect(TypeCollectBooster.BOMB);
-            AudioManager.Instance.PlayOneShot("BoosterAppear", 1f);
+            AudioManager.Instance.PlayOneShot("BoosterAppear_1", 0.75f);
         }
         else if (GameManager.Instance.Level == 13)
         {
             CollectBooster.gameObject.SetActive(true);
             collectBooster.setTypeCollect(TypeCollectBooster.HAMMER);
-            AudioManager.Instance.PlayOneShot("BoosterAppear", 1f);
+            AudioManager.Instance.PlayOneShot("BoosterAppear_1", 0.75f);
+        }
+
+        if (GameManager.Instance.Level == 7 || GameManager.Instance.Level == 12 || GameManager.Instance.Level == 17)
+        {
+            HardLevel.SetActive(true);
+            AudioManager.Instance.PlayVibrate();
+        }
+
+        if (GameManager.Instance.Level == 14)
+        {
+            keyLock.ShowIntro();
         }
     }
 

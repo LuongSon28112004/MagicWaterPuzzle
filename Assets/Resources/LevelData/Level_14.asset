@@ -13,573 +13,412 @@ MonoBehaviour:
   m_Name: Level_14
   m_EditorClassIdentifier: 
   slotHolders:
-  - name: StraightGridBorder_71
-    position: {x: 3, y: -2, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_70
-    position: {x: 4, y: -2, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_69
-    position: {x: 2, y: 1, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_68
-    position: {x: 2, y: 0, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_67
-    position: {x: 4, y: 2, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_66
-    position: {x: 5, y: 2, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_65
-    position: {x: 6, y: -1, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_64
-    position: {x: 6, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_63
-    position: {x: -4, y: -2, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_62
-    position: {x: -5, y: -2, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_61
-    position: {x: -6, y: 1, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_60
-    position: {x: -6, y: 0, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_59
-    position: {x: -2, y: -1, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_58
-    position: {x: -2, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_57
-    position: {x: -3, y: 2, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_56
-    position: {x: -4, y: 2, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: InnerCornerGridBorder_7
-    position: {x: 6, y: -2, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: InnerCornerGridBorder_6
-    position: {x: 2, y: -2, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: InnerCornerGridBorder_5
-    position: {x: 6, y: 2, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: InnerCornerGridBorder_4
-    position: {x: 2, y: 2, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: InnerCornerGridBorder_3
-    position: {x: -6, y: -2, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: InnerCornerGridBorder_2
-    position: {x: -2, y: -2, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: InnerCornerGridBorder_1
-    position: {x: -6, y: 2, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: InnerCornerGridBorder
-    position: {x: -2, y: 2, z: 0}
-    rotation: {x: -0, y: 0, z: 270}
   - name: OuterCornerGridBorder_3
-    position: {x: 8, y: -8, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: OuterCornerGridBorder_2
-    position: {x: -8, y: -8, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: OuterCornerGridBorder_1
-    position: {x: 8, y: 8, z: 0}
-    rotation: {x: -0, y: -0, z: 90.00002}
-  - name: OuterCornerGridBorder
-    position: {x: -8, y: 8, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_55
-    position: {x: 7, y: -8, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_54
-    position: {x: 6, y: -8, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_53
-    position: {x: 5, y: -8, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_52
-    position: {x: 4, y: -8, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_51
-    position: {x: 3, y: -8, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_50
-    position: {x: 2, y: -8, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_49
-    position: {x: 1, y: -8, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_48
-    position: {x: 0, y: -8, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_47
-    position: {x: -1, y: -8, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_46
-    position: {x: -2, y: -8, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_45
-    position: {x: -3, y: -8, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_44
-    position: {x: -4, y: -8, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_43
-    position: {x: -5, y: -8, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_42
-    position: {x: -6, y: -8, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: StraightGridBorder_41
-    position: {x: 6, y: 8, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_40
-    position: {x: 5, y: 8, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_39
-    position: {x: 4, y: 8, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_38
-    position: {x: 3, y: 8, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_37
-    position: {x: 2, y: 8, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_36
-    position: {x: 1, y: 8, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_35
-    position: {x: 0, y: 8, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_34
-    position: {x: -1, y: 8, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_33
-    position: {x: -2, y: 8, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_32
-    position: {x: -3, y: 8, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_31
-    position: {x: -4, y: 8, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_30
-    position: {x: -5, y: 8, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_29
-    position: {x: -6, y: 8, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_28
-    position: {x: -7, y: 8, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-  - name: StraightGridBorder_27
-    position: {x: 8, y: -6, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_26
-    position: {x: 8, y: -5, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_25
-    position: {x: 8, y: -4, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_24
-    position: {x: 8, y: -3, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_23
-    position: {x: 8, y: -2, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_22
-    position: {x: 8, y: -1, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_21
-    position: {x: 8, y: 0, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_20
-    position: {x: 8, y: 1, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_19
-    position: {x: 8, y: 2, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_18
-    position: {x: 8, y: 3, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_17
-    position: {x: 8, y: 4, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_16
-    position: {x: 8, y: 5, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_15
-    position: {x: 8, y: 6, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_14
-    position: {x: 8, y: 7, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-  - name: StraightGridBorder_13
-    position: {x: -8, y: -7, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_12
-    position: {x: -8, y: -6, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_11
-    position: {x: -8, y: -5, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_10
-    position: {x: -8, y: -4, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_9
-    position: {x: -8, y: -3, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_8
-    position: {x: -8, y: -2, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_7
-    position: {x: -8, y: -1, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_6
-    position: {x: -8, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_5
-    position: {x: -8, y: 1, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_4
-    position: {x: -8, y: 2, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_3
-    position: {x: -8, y: 3, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_2
-    position: {x: -8, y: 4, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder_1
-    position: {x: -8, y: 5, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: StraightGridBorder
-    position: {x: -8, y: 6, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-  - name: GridSlot_63
     position: {x: 7, y: -7, z: 0}
     rotation: {x: -0, y: 0, z: 0}
-  - name: GridSlot_62
+  - name: OuterCornerGridBorder_2
+    position: {x: -7, y: -7, z: 0}
+    rotation: {x: 0, y: 0, z: 270}
+  - name: OuterCornerGridBorder_1
+    position: {x: 7, y: 7, z: 0}
+    rotation: {x: -0, y: -0, z: 90.00002}
+  - name: OuterCornerGridBorder
+    position: {x: -7, y: 7, z: 0}
+    rotation: {x: -0, y: 0, z: 180}
+  - name: StraightGridBorder_47
+    position: {x: 6, y: -7, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
+  - name: StraightGridBorder_46
     position: {x: 5, y: -7, z: 0}
     rotation: {x: -0, y: 0, z: 0}
-  - name: GridSlot_61
+  - name: StraightGridBorder_45
+    position: {x: 4, y: -7, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
+  - name: StraightGridBorder_44
     position: {x: 3, y: -7, z: 0}
     rotation: {x: -0, y: 0, z: 0}
-  - name: GridSlot_60
+  - name: StraightGridBorder_43
+    position: {x: 2, y: -7, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
+  - name: StraightGridBorder_42
     position: {x: 1, y: -7, z: 0}
     rotation: {x: -0, y: 0, z: 0}
-  - name: GridSlot_59
+  - name: StraightGridBorder_41
+    position: {x: 0, y: -7, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
+  - name: StraightGridBorder_40
     position: {x: -1, y: -7, z: 0}
     rotation: {x: -0, y: 0, z: 0}
-  - name: GridSlot_58
+  - name: StraightGridBorder_39
+    position: {x: -2, y: -7, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
+  - name: StraightGridBorder_38
     position: {x: -3, y: -7, z: 0}
     rotation: {x: -0, y: 0, z: 0}
-  - name: GridSlot_57
+  - name: StraightGridBorder_37
+    position: {x: -4, y: -7, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
+  - name: StraightGridBorder_36
     position: {x: -5, y: -7, z: 0}
     rotation: {x: -0, y: 0, z: 0}
-  - name: GridSlot_56
-    position: {x: -7, y: -7, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: GridSlot_55
+  - name: StraightGridBorder_35
+    position: {x: 5, y: 7, z: 0}
+    rotation: {x: -0, y: 0, z: 180}
+  - name: StraightGridBorder_34
+    position: {x: 4, y: 7, z: 0}
+    rotation: {x: -0, y: 0, z: 180}
+  - name: StraightGridBorder_33
+    position: {x: 3, y: 7, z: 0}
+    rotation: {x: -0, y: 0, z: 180}
+  - name: StraightGridBorder_32
+    position: {x: 2, y: 7, z: 0}
+    rotation: {x: -0, y: 0, z: 180}
+  - name: StraightGridBorder_31
+    position: {x: 1, y: 7, z: 0}
+    rotation: {x: -0, y: 0, z: 180}
+  - name: StraightGridBorder_30
+    position: {x: 0, y: 7, z: 0}
+    rotation: {x: -0, y: 0, z: 180}
+  - name: StraightGridBorder_29
+    position: {x: -1, y: 7, z: 0}
+    rotation: {x: -0, y: 0, z: 180}
+  - name: StraightGridBorder_28
+    position: {x: -2, y: 7, z: 0}
+    rotation: {x: -0, y: 0, z: 180}
+  - name: StraightGridBorder_27
+    position: {x: -3, y: 7, z: 0}
+    rotation: {x: -0, y: 0, z: 180}
+  - name: StraightGridBorder_26
+    position: {x: -4, y: 7, z: 0}
+    rotation: {x: -0, y: 0, z: 180}
+  - name: StraightGridBorder_25
+    position: {x: -5, y: 7, z: 0}
+    rotation: {x: -0, y: 0, z: 180}
+  - name: StraightGridBorder_24
+    position: {x: -6, y: 7, z: 0}
+    rotation: {x: -0, y: 0, z: 180}
+  - name: StraightGridBorder_23
     position: {x: 7, y: -5, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: GridSlot_54
-    position: {x: 5, y: -5, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: GridSlot_53
-    position: {x: 3, y: -5, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: GridSlot_52
-    position: {x: 1, y: -5, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: GridSlot_51
-    position: {x: -1, y: -5, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: GridSlot_50
-    position: {x: -3, y: -5, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: GridSlot_49
-    position: {x: -5, y: -5, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-  - name: GridSlot_48
+    rotation: {x: -0, y: 0, z: 90}
+  - name: StraightGridBorder_22
+    position: {x: 7, y: -4, z: 0}
+    rotation: {x: -0, y: 0, z: 90}
+  - name: StraightGridBorder_21
+    position: {x: 7, y: -3, z: 0}
+    rotation: {x: -0, y: 0, z: 90}
+  - name: StraightGridBorder_20
+    position: {x: 7, y: -2, z: 0}
+    rotation: {x: -0, y: 0, z: 90}
+  - name: StraightGridBorder_19
+    position: {x: 7, y: -1, z: 0}
+    rotation: {x: -0, y: 0, z: 90}
+  - name: StraightGridBorder_18
+    position: {x: 7, y: 0, z: 0}
+    rotation: {x: -0, y: 0, z: 90}
+  - name: StraightGridBorder_17
+    position: {x: 7, y: 1, z: 0}
+    rotation: {x: -0, y: 0, z: 90}
+  - name: StraightGridBorder_16
+    position: {x: 7, y: 2, z: 0}
+    rotation: {x: -0, y: 0, z: 90}
+  - name: StraightGridBorder_15
+    position: {x: 7, y: 3, z: 0}
+    rotation: {x: -0, y: 0, z: 90}
+  - name: StraightGridBorder_14
+    position: {x: 7, y: 4, z: 0}
+    rotation: {x: -0, y: 0, z: 90}
+  - name: StraightGridBorder_13
+    position: {x: 7, y: 5, z: 0}
+    rotation: {x: -0, y: 0, z: 90}
+  - name: StraightGridBorder_12
+    position: {x: 7, y: 6, z: 0}
+    rotation: {x: -0, y: 0, z: 90}
+  - name: StraightGridBorder_11
+    position: {x: -7, y: -6, z: 0}
+    rotation: {x: 0, y: 0, z: 270}
+  - name: StraightGridBorder_10
     position: {x: -7, y: -5, z: 0}
+    rotation: {x: 0, y: 0, z: 270}
+  - name: StraightGridBorder_9
+    position: {x: -7, y: -4, z: 0}
+    rotation: {x: 0, y: 0, z: 270}
+  - name: StraightGridBorder_8
+    position: {x: -7, y: -3, z: 0}
+    rotation: {x: 0, y: 0, z: 270}
+  - name: StraightGridBorder_7
+    position: {x: -7, y: -2, z: 0}
+    rotation: {x: 0, y: 0, z: 270}
+  - name: StraightGridBorder_6
+    position: {x: -7, y: -1, z: 0}
+    rotation: {x: 0, y: 0, z: 270}
+  - name: StraightGridBorder_5
+    position: {x: -7, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 270}
+  - name: StraightGridBorder_4
+    position: {x: -7, y: 1, z: 0}
+    rotation: {x: 0, y: 0, z: 270}
+  - name: StraightGridBorder_3
+    position: {x: -7, y: 2, z: 0}
+    rotation: {x: 0, y: 0, z: 270}
+  - name: StraightGridBorder_2
+    position: {x: -7, y: 3, z: 0}
+    rotation: {x: 0, y: 0, z: 270}
+  - name: StraightGridBorder_1
+    position: {x: -7, y: 4, z: 0}
+    rotation: {x: 0, y: 0, z: 270}
+  - name: StraightGridBorder
+    position: {x: -7, y: 5, z: 0}
+    rotation: {x: 0, y: 0, z: 270}
+  - name: GridSlot_48
+    position: {x: 6, y: -6, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_47
-    position: {x: 7, y: -3, z: 0}
+    position: {x: 4, y: -6, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_46
-    position: {x: 5, y: -3, z: 0}
+    position: {x: 2, y: -6, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_45
-    position: {x: 3, y: -3, z: 0}
+    position: {x: 0, y: -6, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_44
-    position: {x: 1, y: -3, z: 0}
+    position: {x: -2, y: -6, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_43
-    position: {x: -1, y: -3, z: 0}
+    position: {x: -4, y: -6, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_42
-    position: {x: -3, y: -3, z: 0}
+    position: {x: -6, y: -6, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_41
-    position: {x: -5, y: -3, z: 0}
+    position: {x: 6, y: -4, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_40
-    position: {x: -7, y: -3, z: 0}
+    position: {x: 4, y: -4, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_39
-    position: {x: 7, y: -1, z: 0}
+    position: {x: 2, y: -4, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
+  - name: GridSlot_38
+    position: {x: 0, y: -4, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
+  - name: GridSlot_37
+    position: {x: -2, y: -4, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_36
-    position: {x: 1, y: -1, z: 0}
+    position: {x: -4, y: -4, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_35
-    position: {x: -1, y: -1, z: 0}
+    position: {x: -6, y: -4, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
+  - name: GridSlot_34
+    position: {x: 6, y: -2, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
+  - name: GridSlot_33
+    position: {x: 4, y: -2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_32
-    position: {x: -7, y: -1, z: 0}
+    position: {x: 2, y: -2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_31
-    position: {x: 7, y: 1, z: 0}
+    position: {x: 0, y: -2, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
+  - name: GridSlot_30
+    position: {x: -2, y: -2, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
+  - name: GridSlot_29
+    position: {x: -4, y: -2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_28
-    position: {x: 1, y: 1, z: 0}
+    position: {x: -6, y: -2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_27
-    position: {x: -1, y: 1, z: 0}
+    position: {x: 6, y: 0, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
+  - name: GridSlot_26
+    position: {x: 4, y: 0, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
+  - name: GridSlot_25
+    position: {x: 2, y: 0, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_24
-    position: {x: -7, y: 1, z: 0}
+    position: {x: 0, y: 0, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_23
-    position: {x: 7, y: 3, z: 0}
+    position: {x: -2, y: 0, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_22
-    position: {x: 5, y: 3, z: 0}
+    position: {x: -4, y: 0, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_21
-    position: {x: 3, y: 3, z: 0}
+    position: {x: -6, y: 0, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_20
-    position: {x: 1, y: 3, z: 0}
+    position: {x: 6, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_19
-    position: {x: -1, y: 3, z: 0}
+    position: {x: 4, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_18
-    position: {x: -3, y: 3, z: 0}
+    position: {x: 2, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_17
-    position: {x: -5, y: 3, z: 0}
+    position: {x: 0, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_16
-    position: {x: -7, y: 3, z: 0}
+    position: {x: -2, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_15
-    position: {x: 7, y: 5, z: 0}
+    position: {x: -4, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_14
-    position: {x: 5, y: 5, z: 0}
+    position: {x: -6, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_13
-    position: {x: 3, y: 5, z: 0}
+    position: {x: 6, y: 4, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_12
-    position: {x: 1, y: 5, z: 0}
+    position: {x: 4, y: 4, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_11
-    position: {x: -1, y: 5, z: 0}
+    position: {x: 2, y: 4, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_10
-    position: {x: -3, y: 5, z: 0}
+    position: {x: 0, y: 4, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_9
-    position: {x: -5, y: 5, z: 0}
+    position: {x: -2, y: 4, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_8
-    position: {x: -7, y: 5, z: 0}
+    position: {x: -4, y: 4, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_7
-    position: {x: 7, y: 7, z: 0}
+    position: {x: -6, y: 4, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_6
-    position: {x: 5, y: 7, z: 0}
+    position: {x: 6, y: 6, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_5
-    position: {x: 3, y: 7, z: 0}
+    position: {x: 4, y: 6, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_4
-    position: {x: 1, y: 7, z: 0}
+    position: {x: 2, y: 6, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_3
-    position: {x: -1, y: 7, z: 0}
+    position: {x: 0, y: 6, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_2
-    position: {x: -3, y: 7, z: 0}
+    position: {x: -2, y: 6, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot_1
-    position: {x: -5, y: 7, z: 0}
+    position: {x: -4, y: 6, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   - name: GridSlot
-    position: {x: -7, y: 7, z: 0}
+    position: {x: -6, y: 6, z: 0}
     rotation: {x: -0, y: 0, z: 0}
   blocks:
   - name: Two_3
     iceInfor:
       IsIce: 0
       CountBreak: 0
-    position: {x: 1, y: 0, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-    color: 6
+    keyInfor:
+      IsKey: 1
+      ColorKey: 4
+    position: {x: -1, y: -6, z: 0}
+    rotation: {x: -0, y: 0, z: 90}
+    color: 7
     moveDir: 0
   - name: Two_2
     iceInfor:
       IsIce: 0
       CountBreak: 0
-    position: {x: -1, y: 0, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-    color: 7
+    keyInfor:
+      IsKey: 1
+      ColorKey: 7
+    position: {x: -1, y: 6, z: 0}
+    rotation: {x: -0, y: 0, z: 90}
+    color: 4
     moveDir: 0
   - name: Two_1
     iceInfor:
       IsIce: 0
       CountBreak: 0
-    position: {x: 0, y: -3, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
+    position: {x: 6, y: 3, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
     color: 3
     moveDir: 0
   - name: Two
     iceInfor:
       IsIce: 0
       CountBreak: 0
-    position: {x: 0, y: 3, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-    color: 3
-    moveDir: 0
-  - name: ShortL_7
-    iceInfor:
-      IsIce: 0
-      CountBreak: 0
-    position: {x: -6, y: -6, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
-    color: 1
-    moveDir: 0
-  - name: ShortL_6
-    iceInfor:
-      IsIce: 0
-      CountBreak: 0
-    position: {x: 6, y: -6, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-    color: 1
-    moveDir: 0
-  - name: ShortL_5
-    iceInfor:
-      IsIce: 0
-      CountBreak: 0
-    position: {x: -6, y: -2, z: 0}
-    rotation: {x: -0, y: 0, z: 180}
+    keyInfor:
+      IsKey: 1
+      ColorKey: 2
+    position: {x: -6, y: -3, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
     color: 2
     moveDir: 0
-  - name: ShortL_4
+  - name: One
     iceInfor:
       IsIce: 0
       CountBreak: 0
-    position: {x: 6, y: -2, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
-    color: 2
-    moveDir: 0
-  - name: ShortL_3
-    iceInfor:
-      IsIce: 0
-      CountBreak: 0
-    position: {x: -6, y: 2, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-    color: 4
-    moveDir: 0
-  - name: ShortL_2
-    iceInfor:
-      IsIce: 0
-      CountBreak: 0
-    position: {x: 6, y: 2, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-    color: 4
-    moveDir: 0
-  - name: ShortL_1
-    iceInfor:
-      IsIce: 0
-      CountBreak: 0
-    position: {x: -6, y: 6, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-    color: 5
-    moveDir: 0
-  - name: ShortL
-    iceInfor:
-      IsIce: 0
-      CountBreak: 0
-    position: {x: 6, y: 6, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
-    color: 5
+    keyInfor:
+      IsKey: 1
+      ColorKey: 3
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 90}
+    color: 1
     moveDir: 0
   gates:
-  - name: GridGate1_5
-    position: {x: -9, y: 3, z: 0}
+  - name: GridGate1_3
+    position: {x: -8, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 270}
+    keyInfor:
+      IsKey: 1
+      ColorKey: 7
     colorOutputs:
-    - color: 1
-      capacity: 3
-  - name: GridGate1_4
-    position: {x: -9, y: -3, z: 0}
-    rotation: {x: 0, y: 0, z: 270}
+    - color: 2
+      capacity: 2
+  - name: GridGate1_2
+    position: {x: 8, y: 0, z: 0}
+    rotation: {x: -0, y: 0, z: 90}
+    keyInfor:
+      IsKey: 1
+      ColorKey: 4
     colorOutputs:
     - color: 3
       capacity: 2
-    - color: 4
-      capacity: 3
-  - name: GridGate1_3
-    position: {x: 9, y: 3, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-    colorOutputs:
-    - color: 2
-      capacity: 3
-  - name: GridGate1_2
-    position: {x: 9, y: -3, z: 0}
-    rotation: {x: -0, y: 0, z: 90}
-    colorOutputs:
-    - color: 6
-      capacity: 2
-    - color: 5
-      capacity: 3
   - name: GridGate1_1
-    position: {x: 1, y: 9, z: 0}
+    position: {x: -4, y: 8, z: 0}
     rotation: {x: -0, y: 0, z: 180}
+    keyInfor:
+      IsKey: 1
+      ColorKey: 3
+    colorOutputs:
+    - color: 4
+      capacity: 2
+  - name: GridGate1
+    position: {x: 0, y: -8, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
+    keyInfor:
+      IsKey: 1
+      ColorKey: 2
     colorOutputs:
     - color: 7
       capacity: 2
-    - color: 2
-      capacity: 3
-    - color: 1
-      capacity: 3
   - name: GridGate1
-    position: {x: -1, y: -9, z: 0}
-    rotation: {x: -0, y: 0, z: 0}
+    position: {x: 4, y: 8, z: 0}
+    rotation: {x: 0, y: 0, z: 180}
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
     colorOutputs:
-    - color: 5
-      capacity: 3
-    - color: 3
-      capacity: 2
-    - color: 4
-      capacity: 3
-  durationTime: 240
-  IsEvenX: 1
-  IsEvenY: 1
-  BoundCam: {x: 22, y: 22}
+    - color: 1
+      capacity: 1
+  durationTime: 120
+  IsEvenX: 0
+  IsEvenY: 0
+  BoundCam: {x: 19, y: 19}

@@ -144,17 +144,31 @@ public class BlockTwo : BaseBlock
     {
         if (blockDirection == Direction.HORIZONTAL)
         {
-            return 0.25f;
-        }
-        else if (blockDirection == Direction.VERTICAL)
-        {
-            if (pipeTransform.y > transform.position.y)
+            if (directionPipe == DirectionPipe.Left || directionPipe == DirectionPipe.Right)
             {
-                return 0.58f;
+                return 0.22f;
             }
             else
             {
-                return 0.22f;
+                return 0.48f;
+            }
+        }
+        else if (blockDirection == Direction.VERTICAL)
+        {
+            if (directionPipe == DirectionPipe.Down)
+            {
+                return 0.7f;
+            }
+            else if (directionPipe == DirectionPipe.Left || directionPipe == DirectionPipe.Right)
+            {
+                if (pipeTransform.y > transform.position.y)
+                {
+                    return 0.58f;
+                }
+                else
+                {
+                    return 0.22f;
+                }
             }
         }
         return 1f;

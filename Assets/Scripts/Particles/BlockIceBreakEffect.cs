@@ -3,13 +3,13 @@ using UnityEngine;
 public class BlockIceBreakEffect : MonoBehaviour, IControlParticle
 {
     [Header("Block Ice Break Component")]
-    [SerializeField] ParticleSystem particleSystem;
+    [SerializeField] ParticleSystem particleSystems;
     [SerializeField] GameObject RockBreak;
 
     public void PlayParticle()
     {
         RockBreak.SetActive(true);
-        particleSystem.Play();
+        particleSystems.Play();
     }
 
     public void RestartParticle()
@@ -20,6 +20,6 @@ public class BlockIceBreakEffect : MonoBehaviour, IControlParticle
     public void StopParticle()
     {
         RockBreak.SetActive(false);
-        particleSystem.Play();
+        particleSystems.Play();
     }
 }
