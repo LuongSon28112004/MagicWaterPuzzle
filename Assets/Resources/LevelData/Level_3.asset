@@ -201,6 +201,9 @@ MonoBehaviour:
     iceInfor:
       IsIce: 0
       CountBreak: 0
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
     position: {x: 3, y: 3, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     color: 1
@@ -209,6 +212,9 @@ MonoBehaviour:
     iceInfor:
       IsIce: 0
       CountBreak: 0
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
     position: {x: -1, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 90}
     color: 2
@@ -217,6 +223,9 @@ MonoBehaviour:
     iceInfor:
       IsIce: 0
       CountBreak: 0
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
     position: {x: -2, y: 3, z: 0}
     rotation: {x: 0, y: 0, z: 0}
     color: 3
@@ -225,6 +234,9 @@ MonoBehaviour:
   - name: GridGate1_1
     position: {x: 0, y: 6.1, z: 0}
     rotation: {x: 0, y: 0, z: 180}
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
     colorOutputs:
     - color: 1
       capacity: 1
@@ -233,6 +245,9 @@ MonoBehaviour:
   - name: GridGate1
     position: {x: -2, y: -6.1, z: 0}
     rotation: {x: -0, y: 0, z: 0}
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
     colorOutputs:
     - color: 1
       capacity: 1
@@ -241,6 +256,9 @@ MonoBehaviour:
   - name: GridGate1
     position: {x: 6.1, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 90}
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
     colorOutputs:
     - color: 1
       capacity: 1
@@ -249,11 +267,15 @@ MonoBehaviour:
   - name: GridGate1
     position: {x: -6.1, y: 2, z: 0}
     rotation: {x: 0, y: 0, z: 270}
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
     colorOutputs:
     - color: 3
       capacity: 1
     - color: 1
       capacity: 1
   durationTime: 180
-  IsEven: 0
+  IsEvenX: 0
+  IsEvenY: 0
   BoundCam: {x: 17, y: 17}

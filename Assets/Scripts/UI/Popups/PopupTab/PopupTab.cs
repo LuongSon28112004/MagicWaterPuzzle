@@ -34,7 +34,6 @@ public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
     [Header("Parents")]
     [SerializeField] private GameObject ChoicePanel;
     [SerializeField] private Transform Parent;
-
     private StatusChoice currentStatus;
 
     // Swipe

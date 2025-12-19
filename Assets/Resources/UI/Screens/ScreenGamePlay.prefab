@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 4976095110696646379}
   - component: {fileID: 6669032634632232633}
   - component: {fileID: 7972029885134189344}
+  - component: {fileID: 211675768493254744}
   m_Layer: 5
   m_Name: ReplayButton
   m_TagString: Untagged
@@ -193,10 +194,33 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 6669032634632232633}
+  m_TargetGraphic: {fileID: 523546168023557766}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &211675768493254744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162885954687015453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.9, y: 0.9, z: 1}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &217489497644950211
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +234,7 @@ GameObject:
   - component: {fileID: 2322820146064284381}
   - component: {fileID: 7995490210239003939}
   - component: {fileID: 8052908585293539987}
+  - component: {fileID: 4261286170947071217}
   m_Layer: 5
   m_Name: FreezeBooster
   m_TagString: Untagged
@@ -318,7 +343,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2322820146064284381}
+  m_TargetGraphic: {fileID: 6571703200246492330}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -348,6 +373,29 @@ MonoBehaviour:
   TargetOld: {fileID: 4462571182450887365}
   lockBooster: {fileID: 4433085260031923908}
   unlockBooster: {fileID: 1365717261118439522}
+--- !u!114 &4261286170947071217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217489497644950211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.9, y: 0.9, z: 1}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &475368840301275297
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,6 +782,7 @@ GameObject:
   - component: {fileID: 3254908544734128691}
   - component: {fileID: 1934984066156235573}
   - component: {fileID: 7386176986626233668}
+  - component: {fileID: 6921888967820393483}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -839,10 +888,33 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1934984066156235573}
+  m_TargetGraphic: {fileID: 3963855447450273738}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6921888967820393483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849347707874163580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.9, y: 0.9, z: 1}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &966118152629408599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1265,7 @@ GameObject:
   - component: {fileID: 4114221862623937481}
   - component: {fileID: 720461968414901145}
   - component: {fileID: 3017394785313220779}
+  - component: {fileID: 8639880291336470218}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -1298,10 +1371,33 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 720461968414901145}
+  m_TargetGraphic: {fileID: 1239650885679703988}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8639880291336470218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169420041153053604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.9, y: 0.9, z: 1}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &1261237701954750632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,6 +1794,7 @@ GameObject:
   - component: {fileID: 853777966147669626}
   - component: {fileID: 741974135500160097}
   - component: {fileID: 4328635420394779516}
+  - component: {fileID: 5824860415262419635}
   m_Layer: 5
   m_Name: BombBooster
   m_TagString: Untagged
@@ -1806,7 +1903,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 853777966147669626}
+  m_TargetGraphic: {fileID: 641867924660077361}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1836,6 +1933,29 @@ MonoBehaviour:
   TargetOld: {fileID: 4462571182450887365}
   lockBooster: {fileID: 239060504982644075}
   unlockBooster: {fileID: 780686424086404005}
+--- !u!114 &5824860415262419635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618338108507184308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.9, y: 0.9, z: 1}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &1634339615698329280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,6 +2269,7 @@ GameObject:
   - component: {fileID: 8071642369775441887}
   - component: {fileID: 6800352961899488304}
   - component: {fileID: 8107456456473894336}
+  - component: {fileID: 1115763051125877679}
   m_Layer: 5
   m_Name: HammerBooster
   m_TagString: Untagged
@@ -2257,7 +2378,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 8071642369775441887}
+  m_TargetGraphic: {fileID: 6452161365740717498}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -2287,6 +2408,29 @@ MonoBehaviour:
   TargetOld: {fileID: 4462571182450887365}
   lockBooster: {fileID: 483259645204394239}
   unlockBooster: {fileID: 2861437291278455852}
+--- !u!114 &1115763051125877679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015615161770402897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.9, y: 0.9, z: 1}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &2035224303236527963
 GameObject:
   m_ObjectHideFlags: 0
@@ -4883,6 +5027,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1576681523503065138}
   - component: {fileID: 1911827098177377980}
+  - component: {fileID: 5863412637741690657}
   m_Layer: 5
   m_Name: TimerAndLevel
   m_TagString: Untagged
@@ -4927,6 +5072,29 @@ MonoBehaviour:
   textLevel: {fileID: 1840876694547414222}
   timer: {fileID: 8573729087769516219}
   timerFreeze: {fileID: 9062961453100660054}
+--- !u!114 &5863412637741690657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378825673414276944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.9, y: 0.9, z: 1}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &5500045186319349022
 GameObject:
   m_ObjectHideFlags: 0

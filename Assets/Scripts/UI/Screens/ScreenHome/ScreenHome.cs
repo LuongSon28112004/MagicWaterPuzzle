@@ -19,6 +19,11 @@ public class ScreenHome : ScreenUI
     [Header("Shiny Effect Button")]
     [SerializeField] ShinyEffectForUGUI shinyEffectForUGUI_1;
     [SerializeField] ShinyEffectForUGUI shinyEffectForUGUI_2;
+    [Header("Event")]
+    [SerializeField] Button buttonNoADS;
+    [SerializeField] Button buttonUnlock;
+    [SerializeField] Button buttonPig;
+    [SerializeField] Button buttonPinata;
 
     private void OnEnable()
     {
@@ -26,11 +31,40 @@ public class ScreenHome : ScreenUI
     }
     public void Start()
     {
-        buttonPlay.onClick.AddListener(OnClickPlay);
+        AddEventListener();
         //scrollRect.onValueChanged.AddListener(OnScroll);
         ScrollToBottom();
         StartCoroutine(ShinyEffectButtonPlay());
         LoadListLevelText();
+    }
+
+    private void AddEventListener()
+    {
+        buttonPlay.onClick.AddListener(OnClickPlay);
+        buttonUnlock.onClick.AddListener(OnUnclockClick);
+        buttonNoADS.onClick.AddListener(onNoADSClick);
+        buttonPig.onClick.AddListener(onPigClick);
+        buttonPinata.onClick.AddListener(onPinataClick);
+    }
+
+    private void onPinataClick()
+    {
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
+    }
+
+    private void onPigClick()
+    {
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
+    }
+
+    private void onNoADSClick()
+    {
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
+    }
+
+    private void OnUnclockClick()
+    {
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
     }
 
     private void LoadListLevelText()

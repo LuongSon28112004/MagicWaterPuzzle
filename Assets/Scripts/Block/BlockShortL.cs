@@ -114,27 +114,29 @@ public class BlockShortL : BaseBlock
 
     protected override IEnumerator PlayParticleBlock()
     {
-        if (blockDirection == Direction.HORIZONTAL)
-        {
-            StartCoroutine(blockParticles[0].PlayParticle());
-            StartCoroutine(blockParticles[1].PlayParticle());
-        }
-        else
-        {
-            // xet truong hop 0 độ của capacity
-            if (currentCapacity == 1)
-            {
-                StartCoroutine(blockParticles[1].PlayParticle());
-            }
-            else if (currentCapacity == 2)
-            {
-                StartCoroutine(blockParticles[0].PlayParticle());
-                yield return new WaitForSeconds(0.2f);
-                StartCoroutine(blockParticles[1].PlayParticle());
-                yield return new WaitForSeconds(0.2f);
-                StartCoroutine(blockParticles[2].PlayParticle());
-            }
-        }
+        // if (blockDirection == Direction.HORIZONTAL)
+        // {
+        StartCoroutine(blockParticles[0].PlayParticle());
+
+        StartCoroutine(blockParticles[1].PlayParticle());
+        StartCoroutine(blockParticles[2].PlayParticle());
+        // }
+        // else
+        // {
+        //     // xet truong hop 0 độ của capacity
+        //     if (currentCapacity == 1)
+        //     {
+        //         StartCoroutine(blockParticles[1].PlayParticle());
+        //     }
+        //     else if (currentCapacity == 2)
+        //     {
+        //         StartCoroutine(blockParticles[0].PlayParticle());
+        //         yield return new WaitForSeconds(0.1f);
+        //         StartCoroutine(blockParticles[1].PlayParticle());
+        //         yield return new WaitForSeconds(0.1f);
+        //         StartCoroutine(blockParticles[2].PlayParticle());
+        //     }
+        // }
 
         yield break;
 
@@ -213,7 +215,7 @@ public class BlockShortL : BaseBlock
                 }
                 else if (directionPipe == DirectionPipe.Right)
                 {
-                    return transform.position.y < pipeTransform.y ? 0.62f : 0.38f;
+                    return transform.position.y < pipeTransform.y ? 0.62f : 0.22f;
                 }
                 else if (directionPipe == DirectionPipe.Down)
                 {

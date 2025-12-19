@@ -35,6 +35,9 @@ public class ScreenGamePlay : ScreenUI
     [SerializeField] GameObject HardLevel;
     [Header("Key Lock")]
     [SerializeField] KeyLock keyLock;
+
+    public TimerCoutDown Timer { get => timer; set => timer = value; }
+
     private void OnEnable()
     {
         CustomeEventSystem.Instance.StartPlayAction += StartTimer;

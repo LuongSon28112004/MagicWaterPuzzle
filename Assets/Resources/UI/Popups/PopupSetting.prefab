@@ -84,6 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 754367091704533561}
+  - component: {fileID: 114371410645862924}
   m_Layer: 5
   m_Name: ButtonGilfCode
   m_TagString: Untagged
@@ -113,6 +114,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -70.00001}
   m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &114371410645862924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388132901602707433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.9, y: 0.9, z: 1}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &574456444123983236
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +180,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6882284214359741182
 CanvasRenderer:
@@ -1271,6 +1295,7 @@ GameObject:
   - component: {fileID: 1275329754017140356}
   - component: {fileID: 2601481680430702036}
   - component: {fileID: 8301221940114992253}
+  - component: {fileID: 7715693890778388527}
   m_Layer: 5
   m_Name: ButtonExit
   m_TagString: Untagged
@@ -1379,6 +1404,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7715693890778388527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4231287808310989833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.9, y: 0.9, z: 1}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &4623686287899191924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,6 +1722,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8930526697727828057}
+  - component: {fileID: 3578822872665586297}
   m_Layer: 5
   m_Name: ButtonHelp
   m_TagString: Untagged
@@ -1703,6 +1752,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 132}
   m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3578822872665586297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5723196361113926648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.9, y: 0.9, z: 1}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &6513265869190070559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,8 +1831,10 @@ MonoBehaviour:
   buttonClose: {fileID: 8301221940114992253}
   buttonSoundFX: {fileID: 268268614568014192}
   buttonSoundMusic: {fileID: 5532083461276740950}
+  buttonVibrate: {fileID: 4783867987828306523}
   onSoundFX: 0
   onSoundMusic: 0
+  onVibrate: 0
   ImageSoundSlack: {fileID: 8840010710074924389}
   ImageMusicSlack: {fileID: 5689282062284256006}
   ImageVirbateSlack: {fileID: 4549617201558192026}
@@ -1923,6 +1997,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4627908648940154839}
+  - component: {fileID: 5588173790700634126}
   m_Layer: 5
   m_Name: ButtonJoin
   m_TagString: Untagged
@@ -1952,6 +2027,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -270}
   m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5588173790700634126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8475410483886442192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.9, y: 0.9, z: 1}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &8573590850817003441
 GameObject:
   m_ObjectHideFlags: 0

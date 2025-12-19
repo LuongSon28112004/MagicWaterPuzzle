@@ -206,7 +206,7 @@ public class BlockL : BaseBlock
                     }
                     else if (transform.position.y == pipeTransform.y)
                     {
-                        return 0.67f;
+                        return 0.65f;
                     }
                     else
                     {

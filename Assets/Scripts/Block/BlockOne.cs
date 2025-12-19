@@ -101,7 +101,7 @@ public class BlockOne : BaseBlock
 
         if (directionPipe == DirectionPipe.Left || directionPipe == DirectionPipe.Right)
         {
-            return 0.225f;
+            return 0.22f;
         }
         else
         {

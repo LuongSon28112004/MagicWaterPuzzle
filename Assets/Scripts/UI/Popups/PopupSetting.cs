@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +8,10 @@ public class PopupSetting : PopupUI
     [SerializeField] Button buttonClose;
     [SerializeField] Button buttonSoundFX;
     [SerializeField] Button buttonSoundMusic;
+    [SerializeField] Button buttonVibrate;
     [SerializeField] bool onSoundFX;
     [SerializeField] bool onSoundMusic;
+    [SerializeField] bool onVibrate;
     [Header("Image src")]
     [SerializeField] Image ImageSoundSlack;
     [SerializeField] Image ImageMusicSlack;
@@ -21,6 +24,26 @@ public class PopupSetting : PopupUI
         AddEventListener();
         onSoundFX = AudioManager.AudioSoundSetting;
         onSoundMusic = AudioManager.AudioMusicSetting;
+        onVibrate = AudioManager.AudioVibrateSetting;
+        InitIconFX();
+    }
+
+    private void InitIconFX()
+    {
+        if (!onSoundFX)
+        {
+            ImageSoundSlack.gameObject.SetActive(true);
+        }
+
+        if (!onSoundMusic)
+        {
+            ImageMusicSlack.gameObject.SetActive(true);
+        }
+
+        if (!onVibrate)
+        {
+            ImageVirbateSlack.gameObject.SetActive(true);
+        }
     }
 
     private void AddEventListener()
@@ -28,6 +51,25 @@ public class PopupSetting : PopupUI
         buttonClose.onClick.AddListener(CloseClick);
         buttonSoundFX.onClick.AddListener(SoundFXClick);
         buttonSoundMusic.onClick.AddListener(SoundMusicClick);
+        buttonVibrate.onClick.AddListener(VirbrateClick);
+
+    }
+
+    private void VirbrateClick()
+    {
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
+        if (onVibrate)
+        {
+            ImageVirbateSlack.gameObject.SetActive(true);
+            onVibrate = false;
+            PlayerPrefs.SetInt("vibrate_setting", 0);
+        }
+        else
+        {
+            ImageVirbateSlack.gameObject.SetActive(false);
+            onVibrate = true;
+            PlayerPrefs.SetInt("vibrate_setting", 1);
+        }
 
     }
 

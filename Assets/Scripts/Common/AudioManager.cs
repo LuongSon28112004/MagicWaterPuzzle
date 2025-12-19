@@ -297,6 +297,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayVibrate()
     {
+        if (!AudioVibrateSetting) return;
         //GameHelper.Instance.Vibrate(type_Vibreate);
 #if UNITY_ANDROID || UNITY_IOS
         Handheld.Vibrate(); // Short default vibration

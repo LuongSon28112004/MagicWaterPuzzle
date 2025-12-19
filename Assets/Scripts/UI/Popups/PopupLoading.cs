@@ -72,7 +72,7 @@ public class PopupLoading : PopupUI
             SetProgress(progress);
             if (progress < 20)
             {
-                yield return new WaitForSeconds(0.08f);
+                yield return new WaitForSeconds(0.04f);
             }
             else if (progress < 90)
             {

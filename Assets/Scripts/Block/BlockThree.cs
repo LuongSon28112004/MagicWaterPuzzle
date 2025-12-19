@@ -130,15 +130,15 @@ public class BlockThree : BaseBlock
             else if (currentCapacity == 2)
             {
                 StartCoroutine(blockParticles[0].PlayParticle());
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.1f);
                 StartCoroutine(blockParticles[1].PlayParticle());
             }
             else if (currentCapacity == 3)
             {
                 StartCoroutine(blockParticles[2].PlayParticle());
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.1f);
                 StartCoroutine(blockParticles[1].PlayParticle());
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.1f);
                 StartCoroutine(blockParticles[0].PlayParticle());
             }
         }
@@ -153,11 +153,11 @@ public class BlockThree : BaseBlock
         {
             if (directionPipe == DirectionPipe.Left)
             {
-                return 0.23f;
+                return 0.22f;
             }
             else if (directionPipe == DirectionPipe.Right)
             {
-                return 0.23f;
+                return 0.22f;
             }
             else
             {

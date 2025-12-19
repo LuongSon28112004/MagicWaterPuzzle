@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 5576477390113026212}
   - component: {fileID: 6668140965912147636}
   - component: {fileID: 4709237701738930210}
+  - component: {fileID: 2964996551052298498}
   m_Layer: 5
   m_Name: ButtonGiveUp
   m_TagString: Untagged
@@ -484,6 +485,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2964996551052298498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2942631348310101947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.9, y: 0.9, z: 1}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &4072826315558806188
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,6 +1005,7 @@ GameObject:
   - component: {fileID: 6387021227734747579}
   - component: {fileID: 5317154384377201599}
   - component: {fileID: 8815938827328241862}
+  - component: {fileID: 5548846407214796924}
   m_Layer: 5
   m_Name: ButtonExit
   m_TagString: Untagged
@@ -1089,6 +1114,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5548846407214796924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7535720918055876318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.9, y: 0.9, z: 1}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &8279462093819103745
 GameObject:
   m_ObjectHideFlags: 0
