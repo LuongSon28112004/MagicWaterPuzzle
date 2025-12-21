@@ -8,8 +8,9 @@ public class PipeKeyLock : MonoBehaviour
     [SerializeField] bool isLocked = false;
     [SerializeField] GameObject keyObject;
     [SerializeField] private GameObject GateObject;
-    [SerializeField] private GameObject LockObject;
+    [SerializeField] private GameObject lockObject;
     [SerializeField] private GameObject LockIcon;
+    [SerializeField] MeshRenderer LockBase;
 
     [SerializeField] KeyInfor keyInfor;
     [SerializeField] MeshRenderer keyMeshRenderer;
@@ -21,6 +22,7 @@ public class PipeKeyLock : MonoBehaviour
 
     public bool IsLocked { get => isLocked; set => isLocked = value; }
     public KeyInfor KeyInfor { get => keyInfor; set => keyInfor = value; }
+    public GameObject LockObject { get => lockObject; set => lockObject = value; }
 
     public void InitKeyLock(KeyInfor colorKey)
     {
@@ -33,6 +35,7 @@ public class PipeKeyLock : MonoBehaviour
         if (colorMat != null && keyMeshRenderer != null)
         {
             keyMeshRenderer.material = colorMat.Frame_01;
+            LockBase.material = colorMat.Frame_01;
         }
     }
 
@@ -52,9 +55,9 @@ public class PipeKeyLock : MonoBehaviour
 
     private IEnumerator ShowAnimClearPipe()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.8f);
         // play Sound
-        AudioManager.Instance.PlayOneShot("unlock", 1f);
+        AudioManager.Instance.PlayOneShot("Metal Gate Open", 1f);
         GameObject effectPrefab = Resources.Load<GameObject>("Particles/PipeClearEffect");
         if (effectPrefab != null)
         {

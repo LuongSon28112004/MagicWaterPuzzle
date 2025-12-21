@@ -18,6 +18,7 @@ Shader "Custom/ProceduralWaterfall"
         ZWrite On
 
 
+
         CGPROGRAM
         #pragma surface surf Standard alpha
 

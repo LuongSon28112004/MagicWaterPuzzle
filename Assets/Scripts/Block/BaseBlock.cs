@@ -76,9 +76,6 @@ public abstract class BaseBlock : MonoBehaviour
 
     //Block particle
     [SerializeField] protected List<BlockParticle> blockParticles;
-    // Tween Rorate
-    private Tween rotateTween;
-
 
     //Getter And Setter
     public Direction BlockDirection { get => blockDirection; set => blockDirection = value; }
@@ -198,23 +195,37 @@ public abstract class BaseBlock : MonoBehaviour
     void OnMouseUp()
     {
         if (BlockVisual.blockIce.IsActive) return;
-        // Ngăn kéo khi chuột đang trên UI
+
+        // Ngăn thả khi đang trên UI
         if (UIBlockChecker.IsPointerOverUI())
             return;
-        if (LevelManager.Instance.BoosterHammerUsed || !IsMove)
-        {
-            transform.position = SnapToGrid(transform.position);
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            rb.gravityScale = 0;
-            isGragging = false;
-            return;
-        }
+
+        // kết thúc kéo
+        isGragging = false;
+
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.gravityScale = 0;
-        isGragging = false;
-        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
+
+        // Snap vị trí
         transform.position = SnapToGrid(transform.position);
+
+
+        //ResetZ();
+        // Reset rotate MỘT LẦN DUY NHẤT
+        if (rotateTween != null && rotateTween.IsActive())
+            rotateTween.Kill();
+
+        transform.DORotate(
+            new Vector3(0, 0, transform.eulerAngles.z),
+            0.15f
+        ).SetEase(Ease.OutQuad);
+
+        if (LevelManager.Instance.BoosterHammerUsed || !IsMove)
+            return;
+
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
     }
+
 
     //Làm tròn về lẻ gần nhất
     protected float SnapOdd(float v)
@@ -241,6 +252,18 @@ public abstract class BaseBlock : MonoBehaviour
         // Ngăn kéo khi chuột đang trên UI
         if (UIBlockChecker.IsPointerOverUI())
             return;
+        if (isFill)
+        {
+            //ResetZ();
+            // Reset rotate MỘT LẦN DUY NHẤT
+            if (rotateTween != null && rotateTween.IsActive())
+                rotateTween.Kill();
+
+            transform.DORotate(
+                new Vector3(0, 0, transform.eulerAngles.z),
+                0.15f
+            ).SetEase(Ease.OutQuad);
+        }
         if (!IsMove || LevelManager.Instance.BoosterHammerUsed)
         {
             rb.bodyType = RigidbodyType2D.Dynamic;
@@ -267,42 +290,59 @@ public abstract class BaseBlock : MonoBehaviour
         rb.MovePosition(smoothPos);
     }
 
+    private Tweener zTween;
+    private float liftZ = -1f;
+    private float normalZ = 0f;
+
+    private void LiftZ()
+    {
+        if (Mathf.Approximately(transform.position.z, liftZ)) return;
+
+        zTween?.Kill();
+        zTween = transform.DOMoveZ(liftZ, 0.08f)
+            .SetEase(Ease.OutQuad);
+    }
+
+    private void ResetZ()
+    {
+        zTween?.Kill();
+        zTween = transform.DOMoveZ(normalZ, 0.12f)
+            .SetEase(Ease.OutQuad);
+    }
+
+
+
+    private Tweener rotateTween;
+    private Vector3 lastPos;
+    private float maxTilt = 20f;
+
     private void RotateMove(Vector3 target)
     {
-        float tiltX = 0f;
-        float tiltY = 0f;
+        Vector3 delta = target - lastPos;
+        lastPos = target;
 
-        // Xoay theo trục ngang
-        if (target.x > transform.position.x)
-            tiltY = -5f;
-        else if (target.x < transform.position.x)
-            tiltY = 5f;
+        float tiltX = Mathf.Clamp(delta.y * 80f, -maxTilt, maxTilt);
+        float tiltY = Mathf.Clamp(-delta.x * 80f, -maxTilt, maxTilt);
 
-        // Xoay theo trục dọc
-        if (target.y > transform.position.y)
-            tiltX = 5f;
-        else if (target.y < transform.position.y)
-            tiltX = -5f;
+        //LiftZ(); //nâng block khi nghiêng
 
-        // Kill tween xoay cũ
-        if (rotateTween != null && rotateTween.IsActive())
-            rotateTween.Kill();
+        if (rotateTween == null || !rotateTween.IsActive())
+        {
+            rotateTween = transform
+                .DORotate(new Vector3(tiltX, tiltY, transform.eulerAngles.z), 0.12f)
+                .SetEase(Ease.OutQuad);
 
-        // Tween xoay mới
-        rotateTween = transform
-            .DORotate(new Vector3(tiltX, tiltY, transform.rotation.eulerAngles.z), 0.1f)
-            .OnComplete(() =>
-            {
-                // Kill tween cũ lần nữa trước khi reset xoay
-                if (rotateTween != null && rotateTween.IsActive())
-                    rotateTween.Kill();
-
-                rotateTween = transform.DORotate(
-                    new Vector3(0, 0, transform.rotation.eulerAngles.z),
-                    0.1f
-                );
-            });
+        }
+        else
+        {
+            rotateTween.ChangeEndValue(
+                new Vector3(tiltX, tiltY, transform.eulerAngles.z),
+                true
+            );
+        }
     }
+
+
 
 
 
@@ -360,13 +400,13 @@ public abstract class BaseBlock : MonoBehaviour
 
     void ProcessTriggerMove(Collider2D other)
     {
-        if ((other.GetComponentInParent<BlockTwo>() != null ||
-             other.GetComponentInParent<BaseBlock>() != null) && isGragging)
-        {
-            Vector3 pos = transform.position;
-            pos.z = -0.1f;
-            transform.position = pos;
-        }
+        // if ((other.GetComponentInParent<BlockTwo>() != null ||
+        //      other.GetComponentInParent<BaseBlock>() != null) && isGragging)
+        // {
+        //     Vector3 pos = transform.position;
+        //     pos.z = -1f;
+        //     transform.position = pos;
+        // }
         Collider2D myCol = GetComponent<Collider2D>();
         if (myCol == null) return;
 

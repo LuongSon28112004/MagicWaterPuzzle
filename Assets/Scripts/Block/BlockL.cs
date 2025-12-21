@@ -206,7 +206,7 @@ public class BlockL : BaseBlock
                     }
                     else if (transform.position.y == pipeTransform.y)
                     {
-                        return 0.65f;
+                        return 0.62f;
                     }
                     else
                     {
@@ -320,7 +320,7 @@ public class BlockL : BaseBlock
                         posSnap.x = waterPipe.transform.position.x + 1;
                     }
                 }
-                if (ApproxAngle(180, 0, 0))
+                if (ApproxAngle(180, 1, 0))
                 {
                     posSnap.x = waterPipe.transform.position.x + 1;
                 }
@@ -358,7 +358,7 @@ public class BlockL : BaseBlock
                 {
                     posSnap.x = waterPipe.transform.position.x - 2;
                 }
-                if (ApproxAngle(180, 0, 0))
+                if (ApproxAngle(180, 1, 0))
                 {
                     if (pos.x < waterPipe.transform.position.x)
                     {
@@ -403,7 +403,7 @@ public class BlockL : BaseBlock
                 {
                     posSnap.y = waterPipe.transform.position.y - 2;
                 }
-                if (ApproxAngle(180, 0, 0))
+                if (ApproxAngle(180, 1, 0))
                 {
                     if (pos.y < waterPipe.transform.position.y)
                     {

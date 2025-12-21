@@ -22,6 +22,7 @@ Shader "Custom/GlassImproved"
         Blend SrcAlpha OneMinusSrcAlpha
         ZWrite Off
 
+
         CGPROGRAM
         #pragma surface surf Standard alpha:fade fullforwardshadows
 

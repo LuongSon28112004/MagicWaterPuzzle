@@ -78,7 +78,7 @@ Shader "Linh/FrostedGlassStrongSnow"
             o.Metallic = 0;
             o.Alpha = 1 - frostAmount * 0.5;
 
-            // ⭐ EMISSION – tuyết phát sáng
+            // EMISSION – tuyết phát sáng
             float3 emissionColor = (_FrostColor.rgb + float3(0.15, 0.25, 0.5)) * frostAmount * _SnowGlowIntensity;
             o.Emission = emissionColor;
         }

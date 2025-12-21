@@ -41,14 +41,21 @@ public class BlockKeyLock : MonoBehaviour
             if (pipeKeyLock != null)
             {
                 keyObject.transform.SetParent(null);
-                Vector3 targetPos = keyObject.transform.position;
-                targetPos.z -= 5f;
-                keyObject.transform.position = targetPos;
-                keyObject.transform.DOMove(pipeKeyLock.transform.position, 0.8f).SetEase(Ease.InOutQuad).OnComplete(() =>
+                Vector3 targetPos = pipeKeyLock.LockObject.transform.position;
+                targetPos.z -= 1f;
+                DG.Tweening.Sequence sequence = DOTween.Sequence();
+                sequence.Append(keyObject.transform.DOMove(targetPos, 0.8f).SetEase(Ease.InOutQuad));
+                sequence.Join(keyObject.transform.DORotate(new Vector3(keyObject.transform.rotation.eulerAngles.x, keyObject.transform.rotation.eulerAngles.y, keyObject.transform.rotation.eulerAngles.z + 90f), 1f).SetEase(Ease.InOutQuad));
+                sequence.OnComplete(() =>
                 {
-                    pipeKeyLock.UnlockKeyLock();
-                    keyObject.SetActive(false);
+                    AudioManager.Instance.PlayOneShot("unlock", 1f);
+                    keyObject.transform.DORotate(new Vector3(keyObject.transform.rotation.eulerAngles.x + 90f, keyObject.transform.rotation.eulerAngles.y, keyObject.transform.rotation.eulerAngles.z), 0.5f).SetEase(Ease.InOutQuad).OnComplete(() =>
+                    {
+                        pipeKeyLock.UnlockKeyLock();
+                        keyObject.SetActive(false);
+                    });
                 });
+
             }
             // isLocked = false;
             // // play unlock animation or effect here

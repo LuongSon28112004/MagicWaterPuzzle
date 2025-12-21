@@ -475,6 +475,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 982349086896403464, guid: 145806513b268b749b7f4a9a167cc1bc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 982349086896403464, guid: 145806513b268b749b7f4a9a167cc1bc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1569442660187419153, guid: 145806513b268b749b7f4a9a167cc1bc, type: 3}
       propertyPath: m_Name
       value: PopupWin

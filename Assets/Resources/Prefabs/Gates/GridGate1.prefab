@@ -20545,8 +20545,9 @@ MonoBehaviour:
   isLocked: 0
   keyObject: {fileID: 1835371550419531}
   GateObject: {fileID: 1331036025706527}
-  LockObject: {fileID: 1724343680776070}
+  lockObject: {fileID: 1724343680776070}
   LockIcon: {fileID: 1243146662139643}
+  LockBase: {fileID: 23195405549980131}
   keyInfor:
     IsKey: 0
     ColorKey: 0
