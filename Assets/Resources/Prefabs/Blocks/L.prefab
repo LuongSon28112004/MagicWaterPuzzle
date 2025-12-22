@@ -81781,7 +81781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1565774183949077308, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1565774183949077308, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: InitialModule.startSize.minMaxState
@@ -81797,7 +81797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1565774183949077308, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: InitialModule.startLifetime.minScalar
-      value: 0.7
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1565774183949077308, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
@@ -81853,11 +81853,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7524051843621014986, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7524051843621014986, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: InitialModule.startLifetime.minScalar
-      value: 0.7
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7524051843621014986, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: InitialModule.startLifetime.minMaxState

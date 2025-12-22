@@ -50,7 +50,7 @@ public class BlockTypeVariant : MonoBehaviour
         waterMeshRenderer.GetPropertyBlock(materialPropertyBlock);
         materialPropertyBlock.SetFloat("_FillAmount", 0);
         materialPropertyBlock.SetVector("_FillDir", direction);
-        AutoComputeMinMax(direction);
+        //AutoComputeMinMax(direction);
 
         //xet color water
         string hex = Contacts.HexColor(color);

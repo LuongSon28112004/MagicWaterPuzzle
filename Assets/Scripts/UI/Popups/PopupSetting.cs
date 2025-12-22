@@ -16,6 +16,10 @@ public class PopupSetting : PopupUI
     [SerializeField] Image ImageSoundSlack;
     [SerializeField] Image ImageMusicSlack;
     [SerializeField] Image ImageVirbateSlack;
+    [Header("Help and Support")]
+    [SerializeField] Button helpButton;
+    [SerializeField] Button gilfCodeButton;
+    [SerializeField] Button joinButton;
 
 
 
@@ -52,7 +56,24 @@ public class PopupSetting : PopupUI
         buttonSoundFX.onClick.AddListener(SoundFXClick);
         buttonSoundMusic.onClick.AddListener(SoundMusicClick);
         buttonVibrate.onClick.AddListener(VirbrateClick);
+        helpButton.onClick.AddListener(HelpClick);
+        gilfCodeButton.onClick.AddListener(GilfClick);
+        joinButton.onClick.AddListener(JoinClick);
+    }
 
+    private void JoinClick()
+    {
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
+    }
+
+    private void GilfClick()
+    {
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
+    }
+
+    private void HelpClick()
+    {
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
     }
 
     private void VirbrateClick()

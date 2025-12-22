@@ -212,13 +212,13 @@ public abstract class BaseBlock : MonoBehaviour
 
         //ResetZ();
         // Reset rotate MỘT LẦN DUY NHẤT
-        if (rotateTween != null && rotateTween.IsActive())
-            rotateTween.Kill();
+        // if (rotateTween != null && rotateTween.IsActive())
+        //     rotateTween.Kill();
 
-        transform.DORotate(
-            new Vector3(0, 0, transform.eulerAngles.z),
-            0.15f
-        ).SetEase(Ease.OutQuad);
+        // transform.DORotate(
+        //     new Vector3(0, 0, transform.eulerAngles.z),
+        //     0.15f
+        // ).SetEase(Ease.OutQuad);
 
         if (LevelManager.Instance.BoosterHammerUsed || !IsMove)
             return;
@@ -252,25 +252,25 @@ public abstract class BaseBlock : MonoBehaviour
         // Ngăn kéo khi chuột đang trên UI
         if (UIBlockChecker.IsPointerOverUI())
             return;
-        if (isFill)
-        {
-            //ResetZ();
-            // Reset rotate MỘT LẦN DUY NHẤT
-            if (rotateTween != null && rotateTween.IsActive())
-                rotateTween.Kill();
+        // if (isFill)
+        // {
+        //     //ResetZ();
+        //     // Reset rotate MỘT LẦN DUY NHẤT
+        //     // if (rotateTween != null && rotateTween.IsActive())
+        //     //     rotateTween.Kill();
 
-            transform.DORotate(
-                new Vector3(0, 0, transform.eulerAngles.z),
-                0.15f
-            ).SetEase(Ease.OutQuad);
-        }
+        //     // transform.DORotate(
+        //     //     new Vector3(0, 0, transform.eulerAngles.z),
+        //     //     0.15f
+        //     // ).SetEase(Ease.OutQuad);
+        // }
         if (!IsMove || LevelManager.Instance.BoosterHammerUsed)
         {
             rb.bodyType = RigidbodyType2D.Dynamic;
             rb.gravityScale = 0;
             rb.linearDamping = 0;
             rb.angularDamping = 0;
-            // nếu kéo mà gặp gatepipe thì snap lại luôn
+            // snap pos
             transform.position = SnapToGrid(transform.position);
             return;
         }
@@ -400,13 +400,12 @@ public abstract class BaseBlock : MonoBehaviour
 
     void ProcessTriggerMove(Collider2D other)
     {
-        // if ((other.GetComponentInParent<BlockTwo>() != null ||
-        //      other.GetComponentInParent<BaseBlock>() != null) && isGragging)
-        // {
-        //     Vector3 pos = transform.position;
-        //     pos.z = -1f;
-        //     transform.position = pos;
-        // }
+        if ((other.GetComponentInParent<BaseBlock>() != null) && isGragging)
+        {
+            Vector3 pos = transform.position;
+            pos.z = -1f;
+            transform.position = pos;
+        }
         Collider2D myCol = GetComponent<Collider2D>();
         if (myCol == null) return;
 

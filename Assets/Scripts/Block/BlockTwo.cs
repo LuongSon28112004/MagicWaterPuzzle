@@ -131,8 +131,9 @@ public class BlockTwo : BaseBlock
             }
             else if (currentCapacity == 2)
             {
-                StartCoroutine(blockParticles[0].PlayParticle());
                 StartCoroutine(blockParticles[1].PlayParticle());
+                yield return new WaitForSeconds(0.4f);
+                StartCoroutine(blockParticles[0].PlayParticle());
             }
         }
         yield break;

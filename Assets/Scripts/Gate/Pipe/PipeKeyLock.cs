@@ -55,7 +55,7 @@ public class PipeKeyLock : MonoBehaviour
 
     private IEnumerator ShowAnimClearPipe()
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.5f);
         // play Sound
         AudioManager.Instance.PlayOneShot("Metal Gate Open", 1f);
         GameObject effectPrefab = Resources.Load<GameObject>("Particles/PipeClearEffect");

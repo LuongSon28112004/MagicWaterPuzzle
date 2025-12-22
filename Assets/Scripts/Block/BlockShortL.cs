@@ -114,29 +114,75 @@ public class BlockShortL : BaseBlock
 
     protected override IEnumerator PlayParticleBlock()
     {
-        // if (blockDirection == Direction.HORIZONTAL)
-        // {
-        StartCoroutine(blockParticles[0].PlayParticle());
+        float z = transform.rotation.eulerAngles.z;
+        if (blockDirection == Direction.HORIZONTAL)
+        {
+            if (ApproxAngle(90, 1, z))
+            {
+                if (currentCapacity <= 1)
+                {
+                    StartCoroutine(blockParticles[0].PlayParticle());
+                }
+                else
+                {
+                    StartCoroutine(blockParticles[0].PlayParticle());
+                    yield return new WaitForSeconds(0.4f);
+                    StartCoroutine(blockParticles[1].PlayParticle());
+                    StartCoroutine(blockParticles[2].PlayParticle());
+                }
 
-        StartCoroutine(blockParticles[1].PlayParticle());
-        StartCoroutine(blockParticles[2].PlayParticle());
-        // }
-        // else
-        // {
-        //     // xet truong hop 0 độ của capacity
-        //     if (currentCapacity == 1)
-        //     {
-        //         StartCoroutine(blockParticles[1].PlayParticle());
-        //     }
-        //     else if (currentCapacity == 2)
-        //     {
-        //         StartCoroutine(blockParticles[0].PlayParticle());
-        //         yield return new WaitForSeconds(0.1f);
-        //         StartCoroutine(blockParticles[1].PlayParticle());
-        //         yield return new WaitForSeconds(0.1f);
-        //         StartCoroutine(blockParticles[2].PlayParticle());
-        //     }
-        // }
+            }
+
+            if (ApproxAngle(-90, 1, z))
+            {
+                if (currentCapacity <= 2)
+                {
+                    StartCoroutine(blockParticles[1].PlayParticle());
+                    StartCoroutine(blockParticles[2].PlayParticle());
+                }
+                else
+                {
+                    StartCoroutine(blockParticles[1].PlayParticle());
+                    StartCoroutine(blockParticles[2].PlayParticle());
+                    yield return new WaitForSeconds(0.4f);
+                    StartCoroutine(blockParticles[0].PlayParticle());
+                }
+            }
+        }
+        else
+        {
+            if (ApproxAngle(0, 1, z))
+            {
+                if (currentCapacity <= 1)
+                {
+                    StartCoroutine(blockParticles[2].PlayParticle());
+                }
+                else
+                {
+                    StartCoroutine(blockParticles[2].PlayParticle());
+                    yield return new WaitForSeconds(0.4f);
+                    StartCoroutine(blockParticles[1].PlayParticle());
+                    StartCoroutine(blockParticles[0].PlayParticle());
+                }
+
+            }
+
+            if (ApproxAngle(180, 1, z))
+            {
+                if (currentCapacity <= 2)
+                {
+                    StartCoroutine(blockParticles[0].PlayParticle());
+                    StartCoroutine(blockParticles[1].PlayParticle());
+                }
+                else
+                {
+                    StartCoroutine(blockParticles[0].PlayParticle());
+                    StartCoroutine(blockParticles[1].PlayParticle());
+                    yield return new WaitForSeconds(0.4f);
+                    StartCoroutine(blockParticles[2].PlayParticle());
+                }
+            }
+        }
 
         yield break;
 

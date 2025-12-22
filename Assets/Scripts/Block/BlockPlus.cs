@@ -89,7 +89,6 @@ public class BlockPlus : BaseBlock
     // Override Play BlockParticle
     protected override IEnumerator PlayParticleBlock()
     {
-        base.PlayParticleBlock();
         if (currentCapacity == 1)
         {
             StartCoroutine(blockParticles[0].PlayParticle());
@@ -97,6 +96,7 @@ public class BlockPlus : BaseBlock
         else if (currentCapacity > 1 && currentCapacity < 5)
         {
             StartCoroutine(blockParticles[0].PlayParticle());
+            yield return new WaitForSeconds(0.4f);
             StartCoroutine(blockParticles[1].PlayParticle());
             StartCoroutine(blockParticles[2].PlayParticle());
             StartCoroutine(blockParticles[3].PlayParticle());
@@ -104,9 +104,11 @@ public class BlockPlus : BaseBlock
         else if (currentCapacity >= 5)
         {
             StartCoroutine(blockParticles[0].PlayParticle());
+            yield return new WaitForSeconds(0.4f);
             StartCoroutine(blockParticles[1].PlayParticle());
             StartCoroutine(blockParticles[2].PlayParticle());
             StartCoroutine(blockParticles[3].PlayParticle());
+            yield return new WaitForSeconds(0.4f);
             StartCoroutine(blockParticles[4].PlayParticle());
         }
         yield break;

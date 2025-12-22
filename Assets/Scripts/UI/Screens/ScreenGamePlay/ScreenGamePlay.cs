@@ -205,6 +205,12 @@ public class ScreenGamePlay : ScreenUI
     private void RestartClick()
     {
         AudioManager.Instance.PlayOneShot("ClickButton", 1f);
+        StartCoroutine(ShowPopupRestart());
+    }
+
+    private IEnumerator ShowPopupRestart()
+    {
+        yield return new WaitForSeconds(0.2f);
         var ui = UIManager.Instance.ShowPopup<PopupExitLevel>(null);
         ui.InitMode(ModeShowPopupExit.RESTART);
     }
@@ -212,6 +218,12 @@ public class ScreenGamePlay : ScreenUI
     private void BackClick()
     {
         AudioManager.Instance.PlayOneShot("ClickButton", 1f);
+        StartCoroutine(ShowPopupBack());
+    }
+
+    private IEnumerator ShowPopupBack()
+    {
+        yield return new WaitForSeconds(0.2f);
         var ui = UIManager.Instance.ShowPopup<PopupExitLevel>(null);
         ui.InitMode(ModeShowPopupExit.MENU);
     }
@@ -219,6 +231,12 @@ public class ScreenGamePlay : ScreenUI
     private void PauseClick()
     {
         AudioManager.Instance.PlayOneShot("ClickButton", 1f);
+        StartCoroutine(ShowPopupPause());
+    }
+
+    private IEnumerator ShowPopupPause()
+    {
+        yield return new WaitForSeconds(0.2f);
         UIManager.Instance.ShowPopup<PopupSetting>(null);
     }
 

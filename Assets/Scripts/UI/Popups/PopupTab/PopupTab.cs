@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -34,6 +35,9 @@ public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
     [Header("Parents")]
     [SerializeField] private GameObject ChoicePanel;
     [SerializeField] private Transform Parent;
+
+    [Header("Target Coin")]
+    public RectTransform coinTarget;
     private StatusChoice currentStatus;
 
     // Swipe
@@ -106,6 +110,12 @@ public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
     private void SettingsClick()
     {
         AudioManager.Instance.PlayOneShot("ClickButton", 1f);
+        StartCoroutine(ShowPopupSettings());
+    }
+
+    private IEnumerator ShowPopupSettings()
+    {
+        yield return new WaitForSeconds(0.2f);
         UIManager.Instance.ShowPopup<PopupSetting>(null);
     }
 

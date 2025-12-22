@@ -13131,7 +13131,7 @@ Transform:
   m_GameObject: {fileID: 1365594932245037}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 0.2, z: -1}
+  m_LocalPosition: {x: 0, y: 0.2, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13418,7 +13418,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1.5, y: 1.5, z: 0.1}
+    m_Scale: {x: 1.5, y: 2, z: 0.1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -21211,7 +21211,7 @@ Transform:
   m_GameObject: {fileID: 1475400704549673}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: -0.2, z: -1}
+  m_LocalPosition: {x: 0, y: -0.2, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24314,7 +24314,7 @@ Transform:
   m_GameObject: {fileID: 1511725180564680}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 0.2, z: -1}
+  m_LocalPosition: {x: 0, y: 0.2, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30955,7 +30955,7 @@ Transform:
   m_GameObject: {fileID: 1698346372179224}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25, y: -0.2, z: -1}
+  m_LocalPosition: {x: 0, y: -0.2, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31242,7 +31242,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1.5, y: 1.5, z: 0.1}
+    m_Scale: {x: 1.5, y: 2, z: 0.1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -53678,7 +53678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1565774183949077308, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1565774183949077308, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: InitialModule.startSize.minMaxState
@@ -53694,7 +53694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1565774183949077308, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: InitialModule.startLifetime.minScalar
-      value: 0.7
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1565774183949077308, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
@@ -53750,11 +53750,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7524051843621014986, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7524051843621014986, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: InitialModule.startLifetime.minScalar
-      value: 0.7
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7524051843621014986, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: InitialModule.startLifetime.minMaxState

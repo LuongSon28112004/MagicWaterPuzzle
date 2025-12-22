@@ -323,6 +323,7 @@ MonoBehaviour:
   textCountHeart: {fileID: 5349121387289529903}
   ChoicePanel: {fileID: 8875114306767809739}
   Parent: {fileID: 6733705747129919286}
+  coinTarget: {fileID: 6579800197907981974}
 --- !u!1 &2606728709254284278
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,8 +620,6 @@ MonoBehaviour:
   eventOnPointUp:
     m_PersistentCalls:
       m_Calls: []
-  isActiveSound: 1
-  ignoreVib: 0
 --- !u!1 &2935282224027259027
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,8 +764,6 @@ MonoBehaviour:
   eventOnPointUp:
     m_PersistentCalls:
       m_Calls: []
-  isActiveSound: 1
-  ignoreVib: 0
 --- !u!1 &2951354734237516111
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,8 +983,6 @@ MonoBehaviour:
   eventOnPointUp:
     m_PersistentCalls:
       m_Calls: []
-  isActiveSound: 1
-  ignoreVib: 0
 --- !u!1 &3181377760923280951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,8 +1237,6 @@ MonoBehaviour:
   eventOnPointUp:
     m_PersistentCalls:
       m_Calls: []
-  isActiveSound: 1
-  ignoreVib: 0
 --- !u!1 &4579699210445747152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,8 +1506,6 @@ MonoBehaviour:
   eventOnPointUp:
     m_PersistentCalls:
       m_Calls: []
-  isActiveSound: 1
-  ignoreVib: 0
 --- !u!1 &5206323628755490940
 GameObject:
   m_ObjectHideFlags: 0
@@ -2875,8 +2866,6 @@ MonoBehaviour:
   eventOnPointUp:
     m_PersistentCalls:
       m_Calls: []
-  isActiveSound: 1
-  ignoreVib: 0
 --- !u!1 &8927933105473582563
 GameObject:
   m_ObjectHideFlags: 0
