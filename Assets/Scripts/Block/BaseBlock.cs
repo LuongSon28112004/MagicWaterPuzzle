@@ -200,6 +200,11 @@ public abstract class BaseBlock : MonoBehaviour
         if (UIBlockChecker.IsPointerOverUI())
             return;
 
+
+        //reset blockNormal
+        blockNormal = Vector2.zero;
+
+
         // kết thúc kéo
         isGragging = false;
 
@@ -210,15 +215,15 @@ public abstract class BaseBlock : MonoBehaviour
         transform.position = SnapToGrid(transform.position);
 
 
-        //ResetZ();
-        // Reset rotate MỘT LẦN DUY NHẤT
-        // if (rotateTween != null && rotateTween.IsActive())
-        //     rotateTween.Kill();
+        ResetZ();
+        //Reset rotate MỘT LẦN DUY NHẤT
+        if (rotateTween != null && rotateTween.IsActive())
+            rotateTween.Kill();
 
-        // transform.DORotate(
-        //     new Vector3(0, 0, transform.eulerAngles.z),
-        //     0.15f
-        // ).SetEase(Ease.OutQuad);
+        transform.DORotate(
+            new Vector3(0, 0, transform.eulerAngles.z),
+            0.15f
+        ).SetEase(Ease.OutQuad);
 
         if (LevelManager.Instance.BoosterHammerUsed || !IsMove)
             return;
@@ -252,18 +257,18 @@ public abstract class BaseBlock : MonoBehaviour
         // Ngăn kéo khi chuột đang trên UI
         if (UIBlockChecker.IsPointerOverUI())
             return;
-        // if (isFill)
-        // {
-        //     //ResetZ();
-        //     // Reset rotate MỘT LẦN DUY NHẤT
-        //     // if (rotateTween != null && rotateTween.IsActive())
-        //     //     rotateTween.Kill();
+        if (isFill)
+        {
+            ResetZ();
+            //Reset rotate MỘT LẦN DUY NHẤT
+            if (rotateTween != null && rotateTween.IsActive())
+                rotateTween.Kill();
 
-        //     // transform.DORotate(
-        //     //     new Vector3(0, 0, transform.eulerAngles.z),
-        //     //     0.15f
-        //     // ).SetEase(Ease.OutQuad);
-        // }
+            transform.DORotate(
+                new Vector3(0, 0, transform.eulerAngles.z),
+                0.15f
+            ).SetEase(Ease.OutQuad);
+        }
         if (!IsMove || LevelManager.Instance.BoosterHammerUsed)
         {
             rb.bodyType = RigidbodyType2D.Dynamic;
@@ -281,7 +286,7 @@ public abstract class BaseBlock : MonoBehaviour
         {
             return;
         }
-        //RotateMove(target);
+        RotateMove(target);
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 0;
         rb.linearDamping = 0;
@@ -314,7 +319,7 @@ public abstract class BaseBlock : MonoBehaviour
 
     private Tweener rotateTween;
     private Vector3 lastPos;
-    private float maxTilt = 20f;
+    private float maxTilt = 10f;
 
     private void RotateMove(Vector3 target)
     {
@@ -632,7 +637,7 @@ public abstract class BaseBlock : MonoBehaviour
             transform.position = pos;
         }
 
-        blockNormal = Vector2.zero;
+        // blockNormal = Vector2.zero;
     }
 
     protected bool CheckSameColor(WaterTypeColor waterTypeColor, BlockColor blockColorVisual)

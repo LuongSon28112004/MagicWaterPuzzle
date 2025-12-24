@@ -102,7 +102,7 @@ public class Contacts : MonoBehaviour
             case BlockColor.Green:
                 return "#51ff00ff";
             case BlockColor.Yellow:
-                return "#eaff00ff";
+                return "#cfe200ff";
             case BlockColor.purple:
                 return "#a600ffff";
             case BlockColor.pink:
@@ -110,7 +110,7 @@ public class Contacts : MonoBehaviour
             case BlockColor.Brown:
                 return "#9f4000ff";
             case BlockColor.Turquoise:
-                return "#00fbffff";
+                return "#00d4d8ff";
             case BlockColor.Orange:
                 return "#ff6600ff";
             case BlockColor.Darkgreen:

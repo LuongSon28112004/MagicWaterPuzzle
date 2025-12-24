@@ -7235,7 +7235,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1.5, y: 1.5, z: 0.1}
+    m_Scale: {x: 2, y: 2, z: 0.1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -10361,7 +10361,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1.5, y: 1.5, z: 0.1}
+    m_Scale: {x: 2, y: 2, z: 0.1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -57782,7 +57782,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1.5, y: 1.5, z: 0.1}
+    m_Scale: {x: 2, y: 2, z: 0.1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -75574,7 +75574,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1.5, y: 1.5, z: 0.1}
+    m_Scale: {x: 2, y: 2, z: 0.1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -81809,11 +81809,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4037180129984245754, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4037180129984245754, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4037180129984245754, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: m_LocalPosition.z
@@ -81951,11 +81951,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4773980445893808751, guid: 045194c85f9c02a4eb98846aba8c5682, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4773980445893808751, guid: 045194c85f9c02a4eb98846aba8c5682, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4773980445893808751, guid: 045194c85f9c02a4eb98846aba8c5682, type: 3}
       propertyPath: m_LocalPosition.z

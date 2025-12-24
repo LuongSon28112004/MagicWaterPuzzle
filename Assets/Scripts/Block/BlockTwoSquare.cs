@@ -81,20 +81,24 @@ public class BlockTwoSquare : BaseBlock
     // Override Play Particle
     protected override IEnumerator PlayParticleBlock()
     {
-        if (currentCapacity > 0 && currentCapacity <= 2)
-        {
-            StartCoroutine(blockParticles[2].PlayParticle());
-            StartCoroutine(blockParticles[3].PlayParticle());
-        }
+        StartCoroutine(blockParticles[0].PlayParticle());
+        StartCoroutine(blockParticles[1].PlayParticle());
+        StartCoroutine(blockParticles[2].PlayParticle());
+        StartCoroutine(blockParticles[3].PlayParticle());
+        // if (currentCapacity > 0 && currentCapacity <= 2)
+        // {
+        //     StartCoroutine(blockParticles[2].PlayParticle());
+        //     StartCoroutine(blockParticles[3].PlayParticle());
+        // }
 
-        if (currentCapacity > 2)
-        {
-            StartCoroutine(blockParticles[2].PlayParticle());
-            StartCoroutine(blockParticles[3].PlayParticle());
-            yield return new WaitForSeconds(0.3f);
-            StartCoroutine(blockParticles[0].PlayParticle());
-            StartCoroutine(blockParticles[1].PlayParticle());
-        }
+        // if (currentCapacity > 2)
+        // {
+        //     StartCoroutine(blockParticles[2].PlayParticle());
+        //     StartCoroutine(blockParticles[3].PlayParticle());
+        //     yield return new WaitForSeconds(0.3f);
+        //     StartCoroutine(blockParticles[0].PlayParticle());
+        //     StartCoroutine(blockParticles[1].PlayParticle());
+        // }
         yield break;
 
     }

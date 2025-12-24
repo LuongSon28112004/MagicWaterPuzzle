@@ -11,6 +11,12 @@ public class ShinyEffect : MonoBehaviour
         shinyEffectForUGUI = GetComponent<ShinyEffectForUGUI>();
         StartCoroutine(PlayShinyEffect());
     }
+
+    void OnEnable()
+    {
+        shinyEffectForUGUI = GetComponent<ShinyEffectForUGUI>();
+        StartCoroutine(PlayShinyEffect());
+    }
     private IEnumerator PlayShinyEffect()
     {
         while (true)

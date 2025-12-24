@@ -16,10 +16,10 @@ public class ButtonBuyCoinShop : MonoBehaviour
     [Header("Button")]
     [SerializeField] Button buttonBuy;
     [SerializeField] bool isBuy = false;
+    [SerializeField] int CoinPlus = 1500;
 
     private void Start()
     {
-        buttonBuy = GetComponent<Button>();
         buttonBuy.onClick.AddListener(BuyCoin);
     }
 
@@ -30,13 +30,15 @@ public class ButtonBuyCoinShop : MonoBehaviour
 
     private IEnumerator SpawnCoins()
     {
-        if (!isBuy) yield break;
+        if (isBuy) yield break;
         isBuy = true;
         for (int i = 0; i < coinAmount; i++)
         {
             CreateCoin();
             yield return new WaitForSeconds(spawnDelay);
         }
+        yield return new WaitForSeconds(0.5f);
+        isBuy = false;
     }
 
     private void CreateCoin()
@@ -86,8 +88,8 @@ public class ButtonBuyCoinShop : MonoBehaviour
             .SetEase(Ease.InCubic)
         );
 
-        // Thu nhỏ khi chạm target
-        seq.Join(rect.DOScale(0.3f, flyDuration).SetEase(Ease.InQuad));
+        // // Thu nhỏ khi chạm target
+        // seq.Join(rect.DOScale(0.3f, flyDuration).SetEase(Ease.InQuad));
 
         seq.OnComplete(() =>
         {
