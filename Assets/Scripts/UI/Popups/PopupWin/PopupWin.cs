@@ -193,6 +193,7 @@ public class PopupWin : PopupUI
 
     private void ClaimClick()
     {
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
         ReceiverCoin.gameObject.SetActive(true);
         StartCoroutine(InitCoinReceiver());
         AddAnimationTextCoin();

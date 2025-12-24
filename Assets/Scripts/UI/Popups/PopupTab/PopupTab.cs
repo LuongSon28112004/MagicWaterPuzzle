@@ -97,6 +97,20 @@ public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
         textCoin.text = UserData.coin.ToString();
     }
 
+    public IEnumerator UpdateCoin(int coin)
+    {
+        yield return new WaitForSeconds(1f);
+        int currentCoin = UserData.coin;
+        for (int i = 0; i <= coin / 50 - 1; i++)
+        {
+            currentCoin += 50;
+            textCoin.text = currentCoin.ToString();
+            yield return new WaitForSeconds(0.01f);
+        }
+        UserData.coin += coin;
+        SaveDataManager.Save();
+    }
+
     private void AddButtonListeners()
     {
         ShopButton.onClick.AddListener(() => ChangeStatusChoicePanel(StatusChoice.Shop));

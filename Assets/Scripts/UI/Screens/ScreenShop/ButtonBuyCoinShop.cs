@@ -11,7 +11,7 @@ public class ButtonBuyCoinShop : MonoBehaviour
 
     [Header("Config")]
     [SerializeField] private int coinAmount = 10;
-    [SerializeField] private float spawnDelay = 0.05f;
+    [SerializeField] private float spawnDelay = 0.01f;
     [SerializeField] private float flyDuration = 0.6f;
     [Header("Button")]
     [SerializeField] Button buttonBuy;
@@ -32,6 +32,8 @@ public class ButtonBuyCoinShop : MonoBehaviour
     {
         if (isBuy) yield break;
         isBuy = true;
+        var ui = UIManager.Instance.GetPopupActive<PopupTab>();
+        StartCoroutine(ui.UpdateCoin(CoinPlus));
         for (int i = 0; i < coinAmount; i++)
         {
             CreateCoin();

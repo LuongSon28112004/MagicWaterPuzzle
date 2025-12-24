@@ -215,7 +215,7 @@ public abstract class BaseBlock : MonoBehaviour
         transform.position = SnapToGrid(transform.position);
 
 
-        ResetZ();
+        //ResetZ();
         //Reset rotate MỘT LẦN DUY NHẤT
         if (rotateTween != null && rotateTween.IsActive())
             rotateTween.Kill();
@@ -375,6 +375,7 @@ public abstract class BaseBlock : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
     // Trigger xử lý va chạm
+
     void OnTriggerEnter2D(Collider2D other)
     {
         ProcessTriggerEnter2D(other);
@@ -387,6 +388,7 @@ public abstract class BaseBlock : MonoBehaviour
             Debug.Log("Enter BoxCamera");
             return;
         }
+        ProcessTriggerMove(other);
 
         WaterPipe waterPipe = other.GetComponentInParent<WaterPipe>();
         if (waterPipe == null)
@@ -398,9 +400,8 @@ public abstract class BaseBlock : MonoBehaviour
         {
             return;
         }
-
-        ProcessTriggerMove(other);
         StartCoroutine(ProcessTriggerWaterPipe(other));
+
     }
 
     void ProcessTriggerMove(Collider2D other)
@@ -408,7 +409,7 @@ public abstract class BaseBlock : MonoBehaviour
         if ((other.GetComponentInParent<BaseBlock>() != null) && isGragging)
         {
             Vector3 pos = transform.position;
-            pos.z = -1f;
+            pos.z = -0.5f;
             transform.position = pos;
         }
         Collider2D myCol = GetComponent<Collider2D>();
@@ -514,7 +515,7 @@ public abstract class BaseBlock : MonoBehaviour
     protected virtual IEnumerator CheckDoneFilling()
     {
         if (currentCapacity < maxCapacity) yield break;
-        transform.position -= new Vector3(0, 0, 0.5f);
+        transform.position -= new Vector3(0, 0, 1f);
         AudioManager.Instance.PlayOneShot("ClearBlock", 1f);
         LevelManager.Instance.boardCtrl.BreakIceBlock();
 
@@ -563,17 +564,17 @@ public abstract class BaseBlock : MonoBehaviour
         BlockVisual.blockTrailsParticle.PlayParticle();
         transform.DOPath(
             path,
-            1.5f,
+            1.6f,
             PathType.CatmullRom,
             PathMode.Full3D,
             resolution,
             Color.white
         )
         .SetEase(Ease.InQuint);
-        transform.DORotate(new Vector3(transform.rotation.eulerAngles.x, dir * -45f, transform.rotation.eulerAngles.z), 1.5f).SetEase(Ease.InQuint);
+        transform.DORotate(new Vector3(transform.rotation.eulerAngles.x, dir * -45f, transform.rotation.eulerAngles.z), 1.6f).SetEase(Ease.InQuint);
         // Tăng tốc mạnh về cuối
 
-        transform.DOScale(new Vector3(1.85f, 1.85f, 1.85f), 1.5f)
+        transform.DOScale(new Vector3(1.85f, 1.85f, 1.85f), 1.6f)
             .SetEase(Ease.InQuint);
         yield return new WaitForSeconds(0.3f);
         BlockVisual.soapBubbleEmitterVariant.StopParticle();
@@ -610,13 +611,6 @@ public abstract class BaseBlock : MonoBehaviour
     }
 
 
-    ////////////////////////////////////////////////
-
-    // public IEnumerator ProcessFillWaterPipe(WaterPipe waterPipe)
-    // {
-    //     yield return StartCoroutine(waterPipe.PipeLineCtrl.FillColor(maxCapacity - currentCapacity));
-    // }
-
     protected virtual IEnumerator PlayParticleBlock()
     {
         yield break;
@@ -637,7 +631,7 @@ public abstract class BaseBlock : MonoBehaviour
             transform.position = pos;
         }
 
-        // blockNormal = Vector2.zero;
+        blockNormal = Vector2.zero;
     }
 
     protected bool CheckSameColor(WaterTypeColor waterTypeColor, BlockColor blockColorVisual)
