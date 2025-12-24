@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using DG.Tweening;
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -39,6 +40,8 @@ public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
     [Header("Target Coin")]
     public RectTransform coinTarget;
     private StatusChoice currentStatus;
+    [Header("Panel Lock")]
+    [SerializeField] private Transform PanelLock;
 
     // Swipe
     private Vector2 touchStart;
@@ -297,5 +300,11 @@ public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
                 ChangeStatusChoicePanel(StatusChoice.Home);
                 break;
         }
+    }
+
+    //panel lock
+    public void SetPanelLock(bool isLock)
+    {
+        PanelLock.gameObject.SetActive(isLock);
     }
 }

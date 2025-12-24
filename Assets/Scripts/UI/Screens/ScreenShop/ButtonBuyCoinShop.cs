@@ -33,6 +33,7 @@ public class ButtonBuyCoinShop : MonoBehaviour
         if (isBuy) yield break;
         isBuy = true;
         var ui = UIManager.Instance.GetPopupActive<PopupTab>();
+        ui.SetPanelLock(true);
         StartCoroutine(ui.UpdateCoin(CoinPlus));
         for (int i = 0; i < coinAmount; i++)
         {
@@ -41,6 +42,7 @@ public class ButtonBuyCoinShop : MonoBehaviour
         }
         yield return new WaitForSeconds(0.5f);
         isBuy = false;
+        ui.SetPanelLock(false);
     }
 
     private void CreateCoin()
