@@ -37,6 +37,7 @@ public class BlockParticle : MonoBehaviour
     public void SetNonClick()
     {
         boxCollider.enabled = false;
+        boxTriggerCollider.enabled = false;
     }
 
 

@@ -438,6 +438,12 @@ MonoBehaviour:
     iceInfor:
       IsIce: 0
       CountBreak: 0
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 1, y: 0, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 6
@@ -446,6 +452,12 @@ MonoBehaviour:
     iceInfor:
       IsIce: 0
       CountBreak: 0
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: -1, y: 0, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 7
@@ -454,6 +466,12 @@ MonoBehaviour:
     iceInfor:
       IsIce: 0
       CountBreak: 0
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 0, y: -3, z: 0}
     rotation: {x: -0, y: 0, z: 90}
     color: 3
@@ -462,6 +480,12 @@ MonoBehaviour:
     iceInfor:
       IsIce: 0
       CountBreak: 0
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 0, y: 3, z: 0}
     rotation: {x: -0, y: 0, z: 90}
     color: 3
@@ -470,6 +494,12 @@ MonoBehaviour:
     iceInfor:
       IsIce: 0
       CountBreak: 0
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: -6, y: -6, z: 0}
     rotation: {x: -0, y: 0, z: 180}
     color: 1
@@ -478,6 +508,12 @@ MonoBehaviour:
     iceInfor:
       IsIce: 0
       CountBreak: 0
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 6, y: -6, z: 0}
     rotation: {x: 0, y: 0, z: 270}
     color: 1
@@ -486,6 +522,12 @@ MonoBehaviour:
     iceInfor:
       IsIce: 0
       CountBreak: 0
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: -6, y: -2, z: 0}
     rotation: {x: -0, y: 0, z: 180}
     color: 2
@@ -494,6 +536,12 @@ MonoBehaviour:
     iceInfor:
       IsIce: 0
       CountBreak: 0
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 6, y: -2, z: 0}
     rotation: {x: 0, y: 0, z: 270}
     color: 2
@@ -502,6 +550,12 @@ MonoBehaviour:
     iceInfor:
       IsIce: 0
       CountBreak: 0
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: -6, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 90}
     color: 4
@@ -510,6 +564,12 @@ MonoBehaviour:
     iceInfor:
       IsIce: 0
       CountBreak: 0
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 6, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 4
@@ -518,6 +578,12 @@ MonoBehaviour:
     iceInfor:
       IsIce: 0
       CountBreak: 0
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: -6, y: 6, z: 0}
     rotation: {x: -0, y: 0, z: 90}
     color: 5
@@ -526,6 +592,12 @@ MonoBehaviour:
     iceInfor:
       IsIce: 0
       CountBreak: 0
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 6, y: 6, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 5
@@ -534,12 +606,18 @@ MonoBehaviour:
   - name: GridGate1_5
     position: {x: -9, y: 3, z: 0}
     rotation: {x: 0, y: 0, z: 270}
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
     colorOutputs:
     - color: 1
       capacity: 3
   - name: GridGate1_4
     position: {x: -9, y: -3, z: 0}
     rotation: {x: 0, y: 0, z: 270}
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
     colorOutputs:
     - color: 3
       capacity: 2
@@ -548,12 +626,18 @@ MonoBehaviour:
   - name: GridGate1_3
     position: {x: 9, y: 3, z: 0}
     rotation: {x: -0, y: 0, z: 90}
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
     colorOutputs:
     - color: 2
       capacity: 3
   - name: GridGate1_2
     position: {x: 9, y: -3, z: 0}
     rotation: {x: -0, y: 0, z: 90}
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
     colorOutputs:
     - color: 6
       capacity: 2
@@ -562,6 +646,9 @@ MonoBehaviour:
   - name: GridGate1_1
     position: {x: 1, y: 9, z: 0}
     rotation: {x: -0, y: 0, z: 180}
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
     colorOutputs:
     - color: 7
       capacity: 2
@@ -572,6 +659,9 @@ MonoBehaviour:
   - name: GridGate1
     position: {x: -1, y: -9, z: 0}
     rotation: {x: -0, y: 0, z: 0}
+    keyInfor:
+      IsKey: 0
+      ColorKey: 0
     colorOutputs:
     - color: 5
       capacity: 3
@@ -582,4 +672,4 @@ MonoBehaviour:
   durationTime: 240
   IsEvenX: 1
   IsEvenY: 1
-  BoundCam: {x: 22, y: 22}
+  BoundCam: {x: 24, y: 24}

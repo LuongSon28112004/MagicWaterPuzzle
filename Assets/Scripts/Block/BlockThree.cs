@@ -117,34 +117,6 @@ public class BlockThree : BaseBlock
         StartCoroutine(blockParticles[0].PlayParticle());
         StartCoroutine(blockParticles[1].PlayParticle());
         StartCoroutine(blockParticles[2].PlayParticle());
-        // if (blockDirection == Direction.HORIZONTAL)
-        // {
-        //     StartCoroutine(blockParticles[0].PlayParticle());
-        //     StartCoroutine(blockParticles[1].PlayParticle());
-        //     StartCoroutine(blockParticles[2].PlayParticle());
-        // }
-        // else
-        // {
-        //     // xet truong hop 0 độ của capacity
-        //     if (currentCapacity == 1)
-        //     {
-        //         StartCoroutine(blockParticles[2].PlayParticle());
-        //     }
-        //     else if (currentCapacity == 2)
-        //     {
-        //         StartCoroutine(blockParticles[2].PlayParticle());
-        //         yield return new WaitForSeconds(0.3f);
-        //         StartCoroutine(blockParticles[1].PlayParticle());
-        //     }
-        //     else if (currentCapacity == 3)
-        //     {
-        //         StartCoroutine(blockParticles[2].PlayParticle());
-        //         yield return new WaitForSeconds(0.3f);
-        //         StartCoroutine(blockParticles[1].PlayParticle());
-        //         yield return new WaitForSeconds(0.3f);
-        //         StartCoroutine(blockParticles[0].PlayParticle());
-        //     }
-        // }
         yield break;
 
     }

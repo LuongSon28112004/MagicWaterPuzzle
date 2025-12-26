@@ -2634,6 +2634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4930905404376797}
+  - component: {fileID: 7879453693311623429}
   m_Layer: 0
   m_Name: Directional
   m_TagString: Untagged
@@ -2658,6 +2659,21 @@ Transform:
   - {fileID: 4130441880167005}
   m_Father: {fileID: 4816321627129960}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!114 &7879453693311623429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024843371295323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7019647910f305941a37e72d2ebb06c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockMoveDirection: 0
+  horizontal: {fileID: 4130441880167005}
+  vertical: {fileID: 4903075086255154}
 --- !u!1 &1027554865254954
 GameObject:
   m_ObjectHideFlags: 0
@@ -2839,6 +2855,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4816321627129960}
+  - component: {fileID: 6548669506295947541}
   m_Layer: 0
   m_Name: Blocker05
   m_TagString: Untagged
@@ -2872,6 +2889,20 @@ Transform:
   - {fileID: 4930905404376797}
   m_Father: {fileID: 4416531300954001}
   m_LocalEulerAnglesHint: {x: 90, y: -0, z: 0}
+--- !u!114 &6548669506295947541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037930337078775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccafaf4567c84d46945cf1f83f6b8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 0
+  blockLockMoveDir: {fileID: 7879453693311623429}
 --- !u!1 &1040386728828128
 GameObject:
   m_ObjectHideFlags: 0
@@ -8470,6 +8501,7 @@ MonoBehaviour:
   blockTypeVariant: {fileID: 7026536351894229557}
   soapBubbleEmitterVariant: {fileID: 1569342633071477688}
   blockIce: {fileID: 7873591222395798475}
+  blockLock: {fileID: 0}
   blockTrailsParticle: {fileID: 439238637167390474}
   blockImpactParticle: {fileID: 3710226895517636916}
 --- !u!1 &1120228245665513
@@ -14618,7 +14650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4130441880167005
 Transform:
   m_ObjectHideFlags: 0
@@ -56566,7 +56598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4903075086255154
 Transform:
   m_ObjectHideFlags: 0

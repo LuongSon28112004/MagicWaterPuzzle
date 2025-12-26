@@ -324,6 +324,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 0, y: -3, z: 0}
     rotation: {x: 0, y: 0, z: 270}
     color: 7
@@ -335,6 +338,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 6, y: -2, z: 0}
     rotation: {x: 0, y: 0, z: 90}
     color: 4
@@ -346,6 +352,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 5, y: -5, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 1
@@ -357,6 +366,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 1, y: -6, z: 0}
     rotation: {x: -0, y: 0, z: 90}
     color: 9
@@ -368,6 +380,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: -5, y: -2, z: 0}
     rotation: {x: -0, y: 0, z: 90}
     color: 3
@@ -379,6 +394,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 6, y: 1, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 8
@@ -390,6 +408,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 1, y: 1, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 2
@@ -401,6 +422,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 4, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 6
@@ -412,6 +436,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: -4, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 5
@@ -423,6 +450,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: -5, y: -5, z: 0}
     rotation: {x: -0, y: 0, z: 180}
     color: 2
@@ -434,6 +464,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 5, y: 5, z: 0}
     rotation: {x: -0, y: 0, z: 0}
     color: 7
@@ -445,6 +478,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: -1, y: 5, z: 0}
     rotation: {x: 0, y: 0, z: 270}
     color: 4
@@ -456,6 +492,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: -5, y: 5, z: 0}
     rotation: {x: -0, y: 0, z: 90}
     color: 9
@@ -538,4 +577,4 @@ MonoBehaviour:
   durationTime: 240
   IsEvenX: 0
   IsEvenY: 0
-  BoundCam: {x: 20, y: 20}
+  BoundCam: {x: 22, y: 22}

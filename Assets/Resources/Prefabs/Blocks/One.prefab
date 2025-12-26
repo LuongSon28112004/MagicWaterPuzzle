@@ -495,7 +495,7 @@ Transform:
   m_GameObject: {fileID: 1043102860622791}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 2.06, y: 0.06935566, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7003,7 +7003,7 @@ Transform:
   m_GameObject: {fileID: 1231331618223137}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 2.0600002, y: 0.069356084, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17852,7 +17852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4891444056230186
 Transform:
   m_ObjectHideFlags: 0
@@ -20854,6 +20854,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4390503641120626}
+  - component: {fileID: 6187660317797636041}
   m_Layer: 0
   m_Name: Directional
   m_TagString: Untagged
@@ -20878,6 +20879,21 @@ Transform:
   - {fileID: 4891444056230186}
   m_Father: {fileID: 4396582089906153}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &6187660317797636041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497529870629749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7019647910f305941a37e72d2ebb06c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockMoveDirection: 0
+  horizontal: {fileID: 4891444056230186}
+  vertical: {fileID: 4791275129541789}
 --- !u!1 &1502095510418859
 GameObject:
   m_ObjectHideFlags: 0
@@ -24896,7 +24912,7 @@ Transform:
   m_GameObject: {fileID: 1732954586623357}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.06, y: 0.06935623, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27894,6 +27910,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4396582089906153}
+  - component: {fileID: 2392735525746310501}
   m_Layer: 0
   m_Name: Blocker00
   m_TagString: Untagged
@@ -27910,7 +27927,7 @@ Transform:
   m_GameObject: {fileID: 1834974810525853}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.084, y: -0.073, z: -0.008}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27921,6 +27938,20 @@ Transform:
   - {fileID: 4390503641120626}
   m_Father: {fileID: 4174089194897719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2392735525746310501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834974810525853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccafaf4567c84d46945cf1f83f6b8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 0
+  blockLockMoveDir: {fileID: 6187660317797636041}
 --- !u!1 &1857891042877595
 GameObject:
   m_ObjectHideFlags: 0
@@ -28302,6 +28333,7 @@ MonoBehaviour:
   blockTypeVariant: {fileID: 8988372861973889701}
   soapBubbleEmitterVariant: {fileID: 5964134865266662039}
   blockIce: {fileID: 2035057671243334658}
+  blockLock: {fileID: 0}
   blockTrailsParticle: {fileID: 4278167469909499411}
   blockImpactParticle: {fileID: 6435294270920180439}
 --- !u!1 &1909717400951983
@@ -28331,7 +28363,7 @@ Transform:
   m_GameObject: {fileID: 1909717400951983}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 2.06, y: 0.06935626, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28406,7 +28438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4791275129541789
 Transform:
   m_ObjectHideFlags: 0

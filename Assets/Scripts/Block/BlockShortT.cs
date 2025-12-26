@@ -114,28 +114,6 @@ public class BlockShortT : BaseBlock
         StartCoroutine(blockParticles[1].PlayParticle());
         StartCoroutine(blockParticles[2].PlayParticle());
         StartCoroutine(blockParticles[3].PlayParticle());
-        // if (currentCapacity == 1)
-        // {
-        //     StartCoroutine(blockParticles[0].PlayParticle());
-        // }
-        // else if (currentCapacity > 1 && currentCapacity < 5)
-        // {
-        //     StartCoroutine(blockParticles[0].PlayParticle());
-        //     yield return new WaitForSeconds(0.2f);
-        //     StartCoroutine(blockParticles[1].PlayParticle());
-        //     StartCoroutine(blockParticles[2].PlayParticle());
-        //     StartCoroutine(blockParticles[3].PlayParticle());
-        // }
-        // else if (currentCapacity >= 5)
-        // {
-        //     StartCoroutine(blockParticles[0].PlayParticle());
-        //     yield return new WaitForSeconds(0.2f);
-        //     StartCoroutine(blockParticles[1].PlayParticle());
-        //     StartCoroutine(blockParticles[2].PlayParticle());
-        //     StartCoroutine(blockParticles[3].PlayParticle());
-        //     yield return new WaitForSeconds(0.2f);
-        //     StartCoroutine(blockParticles[4].PlayParticle());
-        // }
         yield break;
 
     }

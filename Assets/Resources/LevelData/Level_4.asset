@@ -204,6 +204,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 3, y: -2, z: 0}
     rotation: {x: -0, y: 0, z: 90}
     color: 4
@@ -215,6 +218,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 90}
     color: 1
@@ -226,6 +232,9 @@ MonoBehaviour:
     keyInfor:
       IsKey: 0
       ColorKey: 0
+    blockerInfor:
+      isBlocker: 0
+      moveDir: 0
     position: {x: -3, y: 2, z: 0}
     rotation: {x: -0, y: 0, z: 90}
     color: 2
@@ -272,4 +281,4 @@ MonoBehaviour:
   durationTime: 180
   IsEvenX: 0
   IsEvenY: 0
-  BoundCam: {x: 17, y: 17}
+  BoundCam: {x: 19, y: 19}

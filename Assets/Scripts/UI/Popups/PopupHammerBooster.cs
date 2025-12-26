@@ -113,7 +113,8 @@ public class PopupHammerBooster : PopupUI
         HammerBooster.transform.position += new Vector3(1, -3, -3);
         HammerBooster.transform.Rotate(new Vector3(-15f, -75f, 0));
         AudioManager.Instance.PlayOneShot("HammerHit", 1f);
-        HammerBooster.transform.DOScale(new Vector3(0.65f, 0.65f, 0.65f), 0.8f);
+        HammerBooster.transform.localScale = new Vector3(1.8f, 1.8f, 1.8f);
+        HammerBooster.transform.DOScale(new Vector3(1.3f, 1.3f, 1.3f), 0.8f);
         yield return new WaitForSeconds(0.8f);
         CameraShake.Instance.PlayShake(0.3f, 0.3f);
         var effect = particle.GetComponent<ParticleBombHammerBreakEffect>();

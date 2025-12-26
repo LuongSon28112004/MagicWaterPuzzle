@@ -2840,7 +2840,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4294910012059059
 Transform:
   m_ObjectHideFlags: 0
@@ -5630,6 +5630,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4608602531341046}
+  - component: {fileID: 5515585473627650402}
   m_Layer: 0
   m_Name: Directional
   m_TagString: Untagged
@@ -5654,6 +5655,21 @@ Transform:
   - {fileID: 4512258285918773}
   m_Father: {fileID: 4078896593312388}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!114 &5515585473627650402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081500577690985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7019647910f305941a37e72d2ebb06c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockMoveDirection: 0
+  horizontal: {fileID: 4512258285918773}
+  vertical: {fileID: 4294910012059059}
 --- !u!1 &1089657027194444
 GameObject:
   m_ObjectHideFlags: 0
@@ -14015,7 +14031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4512258285918773
 Transform:
   m_ObjectHideFlags: 0
@@ -19280,6 +19296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4078896593312388}
+  - component: {fileID: 6953647636210491621}
   m_Layer: 0
   m_Name: Blocker07
   m_TagString: Untagged
@@ -19319,6 +19336,20 @@ Transform:
   - {fileID: 4608602531341046}
   m_Father: {fileID: 4813660405228279}
   m_LocalEulerAnglesHint: {x: 90, y: -0, z: 0}
+--- !u!114 &6953647636210491621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201289978561706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccafaf4567c84d46945cf1f83f6b8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 0
+  blockLockMoveDir: {fileID: 5515585473627650402}
 --- !u!1 &1202956734472682
 GameObject:
   m_ObjectHideFlags: 0
@@ -36243,6 +36274,7 @@ MonoBehaviour:
   blockTypeVariant: {fileID: 272711382683045795}
   soapBubbleEmitterVariant: {fileID: 7658103564442811426}
   blockIce: {fileID: 2904488213203570443}
+  blockLock: {fileID: 0}
   blockTrailsParticle: {fileID: 4703694150846627113}
   blockImpactParticle: {fileID: 8825076548428546206}
 --- !u!1 &1425632169763243

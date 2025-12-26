@@ -43,6 +43,7 @@ public class ButtonBuyCoinShop : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         isBuy = false;
         ui.SetPanelLock(false);
+        AudioManager.Instance.PlayOneShot("ReceiveCoin", 1f);
     }
 
     private void CreateCoin()

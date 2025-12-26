@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public enum BlockType
 {
@@ -84,6 +83,11 @@ public abstract class BaseBlock : MonoBehaviour
     public List<Transform> ListIcePos { get => listIcePos; set => listIcePos = value; }
     public BlockVisual BlockVisual { get => blockVisual; set => blockVisual = value; }
 
+    //move
+    private Vector3 moveTarget;
+    private bool hasMoveTarget = false;
+
+
 
 
     // Hàm kiểm tra góc an toàn
@@ -105,27 +109,18 @@ public abstract class BaseBlock : MonoBehaviour
         BlockVisual.blockTypeVariant.AddVisual(color);
     }
 
+    //ice
     public virtual void AddIceBlock(int count)
     {
         BlockVisual.blockIce.ActiveIce(count, BlockDirection);
     }
 
-    protected Vector2 SnapToPipe(Vector2 pipePos)
+    //blocker
+    public virtual void AddBlockerBlock(MoveDir moveDir)
     {
-        // vẫn dùng logic odd/even theo hướng
-        if (blockDirection == Direction.HORIZONTAL)
-        {
-            float yFix = SnapEven(pipePos.y);
-            float xFix = SnapOdd(pipePos.x);
-            return new Vector2(xFix, yFix);
-        }
-        else // VERTICAL
-        {
-            float xFix = SnapEven(pipePos.x);
-            float yFix = SnapOdd(pipePos.y);
-            return new Vector2(xFix, yFix);
-        }
+        BlockVisual.blockLock.ActiveLockLock(moveDir, blockDirection, true);
     }
+    //======================================================
 
     public int TakeRemainingCapacity()
     {
@@ -155,6 +150,11 @@ public abstract class BaseBlock : MonoBehaviour
         if (UIBlockChecker.IsPointerOverUI())
             return;
 
+        if (LevelManager.Instance.BoosterHammerUsed)
+        {
+            CustomeEventSystem.Instance.UserBoosterHammer(gameObject);
+            return;
+        }
         if (BlockVisual.blockIce.IsActive)
         {
             transform.localScale = Vector3.one;
@@ -172,11 +172,6 @@ public abstract class BaseBlock : MonoBehaviour
             return;
         }
 
-        if (LevelManager.Instance.BoosterHammerUsed)
-        {
-            CustomeEventSystem.Instance.UserBoosterHammer(gameObject);
-            return;
-        }
 
         if (!IsMove) return;
 
@@ -197,9 +192,9 @@ public abstract class BaseBlock : MonoBehaviour
     {
         if (BlockVisual.blockIce.IsActive) return;
 
-        // Ngăn thả khi đang trên UI
-        if (UIBlockChecker.IsPointerOverUI())
-            return;
+        hasMoveTarget = false;
+        smoothVelocity = Vector3.zero;
+
 
 
         //reset blockNormal
@@ -213,7 +208,8 @@ public abstract class BaseBlock : MonoBehaviour
         rb.gravityScale = 0;
 
         // Snap vị trí
-        transform.position = SnapToGrid(transform.position);
+        Vector3 Target = SnapToGrid(transform.position);
+        transform.DOMove(Target, 0.03f);
 
 
         //ResetZ();
@@ -228,7 +224,9 @@ public abstract class BaseBlock : MonoBehaviour
 
         if (LevelManager.Instance.BoosterHammerUsed || !IsMove)
             return;
-
+        // Ngăn thả khi đang trên UI
+        if (UIBlockChecker.IsPointerOverUI())
+            return;
         AudioManager.Instance.PlayOneShot("ClickButton", 1f);
     }
 
@@ -256,8 +254,6 @@ public abstract class BaseBlock : MonoBehaviour
     {
         if (BlockVisual.blockIce.IsActive) return;
         // Ngăn kéo khi chuột đang trên UI
-        if (UIBlockChecker.IsPointerOverUI())
-            return;
         if (isFill)
         {
             ResetZ();
@@ -277,10 +273,23 @@ public abstract class BaseBlock : MonoBehaviour
             rb.linearDamping = 0;
             rb.angularDamping = 0;
             // snap pos
-            transform.position = SnapToGrid(transform.position);
+            Vector3 targets = SnapToGrid(transform.position);
+            transform.DOMove(targets, 0.3f);
             return;
         }
+        if (UIBlockChecker.IsPointerOverUI())
+            return;
+        // nâng block
+        Vector3 pos = transform.position;
+        pos.z = -0.75f;
+        transform.position = pos;
+
+
+
+
+        // set drag = true
         isGragging = true;
+        // lấy vị trí và chuột hướng đến
         Vector3 target = GetMouseWorldPos() + offset;
 
         if (IsBlockedDirection(target))
@@ -288,13 +297,33 @@ public abstract class BaseBlock : MonoBehaviour
             return;
         }
         RotateMove(target);
+        //reset rb
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 0;
         rb.linearDamping = 0;
         rb.angularDamping = 0;
-        Vector3 smoothPos = Vector3.SmoothDamp(transform.position, target, ref smoothVelocity, smoothTime);
+
+        moveTarget = target;
+        hasMoveTarget = true;
+    }
+
+    void FixedUpdate()
+    {
+        if (!hasMoveTarget) return;
+        if (!isGragging) return;
+
+        Vector3 smoothPos = Vector3.SmoothDamp(
+            rb.position,
+            moveTarget,
+            ref smoothVelocity,
+            smoothTime,
+            Mathf.Infinity,
+            Time.fixedDeltaTime
+        );
+
         rb.MovePosition(smoothPos);
     }
+
 
     private Tweener zTween;
     private float liftZ = -1f;
@@ -407,12 +436,6 @@ public abstract class BaseBlock : MonoBehaviour
 
     void ProcessTriggerMove(Collider2D other)
     {
-        if ((other.GetComponentInParent<BaseBlock>() != null) && isGragging)
-        {
-            Vector3 pos = transform.position;
-            pos.z = -0.5f;
-            transform.position = pos;
-        }
         Collider2D myCol = GetComponent<Collider2D>();
         if (myCol == null) return;
 
@@ -439,7 +462,8 @@ public abstract class BaseBlock : MonoBehaviour
             // chặn không cho di chuyển nữa
             IsMove = false;
             Vector3 pos = SnapToGrid(transform.position);
-            transform.position = SnapToPipe(pos, waterPipe);
+            Vector3 target = SnapToPipe(pos, waterPipe);
+            transform.position = target;
             yield return new WaitForSeconds(0.15f);
             yield return StartCoroutine(FillPipeAndBlock(waterPipe));
             if (currentCapacity >= maxCapacity) yield break;
@@ -528,21 +552,29 @@ public abstract class BaseBlock : MonoBehaviour
         int dir = UnityEngine.Random.Range(0, 2) == 0 ? -1 : 1;
         float distance = 25f;
 
-        Vector3 start = transform.position;
-        Vector3 up1 = start + new Vector3(0, 0f, 0f);
+        Vector3 up1 = transform.position;
+        Vector3 left, right, Mid;
+        if (dir == 1f)
+        {
+            left = up1 + new Vector3(-3f, -1.25f, -4f);
+            Mid = left + new Vector3(0f, -1.25f, -4f);
+            right = Mid + new Vector3(3f, -1.25f, -4f);
+        }
+        else
+        {
+            right = up1 + new Vector3(3f, -1.25f, -4f);
+            Mid = right + new Vector3(0f, -1.25f, -4f);
+            left = Mid + new Vector3(-3f, -1.25f, -4f);
+        }
 
-        Vector3 left = up1 + new Vector3(-3f, -0.5f, -0.5f);
-        Vector3 right = up1 + new Vector3(3f, -0.5f, -0.5f);
-        Vector3 Mid = (left + right) / 2;
 
-        Vector3 exit = right + new Vector3(dir * distance, 0, 0);
+        Vector3 exit = (dir == -1f ? left : right) + new Vector3(dir * distance, -1.25f, -4f);
 
         // Tăng độ phân giải path => cực mượt
-        int resolution = 180;
+        int resolution = 360;
 
         Vector3[] path = new Vector3[]
         {
-        start,
         up1,
         left,
         Mid,
@@ -553,7 +585,6 @@ public abstract class BaseBlock : MonoBehaviour
         {
             path = new Vector3[]
             {
-            start,
             up1,
             right,
             Mid,
@@ -572,7 +603,10 @@ public abstract class BaseBlock : MonoBehaviour
             Color.white
         )
         .SetEase(Ease.InQuint);
-        transform.DORotate(new Vector3(transform.rotation.eulerAngles.x, dir * -45f, transform.rotation.eulerAngles.z), 1.6f).SetEase(Ease.InQuint);
+        transform.
+        DORotate(
+            new Vector3(transform.rotation.eulerAngles.x, dir * -45f, transform.rotation.eulerAngles.z), 1.6f)
+        .SetEase(Ease.InQuint);
         // Tăng tốc mạnh về cuối
 
         transform.DOScale(new Vector3(1.85f, 1.85f, 1.85f), 1.6f)
@@ -582,7 +616,11 @@ public abstract class BaseBlock : MonoBehaviour
         yield return new WaitForSeconds(1.7f);
 
         // remove block
+        StartCoroutine(RemoveBlock());
+    }
 
+    private IEnumerator RemoveBlock()
+    {
         LevelManager.Instance.boardCtrl.BlockInstances.Remove(transform);
         if (LevelManager.Instance.boardCtrl.BlockInstances.Count == 0)
         {
@@ -593,8 +631,6 @@ public abstract class BaseBlock : MonoBehaviour
             yield return new WaitForSeconds(0.8f);
             StartCoroutine(GameManager.Instance.ChangeState(GameState.Win));
         }
-
-
     }
 
 

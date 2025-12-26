@@ -121,63 +121,6 @@ public class BlockL : BaseBlock
         StartCoroutine(blockParticles[1].PlayParticle());
         StartCoroutine(blockParticles[2].PlayParticle());
         StartCoroutine(blockParticles[3].PlayParticle());
-        // if (blockDirection == Direction.VERTICAL)
-        // {
-        //     if (transform.rotation.eulerAngles.x == 0 || transform.rotation.eulerAngles.x == 360)
-        //     {
-        //         if (currentCapacity > 0)
-        //         {
-        //             StartCoroutine(blockParticles[0].PlayParticle());
-        //         }
-
-        //         if (currentCapacity > 1)
-        //         {
-        //             StartCoroutine(blockParticles[0].PlayParticle());
-        //             StartCoroutine(blockParticles[1].PlayParticle());
-        //         }
-
-        //         if (currentCapacity > 2)
-        //         {
-        //             StartCoroutine(blockParticles[0].PlayParticle());
-        //             StartCoroutine(blockParticles[1].PlayParticle());
-        //             StartCoroutine(blockParticles[2].PlayParticle());
-        //             StartCoroutine(blockParticles[3].PlayParticle());
-        //         }
-        //     }
-        // }
-        // else
-        // {
-        //     if (transform.rotation.eulerAngles.z == -90f || transform.rotation.eulerAngles.z == 270f)
-        //     {
-        //         if (currentCapacity > 0)
-        //         {
-        //             StartCoroutine(blockParticles[1].PlayParticle());
-        //             StartCoroutine(blockParticles[2].PlayParticle());
-        //             StartCoroutine(blockParticles[3].PlayParticle());
-        //         }
-        //         if (currentCapacity > 3)
-        //         {
-        //             StartCoroutine(blockParticles[0].PlayParticle());
-        //             StartCoroutine(blockParticles[1].PlayParticle());
-        //             StartCoroutine(blockParticles[2].PlayParticle());
-        //             StartCoroutine(blockParticles[3].PlayParticle());
-        //         }
-        //     }
-        //     else if (transform.rotation.eulerAngles.z == 90f || transform.rotation.eulerAngles.z == -270f)
-        //     {
-        //         if (currentCapacity > 0)
-        //         {
-        //             StartCoroutine(blockParticles[0].PlayParticle());
-        //         }
-        //         if (currentCapacity > 1)
-        //         {
-        //             StartCoroutine(blockParticles[0].PlayParticle());
-        //             StartCoroutine(blockParticles[1].PlayParticle());
-        //             StartCoroutine(blockParticles[2].PlayParticle());
-        //             StartCoroutine(blockParticles[3].PlayParticle());
-        //         }
-        //     }
-        // }
 
         yield break;
 

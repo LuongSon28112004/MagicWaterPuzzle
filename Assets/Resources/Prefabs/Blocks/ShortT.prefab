@@ -21422,6 +21422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4805713808746144}
+  - component: {fileID: 2259576968792407064}
   m_Layer: 0
   m_Name: Blocker08
   m_TagString: Untagged
@@ -21457,6 +21458,20 @@ Transform:
   - {fileID: 4191280654914701}
   m_Father: {fileID: 4238024590810173}
   m_LocalEulerAnglesHint: {x: 90, y: -0, z: 0}
+--- !u!114 &2259576968792407064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186377555829618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccafaf4567c84d46945cf1f83f6b8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 0
+  blockLockMoveDir: {fileID: 2021974982036972954}
 --- !u!1 &1192110127964583
 GameObject:
   m_ObjectHideFlags: 0
@@ -34188,7 +34203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4426207303455648
 Transform:
   m_ObjectHideFlags: 0
@@ -54777,6 +54792,7 @@ MonoBehaviour:
   blockTypeVariant: {fileID: 3059781790987725074}
   soapBubbleEmitterVariant: {fileID: 1933547164319102006}
   blockIce: {fileID: 3346942089663868417}
+  blockLock: {fileID: 0}
   blockTrailsParticle: {fileID: 296874519825761378}
   blockImpactParticle: {fileID: 2384531662005229260}
 --- !u!1 &1618438243275773
@@ -66578,7 +66594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4790589392702931
 Transform:
   m_ObjectHideFlags: 0
@@ -77454,6 +77470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4191280654914701}
+  - component: {fileID: 2021974982036972954}
   m_Layer: 0
   m_Name: Directional
   m_TagString: Untagged
@@ -77478,6 +77495,21 @@ Transform:
   - {fileID: 4790589392702931}
   m_Father: {fileID: 4805713808746144}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!114 &2021974982036972954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925358027278601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7019647910f305941a37e72d2ebb06c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockMoveDirection: 0
+  horizontal: {fileID: 4790589392702931}
+  vertical: {fileID: 4426207303455648}
 --- !u!1 &1939495323063397
 GameObject:
   m_ObjectHideFlags: 0

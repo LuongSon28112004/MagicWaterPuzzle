@@ -6311,7 +6311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4338649164232925
 Transform:
   m_ObjectHideFlags: 0
@@ -13073,6 +13073,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4734117654674430}
+  - component: {fileID: 5094425703451296270}
   m_Layer: 0
   m_Name: Blocker01
   m_TagString: Untagged
@@ -13104,6 +13105,20 @@ Transform:
   - {fileID: 4951336267678738}
   m_Father: {fileID: 4045981372764995}
   m_LocalEulerAnglesHint: {x: 90, y: -0, z: -0}
+--- !u!114 &5094425703451296270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365252640955415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccafaf4567c84d46945cf1f83f6b8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 0
+  blockLockMoveDir: {fileID: 6110841397375927532}
 --- !u!1 &1365594932245037
 GameObject:
   m_ObjectHideFlags: 0
@@ -18266,6 +18281,7 @@ MonoBehaviour:
   blockTypeVariant: {fileID: 6993019811431032933}
   soapBubbleEmitterVariant: {fileID: 3043161406240434816}
   blockIce: {fileID: 920915092892034986}
+  blockLock: {fileID: 0}
   blockTrailsParticle: {fileID: 9164865240566921427}
   blockImpactParticle: {fileID: 8775586376208260910}
 --- !u!1 &1412975585363465
@@ -28160,6 +28176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4951336267678738}
+  - component: {fileID: 6110841397375927532}
   m_Layer: 0
   m_Name: Directional
   m_TagString: Untagged
@@ -28184,6 +28201,21 @@ Transform:
   - {fileID: 4338649164232925}
   m_Father: {fileID: 4734117654674430}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!114 &6110841397375927532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661861966486770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7019647910f305941a37e72d2ebb06c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockMoveDirection: 0
+  horizontal: {fileID: 4338649164232925}
+  vertical: {fileID: 4157491210355834}
 --- !u!1 &1666800439974830
 GameObject:
   m_ObjectHideFlags: 0
@@ -30771,7 +30803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4157491210355834
 Transform:
   m_ObjectHideFlags: 0

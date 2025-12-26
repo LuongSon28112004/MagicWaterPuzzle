@@ -57,11 +57,23 @@ public class KeyInfor
 }
 
 [Serializable]
+public class BlockerInfor
+{
+    public bool isBlocker;
+    public MoveDir moveDir;
+
+}
+
+[Serializable]
 public class BlockData
 {
     public string name;
+    // infor ice
     public IceInfor iceInfor;
+    //infor key
     public KeyInfor keyInfor;
+    //infor Blocker
+    public BlockerInfor blockerInfor;
     public Vector3 position;
     public Vector3 rotation;
     public BlockColor color;

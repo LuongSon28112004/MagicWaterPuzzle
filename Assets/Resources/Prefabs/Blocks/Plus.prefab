@@ -8068,7 +8068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4558761516382741
 Transform:
   m_ObjectHideFlags: 0
@@ -12933,6 +12933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4383283811546904}
+  - component: {fileID: 6302728323734218120}
   m_Layer: 0
   m_Name: Directional
   m_TagString: Untagged
@@ -12957,6 +12958,21 @@ Transform:
   - {fileID: 4558761516382741}
   m_Father: {fileID: 4962322308184810}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!114 &6302728323734218120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096874328566852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7019647910f305941a37e72d2ebb06c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockMoveDirection: 0
+  horizontal: {fileID: 4558761516382741}
+  vertical: {fileID: 4136210902023133}
 --- !u!1 &1100353707406741
 GameObject:
   m_ObjectHideFlags: 0
@@ -35803,6 +35819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4962322308184810}
+  - component: {fileID: 3556224799473679380}
   m_Layer: 0
   m_Name: Blocker06
   m_TagString: Untagged
@@ -35819,7 +35836,7 @@ Transform:
   m_GameObject: {fileID: 1328898688575177}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.01, y: -4.04, z: -1.34}
+  m_LocalPosition: {x: -0.01, y: -4.04, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35838,6 +35855,20 @@ Transform:
   - {fileID: 4383283811546904}
   m_Father: {fileID: 4645596313843458}
   m_LocalEulerAnglesHint: {x: 90, y: -0, z: 0}
+--- !u!114 &3556224799473679380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328898688575177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccafaf4567c84d46945cf1f83f6b8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 0
+  blockLockMoveDir: {fileID: 6302728323734218120}
 --- !u!1 &1329301640067261
 GameObject:
   m_ObjectHideFlags: 0
@@ -43551,7 +43582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4136210902023133
 Transform:
   m_ObjectHideFlags: 0
@@ -47033,6 +47064,7 @@ MonoBehaviour:
   blockTypeVariant: {fileID: 807352160687510107}
   soapBubbleEmitterVariant: {fileID: 5970950085395051634}
   blockIce: {fileID: 7235462047182254926}
+  blockLock: {fileID: 0}
   blockTrailsParticle: {fileID: 6380296839072373390}
   blockImpactParticle: {fileID: 727560514107702027}
 --- !u!1 &1449956802071052
