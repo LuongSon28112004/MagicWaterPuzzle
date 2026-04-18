@@ -27,7 +27,7 @@ Material:
     m_Floats:
     - _DepthDarkness: 0.35
     - _DepthStrength: 0.11
-    - _FillAmount: 0.625
+    - _FillAmount: 0
     - _FresnelPower: 50
     - _FresnelStrength: 0.4
     - _HighlightIntensity: 50

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4557311716571309}
   - component: {fileID: 33286894872428479}
   - component: {fileID: 23826446049857324}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4943833684838037}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4613463932922393}
   - component: {fileID: 61814580416739607}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ColorSlotHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 4643688374628534}
   - component: {fileID: 33919925900736969}
   - component: {fileID: 23239629655636597}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barrier_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4163966581729505}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GridSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4515477671393592}
   - component: {fileID: 212236046424303763}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

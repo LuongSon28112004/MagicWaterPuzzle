@@ -287,7 +287,6 @@ public class ScreenGamePlay : ScreenUI
             BGBlack.gameObject.SetActive(false);
             listBooster.bombBoosterConfig.StopTutorial();
             LevelManager.Instance.StartPlay();
-
         }
         if (LevelManager.Instance.boardCtrl.BlockInstances.Count == 0) return;
         UIManager.Instance.ShowPopup<PopupBombBooster>(null);

@@ -209,7 +209,7 @@ public abstract class BaseBlock : MonoBehaviour
 
         // Snap vị trí
         Vector3 Target = SnapToGrid(transform.position);
-        transform.DOMove(Target, 0.03f);
+        transform.DOMove(Target, 0.15f);
 
 
         //ResetZ();
@@ -274,7 +274,7 @@ public abstract class BaseBlock : MonoBehaviour
             rb.angularDamping = 0;
             // snap pos
             Vector3 targets = SnapToGrid(transform.position);
-            transform.DOMove(targets, 0.3f);
+            transform.DOMove(targets, 0.15f);
             return;
         }
         if (UIBlockChecker.IsPointerOverUI())
@@ -629,7 +629,9 @@ public abstract class BaseBlock : MonoBehaviour
             ScreenGamePlay screenGamePlay = UIManager.Instance.GetScreen<ScreenGamePlay>();
             screenGamePlay.HideAnimationIntro();
             yield return new WaitForSeconds(0.8f);
-            StartCoroutine(GameManager.Instance.ChangeState(GameState.Win));
+            // StartCoroutine(GameManager.Instance.ChangeState(GameState.Win));
+            UIManager.Instance.ShowPopup<PopupWin>(null);
+            CameraManager.Instance.PlayParticleWin();
         }
     }
 
@@ -677,4 +679,11 @@ public abstract class BaseBlock : MonoBehaviour
         string b = blockColorVisual.ToString();
         return a.Contains(b);
     }
+
+    //kill  DOTween
+    void OnDestroy()
+    {
+        DOTween.Kill(transform);
+    }
+
 }

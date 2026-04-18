@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4758920544025440}
   - component: {fileID: 33603586950229588}
   - component: {fileID: 23930868103891485}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4101303534368031}
   - component: {fileID: 61421866677013937}
   - component: {fileID: 61277596359123557}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: InnerCornerGridBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 4244182197484102}
   - component: {fileID: 33764488235126060}
   - component: {fileID: 23015787480684069}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Inner_outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4820662785540654}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: InnerConner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4949035929994847}
   - component: {fileID: 33201133442449203}
   - component: {fileID: 23306758858910619}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InnerConner_H02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4663044385740634}
   - component: {fileID: 33705779826109055}
   - component: {fileID: 23695381422300543}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 4440967096481963}
   - component: {fileID: 198178195388579309}
   - component: {fileID: 199533698072466082}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: BubbleSubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2550,7 +2550,7 @@ GameObject:
   - component: {fileID: 4299724136407347}
   - component: {fileID: 33045231126441753}
   - component: {fileID: 23273966432467178}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2635,7 +2635,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4930905404376797}
   - component: {fileID: 7879453693311623429}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Directional
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2685,7 +2685,7 @@ GameObject:
   - component: {fileID: 4956580294195183}
   - component: {fileID: 33845280361061074}
   - component: {fileID: 23713055303094538}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2771,7 +2771,7 @@ GameObject:
   - component: {fileID: 4124072731238892}
   - component: {fileID: 33592457545919342}
   - component: {fileID: 23930569402933185}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner_Blocker (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2856,7 +2856,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4816321627129960}
   - component: {fileID: 6548669506295947541}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Blocker05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2912,7 +2912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4702202137734039}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Idle_Bubbles Variant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2944,7 +2944,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4848608245437431}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrontLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2976,7 +2976,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4039518255123158}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrontLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3009,7 +3009,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4855507355663904}
   - component: {fileID: 111226224283360793}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3059,7 +3059,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4860883824220303}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrontLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3237,7 +3237,7 @@ GameObject:
   - component: {fileID: 4970919946811992}
   - component: {fileID: 33377490667810188}
   - component: {fileID: 23639770688737085}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Water (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3322,7 +3322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4944992775356068}
   - component: {fileID: 212149417799695895}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3410,7 +3410,7 @@ GameObject:
   - component: {fileID: 4769832209119832}
   - component: {fileID: 198030730155888974}
   - component: {fileID: 199730642955197495}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: BigBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5710,7 +5710,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4015023611673706}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ScrewdriverLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5743,7 +5743,7 @@ GameObject:
   - component: {fileID: 4468256275352802}
   - component: {fileID: 33336796626830751}
   - component: {fileID: 23624449450007861}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5830,7 +5830,7 @@ GameObject:
   - component: {fileID: 4137826622693678}
   - component: {fileID: 198240574825913428}
   - component: {fileID: 199877235183576163}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: BubbleSubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8194,7 +8194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4823999407160216}
   - component: {fileID: 7026536351894229557}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlockType05 Variant_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8251,7 +8251,7 @@ GameObject:
   - component: {fileID: 4157447670581371}
   - component: {fileID: 33340809792417093}
   - component: {fileID: 23273433588777904}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gate_Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8338,7 +8338,7 @@ GameObject:
   - component: {fileID: 4854867590778768}
   - component: {fileID: 33622774715512590}
   - component: {fileID: 23507912985760874}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LockBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8423,7 +8423,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4439303865036157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrontLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8513,7 +8513,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4340886968054366}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VisualDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8549,7 +8549,7 @@ GameObject:
   - component: {fileID: 4848091258726647}
   - component: {fileID: 33603817563094497}
   - component: {fileID: 23651051897186902}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LockBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8635,7 +8635,7 @@ GameObject:
   - component: {fileID: 4212328741848895}
   - component: {fileID: 33098931967406270}
   - component: {fileID: 23091138792474511}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8721,7 +8721,7 @@ GameObject:
   - component: {fileID: 4777540711858872}
   - component: {fileID: 198027553614312197}
   - component: {fileID: 199387212384885579}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: BubbleSubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11086,7 +11086,7 @@ GameObject:
   - component: {fileID: 4048347632642961}
   - component: {fileID: 33527960173576632}
   - component: {fileID: 23029681602380721}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11316,7 +11316,7 @@ GameObject:
   - component: {fileID: 4834306113098435}
   - component: {fileID: 33176386316895597}
   - component: {fileID: 23219451767013347}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11402,7 +11402,7 @@ GameObject:
   - component: {fileID: 4168963944583439}
   - component: {fileID: 33910356760237482}
   - component: {fileID: 23324206583658517}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11489,7 +11489,7 @@ GameObject:
   - component: {fileID: 4736958563344806}
   - component: {fileID: 33031422731463577}
   - component: {fileID: 23279224724887039}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11576,7 +11576,7 @@ GameObject:
   - component: {fileID: 4272536157684815}
   - component: {fileID: 198046110204868231}
   - component: {fileID: 199510763768240771}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: BubbleSubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13941,7 +13941,7 @@ GameObject:
   - component: {fileID: 4985594758634685}
   - component: {fileID: 33857635719264337}
   - component: {fileID: 23046670197681836}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Straight (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14026,7 +14026,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4196284907212762}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrontLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14058,7 +14058,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4911076009763495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Set02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14092,7 +14092,7 @@ GameObject:
   - component: {fileID: 4563097280609498}
   - component: {fileID: 33415014460308681}
   - component: {fileID: 23661016114759518}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14178,7 +14178,7 @@ GameObject:
   - component: {fileID: 4579200861686832}
   - component: {fileID: 33760492885426071}
   - component: {fileID: 23209917929415239}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Straight (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14265,7 +14265,7 @@ GameObject:
   - component: {fileID: 4678269540717211}
   - component: {fileID: 33903343436863965}
   - component: {fileID: 23097500160060584}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Straight_Blocker (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14351,7 +14351,7 @@ GameObject:
   - component: {fileID: 4836758700660793}
   - component: {fileID: 33677847188931367}
   - component: {fileID: 23245317884989456}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14435,7 +14435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4970853390001388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Set08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14467,7 +14467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4258071179872983}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14644,7 +14644,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4130441880167005}
   - component: {fileID: 212408238851027265}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Horizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14730,7 +14730,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4317976690909287}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14764,7 +14764,7 @@ GameObject:
   - component: {fileID: 4415202911214593}
   - component: {fileID: 33532238602586121}
   - component: {fileID: 23472728338062536}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner_Blocker (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14850,7 +14850,7 @@ GameObject:
   - component: {fileID: 4770831068609419}
   - component: {fileID: 33979099752369379}
   - component: {fileID: 23178906556157928}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner_Blocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14936,7 +14936,7 @@ GameObject:
   - component: {fileID: 4058924628262860}
   - component: {fileID: 33245763051852172}
   - component: {fileID: 23943375368126289}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Straight (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15021,7 +15021,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4219408926158769}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Set07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15055,7 +15055,7 @@ GameObject:
   - component: {fileID: 4498854890023591}
   - component: {fileID: 198308152908997243}
   - component: {fileID: 199181763278179301}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MagicDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17488,7 +17488,7 @@ GameObject:
   - component: {fileID: 4035714627953178}
   - component: {fileID: 33639142537537482}
   - component: {fileID: 23236898526118381}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17573,7 +17573,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4506951227335223}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17605,7 +17605,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4490821591197318}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17639,7 +17639,7 @@ GameObject:
   - component: {fileID: 4701724569151690}
   - component: {fileID: 33046019591420295}
   - component: {fileID: 23536120646991364}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LockBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17724,7 +17724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4126806757022089}
   - component: {fileID: 8037087665792802197}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Key_Lock Variant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17778,7 +17778,7 @@ GameObject:
   - component: {fileID: 4551680914710453}
   - component: {fileID: 33692665497907257}
   - component: {fileID: 23471263549281806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Straight_Blocker (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17862,7 +17862,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4767557151580026}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Set01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17896,7 +17896,7 @@ GameObject:
   - component: {fileID: 4742411657649358}
   - component: {fileID: 198018973141785583}
   - component: {fileID: 199932817802452684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20193,7 +20193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4377030197023209}
   - component: {fileID: 212738008461142348}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visual (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20279,7 +20279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4231404032442875}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Set04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20313,7 +20313,7 @@ GameObject:
   - component: {fileID: 4934272221365886}
   - component: {fileID: 33124131472256417}
   - component: {fileID: 23008316621950650}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Middle half
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20400,7 +20400,7 @@ GameObject:
   - component: {fileID: 4128938859311041}
   - component: {fileID: 33270919503007676}
   - component: {fileID: 23791247116388409}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20486,7 +20486,7 @@ GameObject:
   - component: {fileID: 4016404537093668}
   - component: {fileID: 33516860396806835}
   - component: {fileID: 23079646920165125}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20572,7 +20572,7 @@ GameObject:
   - component: {fileID: 4629489685998892}
   - component: {fileID: 33607131145885816}
   - component: {fileID: 23622026498589198}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20658,7 +20658,7 @@ GameObject:
   - component: {fileID: 4456057293894202}
   - component: {fileID: 33645152887770582}
   - component: {fileID: 23322035061039371}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20743,7 +20743,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4196404649838871}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VisualHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20777,7 +20777,7 @@ GameObject:
   - component: {fileID: 4467094620984068}
   - component: {fileID: 198070869113451519}
   - component: {fileID: 199137087203931684}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: DropletsSubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23142,7 +23142,7 @@ GameObject:
   - component: {fileID: 4102655431178608}
   - component: {fileID: 198462226410686606}
   - component: {fileID: 199081467914317944}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: DropletsSubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25505,7 +25505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4360883218695130}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25539,7 +25539,7 @@ GameObject:
   - component: {fileID: 4774659461643750}
   - component: {fileID: 33071019942788587}
   - component: {fileID: 23329872769111279}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25625,7 +25625,7 @@ GameObject:
   - component: {fileID: 4039783240252978}
   - component: {fileID: 33015451277713967}
   - component: {fileID: 23786397674876268}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Straight_Blocker (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25711,7 +25711,7 @@ GameObject:
   - component: {fileID: 4487151878829780}
   - component: {fileID: 33538313470771775}
   - component: {fileID: 23096303218559969}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25797,7 +25797,7 @@ GameObject:
   - component: {fileID: 4407832005953880}
   - component: {fileID: 33317956299059880}
   - component: {fileID: 23119932541675918}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InnerConner_H02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25884,7 +25884,7 @@ GameObject:
   - component: {fileID: 4972972471333711}
   - component: {fileID: 33833738768854422}
   - component: {fileID: 23815676359546424}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25970,7 +25970,7 @@ GameObject:
   - component: {fileID: 4206251332049792}
   - component: {fileID: 33990927350906681}
   - component: {fileID: 23717224814993565}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner_Blocker (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26056,7 +26056,7 @@ GameObject:
   - component: {fileID: 4193679456110419}
   - component: {fileID: 198053393467793769}
   - component: {fileID: 199010333043605997}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: BigBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28358,7 +28358,7 @@ GameObject:
   - component: {fileID: 4900434072239484}
   - component: {fileID: 33971440762597615}
   - component: {fileID: 23712320307143913}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28444,7 +28444,7 @@ GameObject:
   - component: {fileID: 4715978112498770}
   - component: {fileID: 33746193986141568}
   - component: {fileID: 23484261252970703}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Middle half
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28531,7 +28531,7 @@ GameObject:
   - component: {fileID: 4554753053619982}
   - component: {fileID: 33605591128574355}
   - component: {fileID: 23374375418856492}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28618,7 +28618,7 @@ GameObject:
   - component: {fileID: 4155791387060734}
   - component: {fileID: 198321364623681429}
   - component: {fileID: 199601170858650211}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: BubbleSubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30982,7 +30982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4032833645956223}
   - component: {fileID: 4668376708814156645}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Directional
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31032,7 +31032,7 @@ GameObject:
   - component: {fileID: 4948296505983614}
   - component: {fileID: 33196833562426337}
   - component: {fileID: 23125116806982514}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner_Blocker (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31118,7 +31118,7 @@ GameObject:
   - component: {fileID: 4002080200902296}
   - component: {fileID: 33221256740532879}
   - component: {fileID: 23354461439573825}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31202,7 +31202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4226967350229626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31249,7 +31249,7 @@ GameObject:
   - component: {fileID: 4590291885422260}
   - component: {fileID: 33828657069235488}
   - component: {fileID: 23972037310172250}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31334,7 +31334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4589267432561858}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VisualDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31370,7 +31370,7 @@ GameObject:
   - component: {fileID: 4538576061734907}
   - component: {fileID: 33756930078573653}
   - component: {fileID: 23473499073762912}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Straight_Blocker (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31454,7 +31454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4292500515618174}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31491,7 +31491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4018706572595293}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Box 04 half
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31535,7 +31535,7 @@ GameObject:
   - component: {fileID: 4686761023128049}
   - component: {fileID: 198141747051399047}
   - component: {fileID: 199213130585539219}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33837,7 +33837,7 @@ GameObject:
   - component: {fileID: 4256747736000492}
   - component: {fileID: 33273424793549701}
   - component: {fileID: 23338487515807124}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InnerConner_H01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33924,7 +33924,7 @@ GameObject:
   - component: {fileID: 4516053926649178}
   - component: {fileID: 33798981801837477}
   - component: {fileID: 23938581688867445}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Straight_Blocker (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34010,7 +34010,7 @@ GameObject:
   - component: {fileID: 4966955974713945}
   - component: {fileID: 33399695762151322}
   - component: {fileID: 23990861609860056}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34096,7 +34096,7 @@ GameObject:
   - component: {fileID: 4252329707875117}
   - component: {fileID: 198252289291799654}
   - component: {fileID: 199356556691543334}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: DropletsSubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36459,7 +36459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4109426985141015}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Set06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36491,7 +36491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4807233954843783}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Segments
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36524,7 +36524,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4814887035322074}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lids
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36557,7 +36557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4794130028760914}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TNT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36592,7 +36592,7 @@ GameObject:
   - component: {fileID: 4783386753781962}
   - component: {fileID: 198830139603009020}
   - component: {fileID: 199223838477461463}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: DropletsSubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38957,7 +38957,7 @@ GameObject:
   - component: {fileID: 4852767015374966}
   - component: {fileID: 33936422705345347}
   - component: {fileID: 23605026237984510}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39043,7 +39043,7 @@ GameObject:
   - component: {fileID: 4239579974786766}
   - component: {fileID: 198672701975303000}
   - component: {fileID: 199725620152635758}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: BigBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41345,7 +41345,7 @@ GameObject:
   - component: {fileID: 4763820680312696}
   - component: {fileID: 33711858134064040}
   - component: {fileID: 23710973402274042}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner_Blocker (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41431,7 +41431,7 @@ GameObject:
   - component: {fileID: 4301871738860437}
   - component: {fileID: 33567875813500516}
   - component: {fileID: 23758150264991062}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41516,7 +41516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4014168207769874}
   - component: {fileID: 212213016956703043}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41604,7 +41604,7 @@ GameObject:
   - component: {fileID: 4308468808530848}
   - component: {fileID: 33166495477772473}
   - component: {fileID: 23544886512715522}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner_Blocker (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41688,7 +41688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4512148991286653}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VisualUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41723,7 +41723,7 @@ GameObject:
   - component: {fileID: 4174404892570753}
   - component: {fileID: 33368112619810541}
   - component: {fileID: 23363129105033297}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41809,7 +41809,7 @@ GameObject:
   - component: {fileID: 4271000588639077}
   - component: {fileID: 33933158483144677}
   - component: {fileID: 23157218755408149}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41893,7 +41893,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4583205541893701}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrontLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41925,7 +41925,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4301862950950206}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41966,7 +41966,7 @@ GameObject:
   - component: {fileID: 4518711005475705}
   - component: {fileID: 33782881459398989}
   - component: {fileID: 23345386439350792}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42051,7 +42051,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4238166540592099}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VisualUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42084,7 +42084,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4019493762053960}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Idle_Bubbles Variant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42118,7 +42118,7 @@ GameObject:
   - component: {fileID: 4601260401357379}
   - component: {fileID: 33631581964675496}
   - component: {fileID: 23696773287754545}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42205,7 +42205,7 @@ GameObject:
   - component: {fileID: 4960158783290889}
   - component: {fileID: 33706766028659884}
   - component: {fileID: 23960897305400027}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42291,7 +42291,7 @@ GameObject:
   - component: {fileID: 4851810328200954}
   - component: {fileID: 33783546036152218}
   - component: {fileID: 23189679011366740}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Water (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42375,7 +42375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4429091555060176}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: KeyLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42408,7 +42408,7 @@ GameObject:
   - component: {fileID: 4955914404612494}
   - component: {fileID: 33875140800827047}
   - component: {fileID: 23567696294700080}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InnerConner_Blocker (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42494,7 +42494,7 @@ GameObject:
   - component: {fileID: 4242711096493002}
   - component: {fileID: 198671556977859205}
   - component: {fileID: 199524324805267289}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44796,7 +44796,7 @@ GameObject:
   - component: {fileID: 4605320340554733}
   - component: {fileID: 33024437277224048}
   - component: {fileID: 23317855986185733}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44883,7 +44883,7 @@ GameObject:
   - component: {fileID: 4838337004088586}
   - component: {fileID: 33368040714949744}
   - component: {fileID: 23917242123847049}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44969,7 +44969,7 @@ GameObject:
   - component: {fileID: 4058829453613898}
   - component: {fileID: 33258273966290463}
   - component: {fileID: 23150437411812844}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LockBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45053,7 +45053,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4770410519858709}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ScrewLockLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45094,7 +45094,7 @@ GameObject:
   - component: {fileID: 4635460446181448}
   - component: {fileID: 198295391517952770}
   - component: {fileID: 199293100696289434}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: BubbleSubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47459,7 +47459,7 @@ GameObject:
   - component: {fileID: 4027066677278615}
   - component: {fileID: 33054406251624727}
   - component: {fileID: 23955026488599087}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner_Blocker (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47543,7 +47543,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4939270535497333}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VisualHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47577,7 +47577,7 @@ GameObject:
   - component: {fileID: 4494593206925836}
   - component: {fileID: 33299238876085990}
   - component: {fileID: 23044670661963130}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Straight_Blocker (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47663,7 +47663,7 @@ GameObject:
   - component: {fileID: 4286939477796148}
   - component: {fileID: 198539775480940058}
   - component: {fileID: 199674926623271038}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: BubbleSubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50026,7 +50026,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4519805820525296}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50071,7 +50071,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4302406138372164}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlockType05 Layer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50104,7 +50104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4099052631923455}
   - component: {fileID: 7873591222395798475}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Blocker_Ice05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50163,7 +50163,7 @@ GameObject:
   - component: {fileID: 4383845019066432}
   - component: {fileID: 33517943787495141}
   - component: {fileID: 23627467874555081}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50347,7 +50347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4309395850050103}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50381,7 +50381,7 @@ GameObject:
   - component: {fileID: 4785633088214907}
   - component: {fileID: 198605469400177380}
   - component: {fileID: 199540979728888238}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52681,7 +52681,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4061041436996745}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Segments
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52715,7 +52715,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4807554775699368}
   - component: {fileID: 212442375689784927}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Horizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52801,7 +52801,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4694687593306414}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52833,7 +52833,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4658923954401456}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TNT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52867,7 +52867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4323966518041266}
   - component: {fileID: 212785584822486667}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Vertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52955,7 +52955,7 @@ GameObject:
   - component: {fileID: 4480007288099566}
   - component: {fileID: 33389024274768958}
   - component: {fileID: 23674587413483297}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53042,7 +53042,7 @@ GameObject:
   - component: {fileID: 4812569090658714}
   - component: {fileID: 198455015099847402}
   - component: {fileID: 199864275846656080}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: DropletsSubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55406,7 +55406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4039477248232704}
   - component: {fileID: 212908769799515956}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Vertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55494,7 +55494,7 @@ GameObject:
   - component: {fileID: 4162853153892918}
   - component: {fileID: 33636503168838164}
   - component: {fileID: 23626871204761694}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InnerConner_H01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55581,7 +55581,7 @@ GameObject:
   - component: {fileID: 4566955333393385}
   - component: {fileID: 33091597520056007}
   - component: {fileID: 23174648073188326}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55667,7 +55667,7 @@ GameObject:
   - component: {fileID: 4636246783602275}
   - component: {fileID: 33535532610807588}
   - component: {fileID: 23845457289396855}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55753,7 +55753,7 @@ GameObject:
   - component: {fileID: 4487917106090164}
   - component: {fileID: 33134997806089606}
   - component: {fileID: 23055428382024898}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55839,7 +55839,7 @@ GameObject:
   - component: {fileID: 4003297173323521}
   - component: {fileID: 33218765152549149}
   - component: {fileID: 23367865556237903}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Box_Close_02
   m_TagString: BoxLid
   m_Icon: {fileID: 0}
@@ -55925,7 +55925,7 @@ GameObject:
   - component: {fileID: 4009078434271415}
   - component: {fileID: 33450415740457705}
   - component: {fileID: 23750763149467852}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InnerConner_Blocker (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56011,7 +56011,7 @@ GameObject:
   - component: {fileID: 4009884471744344}
   - component: {fileID: 33312395934632675}
   - component: {fileID: 23281900321460406}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner_Blocker (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56095,7 +56095,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4052149024377198}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Segment_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56126,7 +56126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4912148991435946}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrontLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56160,7 +56160,7 @@ GameObject:
   - component: {fileID: 4137558892702905}
   - component: {fileID: 33942232603650005}
   - component: {fileID: 23638605292650834}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56246,7 +56246,7 @@ GameObject:
   - component: {fileID: 4125857380573046}
   - component: {fileID: 33146945574143729}
   - component: {fileID: 23322752436471676}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Straight (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56333,7 +56333,7 @@ GameObject:
   - component: {fileID: 4671005646153652}
   - component: {fileID: 33900724704714869}
   - component: {fileID: 23383774388686285}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56419,7 +56419,7 @@ GameObject:
   - component: {fileID: 4654720687854436}
   - component: {fileID: 33130204602583422}
   - component: {fileID: 23933039520135509}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56505,7 +56505,7 @@ GameObject:
   - component: {fileID: 4971900859355010}
   - component: {fileID: 33582242054644466}
   - component: {fileID: 23533670609002366}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56592,7 +56592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4903075086255154}
   - component: {fileID: 212373312790125649}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Vertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56680,7 +56680,7 @@ GameObject:
   - component: {fileID: 4439254115953984}
   - component: {fileID: 33235849249637740}
   - component: {fileID: 23439287834822330}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56766,7 +56766,7 @@ GameObject:
   - component: {fileID: 4959251339893523}
   - component: {fileID: 33557408220880538}
   - component: {fileID: 23085269211129406}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56852,7 +56852,7 @@ GameObject:
   - component: {fileID: 4267037479813462}
   - component: {fileID: 33881076122979283}
   - component: {fileID: 23094324958130801}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Straight (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56939,7 +56939,7 @@ GameObject:
   - component: {fileID: 4681463816898719}
   - component: {fileID: 198332435016804850}
   - component: {fileID: 199107340831020676}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: DropletsSubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59302,7 +59302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4027738640385159}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Directional
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59336,7 +59336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4265699090311324}
   - component: {fileID: 212343954310446338}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Horizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59424,7 +59424,7 @@ GameObject:
   - component: {fileID: 4684455633975610}
   - component: {fileID: 33783447084173326}
   - component: {fileID: 23840991910291834}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner_Blocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59510,7 +59510,7 @@ GameObject:
   - component: {fileID: 4287071317100085}
   - component: {fileID: 33934014655391944}
   - component: {fileID: 23002108406175470}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LockBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59596,7 +59596,7 @@ GameObject:
   - component: {fileID: 4205503750610428}
   - component: {fileID: 33833959427964525}
   - component: {fileID: 23434123977529629}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Straight (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59683,7 +59683,7 @@ GameObject:
   - component: {fileID: 4355039847070732}
   - component: {fileID: 33686087182506326}
   - component: {fileID: 23272768580007196}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Box_Close_02 (1)
   m_TagString: BoxLid
   m_Icon: {fileID: 0}
@@ -59767,7 +59767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4431032231148927}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Segment_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59800,7 +59800,7 @@ GameObject:
   - component: {fileID: 4755483697795572}
   - component: {fileID: 33235559228672766}
   - component: {fileID: 23618291195324743}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59885,7 +59885,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4919161910884241}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Box 04 half
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59928,7 +59928,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4711272123268327}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Set03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59960,7 +59960,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4820094760188440}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Idle_Bubbles Variant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59994,7 +59994,7 @@ GameObject:
   - component: {fileID: 4138520104662091}
   - component: {fileID: 33223694088501349}
   - component: {fileID: 23978470593178125}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60081,7 +60081,7 @@ GameObject:
   - component: {fileID: 4048840199926151}
   - component: {fileID: 198039551418969974}
   - component: {fileID: 199556279934884696}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: DropletsSubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62445,7 +62445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4602910077021222}
   - component: {fileID: 212458538369760253}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visual (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62533,7 +62533,7 @@ GameObject:
   - component: {fileID: 4822369243487065}
   - component: {fileID: 33257231282315157}
   - component: {fileID: 23372272127548975}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Block05R_Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62617,7 +62617,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4120139056950921}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62651,7 +62651,7 @@ GameObject:
   - component: {fileID: 4710904386047827}
   - component: {fileID: 198582282478522592}
   - component: {fileID: 199589119608612411}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GlowOrbYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64996,7 +64996,7 @@ GameObject:
   - component: {fileID: 4876927200592700}
   - component: {fileID: 33069265536383094}
   - component: {fileID: 23950221077543952}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65080,7 +65080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4597404379597632}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrontLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65114,7 +65114,7 @@ GameObject:
   - component: {fileID: 4903731359029821}
   - component: {fileID: 33152129501280118}
   - component: {fileID: 23938398149586338}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65200,7 +65200,7 @@ GameObject:
   - component: {fileID: 4746743275858526}
   - component: {fileID: 33189547953491406}
   - component: {fileID: 23040628144562140}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65287,7 +65287,7 @@ GameObject:
   - component: {fileID: 4478764656108068}
   - component: {fileID: 33301513775328469}
   - component: {fileID: 23081197566782158}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65371,7 +65371,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4664237420026583}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65404,7 +65404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4545984076074976}
   - component: {fileID: 111723249361933354}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65454,7 +65454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4793507620858025}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Set05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65488,7 +65488,7 @@ GameObject:
   - component: {fileID: 4852998935634854}
   - component: {fileID: 33891991841260644}
   - component: {fileID: 23032143903610044}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65575,7 +65575,7 @@ GameObject:
   - component: {fileID: 4481032715032061}
   - component: {fileID: 33483410717096829}
   - component: {fileID: 23292076045467530}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterConner (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65662,7 +65662,7 @@ GameObject:
   - component: {fileID: 4931431796538447}
   - component: {fileID: 33602637726467605}
   - component: {fileID: 23860561857650863}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Straight_Blocker (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65749,7 +65749,7 @@ GameObject:
   - component: {fileID: 198340897506789755}
   - component: {fileID: 199515868941195829}
   - component: {fileID: 1569342633071477688}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: SoapBubbleEmitter Variant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68242,7 +68242,7 @@ GameObject:
   - component: {fileID: 4418715680547458}
   - component: {fileID: 33998713829186191}
   - component: {fileID: 23782175313853930}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Straight_Blocker (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68328,7 +68328,7 @@ GameObject:
   - component: {fileID: 4067553809504919}
   - component: {fileID: 33651039289735780}
   - component: {fileID: 23586259273306769}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68414,7 +68414,7 @@ GameObject:
   - component: {fileID: 4560930929732536}
   - component: {fileID: 33240016579211051}
   - component: {fileID: 23853778780005227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rope02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68500,7 +68500,7 @@ GameObject:
   - component: {fileID: 4880310647654941}
   - component: {fileID: 33045021236411247}
   - component: {fileID: 23161013133179473}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68584,7 +68584,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4427952379955409}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68618,7 +68618,7 @@ GameObject:
   - component: {fileID: 4587750830493783}
   - component: {fileID: 33452631325511232}
   - component: {fileID: 23713884840612816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68705,7 +68705,7 @@ GameObject:
   - component: {fileID: 2165215393129791541}
   - component: {fileID: 1863754503828575559}
   - component: {fileID: 4634936320532880913}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68844,7 +68844,7 @@ GameObject:
   - component: {fileID: 5308998889286955638}
   - component: {fileID: 8657316938966083379}
   - component: {fileID: 1465750381380227850}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InnerConner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68953,7 +68953,7 @@ GameObject:
   - component: {fileID: 6423746716867330035}
   - component: {fileID: 8874723280559046555}
   - component: {fileID: 6742443179224669951}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69055,6 +69055,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fx_trail
       objectReference: {fileID: 0}
+    - target: {fileID: 1281978580896327899, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1446836020199313679, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -69098,6 +69102,10 @@ PrefabInstance:
     - target: {fileID: 3111366716406309573, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196485231069121154, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3196485231069121154, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: m_IsActive
@@ -69160,6 +69168,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9206998296379763204, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206998296379763204, guid: b36ad1554b12dc048a912232f33b4814, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -69218,8 +69230,16 @@ PrefabInstance:
       value: fx_impact
       objectReference: {fileID: 0}
     - target: {fileID: 385922144032911978, guid: 045194c85f9c02a4eb98846aba8c5682, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 385922144032911978, guid: 045194c85f9c02a4eb98846aba8c5682, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470401022770586535, guid: 045194c85f9c02a4eb98846aba8c5682, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 599818464671100853, guid: 045194c85f9c02a4eb98846aba8c5682, type: 3}
       propertyPath: m_LocalPosition.x

@@ -20,7 +20,6 @@ public class GameManager : SingletonDDOL<GameManager>
     public GameState gameState = GameState.None;
 
     public static event Action<GameState> OnGameStateChanged;
-
     public int Level = 1;
 
     private void Start()

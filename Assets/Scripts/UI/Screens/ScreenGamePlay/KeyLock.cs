@@ -12,6 +12,8 @@ public class KeyLock : MonoBehaviour
 
     public void ShowIntro()
     {
+        //play sound
+        AudioManager.Instance.PlayOneShot("BoosterAppear_1", 1f);
         transform.gameObject.SetActive(true);
         keyStartPos = key.anchoredPosition;
         StartCoroutine(PlayIntro());

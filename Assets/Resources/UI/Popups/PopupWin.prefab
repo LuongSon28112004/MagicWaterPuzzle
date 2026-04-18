@@ -4692,6 +4692,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fx_Success
       objectReference: {fileID: 0}
+    - target: {fileID: 6673462872160554626, guid: 0c765081bc7eefe4aa2bb0d95e24ff4d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6798636594510640806, guid: 0c765081bc7eefe4aa2bb0d95e24ff4d, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.5

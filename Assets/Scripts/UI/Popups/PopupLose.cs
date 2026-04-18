@@ -6,12 +6,14 @@ public class PopupLose : PopupUI
 {
     [SerializeField] Button buttonRetry;
 
-    private void Start() {
+    private void Start()
+    {
         AddEventListener();
     }
 
     private void AddEventListener()
     {
+        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
         buttonRetry.onClick.AddListener(BackToMenu);
     }
 

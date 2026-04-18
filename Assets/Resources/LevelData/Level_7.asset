@@ -462,4 +462,4 @@ MonoBehaviour:
   durationTime: 180
   IsEvenX: 1
   IsEvenY: 1
-  BoundCam: {x: 19, y: 19}
+  BoundCam: {x: 18, y: 18}

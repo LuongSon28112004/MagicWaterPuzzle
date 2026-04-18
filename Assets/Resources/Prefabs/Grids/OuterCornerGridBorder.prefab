@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4212935698530604}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 'OuterConner '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4541173209264644}
   - component: {fileID: 33626689361640160}
   - component: {fileID: 23736900162404406}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Outer_outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 4005642140797130}
   - component: {fileID: 33700876791386112}
   - component: {fileID: 23515689976214609}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 4753467186703720}
   - component: {fileID: 61165005600749846}
   - component: {fileID: 61443011860323397}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OuterCornerGridBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

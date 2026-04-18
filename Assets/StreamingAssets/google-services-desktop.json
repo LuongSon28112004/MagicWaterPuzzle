@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "176372852054",
+    "project_id": "magicwaterpuzzle",
+    "storage_bucket": "magicwaterpuzzle.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176372852054:android:55a9f17cabd26aa0b662f7",
+        "android_client_info": {
+          "package_name": "com.company.GameMobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlcWxmFJImxUI_EcWxanxJ851w1CXy2rY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4331969365909346}
   - component: {fileID: 61896223796190515}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StraightGridBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4949861735612465}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Straight (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4540537328306708}
   - component: {fileID: 33473378809579941}
   - component: {fileID: 23608528013816612}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Straight_outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 4798556960062651}
   - component: {fileID: 33969712634498166}
   - component: {fileID: 23779036013693351}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
