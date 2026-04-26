@@ -28,6 +28,35 @@ public static class SaveDataManager
         File.WriteAllText(saveFilePath, json);
 
         Debug.Log($"[SaveDataManager] Dữ liệu đã được lưu tại: {saveFilePath}");
+
+        // Cập nhật lên Firebase
+        if (UserDataFirebaseManager.Instance != null && !string.IsNullOrEmpty(UserDataFirebaseManager.Instance.CurrentUserId))
+        {
+            List<Dictionary<string, object>> boostersList = new List<Dictionary<string, object>>();
+            if (UserData.listBoosterCounters != null)
+            {
+                foreach (var booster in UserData.listBoosterCounters)
+                {
+                    boostersList.Add(new Dictionary<string, object>
+                    {
+                        { "name", booster.name },
+                        { "count", booster.count }
+                    });
+                }
+            }
+
+            int currentHearts = HeartSystem.Instance != null ? HeartSystem.Instance.CurrentHearts : PlayerPrefs.GetInt("Hearts", 5);
+
+            Dictionary<string, object> firebaseData = new Dictionary<string, object>
+            {
+                { "Coin", UserData.coin },
+                { "Level", UserData.level },
+                { "Heart", currentHearts },
+                { "Boosters", boostersList }
+            };
+
+            UserDataFirebaseManager.Instance.SaveUserData(UserDataFirebaseManager.Instance.CurrentUserId, firebaseData);
+        }
     }
 
     // Tải dữ liệu

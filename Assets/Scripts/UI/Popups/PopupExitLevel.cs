@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -53,6 +54,20 @@ public class PopupExitLevel : PopupUI
         {
             CurrentHearts -= 1;
             PlayerPrefs.SetInt("Hearts", CurrentHearts);
+            UserDataFirebaseManager.Instance.SaveUserData(UserDataFirebaseManager.Instance.CurrentUserId, new Dictionary<string, object>
+            {
+                { "Heart", CurrentHearts }
+            }, (isSuccess) =>
+            {
+                if (isSuccess)
+                {
+                    Debug.Log("Save heart successfully to Firebase.");
+                }
+                else
+                {
+                    Debug.LogError("Failed to save heart to Firebase.");
+                }
+            });
         }
     }
 

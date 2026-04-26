@@ -87,8 +87,6 @@ GameObject:
   - component: {fileID: 260843607928433682}
   - component: {fileID: 4004269425259848871}
   - component: {fileID: 5428336058421689924}
-  - component: {fileID: 5512627851628053467}
-  - component: {fileID: 1343276313475247004}
   - component: {fileID: 8743511931141858510}
   m_Layer: 5
   m_Name: Text (Legacy)
@@ -158,39 +156,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: '!'
---- !u!114 &5512627851628053467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3902141912494344926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf1f6e7537f58d64383d5fc0252cb85e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_GradientMode: 0
-  m_GradientDirection: 0
-  m_ColorMode: 2
-  m_FirstColor: {r: 1, g: 1, b: 1, a: 1}
-  m_SecondColor: {r: 1, g: 0.8619703, b: 0.5990566, a: 1}
-  m_UseGraphicAlpha: 1
---- !u!114 &1343276313475247004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3902141912494344926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11f0d33fe506c044f9836a996518683b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.509434, g: 0.03666184, b: 0.0024029962, a: 1}
-  m_EffectDistance: {x: -1, y: -1}
-  m_UseGraphicAlpha: 1
 --- !u!114 &8743511931141858510
 MonoBehaviour:
   m_ObjectHideFlags: 0

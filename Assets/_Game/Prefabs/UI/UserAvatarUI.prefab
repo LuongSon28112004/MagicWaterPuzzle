@@ -219,7 +219,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5310300235630615895}
   - component: {fileID: 4943380078609526028}
-  - component: {fileID: 3573324470626874363}
   m_Layer: 5
   m_Name: UserAvatarUI
   m_TagString: Untagged
@@ -257,21 +256,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138732012550535189}
   m_CullTransparentMesh: 1
---- !u!114 &3573324470626874363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138732012550535189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaede680ebc45ef4f9be2ce53b777d31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imgAvatar: {fileID: 4954415747090688731}
-  frameHolder: {fileID: 1920301515121851170}
-  badgeHolder: {fileID: 6384616068472692861}
 --- !u!1 &6306262939537201768
 GameObject:
   m_ObjectHideFlags: 0

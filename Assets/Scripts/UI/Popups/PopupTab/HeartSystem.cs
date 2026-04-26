@@ -4,12 +4,19 @@ using master;
 
 public class HeartSystem : MonoBehaviour
 {
+    public static HeartSystem Instance { get; private set; }
 
     private int maxHearts = 5;
     private int currentHearts = 0;
     private int secondsPerHeart = 1800; // 30 phút
 
     private float timer;
+
+    private void Awake()
+    {
+        Instance = this;
+        Debug.Log("HeartSystem Awake");
+    }
 
     public float Timer => timer;
 

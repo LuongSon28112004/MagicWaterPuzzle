@@ -84,10 +84,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 754367091704533561}
-  - component: {fileID: 114371410645862924}
   - component: {fileID: 9156823968828399062}
   - component: {fileID: 3851864564812545013}
-  - component: {fileID: 574174898227637762}
+  - component: {fileID: 1412685501575013374}
+  - component: {fileID: 8421340533017200291}
   m_Layer: 5
   m_Name: ButtonGilfCode
   m_TagString: Untagged
@@ -117,27 +117,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -70.00001}
   m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &114371410645862924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 388132901602707433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 0.9, y: 0.9, z: 1}
-  targetTF: {fileID: 0}
-  eventOnPointDown:
-    m_PersistentCalls:
-      m_Calls: []
-  eventOnPointUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!222 &9156823968828399062
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -176,7 +155,30 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &574174898227637762
+--- !u!114 &1412685501575013374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388132901602707433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b406c0e2aedaa4dba07edc643001cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1}
+  endScale: {x: 0.95, y: 0.95}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
+--- !u!114 &8421340533017200291
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -925,7 +927,7 @@ GameObject:
   - component: {fileID: 2588550250509059025}
   - component: {fileID: 5526356775979379842}
   - component: {fileID: 5532083461276740950}
-  - component: {fileID: 2334171761204207367}
+  - component: {fileID: 3441806454568678227}
   m_Layer: 5
   m_Name: 'ButtonMusic '
   m_TagString: Untagged
@@ -1035,7 +1037,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2334171761204207367
+--- !u!114 &3441806454568678227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1044,11 +1046,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3838758568257000411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Script: {fileID: 11500000, guid: 97b406c0e2aedaa4dba07edc643001cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 0.9, y: 0.9, z: 1}
+  startScale: {x: 1, y: 1}
+  endScale: {x: 0.95, y: 0.95}
   targetTF: {fileID: 0}
   eventOnPointDown:
     m_PersistentCalls:
@@ -1056,6 +1058,8 @@ MonoBehaviour:
   eventOnPointUp:
     m_PersistentCalls:
       m_Calls: []
+  isActiveSound: 0
+  ignoreVib: 0
 --- !u!1 &3859581967382748299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,7 +1072,7 @@ GameObject:
   - component: {fileID: 5662734107873632694}
   - component: {fileID: 386953033251770882}
   - component: {fileID: 268268614568014192}
-  - component: {fileID: 1360510387015862873}
+  - component: {fileID: 6537872706345844387}
   m_Layer: 5
   m_Name: ButtonSoundFX
   m_TagString: Untagged
@@ -1178,7 +1182,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1360510387015862873
+--- !u!114 &6537872706345844387
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1187,11 +1191,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3859581967382748299}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Script: {fileID: 11500000, guid: 97b406c0e2aedaa4dba07edc643001cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 0.9, y: 0.9, z: 1}
+  startScale: {x: 1, y: 1}
+  endScale: {x: 0.95, y: 0.95}
   targetTF: {fileID: 0}
   eventOnPointDown:
     m_PersistentCalls:
@@ -1199,6 +1203,8 @@ MonoBehaviour:
   eventOnPointUp:
     m_PersistentCalls:
       m_Calls: []
+  isActiveSound: 0
+  ignoreVib: 0
 --- !u!1 &4051574095634421664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1422,7 +1428,7 @@ GameObject:
   - component: {fileID: 1275329754017140356}
   - component: {fileID: 2601481680430702036}
   - component: {fileID: 8301221940114992253}
-  - component: {fileID: 7715693890778388527}
+  - component: {fileID: 4843215300900598477}
   m_Layer: 5
   m_Name: ButtonExit
   m_TagString: Untagged
@@ -1531,7 +1537,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7715693890778388527
+--- !u!114 &4843215300900598477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1540,11 +1546,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4231287808310989833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Script: {fileID: 11500000, guid: 97b406c0e2aedaa4dba07edc643001cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 0.9, y: 0.9, z: 1}
+  startScale: {x: 1, y: 1}
+  endScale: {x: 0.95, y: 0.95}
   targetTF: {fileID: 0}
   eventOnPointDown:
     m_PersistentCalls:
@@ -1552,6 +1558,8 @@ MonoBehaviour:
   eventOnPointUp:
     m_PersistentCalls:
       m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &4623686287899191924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,10 +1855,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8930526697727828057}
-  - component: {fileID: 3578822872665586297}
   - component: {fileID: 4693505783923441286}
   - component: {fileID: 1428124084901547018}
   - component: {fileID: 3728780208042809960}
+  - component: {fileID: 8475377258807676861}
   m_Layer: 5
   m_Name: ButtonHelp
   m_TagString: Untagged
@@ -1880,27 +1888,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 132}
   m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3578822872665586297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5723196361113926648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 0.9, y: 0.9, z: 1}
-  targetTF: {fileID: 0}
-  eventOnPointDown:
-    m_PersistentCalls:
-      m_Calls: []
-  eventOnPointUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!222 &4693505783923441286
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1983,6 +1970,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8475377258807676861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5723196361113926648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b406c0e2aedaa4dba07edc643001cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1}
+  endScale: {x: 0.95, y: 0.95}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 0
+  ignoreVib: 0
 --- !u!1 &6513265869190070559
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,7 +2057,7 @@ MonoBehaviour:
   ImageMusicSlack: {fileID: 5689282062284256006}
   ImageVirbateSlack: {fileID: 4549617201558192026}
   helpButton: {fileID: 3728780208042809960}
-  gilfCodeButton: {fileID: 574174898227637762}
+  gilfCodeButton: {fileID: 8421340533017200291}
   joinButton: {fileID: 8463392246079252458}
 --- !u!1 &6807935077646469432
 GameObject:
@@ -2208,10 +2218,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4627908648940154839}
-  - component: {fileID: 5588173790700634126}
   - component: {fileID: 1061671148818259257}
   - component: {fileID: 6183695541749002003}
   - component: {fileID: 8463392246079252458}
+  - component: {fileID: 2131115191605646289}
   m_Layer: 5
   m_Name: ButtonJoin
   m_TagString: Untagged
@@ -2241,27 +2251,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -270}
   m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5588173790700634126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8475410483886442192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 0.9, y: 0.9, z: 1}
-  targetTF: {fileID: 0}
-  eventOnPointDown:
-    m_PersistentCalls:
-      m_Calls: []
-  eventOnPointUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!222 &1061671148818259257
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2344,6 +2333,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2131115191605646289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8475410483886442192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b406c0e2aedaa4dba07edc643001cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1}
+  endScale: {x: 0.95, y: 0.95}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &8573590850817003441
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,7 +2368,7 @@ GameObject:
   - component: {fileID: 8345624932311143780}
   - component: {fileID: 3682133800070879140}
   - component: {fileID: 4783867987828306523}
-  - component: {fileID: 1273252576587353494}
+  - component: {fileID: 2705194992311826615}
   m_Layer: 5
   m_Name: ButtonVibrate
   m_TagString: Untagged
@@ -2466,7 +2478,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1273252576587353494
+--- !u!114 &2705194992311826615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2475,11 +2487,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8573590850817003441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Script: {fileID: 11500000, guid: 97b406c0e2aedaa4dba07edc643001cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 0.9, y: 0.9, z: 1}
+  startScale: {x: 1, y: 1}
+  endScale: {x: 0.95, y: 0.95}
   targetTF: {fileID: 0}
   eventOnPointDown:
     m_PersistentCalls:
@@ -2487,6 +2499,8 @@ MonoBehaviour:
   eventOnPointUp:
     m_PersistentCalls:
       m_Calls: []
+  isActiveSound: 0
+  ignoreVib: 0
 --- !u!1 &8794725283628033958
 GameObject:
   m_ObjectHideFlags: 0

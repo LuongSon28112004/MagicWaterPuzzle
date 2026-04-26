@@ -71,5 +71,6 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": true
   },
-    "dotnet.defaultSolution": "MagicWaterPuzzle.sln"
+    "dotnet.defaultSolution": "MagicWaterPuzzle.sln",
+    "dotnet.preferCSharpExtension": true
 }
