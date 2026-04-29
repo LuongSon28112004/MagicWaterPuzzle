@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class ButtonScaler2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    public Vector2 startScale = Vector2.one;
-    public Vector2 endScale = new Vector2(0.95f, 0.95f);
+    public Vector3 startScale = Vector3.one;
+    public Vector3 endScale = new Vector3(0.95f, 0.95f, 0.95f);
     [SerializeField] Transform targetTF;
     [SerializeField] protected UnityEvent eventOnPointDown;
     [SerializeField] protected UnityEvent eventOnPointUp;

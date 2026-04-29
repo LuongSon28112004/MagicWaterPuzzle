@@ -20,6 +20,40 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
         db = FirebaseFirestore.DefaultInstance;
 
         CheckAndInitializeUser();
+        //AddTestUsersSequential();
+    }
+
+    public void AddTestUsersSequential()
+    {
+        CreateUserRecursive(0);
+    }
+
+    private void CreateUserRecursive(int count)
+    {
+        if (count >= 10) return;
+
+        GenerateUniqueId(newId =>
+        {
+            Dictionary<string, object> data = new Dictionary<string, object>
+            {
+            { "Id", newId },
+            { "Name", "Bot_" + newId },
+            { "Coin", UnityEngine.Random.Range(0, 10000) },
+            { "Level", UnityEngine.Random.Range(1, 50) },
+            { "Heart", UnityEngine.Random.Range(1, 5) },
+            { "Frame", 0 },
+            { "CreatedAt", FieldValue.ServerTimestamp }
+            };
+
+            SaveUserData(newId, data, success =>
+            {
+                if (success)
+                {
+                    Debug.Log($"Created test user: {newId}");
+                    CreateUserRecursive(count + 1); // gọi tiếp
+                }
+            });
+        });
     }
 
     /// <summary>
@@ -208,6 +242,37 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
             {
                 Debug.LogError($"[Firebase] Failed to delete UserData {documentId}: {task.Exception}");
                 onComplete?.Invoke(false);
+            }
+        });
+    }
+
+    public void GetAllUsers(Action<List<Dictionary<string, object>>> onComplete)
+    {
+        if (db == null) db = FirebaseFirestore.DefaultInstance;
+
+        db.Collection(COLLECTION_NAME).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompleted && !task.IsFaulted)
+            {
+                QuerySnapshot snapshot = task.Result;
+
+                List<Dictionary<string, object>> users = new List<Dictionary<string, object>>();
+
+                foreach (DocumentSnapshot doc in snapshot.Documents)
+                {
+                    if (doc.Exists)
+                    {
+                        users.Add(doc.ToDictionary());
+                    }
+                }
+
+                Debug.Log($"[Firebase] Loaded {users.Count} users");
+                onComplete?.Invoke(users);
+            }
+            else
+            {
+                Debug.LogError($"[Firebase] Failed to get users: {task.Exception}");
+                onComplete?.Invoke(null);
             }
         });
     }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class LeaderBoardFriendController : MonoBehaviour
 {
     [Header("Reference")]
-    [SerializeField] private LeaderBoardManager leaderBoardManager;
+    private LeaderBoardManager leaderBoardManager;
     [SerializeField] private GameObject contentFriend;
     [SerializeField] private GameObject contentFriendRequest;
     [Header("Prefab")]

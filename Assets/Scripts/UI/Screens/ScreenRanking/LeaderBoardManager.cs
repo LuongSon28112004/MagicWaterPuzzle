@@ -26,6 +26,7 @@ public class LeaderBoardManager : MonoBehaviour
 
     private void OnClickPlayer()
     {
-
+        LeaderBoardPlayerController playerController = contentPlayer.GetComponent<LeaderBoardPlayerController>();
+        playerController.LoadListPlayer();
     }
 }

@@ -42,6 +42,8 @@ public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
     private StatusChoice currentStatus;
     [Header("Panel Lock")]
     [SerializeField] private Transform PanelLock;
+    [Header("Layout")]
+    [SerializeField] private Transform TopLayout;
 
     // Swipe
     private Vector2 touchStart;
@@ -140,6 +142,15 @@ public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
     {
         AudioManager.Instance.PlayOneShot("ClickButton", 1f);
         if (newChoice == currentStatus) return;
+
+        if (newChoice == StatusChoice.RANKING)
+        {
+            TopLayout.gameObject.SetActive(false);
+        }
+        else
+        {
+            TopLayout.gameObject.SetActive(true);
+        }
 
 
         //Sound
