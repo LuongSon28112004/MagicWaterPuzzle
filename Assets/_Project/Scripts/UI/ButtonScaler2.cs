@@ -27,7 +27,10 @@ public class ButtonScaler2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public void OnPointerDown(PointerEventData eventData)
     {
         isPointerDown = true;
-        targetTF.DOScale(endScale, 0.1f).SetEase(Ease.OutQuad).SetUpdate(true).SetId(this);
+        targetTF.DOScale(
+    new Vector3(endScale.x, endScale.y, 1f),
+    0.1f
+).SetEase(Ease.OutQuad).SetUpdate(true).SetId(this);
         eventOnPointDown?.Invoke();
         isPointerInside = true;
     }
@@ -36,7 +39,10 @@ public class ButtonScaler2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         if (!isPointerDown) return;
         isPointerDown = false;
-        targetTF.DOScale(startScale, 0.1f).SetEase(Ease.OutQuad).SetUpdate(true).SetId(this);
+        targetTF.DOScale(
+    new Vector3(startScale.x, startScale.y, 1f),
+    0.1f
+).SetEase(Ease.OutQuad).SetUpdate(true).SetId(this);
         eventOnPointUp?.Invoke();
         if (eventData.dragging)
         {

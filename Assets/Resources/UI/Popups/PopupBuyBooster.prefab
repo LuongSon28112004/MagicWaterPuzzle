@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 5415507643386664419}
   - component: {fileID: 3340082616159118805}
   - component: {fileID: 1599444083858342979}
-  - component: {fileID: 5892364149911573195}
+  - component: {fileID: 2550952192739846599}
   m_Layer: 5
   m_Name: ButtonBuy
   m_TagString: Untagged
@@ -529,7 +529,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5892364149911573195
+--- !u!114 &2550952192739846599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -538,11 +538,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1816172950472156295}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Script: {fileID: 11500000, guid: 97b406c0e2aedaa4dba07edc643001cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 0.9, y: 0.9, z: 1}
+  endScale: {x: 0.95, y: 0.95, z: 0.95}
   targetTF: {fileID: 0}
   eventOnPointDown:
     m_PersistentCalls:
@@ -697,7 +697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 755736290323759447}
-  - component: {fileID: 6551178960844093974}
+  - component: {fileID: 7310311695931390169}
   m_Layer: 5
   m_Name: ButtonADS
   m_TagString: Untagged
@@ -728,7 +728,7 @@ RectTransform:
   m_AnchoredPosition: {x: 154, y: -316}
   m_SizeDelta: {x: 260, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6551178960844093974
+--- !u!114 &7310311695931390169
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -737,11 +737,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2128104583768218144}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Script: {fileID: 11500000, guid: 97b406c0e2aedaa4dba07edc643001cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 0.9, y: 0.9, z: 1}
+  endScale: {x: 0.95, y: 0.95, z: 0.95}
   targetTF: {fileID: 0}
   eventOnPointDown:
     m_PersistentCalls:
@@ -1659,7 +1659,7 @@ GameObject:
   - component: {fileID: 481922359714960599}
   - component: {fileID: 5362026339530009225}
   - component: {fileID: 7800305657234896793}
-  - component: {fileID: 5528048150333381976}
+  - component: {fileID: 505164066673323331}
   m_Layer: 5
   m_Name: ButtonExit
   m_TagString: Untagged
@@ -1768,7 +1768,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5528048150333381976
+--- !u!114 &505164066673323331
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1777,11 +1777,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6227028945269317395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
+  m_Script: {fileID: 11500000, guid: 97b406c0e2aedaa4dba07edc643001cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 0.9, y: 0.9, z: 1}
+  endScale: {x: 0.95, y: 0.95, z: 0.95}
   targetTF: {fileID: 0}
   eventOnPointDown:
     m_PersistentCalls:

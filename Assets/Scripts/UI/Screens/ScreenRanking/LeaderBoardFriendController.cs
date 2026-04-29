@@ -1,4 +1,7 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LeaderBoardFriendController : MonoBehaviour
 {
@@ -9,4 +12,104 @@ public class LeaderBoardFriendController : MonoBehaviour
     [Header("Prefab")]
     [SerializeField] private FriendUserInfor friendUserInforPrefab;
     [SerializeField] private FriendUserRequestInfo friendUserRequestInfoPrefab;
+    [Header("Button")]
+    [SerializeField] private Button buttonFriend;
+    [SerializeField] private Button buttonAddFriend;
+    [Header("Other")]
+    [SerializeField] private GameObject panelAddFriend;
+    [SerializeField] private GameObject panelFriendList;
+    [SerializeField] private GameObject LoadingPanel;
+
+    private void Start()
+    {
+        buttonFriend.onClick.AddListener(OnClickFriend);
+        buttonAddFriend.onClick.AddListener(OnClickAddFriend);
+    }
+
+    private void OnClickAddFriend()
+    {
+        panelAddFriend.SetActive(true);
+        panelFriendList.SetActive(false);
+
+    }
+
+    private void OnClickFriend()
+    {
+        LoadListFriend();
+        // destroy old list
+        foreach (Transform child in contentFriend.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        panelAddFriend.SetActive(false);
+        panelFriendList.SetActive(true);
+    }
+
+    public void LoadListFriend()
+    {
+        string currentUserId = PlayerPrefs.GetString("PlayerID", null);
+        if (string.IsNullOrEmpty(currentUserId))
+        {
+            Debug.LogError("Current user ID not found in PlayerPrefs.");
+            return;
+        }
+
+        LoadingPanel.SetActive(true);
+
+        UserDataFirebaseManager.Instance.GetFriendsList(currentUserId, friends =>
+        {
+            if (friends == null)
+            {
+                Debug.LogError("Failed to load friends list.");
+                return;
+            }
+
+            // Clear old list
+            foreach (Transform child in contentFriend.transform)
+            {
+                Destroy(child.gameObject);
+            }
+
+            //add tôi vào list bạn bè
+            UserDataFirebaseManager.Instance.GetUserData(currentUserId, currentUser =>
+            {
+                if (currentUser != null)
+                {
+                    friends.Add(currentUser);
+                }
+
+                LoadingPanel.SetActive(false);
+                //sort theo level giảm dần
+                friends.Sort((a, b) =>
+                {
+                    int levelA = a.ContainsKey("Level") ? Convert.ToInt32(a["Level"]) : 1;
+                    int levelB = b.ContainsKey("Level") ? Convert.ToInt32(b["Level"]) : 1;
+                    return levelB.CompareTo(levelA);
+                });
+
+                // Create new UI for each friend
+                int rank = 1;
+                foreach (var friend in friends)
+                {
+                    string friendName = friend.ContainsKey("Name") ? friend["Name"].ToString() : "Unknown";
+                    int friendLevel = friend.ContainsKey("Level") ? Convert.ToInt32(friend["Level"]) : 1;
+
+                    GameObject item = Instantiate(friendUserInforPrefab.gameObject, contentFriend.transform);
+                    FriendUserInfor ui = item.GetComponent<FriendUserInfor>();
+                    ui.SetData(rank, friendName, friendLevel);
+                    rank++;
+                    item.SetActive(true);
+                }
+            });
+
+        });
+    }
+
+    public void ClearContent()
+    {
+        foreach (Transform child in contentFriend.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
 }

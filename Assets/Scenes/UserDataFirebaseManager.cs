@@ -21,6 +21,8 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
 
         CheckAndInitializeUser();
         //AddTestUsersSequential();
+        string myId = PlayerPrefs.GetString("PlayerID", "-1");
+        if (myId != "-1") AddFriend("10000011", "10000010");
     }
 
     public void AddTestUsersSequential()
@@ -273,6 +275,115 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
             {
                 Debug.LogError($"[Firebase] Failed to get users: {task.Exception}");
                 onComplete?.Invoke(null);
+            }
+        });
+    }
+
+    /// <summary>
+    /// Thêm bạn bè giữa 2 người dùng (tạo document trong subcollection "Friends" của mỗi người, chứa Id của người kia)
+    /// </summary>
+    /// <param name="userAId"></param>
+    /// <param name="userBId"></param>
+    /// <param name="onComplete"></param>
+    public void AddFriend(string userAId, string userBId, Action<bool> onComplete = null)
+    {
+        if (db == null) db = FirebaseFirestore.DefaultInstance;
+
+        WriteBatch batch = db.StartBatch();
+
+        DocumentReference userARef = db.Collection(COLLECTION_NAME)
+                                       .Document(userAId)
+                                       .Collection("Friends")
+                                       .Document(userBId);
+
+        DocumentReference userBRef = db.Collection(COLLECTION_NAME)
+                                       .Document(userBId)
+                                       .Collection("Friends")
+                                       .Document(userAId);
+
+        Dictionary<string, object> dataA = new Dictionary<string, object>
+    {
+        { "Id", userBId },
+        { "CreatedAt", FieldValue.ServerTimestamp }
+    };
+
+        Dictionary<string, object> dataB = new Dictionary<string, object>
+    {
+        { "Id", userAId },
+        { "CreatedAt", FieldValue.ServerTimestamp }
+    };
+
+        batch.Set(userARef, dataA);
+        batch.Set(userBRef, dataB);
+
+        batch.CommitAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompleted && !task.IsFaulted)
+            {
+                Debug.Log($"[Friend] {userAId} and {userBId} are now friends!");
+                onComplete?.Invoke(true);
+            }
+            else
+            {
+                Debug.LogError($"[Friend] AddFriend failed: {task.Exception}");
+                onComplete?.Invoke(false);
+            }
+        });
+    }
+    /// <summary>
+    /// Lấy danh sách bạn bè của một người dùng (truy vấn subcollection "Friends", sau đó lấy data user thật của từng friendId)
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <param name="onComplete"></param>
+    public void GetFriendsList(string userId, Action<List<Dictionary<string, object>>> onComplete)
+    {
+        if (db == null) db = FirebaseFirestore.DefaultInstance;
+
+        CollectionReference friendsRef = db.Collection(COLLECTION_NAME)
+                                           .Document(userId)
+                                           .Collection("Friends");
+
+        friendsRef.GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted || task.IsCanceled)
+            {
+                Debug.LogError("[Friend] Failed to get friends list");
+                onComplete?.Invoke(null);
+                return;
+            }
+
+            QuerySnapshot snapshot = task.Result;
+
+            List<Dictionary<string, object>> friendsData = new List<Dictionary<string, object>>();
+
+            if (snapshot.Count == 0)
+            {
+                onComplete?.Invoke(friendsData);
+                return;
+            }
+
+            int remaining = snapshot.Count;
+
+            foreach (DocumentSnapshot doc in snapshot.Documents)
+            {
+                string friendId = doc.Id;
+
+                // Lấy data user thật
+                GetUserData(friendId, userData =>
+                {
+                    if (userData != null)
+                    {
+                        friendsData.Add(userData);
+                    }
+
+                    remaining--;
+
+                    if (remaining == 0)
+                    {
+                        Debug.Log($"[Friend] Loaded {friendsData.Count} friends");
+                        onComplete?.Invoke(friendsData);
+                    }
+                });
             }
         });
     }

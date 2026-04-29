@@ -8,11 +8,14 @@ public class LeaderBoardPlayerController : MonoBehaviour
     [SerializeField] private LeaderBoardUserInforPlayer userInforPlayer;
     [SerializeField] private LeaderBoardUserInfor userInfor;
     [SerializeField] private GameObject contentPlayer;
+    [SerializeField] private GameObject LoadingPanel;
 
     public void LoadListPlayer()
     {
+        LoadingPanel.SetActive(true);
         UserDataFirebaseManager.Instance.GetAllUsers(users =>
         {
+            LoadingPanel.SetActive(false);
             if (users == null) return;
 
             // Clear list cũ
@@ -61,6 +64,14 @@ public class LeaderBoardPlayerController : MonoBehaviour
                 item.SetActive(true);
             }
         });
+    }
+
+    public void ClearContent()
+    {
+        foreach (Transform child in contentPlayer.transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }
 

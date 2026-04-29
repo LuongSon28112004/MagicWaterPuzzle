@@ -19,14 +19,43 @@ public class LeaderBoardManager : MonoBehaviour
         btnPlayer.onClick.AddListener(OnClickPlayer);
     }
 
+    void OnEnable()
+    {
+        OnClickFriend();
+    }
+
     private void OnClickFriend()
     {
+        LeaderBoardPlayerController playerController = contentPlayer.GetComponent<LeaderBoardPlayerController>();
+        if (playerController != null) playerController.ClearContent();
 
+        LeaderBoardFriendController friendController = contentFriend.GetComponent<LeaderBoardFriendController>();
+        if (friendController != null) friendController.LoadListFriend();
+
+        contentFriend.SetActive(true);
+        contentPlayer.SetActive(false);
     }
 
     private void OnClickPlayer()
     {
+        LeaderBoardFriendController friendController = contentFriend.GetComponent<LeaderBoardFriendController>();
+        if (friendController != null) friendController.ClearContent();
+
         LeaderBoardPlayerController playerController = contentPlayer.GetComponent<LeaderBoardPlayerController>();
-        playerController.LoadListPlayer();
+        if (playerController != null)
+        {
+            playerController.LoadListPlayer();
+        }
+        contentFriend.SetActive(false);
+        contentPlayer.SetActive(true);
+    }
+
+    public void ClearContent()
+    {
+        LeaderBoardPlayerController playerController = contentPlayer.GetComponent<LeaderBoardPlayerController>();
+        if (playerController != null) playerController.ClearContent();
+
+        LeaderBoardFriendController friendController = contentFriend.GetComponent<LeaderBoardFriendController>();
+        if (friendController != null) friendController.ClearContent();
     }
 }

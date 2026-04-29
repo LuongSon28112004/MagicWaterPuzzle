@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 5163292161150110181}
   - component: {fileID: 4013925634320769886}
   - component: {fileID: 9137038699326963732}
+  - component: {fileID: 700779128198525614}
   m_Layer: 5
   m_Name: ButtonExit
   m_TagString: Untagged
@@ -406,6 +407,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &700779128198525614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578964206449724022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b406c0e2aedaa4dba07edc643001cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.95, y: 0.95, z: 0.95}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &758559445296726277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,6 +1984,7 @@ GameObject:
   - component: {fileID: 3599423586294648953}
   - component: {fileID: 5996405180502383793}
   - component: {fileID: 7328196560722570661}
+  - component: {fileID: 979987275132668456}
   m_Layer: 5
   m_Name: ButtonBuyCoin
   m_TagString: Untagged
@@ -2072,6 +2097,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &979987275132668456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7603919779166233829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b406c0e2aedaa4dba07edc643001cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.95, y: 0.95, z: 0.95}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &8046972217840663646
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,6 +2207,7 @@ GameObject:
   - component: {fileID: 3223429697706254729}
   - component: {fileID: 1843793452974714265}
   - component: {fileID: 1735661437317468611}
+  - component: {fileID: 5658200122925956852}
   m_Layer: 5
   m_Name: ButtonADS
   m_TagString: Untagged
@@ -2272,6 +2321,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5658200122925956852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448990038234412121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b406c0e2aedaa4dba07edc643001cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 0.95, y: 0.95, z: 0.95}
+  targetTF: {fileID: 0}
+  eventOnPointDown:
+    m_PersistentCalls:
+      m_Calls: []
+  eventOnPointUp:
+    m_PersistentCalls:
+      m_Calls: []
+  isActiveSound: 1
+  ignoreVib: 0
 --- !u!1 &8723780604489223435
 GameObject:
   m_ObjectHideFlags: 0
