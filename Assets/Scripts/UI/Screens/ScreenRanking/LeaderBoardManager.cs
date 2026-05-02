@@ -30,8 +30,11 @@ public class LeaderBoardManager : MonoBehaviour
         if (playerController != null) playerController.ClearContent();
 
         LeaderBoardFriendController friendController = contentFriend.GetComponent<LeaderBoardFriendController>();
-        if (friendController != null) friendController.LoadListFriend();
-
+        if (friendController != null)
+        {
+            friendController.LoadListFriend();
+            friendController.LoadListFriendRequest();
+        }
         contentFriend.SetActive(true);
         contentPlayer.SetActive(false);
     }

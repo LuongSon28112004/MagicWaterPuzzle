@@ -27,7 +27,7 @@ public class NotifyPanel : MonoBehaviour
         }
         else
         {
-           // text.SetText(key, stateFormat: mygame.sdk.FormatText.F_String, obFormat: number);
+            //text.SetText(key, stateFormat: mygame.sdk.FormatText.F_String, obFormat: number);
         }
 
         anim();
@@ -43,7 +43,7 @@ public class NotifyPanel : MonoBehaviour
         }
         else
         {
-            //text.SetText(key, stateFormat: mygame.sdk.FormatText.F_String, obFormat: objFormat);
+            // text.SetText(key, stateFormat: mygame.sdk.FormatText.F_String, obFormat: objFormat);
         }
 
         anim();
@@ -57,7 +57,7 @@ public class NotifyPanel : MonoBehaviour
         text.color = color;
         rect.anchoredPosition = new Vector2(0, -200f);
         this.DOKill();
-        
+
         var sq = DOTween.Sequence();
         sq.SetId(this);
         text.transform.localScale = Vector3.one * 0.1f;
