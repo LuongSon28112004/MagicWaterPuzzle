@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,9 @@ public class LeaderBoardFriendController : MonoBehaviour
     [Header("Button")]
     [SerializeField] private Button buttonFriend;
     [SerializeField] private Button buttonAddFriend;
+    [SerializeField] private Button buttonCopy;
+    [SerializeField] private Sprite spriteButtonFriendSelected;
+    [SerializeField] private Sprite spriteButtonFriendNormal;
     [Header("Layout Panel")]
     [SerializeField] private GameObject panelAddFriend;
     [SerializeField] private GameObject panelFriendList;
@@ -26,21 +30,56 @@ public class LeaderBoardFriendController : MonoBehaviour
     [SerializeField] private GameObject contentSearchFriend;
     [SerializeField] private FriendUserSuggestInfo friendUserSuggestInfoPrefab;
     [SerializeField] private Button buttonSearchFriend;
+    [SerializeField] private Button buttonClearSearch;
     [SerializeField] private Text txtMyId;
     private void Start()
     {
+        //remove old listener
+        buttonFriend.onClick.RemoveAllListeners();
+        buttonAddFriend.onClick.RemoveAllListeners();
+        buttonSearchFriend.onClick.RemoveAllListeners();
+        buttonClearSearch.onClick.RemoveAllListeners();
+        buttonCopy.onClick.RemoveAllListeners();
         buttonFriend.onClick.AddListener(OnClickFriend);
         buttonAddFriend.onClick.AddListener(OnClickAddFriend);
         buttonSearchFriend.onClick.AddListener(OnClickSearchFriend);
+        buttonClearSearch.onClick.AddListener(OnClickClearSearch);
+        buttonCopy.onClick.AddListener(OnClickCopy);
+    }
+
+    private void OnClickCopy()
+    {
+        string myId = PlayerPrefs.GetString("PlayerID", null);
+        if (!string.IsNullOrEmpty(myId))
+        {
+            GUIUtility.systemCopyBuffer = myId;
+            UIManager.Instance.NotifyContent("Đã sao chép ID của bạn vào clipboard.");
+        }
+        else
+        {
+            UIManager.Instance.NotifyContent("Không tìm thấy ID của bạn.");
+        }
+    }
+
+    private void OnClickClearSearch()
+    {
+        inputSearchFriend.text = "";
     }
 
     private void OnClickSearchFriend()
     {
-        // if (string.IsNullOrEmpty(inputSearchFriend.text))
-        // {
-        //     UIManager.Instance.NotifyContent("Vui lòng nhập từ khóa tìm kiếm.");
-        //     return;
-        // }
+        if (string.IsNullOrEmpty(inputSearchFriend.text))
+        {
+            UIManager.Instance.NotifyContent("Vui lòng nhập từ khóa tìm kiếm.");
+            // Clear old search results
+            foreach (Transform child in contentSearchFriend.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            return;
+        }
+
+        LoadingPanel.SetActive(true);
 
         UserDataFirebaseManager.Instance.SearchUsersByIdPrefix(inputSearchFriend.text, users =>
         {
@@ -49,30 +88,64 @@ public class LeaderBoardFriendController : MonoBehaviour
             {
                 Destroy(child.gameObject);
             }
-
-            if (users == null || users.Count == 0)
+            // loại tôi ra khỏi kết quả tìm kiếm
+            string currentUserId = PlayerPrefs.GetString("PlayerID", null);
+            users.RemoveAll(user => user.ContainsKey("Id") && user["Id"].ToString() == currentUserId);
+            // loại bạn bè ra khỏi kết quả tìm kiếm
+            UserDataFirebaseManager.Instance.GetFriendsList(currentUserId, friends =>
             {
-                UIManager.Instance.NotifyContent("Không tìm thấy người dùng nào.");
-                return;
-            }
+                if (friends != null)
+                {
+                    var friendIds = new HashSet<string>();
+                    foreach (var friend in friends)
+                    {
+                        if (friend.ContainsKey("Id"))
+                        {
+                            friendIds.Add(friend["Id"].ToString());
+                        }
+                    }
+                    users.RemoveAll(user => user.ContainsKey("Id") && friendIds.Contains(user["Id"].ToString()));
+                }
+                if (users == null || users.Count == 0)
+                {
+                    UIManager.Instance.NotifyContent("Không tìm thấy người dùng nào.");
+                    LoadingPanel.SetActive(false);
+                    return;
+                }
 
-            // Hiển thị kết quả tìm kiếm
-            foreach (var user in users)
-            {
-                string userId = user.ContainsKey("Id") ? user["Id"].ToString() : "Unknown";
-                string userName = user.ContainsKey("Name") ? user["Name"].ToString() : "Unknown";
 
-                GameObject item = Instantiate(friendUserSuggestInfoPrefab.gameObject, contentSearchFriend.transform);
-                FriendUserSuggestInfo ui = item.GetComponent<FriendUserSuggestInfo>();
-                ui.SetData(userId, userName);
-                item.SetActive(true);
+                // Hiển thị kết quả tìm kiếm
+                foreach (var user in users)
+                {
+                    string userId = user.ContainsKey("Id") ? user["Id"].ToString() : "Unknown";
+                    string userName = user.ContainsKey("Name") ? user["Name"].ToString() : "Unknown";
 
-            }
+                    GameObject item = Instantiate(friendUserSuggestInfoPrefab.gameObject, contentSearchFriend.transform);
+                    FriendUserSuggestInfo ui = item.GetComponent<FriendUserSuggestInfo>();
+                    ui.SetData(userId, userName);
+                    item.SetActive(true);
+
+                }
+                LoadingPanel.SetActive(false);
+            });
         });
     }
 
     private void OnClickAddFriend()
     {
+        // Clear old search results
+        foreach (Transform child in contentSearchFriend.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        GameObject itemFriend = buttonFriend.transform.Find("Button").gameObject;
+        itemFriend.GetComponent<Image>().sprite = spriteButtonFriendNormal;
+        GameObject itemAddFriend = buttonAddFriend.transform.Find("Button").gameObject;
+        itemAddFriend.GetComponent<Image>().sprite = spriteButtonFriendSelected;
+
+        // clear input field
+        inputSearchFriend.text = "";
         panelAddFriend.SetActive(true);
         panelFriendList.SetActive(false);
         string currentUserId = PlayerPrefs.GetString("PlayerID", null);
@@ -80,7 +153,6 @@ public class LeaderBoardFriendController : MonoBehaviour
         if (!string.IsNullOrEmpty(currentUserId))
         {
             txtMyId.text = $"{currentUserId}";
-
         }
     }
 
@@ -92,6 +164,10 @@ public class LeaderBoardFriendController : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        GameObject itemFriend = buttonFriend.transform.Find("Button").gameObject;
+        itemFriend.GetComponent<Image>().sprite = spriteButtonFriendSelected;
+        GameObject itemAddFriend = buttonAddFriend.transform.Find("Button").gameObject;
+        itemAddFriend.GetComponent<Image>().sprite = spriteButtonFriendNormal;
         panelAddFriend.SetActive(false);
         panelFriendList.SetActive(true);
     }
@@ -119,6 +195,13 @@ public class LeaderBoardFriendController : MonoBehaviour
             foreach (Transform child in contentFriend.transform)
             {
                 Destroy(child.gameObject);
+            }
+
+            if (friends.Count == 0)
+            {
+                LoadingPanel.SetActive(false);
+                UIManager.Instance.NotifyContent("Bạn chưa có bạn bè nào.");
+                return;
             }
 
             //add tôi vào list bạn bè

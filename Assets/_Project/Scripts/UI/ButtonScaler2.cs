@@ -56,7 +56,7 @@ public class ButtonScaler2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         {
             AudioManager.Instance.PlayOneShot("ClickButton");
         }
-        if (!ignoreVib)
+        if (ignoreVib)
         {
             AudioManager.Instance.PlayVibrate();
         }

@@ -83,6 +83,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
 
             // XÓA để tránh bị trigger lại
             friendAcceptRef.Child(toUserId).RemoveValueAsync();
+            LeaderBoardManager.onUpdateFriendList?.Invoke();
         }
     }
     private void OnFriendDeclineAdded(object sender, ChildChangedEventArgs args)
