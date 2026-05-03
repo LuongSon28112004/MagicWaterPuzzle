@@ -31,16 +31,26 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
     /// Lắng nghe các lời mời kết bạn mới thông qua Realtime Database. Khi có lời mời mới, sẽ nhận được callback trong OnFriendRequestAdded để xử lý (ví dụ: hiển thị popup thông báo, load info người gửi từ Firestore, hiện nút Accept/Reject, v.v...). Lưu ý: đây chỉ là phần lắng nghe realtime để cập nhật UI ngay khi có lời mời mới. Logic lưu trữ và quản lý lời mời vẫn nên được thực hiện trong Firestore để đảm bảo tính nhất quán và dễ dàng truy vấn.
     /// </summary>
     private DatabaseReference friendRequestRef;
+    private DatabaseReference friendAcceptRef;
+    private DatabaseReference friendDeclineRef;
 
     public void StartListeningFriendRequest(string myUserId)
     {
         var db = FirebaseDatabase.GetInstance("https://magicwaterpuzzle-default-rtdb.asia-southeast1.firebasedatabase.app");
 
+        // Friend Request
         friendRequestRef = db.GetReference("friend_requests").Child(myUserId);
-
         friendRequestRef.ChildAdded += OnFriendRequestAdded;
 
-        Debug.Log("[Realtime] Listening friend requests...");
+        // Friend Accept
+        friendAcceptRef = db.GetReference("friend_accept").Child(myUserId);
+        friendAcceptRef.ChildAdded += OnFriendAcceptAdded;
+
+        // Friend Decline
+        friendDeclineRef = db.GetReference("friend_decline").Child(myUserId);
+        friendDeclineRef.ChildAdded += OnFriendDeclineAdded;
+
+        Debug.Log("[Realtime] Listening all friend events...");
     }
 
     private void OnFriendRequestAdded(object sender, ChildChangedEventArgs args)
@@ -51,13 +61,42 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
 
             Debug.Log($"[Realtime] New friend request from: {fromUserId}");
 
-            // 👉 TODO:
+            // TODO:
             // - Hiện popup UI
             // - Load info user từ Firestore
             // - Hiện nút Accept / Reject
             UIManager.Instance.NotifyContent($"Bạn có một lời mời kết bạn mới từ {fromUserId}!");
-            // 👉 XÓA NGAY để tránh trigger lại
+            // XÓA NGAY để tránh trigger lại
             friendRequestRef.Child(fromUserId).RemoveValueAsync();
+        }
+    }
+
+    private void OnFriendAcceptAdded(object sender, ChildChangedEventArgs args)
+    {
+        if (args.Snapshot.Exists)
+        {
+            string toUserId = args.Snapshot.Key;
+
+            Debug.Log($"[Realtime] Friend accepted: {toUserId}");
+
+            UIManager.Instance.NotifyContent($"Người chơi {toUserId} đã chấp nhận lời mời kết bạn của bạn!");
+
+            // XÓA để tránh bị trigger lại
+            friendAcceptRef.Child(toUserId).RemoveValueAsync();
+        }
+    }
+    private void OnFriendDeclineAdded(object sender, ChildChangedEventArgs args)
+    {
+        if (args.Snapshot.Exists)
+        {
+            string toUserId = args.Snapshot.Key;
+
+            Debug.Log($"[Realtime] Friend declined: {toUserId}");
+
+            UIManager.Instance.NotifyContent($"Người chơi {toUserId} đã từ chối lời mời kết bạn của bạn!");
+
+            // XÓA để tránh bị trigger lại
+            friendDeclineRef.Child(toUserId).RemoveValueAsync();
         }
     }
 

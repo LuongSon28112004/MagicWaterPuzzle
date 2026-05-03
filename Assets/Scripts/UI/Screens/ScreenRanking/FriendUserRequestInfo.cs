@@ -24,11 +24,12 @@ public class FriendUserRequestInfo : MonoBehaviour
     {
         string myId = PlayerPrefs.GetString("PlayerID", null);
         // Handle accept friend request logic here
-        UserDataFirebaseManager.Instance.AcceptFriendRequest(myId, userId, success =>
+        UserDataFirebaseManager.Instance.AcceptFriendRequest(userId, myId, success =>
         {
             if (success)
             {
                 UIManager.Instance.NotifyContent("Yêu cầu kết bạn đã được chấp nhận.");
+                LeaderBoardManager.onUpdateFriendList?.Invoke();
             }
             else
             {
@@ -47,6 +48,7 @@ public class FriendUserRequestInfo : MonoBehaviour
             if (success)
             {
                 UIManager.Instance.NotifyContent("Yêu cầu kết bạn đã được từ chối.");
+                LeaderBoardManager.onUpdateFriendList?.Invoke();
             }
             else
             {

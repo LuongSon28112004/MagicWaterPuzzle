@@ -9,6 +9,8 @@ public class LeaderBoardFriendController : MonoBehaviour
     private LeaderBoardManager leaderBoardManager;
     [SerializeField] private GameObject contentFriend;
     [SerializeField] private GameObject contentFriendRequest;
+    [SerializeField] private GameObject Line;
+    [SerializeField] private GameObject TitleFriendRequest;
     [Header("Prefab")]
     [SerializeField] private FriendUserInfor friendUserInforPrefab;
     [SerializeField] private FriendUserRequestInfo friendUserRequestInfoPrefab;
@@ -178,6 +180,8 @@ public class LeaderBoardFriendController : MonoBehaviour
             }
 
             contentFriendRequest.SetActive(friendRequests.Count > 0);
+            Line.SetActive(friendRequests.Count > 0);
+            TitleFriendRequest.SetActive(friendRequests.Count > 0);
 
             // Create new UI for each friend request
             foreach (var request in friendRequests)

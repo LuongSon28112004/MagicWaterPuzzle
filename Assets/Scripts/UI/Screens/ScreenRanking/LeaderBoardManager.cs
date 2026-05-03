@@ -1,9 +1,10 @@
 using System;
+using master;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LeaderBoardManager : MonoBehaviour
+public class LeaderBoardManager : SingletonDDOL<LeaderBoardManager>
 {
     [SerializeField] private Button btnFriend;
     [SerializeField] private Button btnPlayer;
@@ -11,6 +12,9 @@ public class LeaderBoardManager : MonoBehaviour
     [Header("Content")]
     [SerializeField] private GameObject contentFriend;
     [SerializeField] private GameObject contentPlayer;
+
+    public static Action onUpdateFriendList;
+    public static Action onUpdatePlayerList;
 
 
     private void Start()
@@ -21,6 +25,8 @@ public class LeaderBoardManager : MonoBehaviour
 
     void OnEnable()
     {
+        onUpdateFriendList += OnClickFriend;
+        onUpdatePlayerList += OnClickPlayer;
         OnClickFriend();
     }
 
