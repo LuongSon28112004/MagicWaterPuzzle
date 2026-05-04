@@ -10,12 +10,20 @@ public class FriendUserInfor : MonoBehaviour
     [SerializeField] private Text txtName;
     [SerializeField] private Text txtLevel;
     [SerializeField] private List<Transform> ListRankingIcons;
+    [SerializeField] private Button btnSendGilf;
 
     public void SetData(int rank, string name, int level)
     {
         SetRankingIcon(rank);
         txtName.text = name;
         txtLevel.text = level.ToString();
+        btnSendGilf.onClick.RemoveAllListeners();
+        btnSendGilf.onClick.AddListener(SendGilfClick);
+    }
+
+    private void SendGilfClick()
+    {
+        UIManager.Instance.ShowPopup<PopupSendGilf>(null);
     }
 
     private void SetRankingIcon(int rank)

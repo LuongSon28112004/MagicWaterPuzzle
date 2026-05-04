@@ -159,11 +159,6 @@ public class LeaderBoardFriendController : MonoBehaviour
     private void OnClickFriend()
     {
         LoadListFriend();
-        // destroy old list
-        foreach (Transform child in contentFriend.transform)
-        {
-            Destroy(child.gameObject);
-        }
         GameObject itemFriend = buttonFriend.transform.Find("Button").gameObject;
         itemFriend.GetComponent<Image>().sprite = spriteButtonFriendSelected;
         GameObject itemAddFriend = buttonAddFriend.transform.Find("Button").gameObject;
@@ -179,6 +174,12 @@ public class LeaderBoardFriendController : MonoBehaviour
         {
             Debug.LogError("Current user ID not found in PlayerPrefs.");
             return;
+        }
+
+        // destroy old list
+        foreach (Transform child in contentFriend.transform)
+        {
+            Destroy(child.gameObject);
         }
 
         LoadingPanel.SetActive(true);
