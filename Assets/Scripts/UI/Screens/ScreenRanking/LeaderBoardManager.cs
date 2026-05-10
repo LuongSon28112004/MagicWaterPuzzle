@@ -30,6 +30,12 @@ public class LeaderBoardManager : SingletonDDOL<LeaderBoardManager>
         OnClickFriend();
     }
 
+    void OnDisable()
+    {
+        onUpdateFriendList -= OnClickFriend;
+        onUpdatePlayerList -= OnClickPlayer;
+    }
+
     private void OnClickFriend()
     {
         LeaderBoardPlayerController playerController = contentPlayer.GetComponent<LeaderBoardPlayerController>();

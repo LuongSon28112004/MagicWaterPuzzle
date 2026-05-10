@@ -94,7 +94,7 @@ public class HeartSystem : MonoBehaviour
             // Clamp giá trị
             if (CurrentHearts >= MaxHearts)
             {
-                CurrentHearts = MaxHearts;
+                //CurrentHearts = MaxHearts;
                 timer = 0;
             }
         }

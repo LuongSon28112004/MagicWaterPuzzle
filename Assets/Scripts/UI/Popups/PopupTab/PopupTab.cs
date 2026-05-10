@@ -105,14 +105,22 @@ public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
     public IEnumerator UpdateCoin(int coin)
     {
         yield return new WaitForSeconds(1f);
-        int currentCoin = UserData.coin;
-        for (int i = 0; i <= coin / 50 - 1; i++)
+        float duration = 0.6f;
+        int startCoin = UserData.coin;
+        int targetCoin = startCoin + coin;
+        
+        float elapsed = 0f;
+        while (elapsed < duration)
         {
-            currentCoin += 50;
+            elapsed += Time.deltaTime;
+            // Use Lerp to smoothly transition from startCoin to targetCoin
+            int currentCoin = Mathf.RoundToInt(Mathf.Lerp(startCoin, targetCoin, elapsed / duration));
             textCoin.text = currentCoin.ToString();
-            yield return new WaitForSeconds(0.01f);
+            yield return null;
         }
-        UserData.coin += coin;
+        
+        UserData.coin = targetCoin;
+        textCoin.text = UserData.coin.ToString();
         SaveDataManager.Save();
     }
 

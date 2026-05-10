@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using master;
 using Firebase.Database;
 
-public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
+public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
 {
     private FirebaseFirestore db;
     private const string COLLECTION_NAME = "UserData";
@@ -33,6 +33,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
     private DatabaseReference friendRequestRef;
     private DatabaseReference friendAcceptRef;
     private DatabaseReference friendDeclineRef;
+    private DatabaseReference boosterRef;
 
     public void StartListeningFriendRequest(string myUserId)
     {
@@ -50,8 +51,14 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
         friendDeclineRef = db.GetReference("friend_decline").Child(myUserId);
         friendDeclineRef.ChildAdded += OnFriendDeclineAdded;
 
+        // Booster receive
+        boosterRef = db.GetReference("send_booster").Child(myUserId);
+        boosterRef.ChildAdded += OnBoosterReceived;
+
         Debug.Log("[Realtime] Listening all friend events...");
     }
+
+
 
     private void OnFriendRequestAdded(object sender, ChildChangedEventArgs args)
     {
@@ -101,6 +108,81 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
         }
     }
 
+    private void OnBoosterReceived(object sender, ChildChangedEventArgs args)
+    {
+        if (args.Snapshot.Exists)
+        {
+            var data = args.Snapshot.Value as Dictionary<string, object>;
+
+            string fromUserId = data["fromUserId"].ToString();
+            string boosterName = data["boosterName"].ToString();
+            int amount = Convert.ToInt32(data["amount"]);
+
+            // =========================
+            // 🎯 UPDATE LOCAL DATA
+            // =========================
+
+            if (boosterName == "Heart")
+            {
+                // Update Heart local
+                int currentHeart = PlayerPrefs.GetInt("Hearts", 5);
+                currentHeart += amount;
+                PlayerPrefs.SetInt("Hearts", currentHeart);
+
+                if (HeartSystem.Instance != null)
+                {
+                    HeartSystem.Instance.CurrentHearts = currentHeart;
+                }
+
+                UIManager.Instance.NotifyContent(
+                    $"Bạn nhận được {amount} tim từ {fromUserId}!"
+                );
+            }
+            else
+            {
+                // Update booster list
+                if (UserData.listBoosterCounters == null)
+                    UserData.listBoosterCounters = new List<BoosterCounter>();
+
+                bool found = false;
+
+                foreach (var booster in UserData.listBoosterCounters)
+                {
+                    if (booster.name == boosterName)
+                    {
+                        booster.count += amount;
+                        found = true;
+                        break;
+                    }
+                }
+
+                // nếu chưa có booster đó
+                if (!found)
+                {
+                    UserData.listBoosterCounters.Add(new BoosterCounter
+                    {
+                        name = boosterName,
+                        count = amount
+                    });
+                }
+
+                UIManager.Instance.NotifyContent(
+                    $"Bạn nhận được {boosterName} x{amount} từ {fromUserId}!"
+                );
+            }
+
+            // =========================
+            // 💾 SAVE LOCAL + FIREBASE
+            // =========================
+            SaveDataManager.Save();
+
+            // =========================
+            // 🧹 REMOVE EVENT
+            // =========================
+            boosterRef.Child(args.Snapshot.Key).RemoveValueAsync();
+        }
+    }
+
     public void AddTestUsersSequential()
     {
         CreateUserRecursive(0);
@@ -120,6 +202,28 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
             { "Level", UnityEngine.Random.Range(1, 50) },
             { "Heart", UnityEngine.Random.Range(1, 5) },
             { "Frame", 0 },
+
+            // 👇 THÊM BOOSTERS
+            { "Boosters", new List<Dictionary<string, object>>
+                {
+                    new Dictionary<string, object>
+                    {
+                        { "name", "Freeze" },
+                        { "count", UnityEngine.Random.Range(0, 5) }
+                    },
+                    new Dictionary<string, object>
+                    {
+                        { "name", "Bomb" },
+                        { "count", UnityEngine.Random.Range(0, 5) }
+                    },
+                    new Dictionary<string, object>
+                    {
+                        { "name", "Hammer" },
+                        { "count", UnityEngine.Random.Range(0, 5) }
+                    }
+                }
+            },
+
             { "CreatedAt", FieldValue.ServerTimestamp }
             };
 
@@ -128,7 +232,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
                 if (success)
                 {
                     Debug.Log($"Created test user: {newId}");
-                    CreateUserRecursive(count + 1); // gọi tiếp
+                    CreateUserRecursive(count + 1);
                 }
             });
         });
@@ -160,6 +264,14 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
 
                 Debug.Log($"[LocalUser] Created new user locally: {CurrentUserName} (ID: {CurrentUserId})");
 
+                // Thiết lập booster mặc định cho người chơi mới
+                UserData.listBoosterCounters = new List<BoosterCounter>
+                {
+                    new BoosterCounter { name = "Freeze", count = 1 },
+                    new BoosterCounter { name = "Bomb", count = 1 },
+                    new BoosterCounter { name = "Hammer", count = 1 },
+                };
+
                 // Lưu dữ liệu ban đầu của người chơi lên Firebase
                 Dictionary<string, object> initialData = new Dictionary<string, object>
                 {
@@ -169,6 +281,13 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
                     { "Level", 1 },
                     { "Heart", 5 },
                     { "Frame", 0 },
+                    { "Boosters", new List<Dictionary<string, object>>
+                        {
+                            new Dictionary<string, object> { { "name", "Freeze" }, { "count", 1 } },
+                            new Dictionary<string, object> { { "name", "Bomb" }, { "count", 1 } },
+                            new Dictionary<string, object> { { "name", "Hammer" }, { "count", 1 } }
+                        }
+                    },
                     { "CreatedAt", FieldValue.ServerTimestamp }
                 };
                 SaveUserData(CurrentUserId, initialData);
@@ -735,10 +854,290 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
 
         // notify lại
         var realtimeRef = FirebaseDatabase.GetInstance("https://magicwaterpuzzle-default-rtdb.asia-southeast1.firebasedatabase.app").RootReference;
-        realtimeRef.Child("friend_decline")
+        realtimeRef.Child("friend_accept")
                    .Child(fromUserId)
                    .Child(toUserId)
                    .SetValueAsync(true);
+    }
+
+
+    private const int MAX_SEND_PER_DAY = 3;
+
+    public class SendBoosterException : Exception
+    {
+        public string ErrorCode;
+
+        public SendBoosterException(string errorCode) : base(errorCode)
+        {
+            ErrorCode = errorCode;
+        }
+    }
+
+
+    public void SendBooster(
+        string fromUserId,
+        string toUserId,
+        string boosterName,
+        int amount = 1,
+        Action<bool> onComplete = null)
+    {
+        if (db == null)
+            db = FirebaseFirestore.DefaultInstance;
+
+        DocumentReference fromUserRef =
+            db.Collection(COLLECTION_NAME).Document(fromUserId);
+
+        DocumentReference toUserRef =
+            db.Collection(COLLECTION_NAME).Document(toUserId);
+
+        db.RunTransactionAsync(async transaction =>
+        {
+            DocumentSnapshot fromSnap =
+                await transaction.GetSnapshotAsync(fromUserRef);
+
+            DocumentSnapshot toSnap =
+                await transaction.GetSnapshotAsync(toUserRef);
+
+            if (!fromSnap.Exists || !toSnap.Exists)
+                throw new SendBoosterException("USER_NOT_FOUND");
+
+            // =====================================================
+            // 🇻🇳 TIME VN
+            // =====================================================
+
+            DateTime vnNow = DateTime.UtcNow.AddHours(7);
+            string today = vnNow.ToString("yyyyMMdd");
+
+            string lastDate = "";
+
+            if (fromSnap.ContainsField("LastSendBoosterDate"))
+            {
+                lastDate = fromSnap.GetValue<string>("LastSendBoosterDate");
+            }
+
+            int sendCount = 0;
+
+            if (fromSnap.ContainsField("SendBoosterCount"))
+            {
+                sendCount = fromSnap.GetValue<int>("SendBoosterCount");
+            }
+
+            // reset count nếu sang ngày mới
+            if (lastDate != today)
+            {
+                sendCount = 0;
+            }
+
+            if (sendCount >= MAX_SEND_PER_DAY)
+            {
+                throw new SendBoosterException("LIMIT_REACHED");
+            }
+
+            // =====================================================
+            // ❤️ HEART
+            // =====================================================
+
+            if (boosterName == "Heart")
+            {
+                int fromHeart = fromSnap.GetValue<int>("Heart");
+                int toHeart = toSnap.GetValue<int>("Heart");
+
+                if (fromHeart < amount)
+                {
+                    throw new SendBoosterException("NOT_ENOUGH");
+                }
+
+                transaction.Update(fromUserRef, "Heart", fromHeart - amount);
+                transaction.Update(toUserRef, "Heart", toHeart + amount);
+            }
+            else
+            {
+                // =====================================================
+                // 🎁 BOOSTER
+                // =====================================================
+
+                List<Dictionary<string, object>> fromBoosters =
+                    fromSnap.ContainsField("Boosters")
+                    ? fromSnap.GetValue<List<Dictionary<string, object>>>("Boosters")
+                    : new List<Dictionary<string, object>>();
+
+                bool enough = false;
+
+                foreach (var booster in fromBoosters)
+                {
+                    if (booster["name"].ToString() == boosterName)
+                    {
+                        int current = Convert.ToInt32(booster["count"]);
+
+                        if (current >= amount)
+                        {
+                            booster["count"] = current - amount;
+                            enough = true;
+                        }
+
+                        break;
+                    }
+                }
+
+                if (!enough)
+                {
+                    throw new SendBoosterException("NOT_ENOUGH");
+                }
+
+                List<Dictionary<string, object>> toBoosters =
+                    toSnap.ContainsField("Boosters")
+                    ? toSnap.GetValue<List<Dictionary<string, object>>>("Boosters")
+                    : new List<Dictionary<string, object>>();
+
+                bool found = false;
+
+                foreach (var booster in toBoosters)
+                {
+                    if (booster["name"].ToString() == boosterName)
+                    {
+                        int current = Convert.ToInt32(booster["count"]);
+                        booster["count"] = current + amount;
+
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                {
+                    toBoosters.Add(new Dictionary<string, object>
+                    {
+                    { "name", boosterName },
+                    { "count", amount }
+                    });
+                }
+
+                transaction.Update(fromUserRef, "Boosters", fromBoosters);
+                transaction.Update(toUserRef, "Boosters", toBoosters);
+            }
+
+            // =====================================================
+            // ✅ UPDATE DAILY COUNT
+            // =====================================================
+
+            transaction.Update(fromUserRef, new Dictionary<string, object>
+            {
+            { "LastSendBoosterDate", today },
+            { "SendBoosterCount", sendCount + 1 }
+            });
+
+            return true;
+        })
+        .ContinueWithOnMainThread(task =>
+        {
+            // =====================================================
+            // ✅ SUCCESS
+            // =====================================================
+
+            if (task.IsCompleted && !task.IsFaulted)
+            {
+                Debug.Log($"[Send] {boosterName} x{amount} success");
+
+                // realtime notify
+                var realtimeRef = FirebaseDatabase
+                    .GetInstance("https://magicwaterpuzzle-default-rtdb.asia-southeast1.firebasedatabase.app")
+                    .RootReference;
+
+                realtimeRef.Child("send_booster")
+                           .Child(toUserId)
+                           .Push()
+                           .SetValueAsync(new Dictionary<string, object>
+                           {
+                           { "fromUserId", fromUserId },
+                           { "boosterName", boosterName },
+                           { "amount", amount }
+                           });
+
+                // update local sender
+                if (fromUserId == CurrentUserId)
+                {
+                    if (boosterName == "Heart")
+                    {
+                        int localHeart = PlayerPrefs.GetInt("Hearts", 5);
+                        localHeart -= amount;
+
+                        PlayerPrefs.SetInt("Hearts", localHeart);
+
+                        if (HeartSystem.Instance != null)
+                        {
+                            HeartSystem.Instance.CurrentHearts = localHeart;
+                        }
+                    }
+                    else
+                    {
+                        foreach (var booster in UserData.listBoosterCounters)
+                        {
+                            if (booster.name == boosterName)
+                            {
+                                booster.count -= amount;
+                                break;
+                            }
+                        }
+                    }
+
+                    SaveDataManager.Save();
+                }
+
+                UIManager.Instance.NotifyContent("Gửi thành công!");
+
+                onComplete?.Invoke(true);
+
+                return;
+            }
+
+            // =====================================================
+            // ❌ ERROR
+            // =====================================================
+
+            Exception ex = task.Exception?
+                .Flatten()
+                .InnerException;
+
+            if (ex is SendBoosterException sendEx)
+            {
+                switch (sendEx.ErrorCode)
+                {
+                    case "LIMIT_REACHED":
+                        UIManager.Instance.NotifyContent(
+                            $"Bạn chỉ được gửi tối đa {MAX_SEND_PER_DAY} lần mỗi ngày!"
+                        );
+                        break;
+
+                    case "NOT_ENOUGH":
+                        UIManager.Instance.NotifyContent(
+                            "Bạn không đủ booster để gửi!"
+                        );
+                        break;
+
+                    case "USER_NOT_FOUND":
+                        UIManager.Instance.NotifyContent(
+                            "Không tìm thấy người chơi!"
+                        );
+                        break;
+
+                    default:
+                        UIManager.Instance.NotifyContent(
+                            $"Bạn chỉ được gửi tối đa {MAX_SEND_PER_DAY} lần mỗi ngày!"
+                        );
+                        break;
+                }
+            }
+            else
+            {
+                UIManager.Instance.NotifyContent(
+                    "Có lỗi kết nối Firebase!"
+                );
+            }
+
+            Debug.LogError($"[Send] Failed: {task.Exception}");
+
+            onComplete?.Invoke(false);
+        });
     }
 
 }

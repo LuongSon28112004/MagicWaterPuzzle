@@ -321,7 +321,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 41.39997, y: 3}
-  m_SizeDelta: {x: 150, y: 50}
+  m_SizeDelta: {x: 200, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6699317633739249169
 CanvasRenderer:
@@ -378,11 +378,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
+  m_fontSize: 48.25
   m_fontSizeBase: 48
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 42
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -1124,7 +1124,6 @@ GameObject:
   - component: {fileID: 6550838263352991225}
   - component: {fileID: 7312661581000595972}
   - component: {fileID: 3050037803519960926}
-  - component: {fileID: 8226000385022282491}
   m_Layer: 5
   m_Name: ButtonClaim
   m_TagString: Untagged
@@ -1236,27 +1235,6 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 7312661581000595972}
   m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &8226000385022282491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2073597786235222021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 0.9, y: 0.9, z: 1}
-  targetTF: {fileID: 0}
-  eventOnPointDown:
-    m_PersistentCalls:
-      m_Calls: []
-  eventOnPointUp:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &2771606214981101845
@@ -2583,7 +2561,6 @@ GameObject:
   - component: {fileID: 8174955445099689475}
   - component: {fileID: 209085642553127074}
   - component: {fileID: 6282019685046271126}
-  - component: {fileID: 7304168100259506259}
   m_Layer: 5
   m_Name: ButtonClaimX2
   m_TagString: Untagged
@@ -2696,27 +2673,6 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 209085642553127074}
   m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &7304168100259506259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6953690588129600635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267f83ab51a1f824ea149b3d2fa4c34b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 0.9, y: 0.9, z: 1}
-  targetTF: {fileID: 0}
-  eventOnPointDown:
-    m_PersistentCalls:
-      m_Calls: []
-  eventOnPointUp:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &7012763624079215052

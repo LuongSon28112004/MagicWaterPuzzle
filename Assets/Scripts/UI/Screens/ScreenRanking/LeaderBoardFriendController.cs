@@ -228,10 +228,11 @@ public class LeaderBoardFriendController : MonoBehaviour
                 {
                     string friendName = friend.ContainsKey("Name") ? friend["Name"].ToString() : "Unknown";
                     int friendLevel = friend.ContainsKey("Level") ? Convert.ToInt32(friend["Level"]) : 1;
+                    string id = friend.ContainsKey("Id") ? friend["Id"].ToString() : "Unknown";
 
                     GameObject item = Instantiate(friendUserInforPrefab.gameObject, contentFriend.transform);
                     FriendUserInfor ui = item.GetComponent<FriendUserInfor>();
-                    ui.SetData(rank, friendName, friendLevel);
+                    ui.SetData(rank, friendName, friendLevel, id);
                     rank++;
                     item.SetActive(true);
                 }
