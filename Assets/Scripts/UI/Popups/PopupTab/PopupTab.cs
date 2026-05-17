@@ -71,6 +71,12 @@ public class PopupTab : PopupUI, IPointerDownHandler, IPointerUpHandler
     private void Update()
     {
         UpdateHeartUI(); // Cập nhật UI mỗi frame
+        
+        // Cập nhật coin UI nếu có thay đổi
+        if (textCoin.text != UserData.coin.ToString())
+        {
+            textCoin.text = UserData.coin.ToString();
+        }
     }
 
 

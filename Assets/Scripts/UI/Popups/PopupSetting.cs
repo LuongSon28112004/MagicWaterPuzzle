@@ -71,9 +71,14 @@ public class PopupSetting : PopupUI
         AudioManager.Instance.PlayOneShot("ClickButton", 1f);
     }
 
-    private void HelpClick()
+    public async void HelpClick()
     {
-        AudioManager.Instance.PlayOneShot("ClickButton", 1f);
+        await UserDataFirebaseManager.Instance
+            .LinkGoogleAccount((res) =>
+            {
+                if (res) UIManager.Instance.NotifyContent("Login Success");
+                else UIManager.Instance.NotifyContent("Login Failed");
+            });
     }
 
     private void VirbrateClick()

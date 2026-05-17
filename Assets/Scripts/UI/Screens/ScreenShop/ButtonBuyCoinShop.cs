@@ -55,6 +55,28 @@ public class ButtonBuyCoinShop : MonoBehaviour
         img.sprite = coinSprite;
         img.SetNativeSize();
 
+        // Tạo Canvas riêng cho đồng xu để đè sorting, giúp trail nằm dưới đồng xu (trail thấp hơn coin)
+        Canvas coinCanvas = coin.AddComponent<Canvas>();
+        coinCanvas.overrideSorting = true;
+        coinCanvas.sortingOrder = 101; // Lớn hơn sortingOrder của trail (100)
+
+        // Thêm TrailRenderer để tạo vệt vàng
+        TrailRenderer trail = coin.AddComponent<TrailRenderer>();
+        trail.emitting = false; // Tắt lúc tản ra, chỉ bật khi bay về target
+        trail.time = 0.25f; // Thời gian tồn tại của đuôi
+        trail.startWidth = 4f;
+        trail.endWidth = 1f;
+        trail.material = new Material(Shader.Find("Sprites/Default"));
+        
+        // Màu vàng tươi/chói sáng và đậm rõ (Vàng to)
+        Gradient gradient = new Gradient();
+        gradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(new Color(1f, 0.95f, 0f), 0.0f), new GradientColorKey(new Color(1f, 0.75f, 0f), 1.0f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.9f, 0.6f), new GradientAlphaKey(0.0f, 1.0f) }
+        );
+        trail.colorGradient = gradient;
+        trail.sortingOrder = 100; // Đảm bảo trail render đè lên UI
+
         RectTransform rect = coin.GetComponent<RectTransform>();
 
         rect.anchoredPosition = Vector2.zero;
@@ -86,6 +108,9 @@ public class ButtonBuyCoinShop : MonoBehaviour
 
         // Tản nhẹ
         seq.Join(rect.DOAnchorPos(midPos, 0.25f).SetEase(Ease.OutQuad));
+
+        // Bật trail khi lao về đích
+        seq.AppendCallback(() => trail.emitting = true);
 
         // Bay cong + hút về target
         seq.Append(rect

@@ -3,10 +3,13 @@ using Firebase.Firestore;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using master;
 using Firebase.Database;
-
+using Unity.Services.Authentication;
+using Unity.Services.Authentication.PlayerAccounts;
+using Unity.Services.Core;
 public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
 {
     private FirebaseFirestore db;
@@ -37,7 +40,7 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
 
     public void StartListeningFriendRequest(string myUserId)
     {
-        var db = FirebaseDatabase.GetInstance("https://magicwaterpuzzle-default-rtdb.asia-southeast1.firebasedatabase.app");
+        var db = FirebaseDatabase.GetInstance("https://blockjam3d-default-rtdb.asia-southeast1.firebasedatabase.app");
 
         // Friend Request
         friendRequestRef = db.GetReference("friend_requests").Child(myUserId);
@@ -58,7 +61,34 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
         Debug.Log("[Realtime] Listening all friend events...");
     }
 
+    public void StopListeningFriendRequest()
+    {
+        if (friendRequestRef != null)
+        {
+            friendRequestRef.ChildAdded -= OnFriendRequestAdded;
+            friendRequestRef = null;
+        }
 
+        if (friendAcceptRef != null)
+        {
+            friendAcceptRef.ChildAdded -= OnFriendAcceptAdded;
+            friendAcceptRef = null;
+        }
+
+        if (friendDeclineRef != null)
+        {
+            friendDeclineRef.ChildAdded -= OnFriendDeclineAdded;
+            friendDeclineRef = null;
+        }
+
+        if (boosterRef != null)
+        {
+            boosterRef.ChildAdded -= OnBoosterReceived;
+            boosterRef = null;
+        }
+
+        Debug.Log("[Realtime] Stopped listening all friend events.");
+    }
 
     private void OnFriendRequestAdded(object sender, ChildChangedEventArgs args)
     {
@@ -264,13 +294,20 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
 
                 Debug.Log($"[LocalUser] Created new user locally: {CurrentUserName} (ID: {CurrentUserId})");
 
-                // Thiết lập booster mặc định cho người chơi mới
+                // Xoá file JSON cũ và reset toàn bộ UserData
+                SaveDataManager.DeleteSave();
+
+                UserData.coin = 30;
+                UserData.level = 1;
                 UserData.listBoosterCounters = new List<BoosterCounter>
                 {
                     new BoosterCounter { name = "Freeze", count = 1 },
                     new BoosterCounter { name = "Bomb", count = 1 },
                     new BoosterCounter { name = "Hammer", count = 1 },
                 };
+
+                // Lưu dữ liệu local
+                SaveDataManager.Save();
 
                 // Lưu dữ liệu ban đầu của người chơi lên Firebase
                 Dictionary<string, object> initialData = new Dictionary<string, object>
@@ -548,7 +585,7 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
         var firestoreTask = db.Collection("FriendRequests").AddAsync(requestData);
 
         var realtimeRef = FirebaseDatabase
-    .GetInstance("https://magicwaterpuzzle-default-rtdb.asia-southeast1.firebasedatabase.app")
+    .GetInstance("https://blockjam3d-default-rtdb.asia-southeast1.firebasedatabase.app")
     .RootReference;
         var realtimeTask = realtimeRef.Child("friend_requests")
                                       .Child(toUserId)
@@ -583,7 +620,7 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
 
         // notify lại
         var realtimeRef = FirebaseDatabase
-    .GetInstance("https://magicwaterpuzzle-default-rtdb.asia-southeast1.firebasedatabase.app")
+    .GetInstance("https://blockjam3d-default-rtdb.asia-southeast1.firebasedatabase.app")
     .RootReference;
         realtimeRef.Child("friend_accept")
                    .Child(fromUserId)
@@ -797,7 +834,7 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
 
         // notify lại
         var realtimeRef = FirebaseDatabase
-    .GetInstance("https://magicwaterpuzzle-default-rtdb.asia-southeast1.firebasedatabase.app")
+    .GetInstance("https://blockjam3d-default-rtdb.asia-southeast1.firebasedatabase.app")
     .RootReference;
         realtimeRef.Child("friend_decline")
                    .Child(fromUserId)
@@ -839,7 +876,7 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
 
                 // notify lại
                 var realtimeRef = FirebaseDatabase
-            .GetInstance("https://magicwaterpuzzle-default-rtdb.asia-southeast1.firebasedatabase.app")
+            .GetInstance("https://blockjam3d-default-rtdb.asia-southeast1.firebasedatabase.app")
             .RootReference;
                 realtimeRef.Child("friend_accept")
                            .Child(fromUserId)
@@ -853,7 +890,7 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
         });
 
         // notify lại
-        var realtimeRef = FirebaseDatabase.GetInstance("https://magicwaterpuzzle-default-rtdb.asia-southeast1.firebasedatabase.app").RootReference;
+        var realtimeRef = FirebaseDatabase.GetInstance("https://blockjam3d-default-rtdb.asia-southeast1.firebasedatabase.app").RootReference;
         realtimeRef.Child("friend_accept")
                    .Child(fromUserId)
                    .Child(toUserId)
@@ -1040,7 +1077,7 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
 
                 // realtime notify
                 var realtimeRef = FirebaseDatabase
-                    .GetInstance("https://magicwaterpuzzle-default-rtdb.asia-southeast1.firebasedatabase.app")
+                    .GetInstance("https://blockjam3d-default-rtdb.asia-southeast1.firebasedatabase.app")
                     .RootReference;
 
                 realtimeRef.Child("send_booster")
@@ -1138,6 +1175,179 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
 
             onComplete?.Invoke(false);
         });
+    }
+
+    //login with google
+    private Action<bool> _pendingOnComplete;
+
+    public async Task LinkGoogleAccount(Action<bool> onComplete = null)
+    {
+        try
+        {
+            if (UnityServices.State != ServicesInitializationState.Initialized)
+                await UnityServices.InitializeAsync();
+
+            if (!PlayerAccountService.Instance.IsSignedIn)
+            {
+                // ✅ Lưu callback lại để dùng sau
+                _pendingOnComplete = onComplete;
+
+                // ✅ Subscribe event TRƯỚC khi StartSignIn
+                PlayerAccountService.Instance.SignedIn += OnPlayerAccountSignedIn;
+
+                // Mở browser cho user đăng nhập, sau đó return luôn
+                // Phần còn lại xử lý trong OnPlayerAccountSignedIn
+                await PlayerAccountService.Instance.StartSignInAsync();
+                return;
+            }
+
+            // Nếu đã đăng nhập Unity Player Accounts rồi thì đi thẳng
+            await SignInWithUnityAndSave(onComplete);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"[Google Link] {ex.GetType().Name}: {ex.Message}");
+            UIManager.Instance.NotifyContent("Liên kết Google thất bại!");
+            onComplete?.Invoke(false);
+        }
+    }
+
+    private async void OnPlayerAccountSignedIn()
+    {
+        // ✅ Gỡ listener ngay để tránh bị gọi nhiều lần
+        PlayerAccountService.Instance.SignedIn -= OnPlayerAccountSignedIn;
+
+        await SignInWithUnityAndSave(_pendingOnComplete);
+    }
+
+    private async Task SignInWithUnityAndSave(Action<bool> onComplete)
+    {
+        try
+        {
+            string accessToken = PlayerAccountService.Instance.AccessToken;
+
+            if (string.IsNullOrEmpty(accessToken))
+                throw new Exception("AccessToken is null after sign-in");
+
+            if (!AuthenticationService.Instance.IsSignedIn)
+                await AuthenticationService.Instance.SignInWithUnityAsync(accessToken);
+
+            string unityPlayerId = AuthenticationService.Instance.PlayerId;
+            string currentUserId = PlayerPrefs.GetString("PlayerID", "");
+
+            if (string.IsNullOrEmpty(currentUserId))
+                throw new Exception("No local PlayerID found");
+
+            // =====================================================
+            // 🔍 Tìm xem UnityPlayerId này đã được liên kết với account nào trên Firebase chưa
+            // =====================================================
+            if (db == null) db = FirebaseFirestore.DefaultInstance;
+
+            QuerySnapshot existingQuery = await db.Collection(COLLECTION_NAME)
+                .WhereEqualTo("UnityPlayerId", unityPlayerId)
+                .GetSnapshotAsync();
+
+            if (existingQuery.Count > 0)
+            {
+                // =====================================================
+                // ✅ Đã có account trên Firebase → kéo data về local
+                // =====================================================
+                DocumentSnapshot existingDoc = existingQuery.Documents.First();
+                Dictionary<string, object> cloudData = existingDoc.ToDictionary();
+                string cloudUserId = existingDoc.Id;
+
+                Debug.Log($"[Google Link] Found existing account on Firebase: {cloudUserId}");
+
+                // Cập nhật PlayerID & PlayerName local
+                string cloudUserName = cloudData.ContainsKey("Name") ? cloudData["Name"].ToString() : "Player" + cloudUserId;
+
+                // Nếu account cloud khác với local hiện tại → dừng listener cũ, chuyển sang account cloud
+                if (cloudUserId != currentUserId)
+                {
+                    StopListeningFriendRequest();
+
+                    CurrentUserId = cloudUserId;
+                    CurrentUserName = cloudUserName;
+                    PlayerPrefs.SetString("PlayerID", cloudUserId);
+                    PlayerPrefs.SetString("PlayerName", cloudUserName);
+                }
+
+                // Cập nhật UserData local từ Firebase
+                if (cloudData.ContainsKey("Coin"))
+                    UserData.coin = System.Convert.ToInt32(cloudData["Coin"]);
+
+                if (cloudData.ContainsKey("Level"))
+                    UserData.level = System.Convert.ToInt32(cloudData["Level"]);
+
+                if (cloudData.ContainsKey("Heart"))
+                {
+                    int hearts = System.Convert.ToInt32(cloudData["Heart"]);
+                    PlayerPrefs.SetInt("Hearts", hearts);
+                    if (HeartSystem.Instance != null)
+                        HeartSystem.Instance.CurrentHearts = hearts;
+                }
+
+                // Cập nhật Boosters
+                if (cloudData.ContainsKey("Boosters"))
+                {
+                    UserData.listBoosterCounters = new List<BoosterCounter>();
+                    var boostersList = cloudData["Boosters"] as List<object>;
+                    if (boostersList != null)
+                    {
+                        foreach (var item in boostersList)
+                        {
+                            var dict = item as Dictionary<string, object>;
+                            if (dict != null)
+                            {
+                                UserData.listBoosterCounters.Add(new BoosterCounter
+                                {
+                                    name = dict.ContainsKey("name") ? dict["name"].ToString() : "",
+                                    count = dict.ContainsKey("count") ? System.Convert.ToInt32(dict["count"]) : 0
+                                });
+                            }
+                        }
+                    }
+                }
+
+                PlayerPrefs.Save();
+
+                // Lưu local file
+                SaveDataManager.Save();
+
+                // Khởi động lại listener với userId mới
+                StartListeningFriendRequest(CurrentUserId);
+
+                Debug.Log($"[Google Link] Data synced from Firebase! UserId: {cloudUserId}, Coin: {UserData.coin}, Level: {UserData.level}");
+                UIManager.Instance.NotifyContent("Đăng nhập Google thành công! Dữ liệu đã được đồng bộ.");
+                onComplete?.Invoke(true);
+            }
+            else
+            {
+                // =====================================================
+                // 🆕 Chưa có account → liên kết account local hiện tại với Google
+                // =====================================================
+                Dictionary<string, object> updates = new Dictionary<string, object>
+                {
+                    { "UnityPlayerId", unityPlayerId },
+                    { "LoginType", "Google" },
+                    { "GoogleLinkedAt", FieldValue.ServerTimestamp }
+                };
+
+                await db.Collection(COLLECTION_NAME)
+                        .Document(currentUserId)
+                        .SetAsync(updates, SetOptions.MergeAll);
+
+                Debug.Log($"[Google Link] Linked current account! UnityPlayerId: {unityPlayerId}");
+                UIManager.Instance.NotifyContent("Liên kết Google thành công!");
+                onComplete?.Invoke(true);
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"[Google Link] {ex.GetType().Name}: {ex.Message}");
+            UIManager.Instance.NotifyContent("Liên kết Google thất bại!");
+            onComplete?.Invoke(false);
+        }
     }
 
 }
