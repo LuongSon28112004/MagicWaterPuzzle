@@ -1220,6 +1220,79 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
         await SignInWithUnityAndSave(_pendingOnComplete);
     }
 
+    /// <summary>
+    /// Kiểm tra xem user hiện tại đã liên kết Google chưa (Lưu qua PlayerPrefs để load nhanh khi vào game)
+    /// </summary>
+    public bool IsGoogleLinked
+    {
+        get
+        {
+            return PlayerPrefs.GetInt("IsGoogleLinked", 0) == 1;
+        }
+    }
+
+    /// <summary>
+    /// Đăng xuất tài khoản Google, xoá dữ liệu local và tạo tài khoản mới hoàn toàn
+    /// </summary>
+    public async void LogoutAndCreateNewAccount(Action<bool> onComplete = null)
+    {
+        try
+        {
+            // 1. Dừng listener cũ
+            StopListeningFriendRequest();
+
+            // 2. Sign out Unity Player Account (Google)
+            try
+            {
+                if (PlayerAccountService.Instance.IsSignedIn)
+                    PlayerAccountService.Instance.SignOut();
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning($"[Logout] PlayerAccountService SignOut warning: {ex.Message}");
+            }
+
+            // 3. Sign out Unity Authentication
+            try
+            {
+                if (AuthenticationService.Instance.IsSignedIn)
+                    AuthenticationService.Instance.SignOut();
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning($"[Logout] AuthenticationService SignOut warning: {ex.Message}");
+            }
+
+            // 4. Xoá dữ liệu local
+            PlayerPrefs.DeleteKey("PlayerID");
+            PlayerPrefs.DeleteKey("PlayerName");
+            PlayerPrefs.DeleteKey("Hearts");
+            PlayerPrefs.DeleteKey("Timer");
+            PlayerPrefs.DeleteKey("LastQuitTime");
+            PlayerPrefs.DeleteKey("IsGoogleLinked");
+            PlayerPrefs.Save();
+
+            // 5. Tạo tài khoản mới
+            CheckAndInitializeUser();
+
+            // 6. Reset HeartSystem
+            if (HeartSystem.Instance != null)
+            {
+                HeartSystem.Instance.CurrentHearts = 5;
+            }
+
+            Debug.Log("[Logout] Logged out and created new account successfully!");
+            UIManager.Instance.NotifyContent("Đã đăng xuất! Tài khoản mới đã được tạo.");
+            onComplete?.Invoke(true);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"[Logout] Error: {ex.GetType().Name}: {ex.Message}");
+            UIManager.Instance.NotifyContent("Đăng xuất thất bại!");
+            onComplete?.Invoke(false);
+        }
+    }
+
     private async Task SignInWithUnityAndSave(Action<bool> onComplete)
     {
         try
@@ -1309,6 +1382,7 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
                     }
                 }
 
+                PlayerPrefs.SetInt("IsGoogleLinked", 1);
                 PlayerPrefs.Save();
 
                 // Lưu local file
@@ -1336,6 +1410,9 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
                 await db.Collection(COLLECTION_NAME)
                         .Document(currentUserId)
                         .SetAsync(updates, SetOptions.MergeAll);
+
+                PlayerPrefs.SetInt("IsGoogleLinked", 1);
+                PlayerPrefs.Save();
 
                 Debug.Log($"[Google Link] Linked current account! UnityPlayerId: {unityPlayerId}");
                 UIManager.Instance.NotifyContent("Liên kết Google thành công!");

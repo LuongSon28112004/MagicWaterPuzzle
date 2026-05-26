@@ -24,6 +24,16 @@ public class GameManager : SingletonDDOL<GameManager>
 
     private void Start()
     {
+        if (!PlayerPrefs.HasKey("cf_default_music"))
+        {
+            PlayerPrefs.SetInt("cf_default_music", 1);
+        }
+        if (!PlayerPrefs.HasKey("audio_music_setting"))
+        {
+            PlayerPrefs.SetInt("audio_music_setting", 1);
+        }
+        PlayerPrefs.Save();
+
 #if UNITY_EDITOR
         Application.targetFrameRate = 120;
         QualitySettings.vSyncCount = 0;
@@ -63,6 +73,7 @@ public class GameManager : SingletonDDOL<GameManager>
                 }
                 UIManager.Instance.HideAllPopup();
                 AudioManager.Instance.Play("MainGameplayLOOP", 0.3f, true);
+                AudioManager.Instance.musicSource.volume = AudioManager.AudioMusicSetting ? 0.3f * AudioManager.Instance.Ratio_Sound : 0;
                 UIManager.Instance.ShowScreen<ScreenHome>();
                 UIManager.Instance.ShowPopup<PopupTab>(null);
                 break;

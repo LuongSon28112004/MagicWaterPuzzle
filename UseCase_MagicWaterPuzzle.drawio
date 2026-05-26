@@ -1,0 +1,2238 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36" pages="20">
+  <diagram name="Usecase tổng quát" id="UC_OVERVIEW">
+    <mxGraphModel dx="1226" dy="661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ov_boundary" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="230" y="60" width="700" height="640" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_player" value="Người chơi" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="90" y="350" width="35" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_firebase" value="Hệ thống Firebase" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="1120" y="210" width="35" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_google" value="Google Sign-In" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="1000" y="70" width="35" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_login" value="Đăng nhập / Xác thực" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="280" y="80" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_play" value="Chơi màn chơi puzzle" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="290" y="190" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_heart" value="Quản lý hệ thống tim" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="520" y="260" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_booster" value="Sử dụng Booster" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="750" y="550" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_shop" value="Mua sắm trong cửa hàng" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="450" y="620" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_rank" value="Xem bảng xếp hạng" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="510" y="180" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_friend" value="Quản lý bạn bè" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="730" y="290" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_gift" value="Gửi / nhận quà tặng" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="700" y="384" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_noti" value="Nhận thông báo" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="750" y="460" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_setting" value="Cài đặt game" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="650" y="620" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_logout" value="Đăng xuất" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="250" y="620" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_e1" style="endArrow=none;html=1;rounded=0;" parent="1" source="ov_player" target="uc_login" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_e2" style="endArrow=none;html=1;rounded=0;" parent="1" source="ov_player" target="uc_play" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_e3" style="endArrow=none;html=1;rounded=0;" parent="1" source="ov_player" target="uc_heart" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_e4" style="endArrow=none;html=1;rounded=0;" parent="1" source="ov_player" target="uc_booster" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_e5" style="endArrow=none;html=1;rounded=0;" parent="1" source="ov_player" target="uc_shop" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_e6" style="endArrow=none;html=1;rounded=0;" parent="1" source="ov_player" target="uc_rank" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_e7" style="endArrow=none;html=1;rounded=0;" parent="1" source="ov_player" target="uc_friend" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_e8" style="endArrow=none;html=1;rounded=0;" parent="1" source="ov_player" target="uc_gift" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_e9" style="endArrow=none;html=1;rounded=0;" parent="1" source="ov_player" target="uc_noti" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_e10" style="endArrow=none;html=1;rounded=0;" parent="1" source="ov_player" target="uc_setting" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_e11" style="endArrow=none;html=1;rounded=0;" parent="1" source="ov_player" target="uc_logout" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_f1" style="endArrow=none;html=1;rounded=0;" parent="1" source="uc_login" target="ov_firebase" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_f2" style="endArrow=none;html=1;rounded=0;" parent="1" source="uc_rank" target="ov_firebase" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_f3" style="endArrow=none;html=1;rounded=0;" parent="1" source="uc_friend" target="ov_firebase" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_f4" style="endArrow=none;html=1;rounded=0;" parent="1" source="uc_gift" target="ov_firebase" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_f5" style="endArrow=none;html=1;rounded=0;" parent="1" source="uc_noti" target="ov_firebase" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov_g1" style="endArrow=none;html=1;rounded=0;" parent="1" source="uc_login" target="ov_google" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5oiIclVUAv-KbtvW0XnQ-5" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="uc_heart">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="338" as="sourcePoint" />
+            <mxPoint x="1120" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5oiIclVUAv-KbtvW0XnQ-6" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="uc_booster">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="874" y="473" as="sourcePoint" />
+            <mxPoint x="1120" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Usecase người chơi" id="UC_PLAYER">
+    <mxGraphModel dx="2943" dy="1606" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pl_boundary" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=2;verticalAlign=top;fontSize=14;fontStyle=1;" value="Hệ thống Game Magic Water Puzzle" vertex="1">
+          <mxGeometry height="1800" width="1180" x="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_player" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Người chơi" vertex="1">
+          <mxGeometry height="70" width="35" x="80" y="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_google" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Google" vertex="1">
+          <mxGeometry height="70" width="35" x="1490" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_firebase" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Firebase" vertex="1">
+          <mxGeometry height="70" width="35" x="1580" y="1190" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_login" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="Đăng nhập Google" vertex="1">
+          <mxGeometry height="60" width="180" x="280" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_logout" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="Đăng xuất" vertex="1">
+          <mxGeometry height="60" width="180" x="370" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_authgg" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Xác thực Google" vertex="1">
+          <mxGeometry height="55" width="180" x="800" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_authfb" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Tạo / cập nhật tài khoản" vertex="1">
+          <mxGeometry height="55" width="200" x="1180" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_confirm_logout" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Xác nhận đăng xuất" vertex="1">
+          <mxGeometry height="55" width="180" x="630" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_sep1" edge="1" parent="1" style="line;strokeColor=#cccccc;dashed=1;html=1;">
+          <mxGeometry relative="1" width="1180" as="geometry">
+            <mxPoint x="240" y="260" as="sourcePoint" />
+            <mxPoint x="1390" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pl_setting" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="Cài đặt game" vertex="1">
+          <mxGeometry height="60" width="180" x="480" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_sound" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Bật / tắt âm nhạc" vertex="1">
+          <mxGeometry height="50" width="180" x="1007" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_sfx" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Bật / tắt SFX" vertex="1">
+          <mxGeometry height="50" width="180" x="1000" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_lang" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Thay đổi ngôn ngữ" vertex="1">
+          <mxGeometry height="50" width="180" x="1000" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_sep2" edge="1" parent="1" style="line;strokeColor=#cccccc;dashed=1;html=1;">
+          <mxGeometry relative="1" width="1180" as="geometry">
+            <mxPoint x="240" y="520" as="sourcePoint" />
+            <mxPoint x="1390" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pl_play" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="Chơi màn chơi" vertex="1">
+          <mxGeometry height="60" width="180" x="530" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_pause" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Tạm dừng game" vertex="1">
+          <mxGeometry height="50" width="180" x="997" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_exitlv" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Thoát màn chơi" vertex="1">
+          <mxGeometry height="50" width="180" x="997" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_tutorial" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Xem hướng dẫn (tutorial)" vertex="1">
+          <mxGeometry height="50" width="200" x="987" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_win" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Xem màn hình chiến thắng" vertex="1">
+          <mxGeometry height="50" width="200" x="990" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_lose" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Xem màn hình thua" vertex="1">
+          <mxGeometry height="50" width="180" x="997" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_sep3" edge="1" parent="1" style="line;strokeColor=#cccccc;dashed=1;html=1;">
+          <mxGeometry relative="1" width="1180" as="geometry">
+            <mxPoint x="240" y="910" as="sourcePoint" />
+            <mxPoint x="1390" y="910" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pl_booster" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="Sử dụng Booster" vertex="1">
+          <mxGeometry height="60" width="180" x="540" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_bomb" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Dùng Bomb" vertex="1">
+          <mxGeometry height="50" width="160" x="1007" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_hammer" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Dùng Hammer" vertex="1">
+          <mxGeometry height="50" width="160" x="1010" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_freeze" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Dùng Freeze" vertex="1">
+          <mxGeometry height="50" width="160" x="1010" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_buyboost" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Mua thêm Booster" vertex="1">
+          <mxGeometry height="50" width="180" x="1007" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_sep4" edge="1" parent="1" source="pl_buycoin" style="line;strokeColor=#cccccc;dashed=1;html=1;">
+          <mxGeometry relative="1" width="1180" as="geometry">
+            <mxPoint x="240" y="1230" as="sourcePoint" />
+            <mxPoint x="1390" y="1230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pl_heart" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="Quản lý hệ thống tim" vertex="1">
+          <mxGeometry height="60" width="180" x="540" y="945" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_refill_coin" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Hồi tim bằng coin" vertex="1">
+          <mxGeometry height="50" width="180" x="1007" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_refill_ad" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Hồi tim qua quảng cáo" vertex="1">
+          <mxGeometry height="50" width="200" x="1000" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_refill_time" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Hồi tim theo thời gian" vertex="1">
+          <mxGeometry height="50" width="200" x="997" y="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_sep5" edge="1" parent="1" source="pl_gift" style="line;strokeColor=#cccccc;dashed=1;html=1;">
+          <mxGeometry relative="1" width="1180" as="geometry">
+            <mxPoint x="240" y="1470" as="sourcePoint" />
+            <mxPoint x="1390" y="1470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pl_shop" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="Mua sắm trong cửa hàng" vertex="1">
+          <mxGeometry height="60" width="200" x="520" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_buyheart" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Mua gói hồi tim" vertex="1">
+          <mxGeometry height="50" width="160" x="1017" y="1160" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_sep6" edge="1" parent="1" source="pl_send_gift" style="line;strokeColor=#cccccc;dashed=1;html=1;">
+          <mxGeometry relative="1" width="1180" as="geometry">
+            <mxPoint x="240" y="1640" as="sourcePoint" />
+            <mxPoint x="1390" y="1640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pl_rank" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="Xem bảng xếp hạng" vertex="1">
+          <mxGeometry height="60" width="180" x="530" y="1220" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_rank_global" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Xem BXH toàn cầu" vertex="1">
+          <mxGeometry height="50" width="180" x="1007" y="1230" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_rank_friend" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Xem BXH bạn bè" vertex="1">
+          <mxGeometry height="50" width="180" x="1000" y="1290" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_sep7" edge="1" parent="1" source="pl_send_gift" style="line;strokeColor=#cccccc;dashed=1;html=1;">
+          <mxGeometry relative="1" width="1180" as="geometry">
+            <mxPoint x="240" y="1810" as="sourcePoint" />
+            <mxPoint x="1390" y="1810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pl_friend" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="Quản lý bạn bè" vertex="1">
+          <mxGeometry height="60" width="180" x="550" y="1330" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_find_friend" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Tìm kiếm bạn bè" vertex="1">
+          <mxGeometry height="50" width="180" x="1007" y="1360" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_send_request" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Gửi lời mời kết bạn" vertex="1">
+          <mxGeometry height="50" width="180" x="1007" y="1420" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_accept_request" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Chấp nhận / từ chối" vertex="1">
+          <mxGeometry height="50" width="180" x="1007" y="1480" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_remove_friend" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Xóa bạn bè" vertex="1">
+          <mxGeometry height="50" width="160" x="1017" y="1540" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_sep8" edge="1" parent="1" style="line;strokeColor=#cccccc;dashed=1;html=1;">
+          <mxGeometry relative="1" width="1180" as="geometry">
+            <mxPoint x="240" y="2120" as="sourcePoint" />
+            <mxPoint x="1390" y="2120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pl_noti" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="Nhận thông báo realtime" vertex="1">
+          <mxGeometry height="60" width="200" x="1010" y="1760" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_recv_gift" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Nhận quà từ bạn" vertex="1">
+          <mxGeometry height="50" width="180" x="1007" y="1680" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_pl1" edge="1" parent="1" source="pl_player" style="endArrow=none;html=1;rounded=0;" target="pl_login">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_pl2" edge="1" parent="1" source="pl_player" style="endArrow=none;html=1;rounded=0;" target="pl_logout">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_pl_set" edge="1" parent="1" source="pl_player" style="endArrow=none;html=1;rounded=0;" target="pl_setting">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_pl3" edge="1" parent="1" source="pl_player" style="endArrow=none;html=1;rounded=0;" target="pl_play">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_pl4" edge="1" parent="1" source="pl_player" style="endArrow=none;html=1;rounded=0;" target="pl_booster">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_pl5" edge="1" parent="1" source="pl_player" style="endArrow=none;html=1;rounded=0;" target="pl_heart">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_pl6" edge="1" parent="1" source="pl_player" style="endArrow=none;html=1;rounded=0;" target="pl_shop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_pl7" edge="1" parent="1" source="pl_player" style="endArrow=none;html=1;rounded=0;" target="pl_rank">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_pl8" edge="1" parent="1" source="pl_player" style="endArrow=none;html=1;rounded=0;" target="pl_friend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_pl9" edge="1" parent="1" source="pl_player" style="endArrow=none;html=1;rounded=0;" target="pl_gift">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_pl10" edge="1" parent="1" source="pl_player" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="pl_noti">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="490" y="1520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pl_fb1" edge="1" parent="1" source="pl_authfb" style="endArrow=none;html=1;rounded=0;strokeColor=#0066CC;" target="pl_firebase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_fb2" edge="1" parent="1" source="pl_rank_global" style="endArrow=none;html=1;rounded=0;strokeColor=light-dark(#0066CC,#FFFFFF);" target="pl_firebase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_fb3" edge="1" parent="1" source="pl_rank_friend" style="endArrow=none;html=1;rounded=0;strokeColor=light-dark(#0066CC,#FFFFFF);" target="pl_firebase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_fb4" edge="1" parent="1" source="pl_find_friend" style="endArrow=none;html=1;rounded=0;strokeColor=light-dark(#0066CC,#FFFFFF);" target="pl_firebase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_fb5" edge="1" parent="1" source="pl_send_request" style="endArrow=none;html=1;rounded=0;strokeColor=light-dark(#0066CC,#FFFFFF);" target="pl_firebase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_fb6" edge="1" parent="1" source="pl_accept_request" style="endArrow=none;html=1;rounded=0;strokeColor=light-dark(#0066CC,#FFFFFF);" target="pl_firebase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_fb7" edge="1" parent="1" source="pl_send_gift" style="endArrow=none;html=1;rounded=0;strokeColor=light-dark(#0066CC,#FFFFFF);exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="pl_firebase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_fb8" edge="1" parent="1" source="pl_recv_gift" style="endArrow=none;html=1;rounded=0;strokeColor=light-dark(#0066CC,#FFFFFF);" target="pl_firebase">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1260" y="1640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pl_fb9" edge="1" parent="1" source="pl_noti" style="endArrow=none;html=1;rounded=0;strokeColor=light-dark(#0066CC,#FFFFFF);exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="pl_firebase">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1400" y="1610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pl_gg1" edge="1" parent="1" source="pl_authgg" style="endArrow=none;html=1;rounded=0;strokeColor=#0066CC;" target="pl_google">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_inc1" edge="1" parent="1" source="pl_login" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;fontSize=12;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="pl_authgg" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_inc2" edge="1" parent="1" source="pl_login" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;fontSize=12;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="pl_authfb" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_inc3" edge="1" parent="1" source="pl_logout" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;fontSize=12;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="pl_confirm_logout" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_e_s1" edge="1" parent="1" source="pl_sound" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.25;" target="pl_setting" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_e_s2" edge="1" parent="1" source="pl_sfx" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" target="pl_setting" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_e_s3" edge="1" parent="1" source="pl_lang" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.75;" target="pl_setting" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext1" edge="1" parent="1" source="pl_pause" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.2;" target="pl_play" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext2" edge="1" parent="1" source="pl_exitlv" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.4;" target="pl_play" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext3" edge="1" parent="1" source="pl_tutorial" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.55;" target="pl_play" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext4" edge="1" parent="1" source="pl_win" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.75;" target="pl_play" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext5" edge="1" parent="1" source="pl_lose" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.9;" target="pl_play" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext6" edge="1" parent="1" source="pl_bomb" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.2;" target="pl_booster" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext7" edge="1" parent="1" source="pl_hammer" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.4;" target="pl_booster" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext8" edge="1" parent="1" source="pl_freeze" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.6;" target="pl_booster" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext9" edge="1" parent="1" source="pl_buyboost" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.85;" target="pl_booster" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext10" edge="1" parent="1" source="pl_refill_coin" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.25;" target="pl_heart" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext11" edge="1" parent="1" source="pl_refill_ad" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" target="pl_heart" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext12" edge="1" parent="1" source="pl_refill_time" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.75;" target="pl_heart" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext13" edge="1" parent="1" source="pl_buycoin" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.3;" target="pl_shop" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext14" edge="1" parent="1" source="pl_buyheart" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.7;" target="pl_shop" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext15" edge="1" parent="1" source="pl_rank_global" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.3;" target="pl_rank" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext16" edge="1" parent="1" source="pl_rank_friend" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.7;" target="pl_rank" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext17" edge="1" parent="1" source="pl_find_friend" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.2;" target="pl_friend" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext18" edge="1" parent="1" source="pl_send_request" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.4;" target="pl_friend" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext19" edge="1" parent="1" source="pl_accept_request" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.6;" target="pl_friend" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext20" edge="1" parent="1" source="pl_remove_friend" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.85;" target="pl_friend" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext21" edge="1" parent="1" source="pl_send_gift" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.3;" target="pl_gift" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pl_ext22" edge="1" parent="1" source="pl_recv_gift" style="html=1;endArrow=block;endSize=16;endFill=0;rounded=0;fontSize=14;exitX=0;exitY=0.5;entryX=1;entryY=0.7;" target="pl_gift" value="Extends">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pM_kLenV7WbF1-RIJakS-3" edge="1" parent="1" style="line;strokeColor=#cccccc;dashed=1;html=1;" target="pl_buycoin" value="">
+          <mxGeometry relative="1" width="1180" as="geometry">
+            <mxPoint x="240" y="1230" as="sourcePoint" />
+            <mxPoint x="1390" y="1230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pl_buycoin" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Mua coin" vertex="1">
+          <mxGeometry height="50" width="160" x="1010" y="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="pM_kLenV7WbF1-RIJakS-5" edge="1" parent="1" style="line;strokeColor=#cccccc;dashed=1;html=1;" target="pl_send_gift" value="">
+          <mxGeometry relative="1" width="1180" as="geometry">
+            <mxPoint x="240" y="1810" as="sourcePoint" />
+            <mxPoint x="1390" y="1810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pM_kLenV7WbF1-RIJakS-7" edge="1" parent="1" style="line;strokeColor=#cccccc;dashed=1;html=1;" target="pl_send_gift" value="">
+          <mxGeometry relative="1" width="1180" as="geometry">
+            <mxPoint x="240" y="1640" as="sourcePoint" />
+            <mxPoint x="1390" y="1640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pl_send_gift" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=13;" value="Gửi quà cho bạn" vertex="1">
+          <mxGeometry height="50" width="180" x="1007" y="1610" as="geometry" />
+        </mxCell>
+        <mxCell id="pM_kLenV7WbF1-RIJakS-8" edge="1" parent="1" style="line;strokeColor=#cccccc;dashed=1;html=1;" target="pl_gift" value="">
+          <mxGeometry relative="1" width="1180" as="geometry">
+            <mxPoint x="240" y="1470" as="sourcePoint" />
+            <mxPoint x="1390" y="1470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pl_gift" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;fontSize=14;" value="Gửi / nhận quà tặng" vertex="1">
+          <mxGeometry height="60" width="180" x="540" y="1450" as="geometry" />
+        </mxCell>
+        <mxCell id="pM_kLenV7WbF1-RIJakS-9" edge="1" parent="1" source="pl_remove_friend" style="endArrow=none;html=1;rounded=0;strokeColor=light-dark(#0066CC,#FFFFFF);exitX=1;exitY=0.5;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1187" y="1603" as="sourcePoint" />
+            <mxPoint x="1570" y="1240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDHD-Đăng nhập Google" id="BDHD_LOGIN">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bl_start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="395" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_a1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Mở ứng dụng" vertex="1">
+          <mxGeometry height="50" width="160" x="330" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_a2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Hiển thị màn hình đăng nhập" vertex="1">
+          <mxGeometry height="50" width="200" x="310" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_a3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Nhấn nút Đăng nhập Google" vertex="1">
+          <mxGeometry height="50" width="200" x="310" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_a4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Hiển thị giao diện chọn tài khoản Google" vertex="1">
+          <mxGeometry height="60" width="260" x="280" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_d1" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Chọn tài khoản?" vertex="1">
+          <mxGeometry height="80" width="160" x="330" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_a5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Lấy idToken từ Google" vertex="1">
+          <mxGeometry height="50" width="180" x="320" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_a6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Đăng nhập Firebase Auth" vertex="1">
+          <mxGeometry height="50" width="200" x="310" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_d2" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Xác thực thành công?" vertex="1">
+          <mxGeometry height="80" width="180" x="320" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_a7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Tạo / cập nhật UserData trên Firebase" vertex="1">
+          <mxGeometry height="50" width="260" x="280" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_a8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Chuyển sang màn hình Home" vertex="1">
+          <mxGeometry height="50" width="220" x="300" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_a9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" value="Hiển thị thông báo lỗi" vertex="1">
+          <mxGeometry height="50" width="180" x="600" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_end" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="34" width="34" x="393" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_end_inner" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="400" y="967" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_e1" edge="1" parent="1" source="bl_start" target="bl_a1" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_e2" edge="1" parent="1" source="bl_a1" target="bl_a2" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_e3" edge="1" parent="1" source="bl_a2" target="bl_a3" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_e4" edge="1" parent="1" source="bl_a3" target="bl_a4" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_e5" edge="1" parent="1" source="bl_a4" target="bl_d1" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_e6" edge="1" parent="1" source="bl_d1" target="bl_a5" style="endArrow=block;endFill=1;html=1;" value="Có">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_e7" edge="1" parent="1" source="bl_d1" target="bl_end" style="endArrow=block;endFill=1;html=1;exitX=1;exitY=0.5;" value="Hủy">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="470" />
+              <mxPoint x="700" y="977" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bl_e8" edge="1" parent="1" source="bl_a5" target="bl_a6" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_e9" edge="1" parent="1" source="bl_a6" target="bl_d2" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_e10" edge="1" parent="1" source="bl_d2" target="bl_a7" style="endArrow=block;endFill=1;html=1;" value="Đúng">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_e11" edge="1" parent="1" source="bl_d2" target="bl_a9" style="endArrow=block;endFill=1;html=1;" value="Sai">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_e12" edge="1" parent="1" source="bl_a9" target="bl_a2" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="205" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bl_e13" edge="1" parent="1" source="bl_a7" target="bl_a8" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bl_e14" edge="1" parent="1" source="bl_a8" target="bl_end" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDHD-Chơi màn chơi" id="BDHD_PLAY">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bp_start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="395" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_a1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Nhấn nút Play tại Home" vertex="1">
+          <mxGeometry height="50" width="200" x="310" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_d1" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Còn tim?" vertex="1">
+          <mxGeometry height="80" width="140" x="340" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_a2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" value="Hiển thị Popup Refill Lives" vertex="1">
+          <mxGeometry height="50" width="200" x="560" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_a3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Hiển thị Popup Loading" vertex="1">
+          <mxGeometry height="50" width="200" x="310" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_a4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Tải dữ liệu level (LevelData)" vertex="1">
+          <mxGeometry height="50" width="220" x="300" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_a5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Khởi tạo Board, Block, Gate, Timer" vertex="1">
+          <mxGeometry height="50" width="260" x="280" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_a6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Trừ 1 tim" vertex="1">
+          <mxGeometry height="50" width="140" x="340" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_a7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Người chơi thao tác kéo block / dùng booster" vertex="1">
+          <mxGeometry height="60" width="300" x="260" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_d2" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Hoàn thành mục tiêu?" vertex="1">
+          <mxGeometry height="90" width="200" x="310" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_d3" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Hết thời gian?" vertex="1">
+          <mxGeometry height="80" width="160" x="600" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_a8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" value="Hiển thị Popup Win" vertex="1">
+          <mxGeometry height="50" width="180" x="320" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_a9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" value="Hiển thị Popup Lose" vertex="1">
+          <mxGeometry height="50" width="180" x="600" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_a10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Tăng level / lưu UserData" vertex="1">
+          <mxGeometry height="50" width="200" x="310" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_end" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="34" width="34" x="393" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_end_in" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="400" y="927" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e1" edge="1" parent="1" source="bp_start" target="bp_a1" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e2" edge="1" parent="1" source="bp_a1" target="bp_d1" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e3" edge="1" parent="1" source="bp_d1" target="bp_a2" style="endArrow=block;endFill=1;html=1;" value="Không">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e4" edge="1" parent="1" source="bp_d1" target="bp_a3" style="endArrow=block;endFill=1;html=1;" value="Có">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e5" edge="1" parent="1" source="bp_a3" target="bp_a4" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e6" edge="1" parent="1" source="bp_a4" target="bp_a5" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e7" edge="1" parent="1" source="bp_a5" target="bp_a6" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e8" edge="1" parent="1" source="bp_a6" target="bp_a7" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e9" edge="1" parent="1" source="bp_a7" target="bp_d2" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e10" edge="1" parent="1" source="bp_d2" target="bp_a8" style="endArrow=block;endFill=1;html=1;" value="Có">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e11" edge="1" parent="1" source="bp_d2" target="bp_d3" style="endArrow=block;endFill=1;html=1;" value="Chưa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e12" edge="1" parent="1" source="bp_d3" target="bp_a9" style="endArrow=block;endFill=1;html=1;" value="Có">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e13" edge="1" parent="1" source="bp_d3" target="bp_a7" style="endArrow=block;endFill=1;html=1;" value="Chưa">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bp_e14" edge="1" parent="1" source="bp_a8" target="bp_a10" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e15" edge="1" parent="1" source="bp_a9" target="bp_end" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e16" edge="1" parent="1" source="bp_a10" target="bp_end" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bp_e17" edge="1" parent="1" source="bp_a2" target="bp_end" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="940" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDHD-Sử dụng Booster" id="BDHD_BOOSTER">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bb_start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="395" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_a1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Đang trong màn chơi" vertex="1">
+          <mxGeometry height="50" width="180" x="320" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_a2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Nhấn vào biểu tượng booster (Bomb / Hammer / Freeze)" vertex="1">
+          <mxGeometry height="60" width="320" x="250" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_d1" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Còn lượt booster?" vertex="1">
+          <mxGeometry height="80" width="180" x="320" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_a3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" value="Hiển thị Popup mua Booster" vertex="1">
+          <mxGeometry height="50" width="220" x="580" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_d2" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Người chơi mua?" vertex="1">
+          <mxGeometry height="80" width="170" x="605" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_a4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Trừ coin / cộng số booster" vertex="1">
+          <mxGeometry height="50" width="220" x="580" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_a5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Kích hoạt chế độ chọn vị trí / target" vertex="1">
+          <mxGeometry height="50" width="250" x="285" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_a6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Người chơi chọn block / khu vực" vertex="1">
+          <mxGeometry height="50" width="240" x="290" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_a7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Áp dụng hiệu ứng booster lên board" vertex="1">
+          <mxGeometry height="50" width="280" x="270" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_a8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Cập nhật trạng thái board, trừ 1 lượt booster" vertex="1">
+          <mxGeometry height="50" width="300" x="260" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_a9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Lưu UserData" vertex="1">
+          <mxGeometry height="50" width="160" x="330" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_end" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="34" width="34" x="393" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_end_in" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="400" y="787" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_e1" edge="1" parent="1" source="bb_start" target="bb_a1" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_e2" edge="1" parent="1" source="bb_a1" target="bb_a2" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_e3" edge="1" parent="1" source="bb_a2" target="bb_d1" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_e4" edge="1" parent="1" source="bb_d1" target="bb_a5" style="endArrow=block;endFill=1;html=1;" value="Có">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_e5" edge="1" parent="1" source="bb_d1" target="bb_a3" style="endArrow=block;endFill=1;html=1;" value="Không">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_e6" edge="1" parent="1" source="bb_a3" target="bb_d2" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_e7" edge="1" parent="1" source="bb_d2" target="bb_a4" style="endArrow=block;endFill=1;html=1;" value="Có">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_e8" edge="1" parent="1" source="bb_d2" target="bb_end" style="endArrow=block;endFill=1;html=1;" value="Không">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="850" y="400" />
+              <mxPoint x="850" y="797" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bb_e9" edge="1" parent="1" source="bb_a4" target="bb_a5" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_e10" edge="1" parent="1" source="bb_a5" target="bb_a6" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_e11" edge="1" parent="1" source="bb_a6" target="bb_a7" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_e12" edge="1" parent="1" source="bb_a7" target="bb_a8" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_e13" edge="1" parent="1" source="bb_a8" target="bb_a9" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bb_e14" edge="1" parent="1" source="bb_a9" target="bb_end" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDHD-Hồi tim" id="BDHD_REFILL">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="br_start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="395" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="br_a1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Hết tim - hiện Popup Refill Lives" vertex="1">
+          <mxGeometry height="50" width="240" x="290" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="br_d1" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Chọn cách hồi tim?" vertex="1">
+          <mxGeometry height="80" width="200" x="310" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="br_a2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Xem quảng cáo" vertex="1">
+          <mxGeometry height="50" width="160" x="60" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="br_a3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Dùng coin" vertex="1">
+          <mxGeometry height="50" width="150" x="335" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="br_a4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Chờ thời gian hồi" vertex="1">
+          <mxGeometry height="50" width="180" x="620" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="br_d2" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Xem hết quảng cáo?" vertex="1">
+          <mxGeometry height="80" width="180" x="50" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="br_d3" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Đủ coin?" vertex="1">
+          <mxGeometry height="80" width="140" x="340" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="br_a5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Đếm thời gian 30 phút / tim" vertex="1">
+          <mxGeometry height="50" width="220" x="600" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="br_a6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Cộng tim" vertex="1">
+          <mxGeometry height="50" width="140" x="70" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="br_a7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Trừ coin, cộng tim" vertex="1">
+          <mxGeometry height="50" width="170" x="325" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="br_a8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Tự động cộng tim khi đủ thời gian" vertex="1">
+          <mxGeometry height="60" width="240" x="590" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="br_a9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" value="Thông báo &quot;Không đủ coin&quot;" vertex="1">
+          <mxGeometry height="50" width="200" x="310" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="br_a10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Lưu UserData (PlayerPrefs &amp; Firebase)" vertex="1">
+          <mxGeometry height="50" width="290" x="265" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="br_end" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="34" width="34" x="393" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="br_end_in" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="400" y="787" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e1" edge="1" parent="1" source="br_start" target="br_a1" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e2" edge="1" parent="1" source="br_a1" target="br_d1" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e3" edge="1" parent="1" source="br_d1" target="br_a2" style="endArrow=block;endFill=1;html=1;" value="QC">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e4" edge="1" parent="1" source="br_d1" target="br_a3" style="endArrow=block;endFill=1;html=1;" value="Coin">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e5" edge="1" parent="1" source="br_d1" target="br_a4" style="endArrow=block;endFill=1;html=1;" value="Chờ">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e6" edge="1" parent="1" source="br_a2" target="br_d2" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e7" edge="1" parent="1" source="br_a3" target="br_d3" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e8" edge="1" parent="1" source="br_a4" target="br_a5" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e9" edge="1" parent="1" source="br_d2" target="br_a6" style="endArrow=block;endFill=1;html=1;" value="Có">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e10" edge="1" parent="1" source="br_d2" target="br_end" style="endArrow=block;endFill=1;html=1;" value="Bỏ">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="10" y="797" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="br_e11" edge="1" parent="1" source="br_d3" target="br_a7" style="endArrow=block;endFill=1;html=1;" value="Có">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e12" edge="1" parent="1" source="br_d3" target="br_a9" style="endArrow=block;endFill=1;html=1;" value="Không">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e13" edge="1" parent="1" source="br_a5" target="br_a8" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e14" edge="1" parent="1" source="br_a6" target="br_a10" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e15" edge="1" parent="1" source="br_a7" target="br_a10" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e16" edge="1" parent="1" source="br_a8" target="br_a10" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e17" edge="1" parent="1" source="br_a9" target="br_end" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="br_e18" edge="1" parent="1" source="br_a10" target="br_end" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDHD-Mua coin trong cửa hàng" id="BDHD_SHOP">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bs_start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="395" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_a1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Mở Tab Shop" vertex="1">
+          <mxGeometry height="50" width="160" x="330" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_a2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Hiển thị danh sách gói coin" vertex="1">
+          <mxGeometry height="50" width="220" x="300" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_a3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Chọn gói muốn mua" vertex="1">
+          <mxGeometry height="50" width="200" x="310" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_a4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Hiển thị Popup xác nhận thanh toán" vertex="1">
+          <mxGeometry height="50" width="250" x="285" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_d1" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Xác nhận?" vertex="1">
+          <mxGeometry height="80" width="140" x="340" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_a5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Gọi IAP / cổng thanh toán" vertex="1">
+          <mxGeometry height="50" width="220" x="300" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_d2" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Thanh toán thành công?" vertex="1">
+          <mxGeometry height="80" width="200" x="310" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_a6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Cộng coin vào UserData" vertex="1">
+          <mxGeometry height="50" width="200" x="310" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_a7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Animation coin bay vào icon" vertex="1">
+          <mxGeometry height="50" width="220" x="300" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_a8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" value="Thông báo lỗi thanh toán" vertex="1">
+          <mxGeometry height="50" width="200" x="580" y="635" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_end" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="34" width="34" x="393" y="890" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_end_in" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="400" y="897" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_e1" edge="1" parent="1" source="bs_start" target="bs_a1" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_e2" edge="1" parent="1" source="bs_a1" target="bs_a2" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_e3" edge="1" parent="1" source="bs_a2" target="bs_a3" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_e4" edge="1" parent="1" source="bs_a3" target="bs_a4" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_e5" edge="1" parent="1" source="bs_a4" target="bs_d1" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_e6" edge="1" parent="1" source="bs_d1" target="bs_a5" style="endArrow=block;endFill=1;html=1;" value="Có">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_e7" edge="1" parent="1" source="bs_d1" target="bs_end" style="endArrow=block;endFill=1;html=1;" value="Hủy">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="460" />
+              <mxPoint x="200" y="907" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bs_e8" edge="1" parent="1" source="bs_a5" target="bs_d2" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_e9" edge="1" parent="1" source="bs_d2" target="bs_a6" style="endArrow=block;endFill=1;html=1;" value="Có">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_e10" edge="1" parent="1" source="bs_d2" target="bs_a8" style="endArrow=block;endFill=1;html=1;" value="Không">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_e11" edge="1" parent="1" source="bs_a6" target="bs_a7" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_e12" edge="1" parent="1" source="bs_a7" target="bs_end" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bs_e13" edge="1" parent="1" source="bs_a8" target="bs_end" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="907" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDHD-Gửi quà tặng" id="BDHD_GIFT">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg_start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="395" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_a1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Mở Tab Ranking → Friends" vertex="1">
+          <mxGeometry height="50" width="220" x="300" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_a2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Chọn bạn cần gửi quà" vertex="1">
+          <mxGeometry height="50" width="200" x="310" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_a3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Mở Popup Send Gift" vertex="1">
+          <mxGeometry height="50" width="200" x="310" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_a4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Chọn loại quà (Heart / Bomb / Hammer / Freeze)" vertex="1">
+          <mxGeometry height="60" width="320" x="250" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_d1" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Đã chọn quà?" vertex="1">
+          <mxGeometry height="80" width="160" x="330" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_a5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Nhấn nút Send" vertex="1">
+          <mxGeometry height="50" width="160" x="330" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_d2" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Đã gửi quà cùng loại hôm nay?" vertex="1">
+          <mxGeometry height="90" width="220" x="300" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_a6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Ghi gift mới vào Firebase realtime DB" vertex="1">
+          <mxGeometry height="50" width="280" x="270" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_a7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Đẩy thông báo realtime cho người nhận" vertex="1">
+          <mxGeometry height="50" width="290" x="265" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_a8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" value="Thông báo &quot;Đã gửi rồi, chờ hôm sau&quot;" vertex="1">
+          <mxGeometry height="50" width="280" x="580" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_a9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" value="Đóng popup, hiển thị toast &quot;Đã gửi&quot;" vertex="1">
+          <mxGeometry height="50" width="280" x="270" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_end" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="34" width="34" x="393" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_end_in" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="400" y="987" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_e1" edge="1" parent="1" source="bg_start" target="bg_a1" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_e2" edge="1" parent="1" source="bg_a1" target="bg_a2" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_e3" edge="1" parent="1" source="bg_a2" target="bg_a3" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_e4" edge="1" parent="1" source="bg_a3" target="bg_a4" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_e5" edge="1" parent="1" source="bg_a4" target="bg_d1" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_e6" edge="1" parent="1" source="bg_d1" target="bg_a5" style="endArrow=block;endFill=1;html=1;" value="Có">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_e7" edge="1" parent="1" source="bg_d1" target="bg_a4" style="endArrow=block;endFill=1;html=1;" value="Chưa">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="470" />
+              <mxPoint x="200" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bg_e8" edge="1" parent="1" source="bg_a5" target="bg_d2" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_e9" edge="1" parent="1" source="bg_d2" target="bg_a6" style="endArrow=block;endFill=1;html=1;" value="Chưa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_e10" edge="1" parent="1" source="bg_d2" target="bg_a8" style="endArrow=block;endFill=1;html=1;" value="Rồi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_e11" edge="1" parent="1" source="bg_a6" target="bg_a7" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_e12" edge="1" parent="1" source="bg_a7" target="bg_a9" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_e13" edge="1" parent="1" source="bg_a9" target="bg_end" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bg_e14" edge="1" parent="1" source="bg_a8" target="bg_end" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="720" y="997" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDHD-Kết bạn" id="BDHD_FRIEND">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bf_start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="395" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_a1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Mở Tab Ranking → Friends" vertex="1">
+          <mxGeometry height="50" width="220" x="300" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_a2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Nhập từ khóa / chọn từ danh sách gợi ý" vertex="1">
+          <mxGeometry height="60" width="300" x="260" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_a3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Hiển thị danh sách kết quả từ Firebase" vertex="1">
+          <mxGeometry height="60" width="290" x="265" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_a4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Nhấn nút Add Friend" vertex="1">
+          <mxGeometry height="50" width="200" x="310" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_d1" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" value="Đã là bạn / đã gửi lời mời?" vertex="1">
+          <mxGeometry height="90" width="220" x="300" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_a5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Ghi friend request vào Firebase" vertex="1">
+          <mxGeometry height="50" width="240" x="290" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_a6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Đẩy thông báo realtime cho người nhận" vertex="1">
+          <mxGeometry height="50" width="290" x="265" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_a7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" value="Hiển thị trạng thái &quot;Đã gửi&quot;" vertex="1">
+          <mxGeometry height="50" width="220" x="300" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_a8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" value="Thông báo &quot;Đã tồn tại&quot;" vertex="1">
+          <mxGeometry height="50" width="200" x="600" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_end" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="34" width="34" x="393" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_end_in" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="400" y="817" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_e1" edge="1" parent="1" source="bf_start" target="bf_a1" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_e2" edge="1" parent="1" source="bf_a1" target="bf_a2" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_e3" edge="1" parent="1" source="bf_a2" target="bf_a3" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_e4" edge="1" parent="1" source="bf_a3" target="bf_a4" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_e5" edge="1" parent="1" source="bf_a4" target="bf_d1" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_e6" edge="1" parent="1" source="bf_d1" target="bf_a5" style="endArrow=block;endFill=1;html=1;" value="Chưa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_e7" edge="1" parent="1" source="bf_d1" target="bf_a8" style="endArrow=block;endFill=1;html=1;" value="Rồi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_e8" edge="1" parent="1" source="bf_a5" target="bf_a6" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_e9" edge="1" parent="1" source="bf_a6" target="bf_a7" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_e10" edge="1" parent="1" source="bf_a7" target="bf_end" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bf_e11" edge="1" parent="1" source="bf_a8" target="bf_end" style="endArrow=block;endFill=1;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="827" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDTT-Đăng nhập Google" id="BDTT_LOGIN">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1654" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sl_actor" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;participant=umlActor;" value="Người chơi" vertex="1">
+          <mxGeometry height="650" width="80" x="80" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sl_login_ui" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":LoginUI" vertex="1">
+          <mxGeometry height="650" width="120" x="240" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sl_gauth" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":GoogleAuth" vertex="1">
+          <mxGeometry height="650" width="120" x="430" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sl_google" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Google Server" vertex="1">
+          <mxGeometry height="650" width="140" x="620" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sl_fbauth" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":FirebaseAuth" vertex="1">
+          <mxGeometry height="650" width="140" x="830" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sl_udm" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":UserDataFirebaseManager" vertex="1">
+          <mxGeometry height="650" width="200" x="1040" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sl_db" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Firebase Realtime DB" vertex="1">
+          <mxGeometry height="650" width="160" x="1310" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sl_m1" edge="1" parent="1" source="sl_actor" target="sl_login_ui" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;rounded=0;" value="1: Nhấn nút Đăng nhập Google">
+          <mxGeometry y="110" width="160" relative="1" as="geometry">
+            <mxPoint x="120" y="110" as="sourcePoint" />
+            <mxPoint x="280" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sl_m2" edge="1" parent="1" source="sl_login_ui" target="sl_gauth" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;rounded=0;" value="2: SignIn()">
+          <mxGeometry y="160" width="160" relative="1" as="geometry">
+            <mxPoint x="300" y="160" as="sourcePoint" />
+            <mxPoint x="490" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sl_m3" edge="1" parent="1" source="sl_gauth" target="sl_google" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;rounded=0;" value="3: Yêu cầu xác thực OAuth">
+          <mxGeometry y="210" width="160" relative="1" as="geometry">
+            <mxPoint x="490" y="210" as="sourcePoint" />
+            <mxPoint x="690" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sl_m4" edge="1" parent="1" source="sl_google" target="sl_gauth" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;rounded=0;" value="4: Trả về idToken">
+          <mxGeometry y="260" width="160" relative="1" as="geometry">
+            <mxPoint x="690" y="260" as="sourcePoint" />
+            <mxPoint x="490" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sl_m5" edge="1" parent="1" source="sl_gauth" target="sl_fbauth" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;rounded=0;" value="5: SignInWithCredential(idToken)">
+          <mxGeometry y="310" width="160" relative="1" as="geometry">
+            <mxPoint x="490" y="310" as="sourcePoint" />
+            <mxPoint x="900" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sl_m6" edge="1" parent="1" source="sl_fbauth" target="sl_gauth" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;rounded=0;" value="6: Trả về FirebaseUser">
+          <mxGeometry y="360" width="160" relative="1" as="geometry">
+            <mxPoint x="900" y="360" as="sourcePoint" />
+            <mxPoint x="490" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sl_m7" edge="1" parent="1" source="sl_gauth" target="sl_udm" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;rounded=0;" value="7: LoadOrCreateUser(uid)">
+          <mxGeometry y="410" width="160" relative="1" as="geometry">
+            <mxPoint x="490" y="410" as="sourcePoint" />
+            <mxPoint x="1140" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sl_m8" edge="1" parent="1" source="sl_udm" target="sl_db" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;rounded=0;" value="8: GetReference(users/uid).GetValueAsync()">
+          <mxGeometry y="460" width="160" relative="1" as="geometry">
+            <mxPoint x="1140" y="460" as="sourcePoint" />
+            <mxPoint x="1390" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sl_m9" edge="1" parent="1" source="sl_db" target="sl_udm" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;rounded=0;" value="9: Trả về UserData">
+          <mxGeometry y="510" width="160" relative="1" as="geometry">
+            <mxPoint x="1390" y="510" as="sourcePoint" />
+            <mxPoint x="1140" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sl_m10" edge="1" parent="1" source="sl_udm" target="sl_login_ui" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;rounded=0;" value="10: Khởi tạo dữ liệu local">
+          <mxGeometry y="560" width="160" relative="1" as="geometry">
+            <mxPoint x="1140" y="560" as="sourcePoint" />
+            <mxPoint x="300" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sl_m11" edge="1" parent="1" source="sl_login_ui" target="sl_actor" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;rounded=0;" value="11: Chuyển sang Screen Home">
+          <mxGeometry y="620" width="160" relative="1" as="geometry">
+            <mxPoint x="300" y="620" as="sourcePoint" />
+            <mxPoint x="120" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDTT-Đăng xuất" id="BDTT_LOGOUT">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="so_actor" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;participant=umlActor;" value="Người chơi" vertex="1">
+          <mxGeometry height="520" width="80" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="so_setting" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":PopupSetting" vertex="1">
+          <mxGeometry height="520" width="120" x="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="so_confirm" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":ConfirmLogoutPanel" vertex="1">
+          <mxGeometry height="520" width="150" x="400" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="so_gauth" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":GoogleAuth" vertex="1">
+          <mxGeometry height="520" width="120" x="610" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="so_fbauth" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":FirebaseAuth" vertex="1">
+          <mxGeometry height="520" width="120" x="790" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="so_ui" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":UIManager" vertex="1">
+          <mxGeometry height="520" width="120" x="970" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="so_m1" edge="1" parent="1" source="so_actor" target="so_setting" style="html=1;endArrow=block;endFill=1;" value="1: Nhấn nút Đăng xuất">
+          <mxGeometry y="110" relative="1" as="geometry">
+            <mxPoint x="100" y="110" as="sourcePoint" />
+            <mxPoint x="270" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so_m2" edge="1" parent="1" source="so_setting" target="so_confirm" style="html=1;endArrow=block;endFill=1;" value="2: Show()">
+          <mxGeometry y="160" relative="1" as="geometry">
+            <mxPoint x="280" y="160" as="sourcePoint" />
+            <mxPoint x="465" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so_m3" edge="1" parent="1" source="so_actor" target="so_confirm" style="html=1;endArrow=block;endFill=1;" value="3: Xác nhận Yes">
+          <mxGeometry y="220" relative="1" as="geometry">
+            <mxPoint x="100" y="220" as="sourcePoint" />
+            <mxPoint x="465" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so_m4" edge="1" parent="1" source="so_confirm" target="so_gauth" style="html=1;endArrow=block;endFill=1;" value="4: SignOut()">
+          <mxGeometry y="280" relative="1" as="geometry">
+            <mxPoint x="465" y="280" as="sourcePoint" />
+            <mxPoint x="660" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so_m5" edge="1" parent="1" source="so_gauth" target="so_fbauth" style="html=1;endArrow=block;endFill=1;" value="5: SignOut()">
+          <mxGeometry y="330" relative="1" as="geometry">
+            <mxPoint x="660" y="330" as="sourcePoint" />
+            <mxPoint x="840" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so_m6" edge="1" parent="1" source="so_fbauth" target="so_gauth" style="html=1;endArrow=open;endFill=0;dashed=1;" value="6: Đăng xuất xong">
+          <mxGeometry y="380" relative="1" as="geometry">
+            <mxPoint x="840" y="380" as="sourcePoint" />
+            <mxPoint x="660" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so_m7" edge="1" parent="1" source="so_gauth" target="so_ui" style="html=1;endArrow=block;endFill=1;" value="7: Xóa dữ liệu UserData local">
+          <mxGeometry y="430" relative="1" as="geometry">
+            <mxPoint x="660" y="430" as="sourcePoint" />
+            <mxPoint x="1020" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="so_m8" edge="1" parent="1" source="so_ui" target="so_actor" style="html=1;endArrow=open;endFill=0;dashed=1;" value="8: Hiển thị màn hình Login">
+          <mxGeometry y="490" relative="1" as="geometry">
+            <mxPoint x="1020" y="490" as="sourcePoint" />
+            <mxPoint x="100" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDTT-Chơi màn chơi" id="BDTT_PLAY">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1654" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sp_actor" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;participant=umlActor;" value="Người chơi" vertex="1">
+          <mxGeometry height="700" width="80" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sp_home" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":ScreenHome" vertex="1">
+          <mxGeometry height="700" width="120" x="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sp_heart" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":HeartSystem" vertex="1">
+          <mxGeometry height="700" width="120" x="400" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sp_loading" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":PopupLoading" vertex="1">
+          <mxGeometry height="700" width="120" x="580" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sp_gm" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":GameManager" vertex="1">
+          <mxGeometry height="700" width="120" x="760" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sp_lm" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":LevelManager" vertex="1">
+          <mxGeometry height="700" width="130" x="940" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sp_gp" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":ScreenGamePlay" vertex="1">
+          <mxGeometry height="700" width="140" x="1130" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sp_ud" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":UserData" vertex="1">
+          <mxGeometry height="700" width="110" x="1330" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sp_win" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":PopupWin" vertex="1">
+          <mxGeometry height="700" width="110" x="1500" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sp_m1" edge="1" parent="1" source="sp_actor" target="sp_home" style="html=1;endArrow=block;endFill=1;" value="1: Nhấn nút Play">
+          <mxGeometry y="120" relative="1" as="geometry">
+            <mxPoint x="100" y="120" as="sourcePoint" />
+            <mxPoint x="280" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sp_m2" edge="1" parent="1" source="sp_home" target="sp_heart" style="html=1;endArrow=block;endFill=1;" value="2: GetHearts()">
+          <mxGeometry y="160" relative="1" as="geometry">
+            <mxPoint x="280" y="160" as="sourcePoint" />
+            <mxPoint x="460" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sp_m3" edge="1" parent="1" source="sp_heart" target="sp_home" style="html=1;endArrow=open;endFill=0;dashed=1;" value="3: hearts &gt; 0">
+          <mxGeometry y="200" relative="1" as="geometry">
+            <mxPoint x="460" y="200" as="sourcePoint" />
+            <mxPoint x="280" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sp_m4" edge="1" parent="1" source="sp_home" target="sp_loading" style="html=1;endArrow=block;endFill=1;" value="4: Show()">
+          <mxGeometry y="240" relative="1" as="geometry">
+            <mxPoint x="280" y="240" as="sourcePoint" />
+            <mxPoint x="640" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sp_m5" edge="1" parent="1" source="sp_home" target="sp_gm" style="html=1;endArrow=block;endFill=1;" value="5: StartGame()">
+          <mxGeometry y="290" relative="1" as="geometry">
+            <mxPoint x="280" y="290" as="sourcePoint" />
+            <mxPoint x="820" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sp_m6" edge="1" parent="1" source="sp_gm" target="sp_lm" style="html=1;endArrow=block;endFill=1;" value="6: LoadLevel(UserData.level)">
+          <mxGeometry y="330" relative="1" as="geometry">
+            <mxPoint x="820" y="330" as="sourcePoint" />
+            <mxPoint x="1010" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sp_m7" edge="1" parent="1" source="sp_lm" target="sp_gp" style="html=1;endArrow=block;endFill=1;" value="7: Khởi tạo Board, Gate, Timer">
+          <mxGeometry y="380" relative="1" as="geometry">
+            <mxPoint x="1010" y="380" as="sourcePoint" />
+            <mxPoint x="1190" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sp_m8" edge="1" parent="1" source="sp_gm" target="sp_heart" style="html=1;endArrow=block;endFill=1;" value="8: DeductHeart()">
+          <mxGeometry y="430" relative="1" as="geometry">
+            <mxPoint x="820" y="430" as="sourcePoint" />
+            <mxPoint x="460" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sp_m9" edge="1" parent="1" source="sp_actor" target="sp_gp" style="html=1;endArrow=block;endFill=1;" value="9: Thao tác kéo / chạm block">
+          <mxGeometry y="470" relative="1" as="geometry">
+            <mxPoint x="100" y="470" as="sourcePoint" />
+            <mxPoint x="1190" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sp_m10" edge="1" parent="1" source="sp_gp" target="sp_lm" style="html=1;endArrow=block;endFill=1;" value="10: CheckWinCondition()">
+          <mxGeometry y="520" relative="1" as="geometry">
+            <mxPoint x="1190" y="520" as="sourcePoint" />
+            <mxPoint x="1010" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sp_m11" edge="1" parent="1" source="sp_lm" target="sp_gp" style="html=1;endArrow=open;endFill=0;dashed=1;" value="11: win == true">
+          <mxGeometry y="560" relative="1" as="geometry">
+            <mxPoint x="1010" y="560" as="sourcePoint" />
+            <mxPoint x="1190" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sp_m12" edge="1" parent="1" source="sp_gp" target="sp_ud" style="html=1;endArrow=block;endFill=1;" value="12: SaveLevel(level+1)">
+          <mxGeometry y="600" relative="1" as="geometry">
+            <mxPoint x="1190" y="600" as="sourcePoint" />
+            <mxPoint x="1380" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sp_m13" edge="1" parent="1" source="sp_gp" target="sp_win" style="html=1;endArrow=block;endFill=1;" value="13: ShowPopupWin()">
+          <mxGeometry y="650" relative="1" as="geometry">
+            <mxPoint x="1190" y="650" as="sourcePoint" />
+            <mxPoint x="1550" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sp_m14" edge="1" parent="1" source="sp_win" target="sp_actor" style="html=1;endArrow=open;endFill=0;dashed=1;" value="14: Hiển thị kết quả">
+          <mxGeometry y="690" relative="1" as="geometry">
+            <mxPoint x="1550" y="690" as="sourcePoint" />
+            <mxPoint x="100" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDTT-Sử dụng Booster" id="BDTT_BOOSTER">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1654" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sb_actor" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;participant=umlActor;" value="Người chơi" vertex="1">
+          <mxGeometry height="640" width="80" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_listb" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":ListBooster" vertex="1">
+          <mxGeometry height="640" width="120" x="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_ud" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":UserData" vertex="1">
+          <mxGeometry height="640" width="110" x="400" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_buyb" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":PopupBuyBooster" vertex="1">
+          <mxGeometry height="640" width="140" x="570" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_input" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":InputManager" vertex="1">
+          <mxGeometry height="640" width="130" x="770" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_board" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":Board" vertex="1">
+          <mxGeometry height="640" width="110" x="960" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_block" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":Block" vertex="1">
+          <mxGeometry height="640" width="100" x="1140" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_fx" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":ParticleFX / Audio" vertex="1">
+          <mxGeometry height="640" width="160" x="1310" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sb_m1" edge="1" parent="1" source="sb_actor" target="sb_listb" style="html=1;endArrow=block;endFill=1;" value="1: Nhấn icon Bomb">
+          <mxGeometry y="110" relative="1" as="geometry">
+            <mxPoint x="100" y="110" as="sourcePoint" />
+            <mxPoint x="280" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sb_m2" edge="1" parent="1" source="sb_listb" target="sb_ud" style="html=1;endArrow=block;endFill=1;" value="2: GetBoosterCount(Bomb)">
+          <mxGeometry y="160" relative="1" as="geometry">
+            <mxPoint x="280" y="160" as="sourcePoint" />
+            <mxPoint x="455" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sb_m3" edge="1" parent="1" source="sb_ud" target="sb_listb" style="html=1;endArrow=open;endFill=0;dashed=1;" value="3: count = 0">
+          <mxGeometry y="200" relative="1" as="geometry">
+            <mxPoint x="455" y="200" as="sourcePoint" />
+            <mxPoint x="280" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sb_m4" edge="1" parent="1" source="sb_listb" target="sb_buyb" style="html=1;endArrow=block;endFill=1;" value="4: ShowBuyBooster(Bomb)">
+          <mxGeometry y="240" relative="1" as="geometry">
+            <mxPoint x="280" y="240" as="sourcePoint" />
+            <mxPoint x="640" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sb_m5" edge="1" parent="1" source="sb_actor" target="sb_buyb" style="html=1;endArrow=block;endFill=1;" value="5: Xác nhận mua">
+          <mxGeometry y="290" relative="1" as="geometry">
+            <mxPoint x="100" y="290" as="sourcePoint" />
+            <mxPoint x="640" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sb_m6" edge="1" parent="1" source="sb_buyb" target="sb_ud" style="html=1;endArrow=block;endFill=1;" value="6: DeductCoin() + AddBooster()">
+          <mxGeometry y="330" relative="1" as="geometry">
+            <mxPoint x="640" y="330" as="sourcePoint" />
+            <mxPoint x="455" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sb_m7" edge="1" parent="1" source="sb_buyb" target="sb_input" style="html=1;endArrow=block;endFill=1;" value="7: EnableBoosterMode(Bomb)">
+          <mxGeometry y="380" relative="1" as="geometry">
+            <mxPoint x="640" y="380" as="sourcePoint" />
+            <mxPoint x="830" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sb_m8" edge="1" parent="1" source="sb_actor" target="sb_input" style="html=1;endArrow=block;endFill=1;" value="8: Chọn vị trí block trên board">
+          <mxGeometry y="420" relative="1" as="geometry">
+            <mxPoint x="100" y="420" as="sourcePoint" />
+            <mxPoint x="830" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sb_m9" edge="1" parent="1" source="sb_input" target="sb_board" style="html=1;endArrow=block;endFill=1;" value="9: ApplyBomb(pos)">
+          <mxGeometry y="470" relative="1" as="geometry">
+            <mxPoint x="830" y="470" as="sourcePoint" />
+            <mxPoint x="1015" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sb_m10" edge="1" parent="1" source="sb_board" target="sb_block" style="html=1;endArrow=block;endFill=1;" value="10: Destroy() khối lân cận">
+          <mxGeometry y="510" relative="1" as="geometry">
+            <mxPoint x="1015" y="510" as="sourcePoint" />
+            <mxPoint x="1190" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sb_m11" edge="1" parent="1" source="sb_board" target="sb_fx" style="html=1;endArrow=block;endFill=1;" value="11: PlayExplosionFX / SFX">
+          <mxGeometry y="560" relative="1" as="geometry">
+            <mxPoint x="1015" y="560" as="sourcePoint" />
+            <mxPoint x="1390" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sb_m12" edge="1" parent="1" source="sb_board" target="sb_ud" style="html=1;endArrow=block;endFill=1;" value="12: DecreaseBoosterCount(Bomb)">
+          <mxGeometry y="610" relative="1" as="geometry">
+            <mxPoint x="1015" y="610" as="sourcePoint" />
+            <mxPoint x="455" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sb_m13" edge="1" parent="1" source="sb_board" target="sb_actor" style="html=1;endArrow=open;endFill=0;dashed=1;" value="13: Cập nhật UI board">
+          <mxGeometry y="660" relative="1" as="geometry">
+            <mxPoint x="1015" y="660" as="sourcePoint" />
+            <mxPoint x="100" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDTT-Hồi tim" id="BDTT_REFILL">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1654" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sr_actor" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;participant=umlActor;" value="Người chơi" vertex="1">
+          <mxGeometry height="640" width="80" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sr_refill" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":PopupRefillYourLives" vertex="1">
+          <mxGeometry height="640" width="160" x="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sr_ad" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":AdManager" vertex="1">
+          <mxGeometry height="640" width="120" x="420" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sr_heart" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":HeartSystem" vertex="1">
+          <mxGeometry height="640" width="120" x="600" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sr_ud" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":UserData" vertex="1">
+          <mxGeometry height="640" width="110" x="780" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sr_save" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":SaveDataManager" vertex="1">
+          <mxGeometry height="640" width="160" x="950" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sr_db" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Firebase DB" vertex="1">
+          <mxGeometry height="640" width="130" x="1170" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sr_m1" edge="1" parent="1" source="sr_actor" target="sr_refill" style="html=1;endArrow=block;endFill=1;" value="1: Mở Popup Refill">
+          <mxGeometry y="110" relative="1" as="geometry">
+            <mxPoint x="100" y="110" as="sourcePoint" />
+            <mxPoint x="300" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sr_m2" edge="1" parent="1" source="sr_actor" target="sr_refill" style="html=1;endArrow=block;endFill=1;" value="2: Nhấn nút Xem QC">
+          <mxGeometry y="160" relative="1" as="geometry">
+            <mxPoint x="100" y="160" as="sourcePoint" />
+            <mxPoint x="300" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sr_m3" edge="1" parent="1" source="sr_refill" target="sr_ad" style="html=1;endArrow=block;endFill=1;" value="3: ShowRewardedAd()">
+          <mxGeometry y="210" relative="1" as="geometry">
+            <mxPoint x="300" y="210" as="sourcePoint" />
+            <mxPoint x="480" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sr_m4" edge="1" parent="1" source="sr_ad" target="sr_refill" style="html=1;endArrow=open;endFill=0;dashed=1;" value="4: OnAdCompleted()">
+          <mxGeometry y="260" relative="1" as="geometry">
+            <mxPoint x="480" y="260" as="sourcePoint" />
+            <mxPoint x="300" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sr_m5" edge="1" parent="1" source="sr_refill" target="sr_heart" style="html=1;endArrow=block;endFill=1;" value="5: AddHearts(1)">
+          <mxGeometry y="310" relative="1" as="geometry">
+            <mxPoint x="300" y="310" as="sourcePoint" />
+            <mxPoint x="660" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sr_m6" edge="1" parent="1" source="sr_heart" target="sr_ud" style="html=1;endArrow=block;endFill=1;" value="6: hearts += 1">
+          <mxGeometry y="360" relative="1" as="geometry">
+            <mxPoint x="660" y="360" as="sourcePoint" />
+            <mxPoint x="835" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sr_m7" edge="1" parent="1" source="sr_heart" target="sr_save" style="html=1;endArrow=block;endFill=1;" value="7: Save()">
+          <mxGeometry y="410" relative="1" as="geometry">
+            <mxPoint x="660" y="410" as="sourcePoint" />
+            <mxPoint x="1030" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sr_m8" edge="1" parent="1" source="sr_save" target="sr_db" style="html=1;endArrow=block;endFill=1;" value="8: SetValueAsync(users/uid/hearts)">
+          <mxGeometry y="460" relative="1" as="geometry">
+            <mxPoint x="1030" y="460" as="sourcePoint" />
+            <mxPoint x="1235" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sr_m9" edge="1" parent="1" source="sr_db" target="sr_save" style="html=1;endArrow=open;endFill=0;dashed=1;" value="9: OK">
+          <mxGeometry y="510" relative="1" as="geometry">
+            <mxPoint x="1235" y="510" as="sourcePoint" />
+            <mxPoint x="1030" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sr_m10" edge="1" parent="1" source="sr_heart" target="sr_refill" style="html=1;endArrow=open;endFill=0;dashed=1;" value="10: Cập nhật UI số tim">
+          <mxGeometry y="560" relative="1" as="geometry">
+            <mxPoint x="660" y="560" as="sourcePoint" />
+            <mxPoint x="300" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sr_m11" edge="1" parent="1" source="sr_refill" target="sr_actor" style="html=1;endArrow=open;endFill=0;dashed=1;" value="11: Hiển thị số tim mới">
+          <mxGeometry y="620" relative="1" as="geometry">
+            <mxPoint x="300" y="620" as="sourcePoint" />
+            <mxPoint x="100" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDTT-Mua coin trong cửa hàng" id="BDTT_SHOP">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1654" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ss_actor" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;participant=umlActor;" value="Người chơi" vertex="1">
+          <mxGeometry height="600" width="80" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ss_shop" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":ScreenShop" vertex="1">
+          <mxGeometry height="600" width="120" x="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ss_btn" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":ButtonBuyCoinShop" vertex="1">
+          <mxGeometry height="600" width="160" x="400" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ss_iap" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":IAPManager" vertex="1">
+          <mxGeometry height="600" width="130" x="620" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ss_store" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="App Store / Play Store" vertex="1">
+          <mxGeometry height="600" width="180" x="810" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ss_ud" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":UserData" vertex="1">
+          <mxGeometry height="600" width="110" x="1030" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ss_tab" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":PopupTab" vertex="1">
+          <mxGeometry height="600" width="110" x="1180" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ss_db" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Firebase DB" vertex="1">
+          <mxGeometry height="600" width="130" x="1330" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ss_m1" edge="1" parent="1" source="ss_actor" target="ss_shop" style="html=1;endArrow=block;endFill=1;" value="1: Mở Tab Shop">
+          <mxGeometry y="110" relative="1" as="geometry">
+            <mxPoint x="100" y="110" as="sourcePoint" />
+            <mxPoint x="280" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ss_m2" edge="1" parent="1" source="ss_actor" target="ss_btn" style="html=1;endArrow=block;endFill=1;" value="2: Nhấn gói coin">
+          <mxGeometry y="160" relative="1" as="geometry">
+            <mxPoint x="100" y="160" as="sourcePoint" />
+            <mxPoint x="480" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ss_m3" edge="1" parent="1" source="ss_btn" target="ss_iap" style="html=1;endArrow=block;endFill=1;" value="3: BuyProduct(productId)">
+          <mxGeometry y="210" relative="1" as="geometry">
+            <mxPoint x="480" y="210" as="sourcePoint" />
+            <mxPoint x="685" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ss_m4" edge="1" parent="1" source="ss_iap" target="ss_store" style="html=1;endArrow=block;endFill=1;" value="4: Yêu cầu thanh toán">
+          <mxGeometry y="260" relative="1" as="geometry">
+            <mxPoint x="685" y="260" as="sourcePoint" />
+            <mxPoint x="900" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ss_m5" edge="1" parent="1" source="ss_store" target="ss_iap" style="html=1;endArrow=open;endFill=0;dashed=1;" value="5: PurchaseSucceeded">
+          <mxGeometry y="310" relative="1" as="geometry">
+            <mxPoint x="900" y="310" as="sourcePoint" />
+            <mxPoint x="685" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ss_m6" edge="1" parent="1" source="ss_iap" target="ss_ud" style="html=1;endArrow=block;endFill=1;" value="6: AddCoin(amount)">
+          <mxGeometry y="360" relative="1" as="geometry">
+            <mxPoint x="685" y="360" as="sourcePoint" />
+            <mxPoint x="1085" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ss_m7" edge="1" parent="1" source="ss_ud" target="ss_db" style="html=1;endArrow=block;endFill=1;" value="7: SyncCoin()">
+          <mxGeometry y="410" relative="1" as="geometry">
+            <mxPoint x="1085" y="410" as="sourcePoint" />
+            <mxPoint x="1395" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ss_m8" edge="1" parent="1" source="ss_iap" target="ss_btn" style="html=1;endArrow=open;endFill=0;dashed=1;" value="8: PlayCoinAnimation()">
+          <mxGeometry y="460" relative="1" as="geometry">
+            <mxPoint x="685" y="460" as="sourcePoint" />
+            <mxPoint x="480" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ss_m9" edge="1" parent="1" source="ss_btn" target="ss_tab" style="html=1;endArrow=block;endFill=1;" value="9: UpdateCoinText()">
+          <mxGeometry y="510" relative="1" as="geometry">
+            <mxPoint x="480" y="510" as="sourcePoint" />
+            <mxPoint x="1235" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ss_m10" edge="1" parent="1" source="ss_tab" target="ss_actor" style="html=1;endArrow=open;endFill=0;dashed=1;" value="10: Hiển thị số coin mới">
+          <mxGeometry y="570" relative="1" as="geometry">
+            <mxPoint x="1235" y="570" as="sourcePoint" />
+            <mxPoint x="100" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDTT-Xem bảng xếp hạng" id="BDTT_RANK">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1654" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sx_actor" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;participant=umlActor;" value="Người chơi" vertex="1">
+          <mxGeometry height="560" width="80" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sx_tab" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":PopupTab" vertex="1">
+          <mxGeometry height="560" width="120" x="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sx_rank" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":ScreenRanking" vertex="1">
+          <mxGeometry height="560" width="140" x="400" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sx_lbm" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":LeaderBoardManager" vertex="1">
+          <mxGeometry height="560" width="170" x="600" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sx_ctrl_p" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":LeaderBoardPlayerController" vertex="1">
+          <mxGeometry height="560" width="210" x="830" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sx_ctrl_f" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":LeaderBoardFriendController" vertex="1">
+          <mxGeometry height="560" width="220" x="1080" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sx_db" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Firebase DB" vertex="1">
+          <mxGeometry height="560" width="130" x="1340" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sx_m1" edge="1" parent="1" source="sx_actor" target="sx_tab" style="html=1;endArrow=block;endFill=1;" value="1: Nhấn tab Ranking">
+          <mxGeometry y="110" relative="1" as="geometry">
+            <mxPoint x="100" y="110" as="sourcePoint" />
+            <mxPoint x="280" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sx_m2" edge="1" parent="1" source="sx_tab" target="sx_rank" style="html=1;endArrow=block;endFill=1;" value="2: Show()">
+          <mxGeometry y="160" relative="1" as="geometry">
+            <mxPoint x="280" y="160" as="sourcePoint" />
+            <mxPoint x="470" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sx_m3" edge="1" parent="1" source="sx_rank" target="sx_lbm" style="html=1;endArrow=block;endFill=1;" value="3: LoadLeaderboard()">
+          <mxGeometry y="210" relative="1" as="geometry">
+            <mxPoint x="470" y="210" as="sourcePoint" />
+            <mxPoint x="685" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sx_m4" edge="1" parent="1" source="sx_lbm" target="sx_ctrl_p" style="html=1;endArrow=block;endFill=1;" value="4: LoadGlobalRank()">
+          <mxGeometry y="260" relative="1" as="geometry">
+            <mxPoint x="685" y="260" as="sourcePoint" />
+            <mxPoint x="935" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sx_m5" edge="1" parent="1" source="sx_ctrl_p" target="sx_db" style="html=1;endArrow=block;endFill=1;" value="5: Query(users orderBy level desc)">
+          <mxGeometry y="310" relative="1" as="geometry">
+            <mxPoint x="935" y="310" as="sourcePoint" />
+            <mxPoint x="1405" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sx_m6" edge="1" parent="1" source="sx_db" target="sx_ctrl_p" style="html=1;endArrow=open;endFill=0;dashed=1;" value="6: Trả về Top 50">
+          <mxGeometry y="360" relative="1" as="geometry">
+            <mxPoint x="1405" y="360" as="sourcePoint" />
+            <mxPoint x="935" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sx_m7" edge="1" parent="1" source="sx_lbm" target="sx_ctrl_f" style="html=1;endArrow=block;endFill=1;" value="7: LoadFriendRank()">
+          <mxGeometry y="410" relative="1" as="geometry">
+            <mxPoint x="685" y="410" as="sourcePoint" />
+            <mxPoint x="1190" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sx_m8" edge="1" parent="1" source="sx_ctrl_f" target="sx_db" style="html=1;endArrow=block;endFill=1;" value="8: Query(friends/uid)">
+          <mxGeometry y="460" relative="1" as="geometry">
+            <mxPoint x="1190" y="460" as="sourcePoint" />
+            <mxPoint x="1405" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sx_m9" edge="1" parent="1" source="sx_db" target="sx_ctrl_f" style="html=1;endArrow=open;endFill=0;dashed=1;" value="9: Trả về danh sách bạn bè + level">
+          <mxGeometry y="510" relative="1" as="geometry">
+            <mxPoint x="1405" y="510" as="sourcePoint" />
+            <mxPoint x="1190" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sx_m10" edge="1" parent="1" source="sx_lbm" target="sx_actor" style="html=1;endArrow=open;endFill=0;dashed=1;" value="10: Hiển thị BXH">
+          <mxGeometry y="570" relative="1" as="geometry">
+            <mxPoint x="685" y="570" as="sourcePoint" />
+            <mxPoint x="100" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDTT-Kết bạn" id="BDTT_FRIEND">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1654" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sf_actor" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;participant=umlActor;" value="Người chơi A" vertex="1">
+          <mxGeometry height="600" width="80" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sf_rank" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":ScreenRanking" vertex="1">
+          <mxGeometry height="600" width="140" x="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sf_sug" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":FriendUserSuggestInfo" vertex="1">
+          <mxGeometry height="600" width="190" x="400" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sf_ctrl" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":LeaderBoardFriendController" vertex="1">
+          <mxGeometry height="600" width="220" x="630" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sf_db" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Firebase Realtime DB" vertex="1">
+          <mxGeometry height="600" width="170" x="900" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sf_noti" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":NotificationService" vertex="1">
+          <mxGeometry height="600" width="180" x="1120" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sf_actor_b" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;participant=umlActor;" value="Người chơi B" vertex="1">
+          <mxGeometry height="600" width="80" x="1380" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sf_m1" edge="1" parent="1" source="sf_actor" target="sf_rank" style="html=1;endArrow=block;endFill=1;" value="1: Mở tab Friends">
+          <mxGeometry y="110" relative="1" as="geometry">
+            <mxPoint x="100" y="110" as="sourcePoint" />
+            <mxPoint x="290" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sf_m2" edge="1" parent="1" source="sf_rank" target="sf_db" style="html=1;endArrow=block;endFill=1;" value="2: GetSuggestedFriends()">
+          <mxGeometry y="160" relative="1" as="geometry">
+            <mxPoint x="290" y="160" as="sourcePoint" />
+            <mxPoint x="985" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sf_m3" edge="1" parent="1" source="sf_db" target="sf_sug" style="html=1;endArrow=open;endFill=0;dashed=1;" value="3: Trả về danh sách users">
+          <mxGeometry y="210" relative="1" as="geometry">
+            <mxPoint x="985" y="210" as="sourcePoint" />
+            <mxPoint x="495" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sf_m4" edge="1" parent="1" source="sf_actor" target="sf_sug" style="html=1;endArrow=block;endFill=1;" value="4: Nhấn Add Friend">
+          <mxGeometry y="260" relative="1" as="geometry">
+            <mxPoint x="100" y="260" as="sourcePoint" />
+            <mxPoint x="495" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sf_m5" edge="1" parent="1" source="sf_sug" target="sf_ctrl" style="html=1;endArrow=block;endFill=1;" value="5: SendFriendRequest(uidB)">
+          <mxGeometry y="310" relative="1" as="geometry">
+            <mxPoint x="495" y="310" as="sourcePoint" />
+            <mxPoint x="740" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sf_m6" edge="1" parent="1" source="sf_ctrl" target="sf_db" style="html=1;endArrow=block;endFill=1;" value="6: Write friendRequests/uidB/uidA">
+          <mxGeometry y="360" relative="1" as="geometry">
+            <mxPoint x="740" y="360" as="sourcePoint" />
+            <mxPoint x="985" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sf_m7" edge="1" parent="1" source="sf_db" target="sf_noti" style="html=1;endArrow=block;endFill=1;" value="7: Trigger event">
+          <mxGeometry y="410" relative="1" as="geometry">
+            <mxPoint x="985" y="410" as="sourcePoint" />
+            <mxPoint x="1210" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sf_m8" edge="1" parent="1" source="sf_noti" target="sf_actor_b" style="html=1;endArrow=block;endFill=1;" value="8: Push notification &quot;A muốn kết bạn&quot;">
+          <mxGeometry y="460" relative="1" as="geometry">
+            <mxPoint x="1210" y="460" as="sourcePoint" />
+            <mxPoint x="1420" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sf_m9" edge="1" parent="1" source="sf_db" target="sf_sug" style="html=1;endArrow=open;endFill=0;dashed=1;" value="9: Cập nhật trạng thái &quot;Đã gửi&quot;">
+          <mxGeometry y="510" relative="1" as="geometry">
+            <mxPoint x="985" y="510" as="sourcePoint" />
+            <mxPoint x="495" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sf_m10" edge="1" parent="1" source="sf_sug" target="sf_actor" style="html=1;endArrow=open;endFill=0;dashed=1;" value="10: Hiển thị toast &quot;Đã gửi lời mời&quot;">
+          <mxGeometry y="570" relative="1" as="geometry">
+            <mxPoint x="495" y="570" as="sourcePoint" />
+            <mxPoint x="100" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDTT-Gửi quà tặng" id="BDTT_GIFT">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1654" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sg_actor" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;participant=umlActor;" value="Người chơi A" vertex="1">
+          <mxGeometry height="600" width="80" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sg_rank" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":ScreenRanking" vertex="1">
+          <mxGeometry height="600" width="130" x="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sg_info" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":FriendUserInfor" vertex="1">
+          <mxGeometry height="600" width="140" x="400" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sg_popup" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":PopupSendGilf" vertex="1">
+          <mxGeometry height="600" width="140" x="590" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sg_udm" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":UserDataFirebaseManager" vertex="1">
+          <mxGeometry height="600" width="210" x="780" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sg_db" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Firebase Realtime DB" vertex="1">
+          <mxGeometry height="600" width="170" x="1040" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sg_noti" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":NotificationService" vertex="1">
+          <mxGeometry height="600" width="170" x="1260" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sg_actor_b" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;participant=umlActor;" value="Người chơi B" vertex="1">
+          <mxGeometry height="600" width="80" x="1480" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sg_m1" edge="1" parent="1" source="sg_actor" target="sg_rank" style="html=1;endArrow=block;endFill=1;" value="1: Chọn bạn B từ danh sách">
+          <mxGeometry y="110" relative="1" as="geometry">
+            <mxPoint x="100" y="110" as="sourcePoint" />
+            <mxPoint x="285" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sg_m2" edge="1" parent="1" source="sg_rank" target="sg_info" style="html=1;endArrow=block;endFill=1;" value="2: ShowFriendInfo(uidB)">
+          <mxGeometry y="160" relative="1" as="geometry">
+            <mxPoint x="285" y="160" as="sourcePoint" />
+            <mxPoint x="470" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sg_m3" edge="1" parent="1" source="sg_actor" target="sg_info" style="html=1;endArrow=block;endFill=1;" value="3: Nhấn nút Send Gift">
+          <mxGeometry y="210" relative="1" as="geometry">
+            <mxPoint x="100" y="210" as="sourcePoint" />
+            <mxPoint x="470" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sg_m4" edge="1" parent="1" source="sg_info" target="sg_popup" style="html=1;endArrow=block;endFill=1;" value="4: ShowPopup(uidB)">
+          <mxGeometry y="260" relative="1" as="geometry">
+            <mxPoint x="470" y="260" as="sourcePoint" />
+            <mxPoint x="660" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sg_m5" edge="1" parent="1" source="sg_actor" target="sg_popup" style="html=1;endArrow=block;endFill=1;" value="5: Chọn loại quà (Heart/Bomb/Hammer/Freeze)">
+          <mxGeometry y="310" relative="1" as="geometry">
+            <mxPoint x="100" y="310" as="sourcePoint" />
+            <mxPoint x="660" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sg_m6" edge="1" parent="1" source="sg_actor" target="sg_popup" style="html=1;endArrow=block;endFill=1;" value="6: Nhấn nút Send">
+          <mxGeometry y="350" relative="1" as="geometry">
+            <mxPoint x="100" y="350" as="sourcePoint" />
+            <mxPoint x="660" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sg_m7" edge="1" parent="1" source="sg_popup" target="sg_udm" style="html=1;endArrow=block;endFill=1;" value="7: SendGift(uidA, uidB, type)">
+          <mxGeometry y="400" relative="1" as="geometry">
+            <mxPoint x="660" y="400" as="sourcePoint" />
+            <mxPoint x="885" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sg_m8" edge="1" parent="1" source="sg_udm" target="sg_db" style="html=1;endArrow=block;endFill=1;" value="8: Write gifts/uidB/uidA/type">
+          <mxGeometry y="450" relative="1" as="geometry">
+            <mxPoint x="885" y="450" as="sourcePoint" />
+            <mxPoint x="1125" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sg_m9" edge="1" parent="1" source="sg_db" target="sg_noti" style="html=1;endArrow=block;endFill=1;" value="9: Trigger gift event">
+          <mxGeometry y="500" relative="1" as="geometry">
+            <mxPoint x="1125" y="500" as="sourcePoint" />
+            <mxPoint x="1345" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sg_m10" edge="1" parent="1" source="sg_noti" target="sg_actor_b" style="html=1;endArrow=block;endFill=1;" value="10: Push &quot;A đã gửi cho bạn một món quà&quot;">
+          <mxGeometry y="550" relative="1" as="geometry">
+            <mxPoint x="1345" y="550" as="sourcePoint" />
+            <mxPoint x="1520" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sg_m11" edge="1" parent="1" source="sg_udm" target="sg_actor" style="html=1;endArrow=open;endFill=0;dashed=1;" value="11: Toast &quot;Đã gửi&quot;">
+          <mxGeometry y="590" relative="1" as="geometry">
+            <mxPoint x="885" y="590" as="sourcePoint" />
+            <mxPoint x="100" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDTT-Nhận thông báo realtime" id="BDTT_NOTI">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1654" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sn_db" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Firebase Realtime DB" vertex="1">
+          <mxGeometry height="540" width="170" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sn_listener" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":FirebaseListener" vertex="1">
+          <mxGeometry height="540" width="160" x="280" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sn_udm" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":UserDataFirebaseManager" vertex="1">
+          <mxGeometry height="540" width="220" x="490" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sn_event" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":CustomEvent" vertex="1">
+          <mxGeometry height="540" width="140" x="760" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sn_ui" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":UIManager" vertex="1">
+          <mxGeometry height="540" width="130" x="950" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sn_toast" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":NotificationPopup" vertex="1">
+          <mxGeometry height="540" width="160" x="1130" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sn_actor" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;participant=umlActor;" value="Người chơi" vertex="1">
+          <mxGeometry height="540" width="80" x="1340" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sn_m1" edge="1" parent="1" source="sn_udm" target="sn_listener" style="html=1;endArrow=block;endFill=1;" value="1: ListenChanges(gifts/uid)">
+          <mxGeometry y="110" relative="1" as="geometry">
+            <mxPoint x="600" y="110" as="sourcePoint" />
+            <mxPoint x="360" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sn_m2" edge="1" parent="1" source="sn_listener" target="sn_db" style="html=1;endArrow=block;endFill=1;" value="2: Subscribe()">
+          <mxGeometry y="160" relative="1" as="geometry">
+            <mxPoint x="360" y="160" as="sourcePoint" />
+            <mxPoint x="145" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sn_m3" edge="1" parent="1" source="sn_db" target="sn_listener" style="html=1;endArrow=block;endFill=1;" value="3: OnChildAdded(snapshot)">
+          <mxGeometry y="220" relative="1" as="geometry">
+            <mxPoint x="145" y="220" as="sourcePoint" />
+            <mxPoint x="360" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sn_m4" edge="1" parent="1" source="sn_listener" target="sn_udm" style="html=1;endArrow=block;endFill=1;" value="4: ParseGift(snapshot)">
+          <mxGeometry y="270" relative="1" as="geometry">
+            <mxPoint x="360" y="270" as="sourcePoint" />
+            <mxPoint x="600" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sn_m5" edge="1" parent="1" source="sn_udm" target="sn_event" style="html=1;endArrow=block;endFill=1;" value="5: Raise OnGiftReceived">
+          <mxGeometry y="320" relative="1" as="geometry">
+            <mxPoint x="600" y="320" as="sourcePoint" />
+            <mxPoint x="830" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sn_m6" edge="1" parent="1" source="sn_event" target="sn_ui" style="html=1;endArrow=block;endFill=1;" value="6: Listener.Invoke()">
+          <mxGeometry y="370" relative="1" as="geometry">
+            <mxPoint x="830" y="370" as="sourcePoint" />
+            <mxPoint x="1015" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sn_m7" edge="1" parent="1" source="sn_ui" target="sn_toast" style="html=1;endArrow=block;endFill=1;" value="7: ShowNotificationPopup(data)">
+          <mxGeometry y="420" relative="1" as="geometry">
+            <mxPoint x="1015" y="420" as="sourcePoint" />
+            <mxPoint x="1210" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sn_m8" edge="1" parent="1" source="sn_toast" target="sn_actor" style="html=1;endArrow=open;endFill=0;dashed=1;" value="8: Hiển thị banner thông báo">
+          <mxGeometry y="470" relative="1" as="geometry">
+            <mxPoint x="1210" y="470" as="sourcePoint" />
+            <mxPoint x="1380" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sn_m9" edge="1" parent="1" source="sn_actor" target="sn_toast" style="html=1;endArrow=block;endFill=1;" value="9: Nhấn vào thông báo">
+          <mxGeometry y="520" relative="1" as="geometry">
+            <mxPoint x="1380" y="520" as="sourcePoint" />
+            <mxPoint x="1210" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sn_m10" edge="1" parent="1" source="sn_toast" target="sn_ui" style="html=1;endArrow=block;endFill=1;" value="10: Mở màn hình tương ứng (Quà / Bạn bè)">
+          <mxGeometry y="570" relative="1" as="geometry">
+            <mxPoint x="1210" y="570" as="sourcePoint" />
+            <mxPoint x="1015" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="BDTT-Cài đặt game" id="BDTT_SETTING">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="se_actor" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;participant=umlActor;" value="Người chơi" vertex="1">
+          <mxGeometry height="640" width="80" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="se_tab" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":PopupTab" vertex="1">
+          <mxGeometry height="640" width="110" x="220" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="se_setting" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":PopupSetting" vertex="1">
+          <mxGeometry height="640" width="130" x="380" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="se_audio" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":AudioManager" vertex="1">
+          <mxGeometry height="640" width="140" x="560" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="se_lang" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value=":LanguageManager" vertex="1">
+          <mxGeometry height="640" width="160" x="740" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="se_save" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="PlayerPrefs" vertex="1">
+          <mxGeometry height="640" width="120" x="950" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="se_m1" edge="1" parent="1" source="se_actor" target="se_tab" style="html=1;endArrow=block;endFill=1;" value="1: Nhấn icon Setting">
+          <mxGeometry y="110" relative="1" as="geometry">
+            <mxPoint x="100" y="110" as="sourcePoint" />
+            <mxPoint x="275" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se_m2" edge="1" parent="1" source="se_tab" target="se_setting" style="html=1;endArrow=block;endFill=1;" value="2: ShowPopupSetting()">
+          <mxGeometry y="160" relative="1" as="geometry">
+            <mxPoint x="275" y="160" as="sourcePoint" />
+            <mxPoint x="445" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se_m3" edge="1" parent="1" source="se_actor" target="se_setting" style="html=1;endArrow=block;endFill=1;" value="3: Bật / tắt Toggle Music">
+          <mxGeometry y="220" relative="1" as="geometry">
+            <mxPoint x="100" y="220" as="sourcePoint" />
+            <mxPoint x="445" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se_m4" edge="1" parent="1" source="se_setting" target="se_audio" style="html=1;endArrow=block;endFill=1;" value="4: SetMusicEnabled(bool)">
+          <mxGeometry y="270" relative="1" as="geometry">
+            <mxPoint x="445" y="270" as="sourcePoint" />
+            <mxPoint x="630" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se_m5" edge="1" parent="1" source="se_audio" target="se_save" style="html=1;endArrow=block;endFill=1;" value="5: SetInt(&quot;music&quot;, value)">
+          <mxGeometry y="320" relative="1" as="geometry">
+            <mxPoint x="630" y="320" as="sourcePoint" />
+            <mxPoint x="1010" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se_m6" edge="1" parent="1" source="se_actor" target="se_setting" style="html=1;endArrow=block;endFill=1;" value="6: Bật / tắt Toggle SFX">
+          <mxGeometry y="380" relative="1" as="geometry">
+            <mxPoint x="100" y="380" as="sourcePoint" />
+            <mxPoint x="445" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se_m7" edge="1" parent="1" source="se_setting" target="se_audio" style="html=1;endArrow=block;endFill=1;" value="7: SetSFXEnabled(bool)">
+          <mxGeometry y="430" relative="1" as="geometry">
+            <mxPoint x="445" y="430" as="sourcePoint" />
+            <mxPoint x="630" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se_m8" edge="1" parent="1" source="se_actor" target="se_setting" style="html=1;endArrow=block;endFill=1;" value="8: Chọn ngôn ngữ">
+          <mxGeometry y="490" relative="1" as="geometry">
+            <mxPoint x="100" y="490" as="sourcePoint" />
+            <mxPoint x="445" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se_m9" edge="1" parent="1" source="se_setting" target="se_lang" style="html=1;endArrow=block;endFill=1;" value="9: ChangeLanguage(code)">
+          <mxGeometry y="540" relative="1" as="geometry">
+            <mxPoint x="445" y="540" as="sourcePoint" />
+            <mxPoint x="820" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se_m10" edge="1" parent="1" source="se_lang" target="se_save" style="html=1;endArrow=block;endFill=1;" value="10: SetString(&quot;lang&quot;, code)">
+          <mxGeometry y="590" relative="1" as="geometry">
+            <mxPoint x="820" y="590" as="sourcePoint" />
+            <mxPoint x="1010" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se_m11" edge="1" parent="1" source="se_lang" target="se_actor" style="html=1;endArrow=open;endFill=0;dashed=1;" value="11: Cập nhật toàn bộ LocalizedText">
+          <mxGeometry y="630" relative="1" as="geometry">
+            <mxPoint x="820" y="630" as="sourcePoint" />
+            <mxPoint x="100" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

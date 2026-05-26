@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 public static class FindMissingScriptsRecursively
 {
+#if UNITY_EDITOR
     [MenuItem("Auto/Remove Missing Scripts Recursively Visit Prefabs")]
     private static void FindAndRemoveMissingInSelected()
     {
@@ -60,4 +61,5 @@ public static class FindMissingScriptsRecursively
             goCount++;
         }
     }
+#endif
 }

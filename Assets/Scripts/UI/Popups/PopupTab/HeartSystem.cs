@@ -40,7 +40,18 @@ public class HeartSystem : MonoBehaviour
 
     void Update()
     {
-        if (CurrentHearts >= MaxHearts) return;
+        if (CurrentHearts >= MaxHearts)
+        {
+            // Tim >= max → dừng bộ đếm và reset timer về 0
+            // Khi tim giảm xuống < max, bộ đếm sẽ bắt đầu lại từ 0
+            if (timer != 0)
+            {
+                timer = 0;
+                SaveHearts();
+                RaiseChange();
+            }
+            return;
+        }
 
         timer += Time.deltaTime;
 
