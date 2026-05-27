@@ -76,12 +76,14 @@ public class GameManager : SingletonDDOL<GameManager>
                 AudioManager.Instance.musicSource.volume = AudioManager.AudioMusicSetting ? 0.3f * AudioManager.Instance.Ratio_Sound : 0;
                 UIManager.Instance.ShowScreen<ScreenHome>();
                 UIManager.Instance.ShowPopup<PopupTab>(null);
+                TryShowDailyReward();
                 break;
             case GameState.Menu:
                 yield return LoadSceneAndWait("Init", () =>
                 {
                     UIManager.Instance.ShowScreen<ScreenHome>();
                     UIManager.Instance.ShowPopup<PopupTab>(null);
+                    TryShowDailyReward();
                 });
                 break;
             case GameState.GamePlay:
@@ -152,5 +154,17 @@ public class GameManager : SingletonDDOL<GameManager>
     {
         Time.timeScale = 1;
         StartCoroutine(ChangeState(GameState.GamePlay));
+    }
+
+    private void TryShowDailyReward()
+    {
+        // Pull authoritative claim date/streak from Firebase first to defeat local-clock cheating.
+        DailyRewardManager.SyncFromServer(() =>
+        {
+            if (DailyRewardManager.ShouldShowPopupToday())
+            {
+                UIManager.Instance.ShowPopup<PopupDailyReward>(null);
+            }
+        });
     }
 }

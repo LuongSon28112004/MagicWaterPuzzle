@@ -8,20 +8,23 @@ public class PlayerData
     public int coin;
     public int level;
     public List<BoosterCounter> listBoosterCounters;
+    public int dailyStreakDay;
+    public string lastDailyClaimDate;
 }
 
 public static class SaveDataManager
 {
     private static string saveFilePath = Path.Combine(Application.persistentDataPath, "UserData.json");
 
-    // Lưu dữ liệu
     public static void Save()
     {
         PlayerData data = new PlayerData
         {
             coin = UserData.coin,
             level = UserData.level,
-            listBoosterCounters = UserData.listBoosterCounters
+            listBoosterCounters = UserData.listBoosterCounters,
+            dailyStreakDay = UserData.dailyStreakDay,
+            lastDailyClaimDate = UserData.lastDailyClaimDate
         };
 
         string json = JsonUtility.ToJson(data, true);
@@ -29,7 +32,6 @@ public static class SaveDataManager
 
         Debug.Log($"[SaveDataManager] Dữ liệu đã được lưu tại: {saveFilePath}");
 
-        // Cập nhật lên Firebase
         if (UserDataFirebaseManager.Instance != null && !string.IsNullOrEmpty(UserDataFirebaseManager.Instance.CurrentUserId))
         {
             List<Dictionary<string, object>> boostersList = new List<Dictionary<string, object>>();
@@ -52,30 +54,32 @@ public static class SaveDataManager
                 { "Coin", UserData.coin },
                 { "Level", UserData.level },
                 { "Heart", currentHearts },
-                { "Boosters", boostersList }
+                { "Boosters", boostersList },
+                { "DailyStreakDay", UserData.dailyStreakDay },
+                { "LastDailyClaimDate", UserData.lastDailyClaimDate }
             };
 
             UserDataFirebaseManager.Instance.SaveUserData(UserDataFirebaseManager.Instance.CurrentUserId, firebaseData);
         }
     }
 
-    // Tải dữ liệu
     public static void Load()
     {
         if (!File.Exists(saveFilePath))
         {
             Debug.LogWarning("[SaveDataManager] Không tìm thấy file UserData.json, tạo dữ liệu mặc định...");
 
-            // Tạo dữ liệu mặc định ban đầu
             UserData.listBoosterCounters = new List<BoosterCounter>
             {
                 new BoosterCounter { name = "Freeze", count = 1 },
                 new BoosterCounter { name = "Bomb", count = 1 },
                 new BoosterCounter { name = "Hammer", count = 1 },
             };
+            UserData.dailyStreakDay = 0;
+            UserData.lastDailyClaimDate = "";
             PlayerPrefs.SetInt("Hearts", 5);
 
-            Save(); // Tạo file mới
+            Save();
             return;
         }
 
@@ -85,16 +89,17 @@ public static class SaveDataManager
         UserData.coin = data.coin;
         UserData.level = data.level;
 
-        // Kiểm tra list null
         if (data.listBoosterCounters != null)
             UserData.listBoosterCounters = data.listBoosterCounters;
         else
             UserData.listBoosterCounters = new List<BoosterCounter>();
 
+        UserData.dailyStreakDay = data.dailyStreakDay;
+        UserData.lastDailyClaimDate = data.lastDailyClaimDate ?? "";
+
         Debug.Log("[SaveDataManager] Dữ liệu đã được tải thành công!");
     }
 
-    // Xóa file lưu
     public static void DeleteSave()
     {
         if (File.Exists(saveFilePath))

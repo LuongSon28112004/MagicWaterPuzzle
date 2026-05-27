@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b67eaf7bb94004db61b882d662f5f9, type: 3}
+  m_Name: DailyRewardConfig
+  m_EditorClassIdentifier: 
+  rewards:
+  - dayLabel: Monday
+    rewardType: 0
+    amount: 100
+    boosterName: 
+    icon: {fileID: 21300000, guid: a7f83520e11772d498e058d9d87e3de2, type: 2}
+  - dayLabel: Tuesday
+    rewardType: 0
+    amount: 150
+    boosterName: 
+    icon: {fileID: 21300000, guid: 7a91e9e4c178699488ce8e47646f4305, type: 2}
+  - dayLabel: Wednesday
+    rewardType: 0
+    amount: 200
+    boosterName: 
+    icon: {fileID: 21300000, guid: ea629707d7417774487d94b8f9971944, type: 2}
+  - dayLabel: Thursday
+    rewardType: 0
+    amount: 250
+    boosterName: 
+    icon: {fileID: 21300000, guid: 92dc4e8b1d087c040ae291b33060a30e, type: 2}
+  - dayLabel: Friday
+    rewardType: 0
+    amount: 300
+    boosterName: 
+    icon: {fileID: 21300000, guid: 3dfc4ee6d80b59d4a807a94f2e7db2ae, type: 2}
+  - dayLabel: Saturday
+    rewardType: 0
+    amount: 400
+    boosterName: 
+    icon: {fileID: 21300000, guid: 0f7ee5eb3a40b09489e558f2801e1b32, type: 2}
+  - dayLabel: Sunday
+    rewardType: 1
+    amount: 1
+    boosterName: Freeze
+    icon: {fileID: 21300000, guid: b9871d7cd95d9414b871baf59f6a394b, type: 2}

@@ -1272,6 +1272,11 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
             PlayerPrefs.DeleteKey("IsGoogleLinked");
             PlayerPrefs.Save();
 
+            // Reset daily reward state
+            UserData.dailyStreakDay = 0;
+            UserData.lastDailyClaimDate = "";
+            DailyRewardManager.ResetServerSync();
+
             // 5. Tạo tài khoản mới
             CheckAndInitializeUser();
 
@@ -1343,6 +1348,7 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
                     CurrentUserName = cloudUserName;
                     PlayerPrefs.SetString("PlayerID", cloudUserId);
                     PlayerPrefs.SetString("PlayerName", cloudUserName);
+                    DailyRewardManager.ResetServerSync();
                 }
 
                 // Cập nhật UserData local từ Firebase
@@ -1358,6 +1364,16 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
                     PlayerPrefs.SetInt("Hearts", hearts);
                     if (HeartSystem.Instance != null)
                         HeartSystem.Instance.CurrentHearts = hearts;
+                }
+
+                // Cập nhật Daily Reward state
+                if (cloudData.ContainsKey("DailyStreakDay"))
+                {
+                    UserData.dailyStreakDay = System.Convert.ToInt32(cloudData["DailyStreakDay"]);
+                }
+                if (cloudData.ContainsKey("LastDailyClaimDate") && cloudData["LastDailyClaimDate"] != null)
+                {
+                    UserData.lastDailyClaimDate = cloudData["LastDailyClaimDate"].ToString();
                 }
 
                 // Cập nhật Boosters
