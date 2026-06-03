@@ -10,7 +10,7 @@ using Firebase.Database;
 using Unity.Services.Authentication;
 using Unity.Services.Authentication.PlayerAccounts;
 using Unity.Services.Core;
-public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
+public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
 {
     private FirebaseFirestore db;
     private const string COLLECTION_NAME = "UserData";
@@ -88,6 +88,11 @@ public class UserDataFirebaseManager : Singleton<UserDataFirebaseManager>
         }
 
         Debug.Log("[Realtime] Stopped listening all friend events.");
+    }
+
+    private void OnDestroy()
+    {
+        StopListeningFriendRequest();
     }
 
     private void OnFriendRequestAdded(object sender, ChildChangedEventArgs args)

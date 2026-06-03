@@ -32,6 +32,58 @@ public class HeartSystem : MonoBehaviour
         OnHeartChanged?.Invoke();
     }
 
+    /// <summary>
+    /// Trừ 1 heart khi chơi game. Không cho xuống dưới 0.
+    /// </summary>
+    public void UseHeart()
+    {
+        if (CurrentHearts > 0)
+        {
+            CurrentHearts--;
+            SaveHearts();
+            RaiseChange();
+        }
+    }
+
+    /// <summary>
+    /// Gọi static để trừ tim an toàn ở bất kỳ Scene nào (ngay cả khi HeartSystem bị huỷ).
+    /// </summary>
+    public static void ConsumeHeart()
+    {
+        if (Instance != null)
+        {
+            Instance.UseHeart();
+        }
+        else
+        {
+            int current = PlayerPrefs.GetInt("Hearts", 0);
+            if (current > 0)
+            {
+                current--;
+                PlayerPrefs.SetInt("Hearts", current);
+                
+                // Nếu vừa rớt xuống dưới max, reset timer offline
+                if (current + 1 >= 5) 
+                {
+                    PlayerPrefs.SetString("LastQuitTime", DateTime.Now.ToBinary().ToString());
+                    PlayerPrefs.SetFloat("Timer", 0);
+                }
+                
+                SaveDataManager.Save();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Thêm heart từ gift người khác (không giới hạn max).
+    /// </summary>
+    public void AddHeartsFromGift(int amount)
+    {
+        CurrentHearts += amount;
+        SaveHearts();
+        RaiseChange();
+    }
+
     void Start()
     {
         LoadHearts();
@@ -95,17 +147,27 @@ public class HeartSystem : MonoBehaviour
 
             double totalSec = diff.TotalSeconds;
 
-            // Tính số tim hồi được
-            int heartsRecovered = (int)(totalSec / SecondsPerHeart);
-            double remain = totalSec % SecondsPerHeart;
-
-            CurrentHearts += heartsRecovered;
-            timer += (float)remain;
-
-            // Clamp giá trị
-            if (CurrentHearts >= MaxHearts)
+            // Chỉ hồi tim khi đang < max (tim từ gift vượt max thì không hồi thêm)
+            if (CurrentHearts < MaxHearts)
             {
-                //CurrentHearts = MaxHearts;
+                // Gộp timer cũ + thời gian offline để tính chính xác
+                double totalTimerSec = timer + totalSec;
+                int heartsRecovered = (int)(totalTimerSec / SecondsPerHeart);
+                double remain = totalTimerSec % SecondsPerHeart;
+
+                CurrentHearts += heartsRecovered;
+                timer = (float)remain;
+
+                // Clamp: regen không được vượt max
+                if (CurrentHearts >= MaxHearts)
+                {
+                    CurrentHearts = MaxHearts;
+                    timer = 0;
+                }
+            }
+            else
+            {
+                // Tim >= max (từ gift) → không cần regen, reset timer
                 timer = 0;
             }
         }

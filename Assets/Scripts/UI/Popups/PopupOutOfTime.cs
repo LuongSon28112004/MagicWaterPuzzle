@@ -18,9 +18,7 @@ public class PopupOutOfTime : PopupUI
     private void Start()
     {
         //xóa bớt tim khi hết time chơi
-        int CurrentHearts = PlayerPrefs.GetInt("Hearts", 0);
-        CurrentHearts -= 1;
-        PlayerPrefs.SetInt("Hearts", CurrentHearts);
+        HeartSystem.ConsumeHeart();
         AddEventListener();
         //init textCoin
         LoadCoin();

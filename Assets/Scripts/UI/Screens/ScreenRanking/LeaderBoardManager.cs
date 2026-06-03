@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LeaderBoardManager : SingletonDDOL<LeaderBoardManager>
+public class LeaderBoardManager : master.Singleton<LeaderBoardManager>
 {
     [SerializeField] private Button btnFriend;
     [SerializeField] private Button btnPlayer;
@@ -25,8 +25,13 @@ public class LeaderBoardManager : SingletonDDOL<LeaderBoardManager>
 
     void OnEnable()
     {
+        // Unsubscribe first to avoid duplicate subscriptions if OnDisable was somehow skipped
+        onUpdateFriendList -= OnClickFriend;
+        onUpdatePlayerList -= OnClickPlayer;
+        
         onUpdateFriendList += OnClickFriend;
         onUpdatePlayerList += OnClickPlayer;
+        
         OnClickFriend();
     }
 
@@ -34,6 +39,12 @@ public class LeaderBoardManager : SingletonDDOL<LeaderBoardManager>
     {
         onUpdateFriendList -= OnClickFriend;
         onUpdatePlayerList -= OnClickPlayer;
+        
+        // Clear content to ensure a fresh state next time
+        LeaderBoardPlayerController playerController = contentPlayer.GetComponent<LeaderBoardPlayerController>();
+        if (playerController != null) playerController.ClearContent();
+        
+        // Optionally clear friend content too if needed
     }
 
     private void OnClickFriend()
