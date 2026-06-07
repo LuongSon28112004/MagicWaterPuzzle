@@ -36,6 +36,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
     private DatabaseReference friendRequestRef;
     private DatabaseReference friendAcceptRef;
     private DatabaseReference friendDeclineRef;
+    private DatabaseReference friendRemoveRef;
     private DatabaseReference boosterRef;
 
     public void StartListeningFriendRequest(string myUserId)
@@ -53,6 +54,10 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
         // Friend Decline
         friendDeclineRef = db.GetReference("friend_decline").Child(myUserId);
         friendDeclineRef.ChildAdded += OnFriendDeclineAdded;
+
+        // Friend Remove
+        friendRemoveRef = db.GetReference("friend_remove").Child(myUserId);
+        friendRemoveRef.ChildAdded += OnFriendRemoveAdded;
 
         // Booster receive
         boosterRef = db.GetReference("send_booster").Child(myUserId);
@@ -79,6 +84,12 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
         {
             friendDeclineRef.ChildAdded -= OnFriendDeclineAdded;
             friendDeclineRef = null;
+        }
+
+        if (friendRemoveRef != null)
+        {
+            friendRemoveRef.ChildAdded -= OnFriendRemoveAdded;
+            friendRemoveRef = null;
         }
 
         if (boosterRef != null)
@@ -141,6 +152,23 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
 
             // XÓA để tránh bị trigger lại
             friendDeclineRef.Child(toUserId).RemoveValueAsync();
+        }
+    }
+
+    private void OnFriendRemoveAdded(object sender, ChildChangedEventArgs args)
+    {
+        if (args.Snapshot.Exists)
+        {
+            string toUserId = args.Snapshot.Key;
+
+            Debug.Log($"[Realtime] Friend removed by: {toUserId}");
+
+            // Tùy chọn có báo popup hay không
+            // UIManager.Instance.NotifyContent($"Người chơi {toUserId} đã hủy kết bạn!");
+
+            // XÓA để tránh bị trigger lại
+            friendRemoveRef.Child(toUserId).RemoveValueAsync();
+            LeaderBoardManager.onUpdateFriendList?.Invoke();
         }
     }
 
@@ -570,6 +598,57 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
             }
         });
     }
+
+    /// <summary>
+    /// Xóa bạn bè giữa 2 người dùng (xóa document trong subcollection "Friends" của mỗi người)
+    /// </summary>
+    /// <param name="userAId"></param>
+    /// <param name="userBId"></param>
+    /// <param name="onComplete"></param>
+    public void RemoveFriend(string userAId, string userBId, Action<bool> onComplete = null)
+    {
+        if (db == null) db = FirebaseFirestore.DefaultInstance;
+
+        WriteBatch batch = db.StartBatch();
+
+        DocumentReference userARef = db.Collection(COLLECTION_NAME)
+                                       .Document(userAId)
+                                       .Collection("Friends")
+                                       .Document(userBId);
+
+        DocumentReference userBRef = db.Collection(COLLECTION_NAME)
+                                       .Document(userBId)
+                                       .Collection("Friends")
+                                       .Document(userAId);
+
+        batch.Delete(userARef);
+        batch.Delete(userBRef);
+
+        batch.CommitAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompleted && !task.IsFaulted)
+            {
+                Debug.Log($"[Friend] {userAId} and {userBId} are no longer friends!");
+
+                // Gửi thông báo realtime đến người bị xóa
+                var realtimeRef = FirebaseDatabase
+                    .GetInstance("https://blockjam3d-default-rtdb.asia-southeast1.firebasedatabase.app")
+                    .RootReference;
+                realtimeRef.Child("friend_remove")
+                           .Child(userBId)
+                           .Child(userAId)
+                           .SetValueAsync(true);
+
+                LeaderBoardManager.onUpdateFriendList?.Invoke();
+                onComplete?.Invoke(true);
+            }
+            else
+            {
+                Debug.LogError($"[Friend] RemoveFriend failed: {task.Exception}");
+                onComplete?.Invoke(false);
+            }
+        });
+    }
     /// <summary>
     /// Gửi lời mời kết bạn từ fromUserId đến toUserId. Lưu ý: để đơn giản, ở đây chúng ta chỉ lưu một document trong Firestore và một node trong Realtime Database để thông báo cho người nhận. Trong thực tế, bạn có thể muốn lưu thêm thông tin như trạng thái (đang chờ, đã chấp nhận, đã từ chối), thời gian gửi, v.v... và xử lý logic phức tạp hơn.
     /// </summary>
@@ -728,6 +807,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
 
 
     /// <summary>
+    /// <summary>
     /// Tìm người dùng theo prefix của Id (ví dụ: nhập "1000001" sẽ trả về tất cả người dùng có Id bắt đầu bằng "1000001" như "10000010", "10000011",...). Lưu ý: tìm theo prefix có thể trả về nhiều kết quả, nên UI cần hiển thị danh sách để người chơi chọn đúng người muốn kết bạn.
     /// </summary>
     /// <param name="keyword"></param>
@@ -751,6 +831,67 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
                   foreach (var doc in task.Result.Documents)
                   {
                       result.Add(doc.ToDictionary());
+                  }
+
+                  Debug.Log($"[Search] Found {result.Count} users");
+                  onComplete?.Invoke(result);
+              }
+              else
+              {
+                  Debug.LogError($"Search failed: {task.Exception}");
+                  onComplete?.Invoke(null);
+              }
+          });
+    }
+
+    /// <summary>
+    /// Tìm người dùng theo keyword. Trùng chữ cái là được, không cần đúng thứ tự.
+    /// Lưu ý: Lấy toàn bộ data về client để lọc, có thể tốn Read nếu nhiều user.
+    /// </summary>
+    /// <param name="keyword"></param>
+    /// <param name="onComplete"></param>
+    public void SearchUsersByFlexibleKeyword(string keyword, Action<List<Dictionary<string, object>>> onComplete)
+    {
+        if (db == null) db = FirebaseFirestore.DefaultInstance;
+
+        db.Collection(COLLECTION_NAME)
+          .GetSnapshotAsync()
+          .ContinueWithOnMainThread(task =>
+          {
+              if (task.IsCompleted && !task.IsFaulted)
+              {
+                  List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
+                  string keywordLower = keyword.ToLower();
+
+                  foreach (var doc in task.Result.Documents)
+                  {
+                      var dict = doc.ToDictionary();
+                      if (dict.ContainsKey("Id"))
+                      {
+                          string id = dict["Id"].ToString().ToLower();
+
+                          bool isMatch = true;
+                          // Kiểm tra ID có chứa đủ các ký tự của keyword không (không cần thứ tự)
+                          List<char> idChars = new List<char>(id.ToCharArray());
+
+                          foreach (char c in keywordLower)
+                          {
+                              if (idChars.Contains(c))
+                              {
+                                  idChars.Remove(c);
+                              }
+                              else
+                              {
+                                  isMatch = false;
+                                  break;
+                              }
+                          }
+
+                          if (isMatch)
+                          {
+                              result.Add(dict);
+                          }
+                      }
                   }
 
                   Debug.Log($"[Search] Found {result.Count} users");

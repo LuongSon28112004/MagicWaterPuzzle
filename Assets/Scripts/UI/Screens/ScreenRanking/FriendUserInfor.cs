@@ -11,6 +11,7 @@ public class FriendUserInfor : MonoBehaviour
     [SerializeField] private Text txtLevel;
     [SerializeField] private List<Transform> ListRankingIcons;
     [SerializeField] private Button btnSendGilf;
+    [SerializeField] private Button btnRemoveFriend;
 
     private string userId;
 
@@ -26,11 +27,23 @@ public class FriendUserInfor : MonoBehaviour
             btnSendGilf.onClick.RemoveAllListeners();
             btnSendGilf.onClick.AddListener(SendGilfClick);
 
+            if (btnRemoveFriend != null)
+            {
+                btnRemoveFriend.gameObject.SetActive(true);
+                btnRemoveFriend.onClick.RemoveAllListeners();
+                btnRemoveFriend.onClick.AddListener(RemoveFriendClick);
+            }
         }
         else
         {
             btnSendGilf.onClick.RemoveAllListeners();
             btnSendGilf.gameObject.SetActive(false);
+
+            if (btnRemoveFriend != null)
+            {
+                btnRemoveFriend.onClick.RemoveAllListeners();
+                btnRemoveFriend.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -39,6 +52,29 @@ public class FriendUserInfor : MonoBehaviour
         var UiSendGilf = UIManager.Instance.ShowPopup<PopupSendGilf>(null);
         UiSendGilf.SetIdUser(userId);
 
+    }
+
+    private void RemoveFriendClick()
+    {
+        var popupConfirm = UIManager.Instance.ShowPopup<PopupConfirm>(null);
+        popupConfirm.ShowConfirm("Bạn có chắc chắn muốn xóa hay không?", () =>
+        {
+            string myId = PlayerPrefs.GetString("PlayerID", "-1");
+            if (myId != "-1")
+            {
+                UserDataFirebaseManager.Instance.RemoveFriend(myId, userId, (success) =>
+                {
+                    if (success)
+                    {
+                        UIManager.Instance.NotifyContent("Đã xóa bạn bè!");
+                    }
+                    else
+                    {
+                        UIManager.Instance.NotifyContent("Có lỗi xảy ra, vui lòng thử lại!");
+                    }
+                });
+            }
+        });
     }
 
     private void SetRankingIcon(int rank)

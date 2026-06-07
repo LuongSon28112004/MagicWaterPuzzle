@@ -81,7 +81,7 @@ public class LeaderBoardFriendController : MonoBehaviour
 
         LoadingPanel.SetActive(true);
 
-        UserDataFirebaseManager.Instance.SearchUsersByIdPrefix(inputSearchFriend.text, users =>
+        UserDataFirebaseManager.Instance.SearchUsersByFlexibleKeyword(inputSearchFriend.text, users =>
         {
             // Clear old search results
             foreach (Transform child in contentSearchFriend.transform)
