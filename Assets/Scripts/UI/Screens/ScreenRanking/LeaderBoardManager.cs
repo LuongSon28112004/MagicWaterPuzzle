@@ -55,8 +55,7 @@ public class LeaderBoardManager : master.Singleton<LeaderBoardManager>
         LeaderBoardFriendController friendController = contentFriend.GetComponent<LeaderBoardFriendController>();
         if (friendController != null)
         {
-            friendController.LoadListFriend();
-            friendController.LoadListFriendRequest();
+            friendController.RefreshAndReset();
         }
         contentFriend.SetActive(true);
         contentPlayer.SetActive(false);

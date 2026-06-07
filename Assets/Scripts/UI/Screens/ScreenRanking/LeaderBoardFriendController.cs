@@ -40,7 +40,7 @@ public class LeaderBoardFriendController : MonoBehaviour
         buttonSearchFriend.onClick.RemoveAllListeners();
         buttonClearSearch.onClick.RemoveAllListeners();
         buttonCopy.onClick.RemoveAllListeners();
-        buttonFriend.onClick.AddListener(OnClickFriend);
+        buttonFriend.onClick.AddListener(RefreshAndReset);
         buttonAddFriend.onClick.AddListener(OnClickAddFriend);
         buttonSearchFriend.onClick.AddListener(OnClickSearchFriend);
         buttonClearSearch.onClick.AddListener(OnClickClearSearch);
@@ -156,9 +156,10 @@ public class LeaderBoardFriendController : MonoBehaviour
         }
     }
 
-    private void OnClickFriend()
+    public void RefreshAndReset()
     {
         LoadListFriend();
+        LoadListFriendRequest();
         GameObject itemFriend = buttonFriend.transform.Find("Button").gameObject;
         itemFriend.GetComponent<Image>().sprite = spriteButtonFriendSelected;
         GameObject itemAddFriend = buttonAddFriend.transform.Find("Button").gameObject;

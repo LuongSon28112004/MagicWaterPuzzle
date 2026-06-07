@@ -110,6 +110,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
             UIManager.Instance.NotifyContent($"Bạn có một lời mời kết bạn mới từ {fromUserId}!");
             // XÓA NGAY để tránh trigger lại
             friendRequestRef.Child(fromUserId).RemoveValueAsync();
+            LeaderBoardManager.onUpdateFriendList?.Invoke();
         }
     }
 
