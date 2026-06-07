@@ -154,7 +154,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
             int amount = Convert.ToInt32(data["amount"]);
 
             // =========================
-            // 🎯 UPDATE LOCAL DATA
+            // UPDATE LOCAL DATA
             // =========================
 
             if (boosterName == "Heart")
@@ -207,12 +207,12 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
             }
 
             // =========================
-            // 💾 SAVE LOCAL + FIREBASE
+            // SAVE LOCAL + FIREBASE
             // =========================
             SaveDataManager.Save();
 
             // =========================
-            // 🧹 REMOVE EVENT
+            // REMOVE EVENT
             // =========================
             boosterRef.Child(args.Snapshot.Key).RemoveValueAsync();
         }
@@ -238,7 +238,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
             { "Heart", UnityEngine.Random.Range(1, 5) },
             { "Frame", 0 },
 
-            // 👇 THÊM BOOSTERS
+            // THÊM BOOSTERS
             { "Boosters", new List<Dictionary<string, object>>
                 {
                     new Dictionary<string, object>
@@ -976,7 +976,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
             }
 
             // =====================================================
-            // ❤️ HEART
+            // HEART
             // =====================================================
 
             if (boosterName == "Heart")
@@ -995,7 +995,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
             else
             {
                 // =====================================================
-                // 🎁 BOOSTER
+                // BOOSTER
                 // =====================================================
 
                 List<Dictionary<string, object>> fromBoosters =
@@ -1059,7 +1059,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
             }
 
             // =====================================================
-            // ✅ UPDATE DAILY COUNT
+            // UPDATE DAILY COUNT
             // =====================================================
 
             transaction.Update(fromUserRef, new Dictionary<string, object>
@@ -1073,7 +1073,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
         .ContinueWithOnMainThread(task =>
         {
             // =====================================================
-            // ✅ SUCCESS
+            // SUCCESS
             // =====================================================
 
             if (task.IsCompleted && !task.IsFaulted)
@@ -1133,7 +1133,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
             }
 
             // =====================================================
-            // ❌ ERROR
+            // ERROR
             // =====================================================
 
             Exception ex = task.Exception?
@@ -1194,10 +1194,10 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
 
             if (!PlayerAccountService.Instance.IsSignedIn)
             {
-                // ✅ Lưu callback lại để dùng sau
+                // Lưu callback lại để dùng sau
                 _pendingOnComplete = onComplete;
 
-                // ✅ Subscribe event TRƯỚC khi StartSignIn
+                // Subscribe event TRƯỚC khi StartSignIn
                 PlayerAccountService.Instance.SignedIn += OnPlayerAccountSignedIn;
 
                 // Mở browser cho user đăng nhập, sau đó return luôn
@@ -1219,7 +1219,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
 
     private async void OnPlayerAccountSignedIn()
     {
-        // ✅ Gỡ listener ngay để tránh bị gọi nhiều lần
+        // Gỡ listener ngay để tránh bị gọi nhiều lần
         PlayerAccountService.Instance.SignedIn -= OnPlayerAccountSignedIn;
 
         await SignInWithUnityAndSave(_pendingOnComplete);
@@ -1322,7 +1322,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
                 throw new Exception("No local PlayerID found");
 
             // =====================================================
-            // 🔍 Tìm xem UnityPlayerId này đã được liên kết với account nào trên Firebase chưa
+            // Tìm xem UnityPlayerId này đã được liên kết với account nào trên Firebase chưa
             // =====================================================
             if (db == null) db = FirebaseFirestore.DefaultInstance;
 
@@ -1333,7 +1333,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
             if (existingQuery.Count > 0)
             {
                 // =====================================================
-                // ✅ Đã có account trên Firebase → kéo data về local
+                // Đã có account trên Firebase → kéo data về local
                 // =====================================================
                 DocumentSnapshot existingDoc = existingQuery.Documents.First();
                 Dictionary<string, object> cloudData = existingDoc.ToDictionary();
@@ -1419,7 +1419,7 @@ public class UserDataFirebaseManager : SingletonDDOL<UserDataFirebaseManager>
             else
             {
                 // =====================================================
-                // 🆕 Chưa có account → liên kết account local hiện tại với Google
+                // Chưa có account → liên kết account local hiện tại với Google
                 // =====================================================
                 Dictionary<string, object> updates = new Dictionary<string, object>
                 {
